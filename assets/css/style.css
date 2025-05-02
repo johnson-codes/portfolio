@@ -47,6 +47,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Button styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 140px;
+}
+
 .btn-primary {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -68,6 +76,10 @@ h1, h2, h3, h4, h5, h6 {
   background-color: transparent;
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .btn-outline:hover {
@@ -95,6 +107,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar {
   transition: all 0.3s ease;
   padding: 20px 0;
+  background-color: transparent;
 }
 
 .navbar.scrolled {
@@ -109,11 +122,27 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--primary-color) !important;
 }
 
-.nav-link {
+/* Change default nav link color to white */
+.navbar .nav-link {
   font-weight: 500;
   margin: 0 10px;
   position: relative;
   transition: all 0.3s ease;
+  color: white !important; /* Make links white by default and override any other styling */
+}
+
+/* Change nav link color to dark when scrolled */
+.navbar.scrolled .nav-link {
+  color: var(--text-color) !important; /* Change to dark text color when scrolled */
+}
+
+/* Specific override for active link */
+.navbar .nav-link.active {
+  color: white !important;
+}
+
+.navbar.scrolled .nav-link.active {
+  color: var(--text-color) !important;
 }
 
 .nav-link::after {
@@ -129,6 +158,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover::after, .nav-link.active::after {
   width: 100%;
+}
+
+/* Also ensure the Hire Me button text is visible when scrolled */
+.navbar.scrolled .btn-primary {
+  color: var(--secondary-color);
 }
 
 /* Hero section */
@@ -161,7 +195,8 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-.highlight-text::after {
+/* Removing the shadow background effect */
+/* .highlight-text::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -170,7 +205,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   background-color: rgba(97, 218, 251, 0.3);
   z-index: -1;
-}
+} */
 
 /* About section */
 #about {
@@ -465,6 +500,45 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Tabs styling */
+.nav-pills {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.nav-pills .nav-link {
+  color: var(--text-color);
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 8px 25px;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+  /* Ensure no underlines appear on tabs */
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  /* Remove any potential underlines on active tabs */
+  border-bottom: none;
+}
+
+/* Remove the underline effect that might be coming from .nav-link::after */
+.nav-pills .nav-link::after {
+  display: none;
+}
+
+.tab-content {
+  margin-top: 30px;
+}
+
+.tab-pane {
+  animation: fadeIn 0.5s ease;
 }
 
 /* Responsive adjustments */

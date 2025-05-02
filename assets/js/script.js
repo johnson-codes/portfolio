@@ -50,6 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Initialize Bootstrap tabs
+    const triggerTabList = [].slice.call(document.querySelectorAll('#services-tab button, #projects-tab button, #skills-tab button'));
+    triggerTabList.forEach(function (triggerEl) {
+        const tabTrigger = new bootstrap.Tab(triggerEl);
+        triggerEl.addEventListener('click', function (event) {
+            event.preventDefault();
+            tabTrigger.show();
+        });
+    });
+    
     // Project card hover animation
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
