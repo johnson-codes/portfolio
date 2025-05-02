@@ -171,8 +171,11 @@ h1, h2, h3, h4, h5, h6 {
   background-size: cover;
   background-position: center;
   color: var(--text-light);
-  padding: 180px 0 100px;
+  padding: 280px 0 200px; /* Increased top and bottom padding to make the hero section taller */
   position: relative;
+  min-height: 650px; /* Setting a minimum height to ensure the hero section is at least 650px tall */
+  display: flex;
+  align-items: center;
 }
 
 #hero h1 {
