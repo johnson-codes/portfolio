@@ -205,4 +205,26 @@ document.addEventListener('DOMContentLoaded', function() {
         
         observer.observe(document.querySelector('.profile-stats'));
     }
+    
+    // Initialize the calendar modal functionality
+    const calendarModal = new bootstrap.Modal(document.getElementById('calendarModal'));
+    const bookBtn = document.getElementById('bookConsultationBtn');
+    
+    if (bookBtn) {
+        bookBtn.addEventListener('click', function() {
+            // Initialize the calendar if it hasn't been loaded yet
+            if (!window.calendarInitialized) {
+                calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2UepAdeLvc5Ussqr1fNywudjRUDUPdBf-f8G6ctj9CBos4vrM-wdqZLSiYmgdTNpfh57Ze6qAh?gv=true',
+                    color: '#ff6b6b',
+                    label: 'Book a Consultation',
+                    target: document.getElementById('calendarContainer'),
+                });
+                window.calendarInitialized = true;
+            }
+            
+            // Show the modal
+            calendarModal.show();
+        });
+    }
 });
