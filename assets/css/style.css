@@ -215,25 +215,98 @@ h1, h2, h3, h4, h5, h6 {
   padding: 100px 0;
 }
 
-.profile-stats {
-  background-color: var(--light-bg);
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  text-align: center;
+.about-wrapper {
   margin-top: 30px;
 }
 
-.stats-item {
+.profile-image-container {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.about-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.about-subtitle {
+  font-weight: 600;
   margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.about-text {
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.info-item {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.info-label {
+  font-weight: 600;
+  min-width: 70px;
+  margin-right: 10px;
+}
+
+.info-value {
+  color: var(--text-color);
+}
+
+.download-resume {
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
+
+.download-resume i {
+  margin-right: 8px;
+}
+
+.profile-stats {
+  background-color: var(--light-bg);
+  border-radius: 10px;
+  padding: 25px 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.profile-stats:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .stats-number {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: var(--primary-color);
-  margin-bottom: 5px;
   display: block;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.stats-text {
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 /* Services section */
