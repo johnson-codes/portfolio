@@ -129,41 +129,118 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transform = 'translateY(0)';
     });
     
-    // Handle form submission
-    const contactForm = document.querySelector('#contact form');
+    // Handle form submission with validation and backend API integration
+    const contactForm = document.querySelector('#contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form inputs
-            const name = this.querySelector('input[type="text"]').value;
+            // Reset previous validation state
+            this.classList.remove('was-validated');
             
-            // Show success message (in a real implementation, you would send the form data to a server)
-            const formContainer = this.closest('.contact-form');
-            const originalContent = formContainer.innerHTML;
+            // Form validation
+            let isValid = true;
             
-            formContainer.innerHTML = `
-                <div class="text-center py-5">
-                    <i class="fas fa-check-circle text-primary" style="font-size: 4rem;"></i>
-                    <h3 class="mt-4">Thank you, ${name}!</h3>
-                    <p class="mb-4">Your message has been sent successfully. I'll get back to you shortly.</p>
-                    <button class="btn btn-primary reset-form">Send Another Message</button>
-                </div>
-            `;
+            // Validate required fields
+            const nameInput = this.querySelector('#name');
+            const emailInput = this.querySelector('#email');
+            const messageInput = this.querySelector('#message');
+            const subjectInput = this.querySelector('#subject');
             
-            // Add event listener to reset button
-            const resetButton = formContainer.querySelector('.reset-form');
-            if (resetButton) {
-                resetButton.addEventListener('click', () => {
-                    formContainer.innerHTML = originalContent;
-                    
-                    // Re-attach form submission handler to the new form
-                    const newForm = formContainer.querySelector('form');
-                    if (newForm) {
-                        newForm.addEventListener('submit', arguments.callee);
-                    }
-                });
+            // Check name field
+            if (!nameInput.value.trim()) {
+                nameInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('is-invalid');
+                nameInput.classList.add('is-valid');
             }
+            
+            // Check email field with regex validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailInput.value.trim() || !emailRegex.test(emailInput.value.trim())) {
+                emailInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+            }
+            
+            // Check message field
+            if (!messageInput.value.trim()) {
+                messageInput.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                messageInput.classList.remove('is-invalid');
+                messageInput.classList.add('is-valid');
+            }
+            
+            if (!isValid) {
+                return; // Stop submission if validation fails
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+            
+            // Prepare form data for submission
+            const formData = {
+                name: nameInput.value.trim(),
+                email: emailInput.value.trim(),
+                subject: subjectInput.value.trim() || 'Contact Form Submission',
+                message: messageInput.value.trim()
+            };
+            
+            // Send to Cloud Run backend
+            fetch('https://form-backend-204921737818.us-central1.run.app/submit-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                mode: 'cors',
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Success state
+                document.getElementById('formSuccess').style.display = 'block';
+                document.getElementById('formError').style.display = 'none';
+                document.getElementById('formStatus').style.display = 'block';
+                
+                // Clear form
+                contactForm.reset();
+                // Remove validation classes
+                const formInputs = contactForm.querySelectorAll('.form-control');
+                formInputs.forEach(input => {
+                    input.classList.remove('is-valid');
+                });
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+                
+                // Scroll to success message
+                document.getElementById('formStatus').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Error state
+                document.getElementById('formSuccess').style.display = 'none';
+                document.getElementById('formError').style.display = 'block';
+                document.getElementById('formStatus').style.display = 'block';
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            });
         });
     }
     
