@@ -458,35 +458,70 @@ h1, h2, h3, h4, h5, h6 {
 /* Footer */
 footer {
   background-color: var(--secondary-color);
-  color: white;
-  padding: 50px 0 20px;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 70px 0 20px;
 }
 
 .footer-title {
   color: var(--primary-color);
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 1.5rem;
 }
 
 .footer-links li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .footer-links a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.footer-links a i {
+  margin-right: 8px;
+  font-size: 0.8rem;
 }
 
 .footer-links a:hover {
   color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+footer .social-links {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+footer .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(97, 218, 251, 0.1);
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+  margin-right: 0;
+}
+
+footer .social-link:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: translateY(-5px);
 }
 
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+  padding-top: 25px;
   margin-top: 50px;
   color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
 }
 
 /* Animation classes */
