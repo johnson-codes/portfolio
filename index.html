@@ -12,6 +12,111 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Custom Tab Styling -->
+    <style>
+        .nav-pills .nav-link:not(.active) {
+            background-color: rgba(91, 192, 222, 0.1) !important;
+            color: #5bc0de !important;
+            border: 1px solid rgba(91, 192, 222, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-pills .nav-link:not(.active):hover {
+            background-color: rgba(91, 192, 222, 0.2) !important;
+            color: #000000 !important;
+            border-color: #5bc0de;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(91, 192, 222, 0.3);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: #5bc0de !important;
+            color: #ffffff !important;
+            border: 1px solid #5bc0de;
+        }
+        
+        .nav-pills .nav-item {
+            margin: 0 5px;
+        }
+        
+        /* Parallax Effect for Contact Section */
+        .parallax-contact {
+            position: relative;
+            min-height: 100vh;
+            background-image: url('https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1757028952352_intouch.jpg?alt=media&token=8aa4935a-40f7-4de9-869f-73bb533a2133');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+        }
+        
+        .parallax-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .parallax-contact .container {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        
+        .parallax-contact .section-title {
+            color: white !important;
+        }
+        
+        .parallax-contact .contact-info-item {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .parallax-contact .contact-form {
+            background: rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: blur(55px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .parallax-contact .form-control {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        .parallax-contact .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .parallax-contact .form-control:focus {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(91, 192, 222, 0.8);
+            box-shadow: 0 0 0 0.2rem rgba(91, 192, 222, 0.25);
+        }
+        
+        .parallax-contact .rounded[style*="background-color: var(--secondary-color)"] {
+            background-color: rgba(40, 44, 52, 0.3) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .parallax-contact .contact-icon {
+            color: #5bc0de !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -25,7 +130,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -36,19 +141,19 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero">
+    <section id="hero" style="min-height: 95vh;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <h1>Elevate Your <span class="text-primary highlight-text">Digital & Technical Presence</span></h1>
-                    <p class="hero-tagline mb-4">Tech-Savvy Marketer | Software Developer helping brands grow, scale, and automate.</p>
+                    <p class="hero-tagline mb-4">Marketer & Developer helping brands grow, scale, and automate.</p>
                     <div class="d-flex gap-3">
                         <a href="#contact" class="btn btn-cta">Get in Touch</a>
                         <a href="#projects" class="btn btn-outline">View My Work</a>
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block text-center">
-                    <img src="assets/images/1.gif" alt="Digital Marketing Illustration" class="img-fluid" loading="lazy">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1757027107934_growth.gif?alt=media&token=4e9590b0-1b70-4b43-afe2-54b775299461" alt="Digital Marketing Illustration" class="img-fluid" loading="lazy" style="max-width: 55%; margin-top: -40px;">
                 </div>
             </div>
         </div>
@@ -70,7 +175,7 @@
                     <br>
                     <hr>
 
-                    <p class="about-text">Hi, I'm Johnson – a results-driven Digital Marketing Specialist and Full Stack Developer with 8+ years of experience. I bridge the gap between marketing goals and technical execution.</p>
+                    <p class="about-text">Hi, I'm Johnson Wang – a results-driven Digital Marketing Specialist and Full Stack Developer with 8+ years of experience. I bridge the gap between marketing goals and technical execution.</p>
                     
                     <div class="row mt-4">
                         <div class="col-md-6">
@@ -80,7 +185,7 @@
                             </div>
                             <div class="info-item">
                                 <span class="info-label">Email:</span>
-                                <span class="info-value">johnsonmarketer@outlook.com</span>
+                                <span class="info-value"><a href="mailto:johnsonmarketer@outlook.com" style="color: inherit; text-decoration: none;">johnsonmarketer@outlook.com</a></span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -95,7 +200,7 @@
                         </div>
                     </div>
                     
-                    <a href="assets/files/johnson-resume.pdf" class="btn btn-primary mt-4 download-resume">
+                    <a href="#contact" class="btn btn-primary mt-4 download-resume">
                         <i class="fas fa-download me-2"></i> Download Resume
                     </a>
                 </div>
@@ -130,16 +235,19 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="bg-light">
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light py-5">
         <div class="container">
-            <h2 class="text-center section-title">My Services</h2>
+            <h2 class="text-center section-title">My Projects</h2>
             <p class="text-center mb-5">I offer comprehensive digital marketing and software development solutions to grow your business</p>
             
             <!-- Service Tabs -->
             <ul class="nav nav-pills mb-5 justify-content-center" id="services-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="marketing-tab" data-bs-toggle="pill" data-bs-target="#marketing" type="button" role="tab" aria-controls="marketing" aria-selected="true">Marketing Solutions</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="uiux-tab" data-bs-toggle="pill" data-bs-target="#uiux" type="button" role="tab" aria-controls="uiux" aria-selected="false">UI/UX</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="development-tab" data-bs-toggle="pill" data-bs-target="#development" type="button" role="tab" aria-controls="development" aria-selected="false">Software Development</button>
@@ -224,6 +332,83 @@
                     </div>
                 </div>
                 
+                <!-- UI/UX Services -->
+                <div class="tab-pane fade" id="uiux" role="tabpanel" aria-labelledby="uiux-tab">
+                    <div class="row">
+                        <!-- UI/UX Service 1 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h4>User Interface Design</h4>
+                                <p>Create visually appealing and intuitive user interfaces that enhance user experience.</p>
+                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Service 2 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <h4>User Experience Research</h4>
+                                <p>Conduct user research and testing to optimize product usability and satisfaction.</p>
+                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Service 3 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-sitemap"></i>
+                                </div>
+                                <h4>Wireframing & Prototyping</h4>
+                                <p>Design detailed wireframes and interactive prototypes for web and mobile applications.</p>
+                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Service 4 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <h4>Mobile App Design</h4>
+                                <p>Design user-friendly mobile applications with modern UI patterns and interactions.</p>
+                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Service 5 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-palette"></i>
+                                </div>
+                                <h4>Brand Identity Design</h4>
+                                <p>Develop cohesive brand identities including logos, color schemes, and style guides.</p>
+                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                        
+                        <!-- UI/UX Service 6 -->
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="service-card">
+                                <div class="service-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4>Usability Testing</h4>
+                                <p>Conduct comprehensive usability tests to identify and resolve user experience issues.</p>
+                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Development Services -->
                 <div class="tab-pane fade" id="development" role="tabpanel" aria-labelledby="development-tab">
                     <div class="row">
@@ -301,180 +486,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-4">
-                <a href="#contact" class="btn btn-cta">Request Custom Services</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="text-center section-title">Featured Projects</h2>
-            <p class="text-center mb-5">A selection of my most successful digital marketing campaigns and development projects</p>
-            
-            <!-- Project Tabs -->
-            <ul class="nav nav-pills mb-5 justify-content-center" id="projects-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="marketing-projects-tab" data-bs-toggle="pill" data-bs-target="#marketing-projects" type="button" role="tab" aria-controls="marketing-projects" aria-selected="true">Marketing Projects</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="dev-projects-tab" data-bs-toggle="pill" data-bs-target="#dev-projects" type="button" role="tab" aria-controls="dev-projects" aria-selected="false">Development Projects</button>
-                </li>
-            </ul>
-            
-            <div class="tab-content" id="projects-tab-content">
-                <!-- Marketing Projects -->
-                <div class="tab-pane fade show active" id="marketing-projects" role="tabpanel" aria-labelledby="marketing-projects-tab">
-                    <div class="row">
-                        <!-- Project 1 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/project1.jpg" class="card-img" alt="Project 1" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">Increased organic traffic by 250% in 6 months</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Project 2 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/project2.jpg" class="card-img" alt="Project 2" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">3.5x ROAS with optimized Google Ads</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Project 3 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/project3.jpg" class="card-img" alt="Project 3" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">800% follower growth and 15k leads</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Project 4 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/project4.jpg" class="card-img" alt="Project 4" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">320% increase in blog traffic & leads</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Project 5 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/project5.jpg" class="card-img" alt="Project 5" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">42% open rate and 28% conversion</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Project 6 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/project6.jpg" class="card-img" alt="Project 6" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">185% lead increase after rebranding</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Development Projects -->
-                <div class="tab-pane fade" id="dev-projects" role="tabpanel" aria-labelledby="dev-projects-tab">
-                    <div class="row">
-                        <!-- Dev Project 1 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/dev-project1.jpg" class="card-img" alt="Development Project 1" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title text-white">E-Commerce Platform</h5>
-                                    <p class="card-text text-white">Seamless shopping, payments (Stripe), order mgmt</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dev Project 2 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/dev-project2.jpg" class="card-img" alt="Development Project 2" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title text-white">Chat App</h5>
-                                    <p class="card-text text-white">Real-time messaging with phone number contacts</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dev Project 3 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/dev-project3.jpg" class="card-img" alt="Development Project 3" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">Personalized diet goals + progress tracking</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dev Project 4 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/dev-project4.jpg" class="card-img" alt="Development Project 4" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <p class="card-text text-white">Product & order analytics with role access control</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dev Project 5 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/dev-project5.jpg" class="card-img" alt="Development Project 5" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title text-white">Marketing Automation Scripts</h5>
-                                    <p class="card-text text-white">Automated reporting, bulk email analysis, and scraping</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Dev Project 6 -->
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="card project-card">
-                                <img src="assets/images/dev-project6.jpg" class="card-img" alt="Development Project 6" loading="lazy">
-                                <div class="card-img-overlay">
-                                    <h5 class="card-title text-white">Cloud Authentication System</h5>
-                                    <p class="card-text text-white">Secure user authentication with Firebase and OAuth</p>
-                                    <a href="#" class="btn btn-sm btn-primary">View Project</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-5">
-                <a href="#contact" class="btn btn-cta">Ready to Start Your Project?</a>
-            </div>
         </div>
     </section>
 
@@ -542,10 +553,6 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-4">
-                <a href="#contact" class="btn btn-outline">Become My Next Success Story</a>
-            </div>
         </div>
     </section>
 
@@ -559,6 +566,9 @@
             <ul class="nav nav-pills mb-5 justify-content-center" id="skills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="marketing-skills-tab" data-bs-toggle="pill" data-bs-target="#marketing-skills" type="button" role="tab" aria-controls="marketing-skills" aria-selected="true">Marketing Skills</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="uiux-skills-tab" data-bs-toggle="pill" data-bs-target="#uiux-skills" type="button" role="tab" aria-controls="uiux-skills" aria-selected="false">UI/UX Skills</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="dev-skills-tab" data-bs-toggle="pill" data-bs-target="#dev-skills" type="button" role="tab" aria-controls="dev-skills" aria-selected="false">Technical Skills</button>
@@ -635,6 +645,135 @@
                     </div>
                 </div>
                 
+                <!-- UI/UX Skills -->
+                <div class="tab-pane fade" id="uiux-skills" role="tabpanel" aria-labelledby="uiux-skills-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Figma Design</span>
+                                    <span class="skill-percentage">95%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Adobe XD</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>User Research</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Wireframing</span>
+                                    <span class="skill-percentage">92%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Prototyping</span>
+                                    <span class="skill-percentage">87%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Design Systems</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Adobe Photoshop</span>
+                                    <span class="skill-percentage">93%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 93%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Adobe Illustrator</span>
+                                    <span class="skill-percentage">90%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Sketch</span>
+                                    <span class="skill-percentage">86%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 86%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>InVision</span>
+                                    <span class="skill-percentage">84%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 84%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Usability Testing</span>
+                                    <span class="skill-percentage">88%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-bar">
+                                <div class="skill-name">
+                                    <span>Brand Design</span>
+                                    <span class="skill-percentage">91%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 91%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 <!-- Development Skills -->
                 <div class="tab-pane fade" id="dev-skills" role="tabpanel" aria-labelledby="dev-skills-tab">
                     <div class="row">
@@ -704,17 +843,13 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-4">
-                <a href="#contact" class="btn btn-outline">View My Resume</a>
-            </div>
         </div>
     </section>
 
     <!-- Contact Section with CTA -->
-    <section id="contact">
+    <section id="contact" class="parallax-contact">
         <div class="container">
-            <h2 class="text-center section-title">Let's Connect</h2>
+            <h2 class="text-center section-title">Get In Touch</h2>
             <p class="text-center mb-5">Ready to boost your digital marketing results? Get in touch today!</p>
             
             <div class="row">
@@ -725,7 +860,7 @@
                         </div>
                         <div>
                             <h5>Email Me</h5>
-                            <p>johnsonmarketer@outlook.com</p>
+                            <p><a href="mailto:johnsonmarketer@outlook.com" style="color: inherit; text-decoration: none;">johnsonmarketer@outlook.com</a></p>
                         </div>
                     </div>
                     
@@ -735,7 +870,7 @@
                         </div>
                         <div>
                             <h5>Call Me</h5>
-                            <p>(555) 123-4567</p>
+                            <p>Not available right now</p>
                         </div>
                     </div>
                     
@@ -787,7 +922,7 @@
                 <div class="col-12 py-5 px-4 text-center text-md-start rounded" style="background-color: var(--secondary-color);">
                     <div class="row align-items-center">
                         <div class="col-md-8 text-white">
-                            <h3>Ready to Transform Your Digital Presence?</h3>
+                            <h3>Or you can   👉 => </h3>
                             <p class="mb-md-0">Schedule a free 30-minute consultation to discuss your project needs.</p>
                         </div>
                         <div class="col-md-4 text-center text-md-end mt-3 mt-md-0">
@@ -835,7 +970,7 @@
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="list-unstyled footer-links">
                         <li><a href="#about"><i class="fas fa-angle-right me-2"></i>About Me</a></li>
-                        <li><a href="#services"><i class="fas fa-angle-right me-2"></i>Services</a></li>
+                        <li><a href="#projects"><i class="fas fa-angle-right me-2"></i>Projects</a></li>
                         <li><a href="#projects"><i class="fas fa-angle-right me-2"></i>Portfolio</a></li>
                         <li><a href="#contact"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
                     </ul>
@@ -845,10 +980,9 @@
                 <div class="col-md-3 col-6 mb-4 mb-md-0">
                     <h4 class="footer-title">Connect With Me</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-pinterest"></i></a>
+                        <a href="https://www.linkedin.com/in/johnsonwang-marketer/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
