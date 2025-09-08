@@ -726,6 +726,23 @@ footer .social-link:hover {
   padding: 30px;
   max-height: 70vh;
   overflow-y: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.project-modal .project-overview p,
+.project-modal .project-section p,
+.project-modal p {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1rem;
+  font-weight: 400 !important;
+}
+
+.project-modal .project-overview .lead {
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
 }
 
 .project-modal .project-header-img img {
@@ -743,6 +760,21 @@ footer .social-link:hover {
 
 .project-modal .project-section:last-child {
   border-bottom: none;
+}
+
+.project-modal .project-section h6,
+.project-modal .project-overview h6 {
+  background-color: #282c34;
+  color: white;
+  padding: 12px 20px;
+  margin: 0 0 20px 0;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.project-modal .project-section h6 i,
+.project-modal .project-overview h6 i {
+  color: var(--primary-color);
 }
 
 .project-modal .result-metric {
@@ -782,6 +814,9 @@ footer .social-link:hover {
   padding: 5px 0;
   display: flex;
   align-items: center;
+  font-size: 1rem !important;
+  line-height: 1.6 !important;
+  font-weight: 400;
 }
 
 /* Custom scrollbar for modal */
