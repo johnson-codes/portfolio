@@ -304,4 +304,56 @@ document.addEventListener('DOMContentLoaded', function() {
             calendarModal.show();
         });
     }
+
+    // Project Modal Enhancement
+    const projectModals = document.querySelectorAll('.project-modal');
+    
+    projectModals.forEach(modal => {
+        modal.addEventListener('shown.bs.modal', function() {
+            // Add fade-in animation to modal content
+            const modalBody = this.querySelector('.modal-body');
+            modalBody.style.opacity = '0';
+            modalBody.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                modalBody.style.transition = 'all 0.3s ease';
+                modalBody.style.opacity = '1';
+                modalBody.style.transform = 'translateY(0)';
+            }, 100);
+            
+            // Animate result metrics
+            const metrics = this.querySelectorAll('.result-metric');
+            metrics.forEach((metric, index) => {
+                setTimeout(() => {
+                    metric.style.transform = 'translateY(0) scale(1)';
+                    metric.style.opacity = '1';
+                }, 200 + (index * 100));
+            });
+        });
+        
+        modal.addEventListener('show.bs.modal', function() {
+            // Pre-animate metrics for entrance effect
+            const metrics = this.querySelectorAll('.result-metric');
+            metrics.forEach(metric => {
+                metric.style.transform = 'translateY(20px) scale(0.9)';
+                metric.style.opacity = '0';
+                metric.style.transition = 'all 0.4s ease';
+            });
+        });
+        
+        modal.addEventListener('hidden.bs.modal', function() {
+            // Reset animations
+            const modalBody = this.querySelector('.modal-body');
+            modalBody.style.opacity = '';
+            modalBody.style.transform = '';
+            modalBody.style.transition = '';
+            
+            const metrics = this.querySelectorAll('.result-metric');
+            metrics.forEach(metric => {
+                metric.style.transform = '';
+                metric.style.opacity = '';
+                metric.style.transition = '';
+            });
+        });
+    });
 });
