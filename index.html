@@ -131,7 +131,6 @@
                     <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     <li class="nav-item ms-lg-3"><a class="btn btn-primary" href="#contact">Hire Me</a></li>
@@ -175,7 +174,7 @@
                     <br>
                     <hr>
 
-                    <p class="about-text">Hi, I'm Johnson Wang – a results-driven Digital Marketing Specialist and Full Stack Developer with 8+ years of experience. I bridge the gap between marketing goals and technical execution.</p>
+                    <p class="about-text">Hi, I'm Johnson Wang – a results-driven Digital Marketing Specialist and Full Stack Developer with 10+ years of experience. I bridge the gap between marketing goals and technical execution.</p>
                     
                     <div class="row mt-4">
                         <div class="col-md-6">
@@ -364,9 +363,9 @@
                                 <div class="service-icon">
                                     <i class="fas fa-sitemap"></i>
                                 </div>
-                                <h4>Wireframing & Prototyping</h4>
+                                <h4>Prototyping</h4>
                                 <p>Design detailed wireframes and interactive prototypes for web and mobile applications.</p>
-                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                                <button class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#prototypingModal">Learn More</button>
                             </div>
                         </div>
                         
@@ -378,7 +377,7 @@
                                 </div>
                                 <h4>Mobile App Design</h4>
                                 <p>Design user-friendly mobile applications with modern UI patterns and interactions.</p>
-                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                                <button class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#mobileAppModal">Learn More</button>
                             </div>
                         </div>
                         
@@ -1829,6 +1828,150 @@
         </div>
     </div>
 
+    <!-- Mobile App Design Modal -->
+    <div class="modal fade project-modal" id="mobileAppModal" tabindex="-1" aria-labelledby="mobileAppModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mobileAppModalLabel">Mobile App Design - Grocery Shopping App</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Project Overview -->
+                    <div class="project-section mb-4">
+                        <h6 class="text-primary mb-3"><i class="fas fa-info-circle me-2"></i>Project Overview</h6>
+                        <p>This is a comprehensive mobile app design prototype for a grocery shopping application. The design focuses on creating an intuitive user experience with modern UI patterns, streamlined navigation, and user-friendly interactions that make grocery shopping effortless and enjoyable.</p>
+                    </div>
+                    
+                    <!-- Interactive Prototype -->
+                    <div class="project-section mb-4">
+                        <h6 class="text-primary mb-3"><i class="fas fa-mobile-alt me-2"></i>Interactive Prototype</h6>
+                        
+                        <!-- Zoom Prompt -->
+                        <div class="alert alert-info text-center mb-3" style="background-color: rgba(97, 218, 251, 0.1); border: 1px solid rgba(97, 218, 251, 0.3); border-radius: 8px;">
+                            <i class="fas fa-search-plus text-primary me-2" style="font-size: 1.5rem;"></i>
+                            <strong>Tip:</strong> Click the zoom icon in the prototype controls to see the design details clearly
+                        </div>
+                        
+                        <div class="prototype-container text-center">
+                            <iframe 
+                                title="Grocery Shopping App - Interactive Figma Prototype"
+                                style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px;" 
+                                width="100%" 
+                                height="450" 
+                                src="https://embed.figma.com/proto/HPilO6TTbeXkVWgX504Oi3/Grocery-shopping?node-id=29-196&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Features -->
+                    <div class="project-section">
+                        <h6 class="text-primary mb-3"><i class="fas fa-star me-2"></i>Key Features</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Intuitive product browsing and search functionality</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Streamlined shopping cart and checkout process</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Modern UI design with clean, accessible interfaces</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Responsive design patterns for optimal mobile experience</li>
+                            <li><i class="fas fa-check text-success me-2"></i>User-friendly navigation and interaction flows</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Technologies Used -->
+                    <div class="project-section">
+                        <h6 class="text-primary mb-3"><i class="fas fa-tools me-2"></i>Design Tools</h6>
+                        <div class="technologies-used">
+                            <span class="badge bg-primary me-2 mb-2">Figma</span>
+                            <span class="badge bg-primary me-2 mb-2">Prototyping</span>
+                            <span class="badge bg-primary me-2 mb-2">UI/UX Design</span>
+                            <span class="badge bg-primary me-2 mb-2">Mobile Design</span>
+                            <span class="badge bg-primary me-2 mb-2">User Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wireframing & Prototyping Modal -->
+    <div class="modal fade project-modal" id="prototypingModal" tabindex="-1" aria-labelledby="prototypingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="prototypingModalLabel">Wireframing & Prototyping - Haircut ChillCuts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Project Overview -->
+                    <div class="project-section mb-4">
+                        <h6 class="text-primary mb-3"><i class="fas fa-info-circle me-2"></i>Project Overview</h6>
+                        <p>This wireframing and prototyping project showcases the design process for ChillCuts, a modern haircut booking application. The design demonstrates comprehensive wireframing techniques, user flow mapping, and detailed prototyping for both web and mobile platforms.</p>
+                    </div>
+                    
+                    <!-- Interactive Design -->
+                    <div class="project-section mb-4">
+                        <h6 class="text-primary mb-3"><i class="fas fa-sitemap me-2"></i>Interactive Design & Wireframes</h6>
+                        
+                        <!-- Zoom Prompt -->
+                        <div class="alert alert-info text-center mb-3" style="background-color: rgba(97, 218, 251, 0.1); border: 1px solid rgba(97, 218, 251, 0.3); border-radius: 8px;">
+                            <i class="fas fa-search-plus text-primary me-2" style="font-size: 1.5rem;"></i>
+                            <strong>Tip:</strong> Click the zoom icon in the design view to see wireframe details clearly
+                        </div>
+                        
+                        <div class="prototype-container text-center">
+                            <iframe 
+                                title="Haircut ChillCuts - Wireframing & Prototyping Design"
+                                style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 8px;" 
+                                width="100%" 
+                                height="450" 
+                                src="https://embed.figma.com/proto/qbC2Jz3xjQflgccsLlykvr/Haircut-ChillCuts?node-id=17-55&starting-point-node-id=17%3A55&embed-host=share" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Features -->
+                    <div class="project-section">
+                        <h6 class="text-primary mb-3"><i class="fas fa-star me-2"></i>Key Features</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Home page with intuitive navigation and service overview</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Service description pages with detailed haircut options</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Appointment booking system with calendar integration</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Rewards system for customer loyalty and retention</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Utility pages including FAQ, terms, and support</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Streamlined checkout process with payment options</li>
+                            <li><i class="fas fa-check text-success me-2"></i>User authentication with login and registration flows</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Interactive pop-up modules for enhanced user experience</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Technologies Used -->
+                    <div class="project-section">
+                        <h6 class="text-primary mb-3"><i class="fas fa-tools me-2"></i>Design Tools</h6>
+                        <div class="technologies-used">
+                            <span class="badge bg-primary me-2 mb-2">Figma</span>
+                            <span class="badge bg-primary me-2 mb-2">Balsamiq</span>
+                            <span class="badge bg-primary me-2 mb-2">Jira</span>
+                            <span class="badge bg-primary me-2 mb-2">Wireframing</span>
+                            <span class="badge bg-primary me-2 mb-2">Prototyping</span>
+                            <span class="badge bg-primary me-2 mb-2">User Flow Design</span>
+                            <span class="badge bg-primary me-2 mb-2">Component Design</span>
+                            <span class="badge bg-primary me-2 mb-2">Design Systems</span>
+                            <span class="badge bg-primary me-2 mb-2">Canva</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1845,7 +1988,6 @@
                     <ul class="list-unstyled footer-links">
                         <li><a href="#about"><i class="fas fa-angle-right me-2"></i>About Me</a></li>
                         <li><a href="#projects"><i class="fas fa-angle-right me-2"></i>Projects</a></li>
-                        <li><a href="#projects"><i class="fas fa-angle-right me-2"></i>Portfolio</a></li>
                         <li><a href="#contact"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
                     </ul>
                 </div>
