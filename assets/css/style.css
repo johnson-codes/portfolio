@@ -863,14 +863,16 @@ footer .social-link:hover {
 
 /* Web Development & Landing Page Demo Modals */
 #webDevModal .modal-dialog,
-#landingPageModal .modal-dialog {
+#landingPageModal .modal-dialog,
+#ecommerceModal .modal-dialog {
   max-width: 85vw;
   width: 85vw;
   margin: 2rem auto;
 }
 
 #webDevModal .modal-content,
-#landingPageModal .modal-content {
+#landingPageModal .modal-content,
+#ecommerceModal .modal-content {
   height: calc(85vh + 50px);
   border: none;
   border-radius: 15px;
@@ -878,7 +880,8 @@ footer .social-link:hover {
 }
 
 #webDevModal .modal-header,
-#landingPageModal .modal-header {
+#landingPageModal .modal-header,
+#ecommerceModal .modal-header {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: white;
   border-radius: 15px 15px 0 0;
@@ -887,24 +890,28 @@ footer .social-link:hover {
 }
 
 #webDevModal .modal-title,
-#landingPageModal .modal-title {
+#landingPageModal .modal-title,
+#ecommerceModal .modal-title {
   font-size: 1.2rem;
   font-weight: 600;
 }
 
 #webDevModal .btn-close,
-#landingPageModal .btn-close {
+#landingPageModal .btn-close,
+#ecommerceModal .btn-close {
   filter: invert(1);
   opacity: 0.8;
 }
 
 #webDevModal .btn-close:hover,
-#landingPageModal .btn-close:hover {
+#landingPageModal .btn-close:hover,
+#ecommerceModal .btn-close:hover {
   opacity: 1;
 }
 
 #webDevModal .modal-body,
-#landingPageModal .modal-body {
+#landingPageModal .modal-body,
+#ecommerceModal .modal-body {
   padding: 0;
   flex: 1;
   display: flex;
@@ -912,7 +919,8 @@ footer .social-link:hover {
 }
 
 #webDevModal .modal-body iframe,
-#landingPageModal .modal-body iframe {
+#landingPageModal .modal-body iframe,
+#ecommerceModal .modal-body iframe {
   width: 100%;
   height: 100%;
   border: none;
@@ -920,7 +928,8 @@ footer .social-link:hover {
 }
 
 #webDevModal .modal-footer,
-#landingPageModal .modal-footer {
+#landingPageModal .modal-footer,
+#ecommerceModal .modal-footer {
   border-top: 1px solid #e9ecef;
   padding: 15px 25px;
   background: #f8f9fa;
@@ -930,33 +939,39 @@ footer .social-link:hover {
 /* Responsive adjustments for demo modals */
 @media (max-width: 1200px) {
   #webDevModal .modal-dialog,
-  #landingPageModal .modal-dialog {
+  #landingPageModal .modal-dialog,
+  #ecommerceModal .modal-dialog {
     max-width: 95vw;
     width: 95vw;
   }
   
   #webDevModal .modal-content,
-  #landingPageModal .modal-content {
+  #landingPageModal .modal-content,
+  #ecommerceModal .modal-content {
     height: calc(80vh + 50px);
   }
 }
 
 @media (max-width: 768px) {
   #webDevModal .modal-dialog,
-  #landingPageModal .modal-dialog {
+  #landingPageModal .modal-dialog,
+  #ecommerceModal .modal-dialog {
     margin: 1rem;
     max-width: calc(100vw - 2rem);
   }
   
   #webDevModal .modal-content,
-  #landingPageModal .modal-content {
+  #landingPageModal .modal-content,
+  #ecommerceModal .modal-content {
     height: calc(75vh + 50px);
   }
   
   #webDevModal .modal-header,
   #webDevModal .modal-footer,
   #landingPageModal .modal-header,
-  #landingPageModal .modal-footer {
+  #landingPageModal .modal-footer,
+  #ecommerceModal .modal-header,
+  #ecommerceModal .modal-footer {
     padding: 10px 15px;
   }
 }
