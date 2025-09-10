@@ -861,21 +861,24 @@ footer .social-link:hover {
   background: var(--primary-dark);
 }
 
-/* Web Development Live Demo Modal */
-#webDevModal .modal-dialog {
+/* Web Development & Landing Page Demo Modals */
+#webDevModal .modal-dialog,
+#landingPageModal .modal-dialog {
   max-width: 85vw;
   width: 85vw;
   margin: 2rem auto;
 }
 
-#webDevModal .modal-content {
+#webDevModal .modal-content,
+#landingPageModal .modal-content {
   height: calc(85vh + 50px);
   border: none;
   border-radius: 15px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-#webDevModal .modal-header {
+#webDevModal .modal-header,
+#landingPageModal .modal-header {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: white;
   border-radius: 15px 15px 0 0;
@@ -883,65 +886,77 @@ footer .social-link:hover {
   padding: 15px 25px;
 }
 
-#webDevModal .modal-title {
+#webDevModal .modal-title,
+#landingPageModal .modal-title {
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-#webDevModal .btn-close {
+#webDevModal .btn-close,
+#landingPageModal .btn-close {
   filter: invert(1);
   opacity: 0.8;
 }
 
-#webDevModal .btn-close:hover {
+#webDevModal .btn-close:hover,
+#landingPageModal .btn-close:hover {
   opacity: 1;
 }
 
-#webDevModal .modal-body {
+#webDevModal .modal-body,
+#landingPageModal .modal-body {
   padding: 0;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-#webDevModal .modal-body iframe {
+#webDevModal .modal-body iframe,
+#landingPageModal .modal-body iframe {
   width: 100%;
   height: 100%;
   border: none;
   flex: 1;
 }
 
-#webDevModal .modal-footer {
+#webDevModal .modal-footer,
+#landingPageModal .modal-footer {
   border-top: 1px solid #e9ecef;
   padding: 15px 25px;
   background: #f8f9fa;
   border-radius: 0 0 15px 15px;
 }
 
-/* Responsive adjustments for web dev modal */
+/* Responsive adjustments for demo modals */
 @media (max-width: 1200px) {
-  #webDevModal .modal-dialog {
+  #webDevModal .modal-dialog,
+  #landingPageModal .modal-dialog {
     max-width: 95vw;
     width: 95vw;
   }
   
-  #webDevModal .modal-content {
+  #webDevModal .modal-content,
+  #landingPageModal .modal-content {
     height: calc(80vh + 50px);
   }
 }
 
 @media (max-width: 768px) {
-  #webDevModal .modal-dialog {
+  #webDevModal .modal-dialog,
+  #landingPageModal .modal-dialog {
     margin: 1rem;
     max-width: calc(100vw - 2rem);
   }
   
-  #webDevModal .modal-content {
+  #webDevModal .modal-content,
+  #landingPageModal .modal-content {
     height: calc(75vh + 50px);
   }
   
   #webDevModal .modal-header,
-  #webDevModal .modal-footer {
+  #webDevModal .modal-footer,
+  #landingPageModal .modal-header,
+  #landingPageModal .modal-footer {
     padding: 10px 15px;
   }
 }
