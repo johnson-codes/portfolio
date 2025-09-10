@@ -865,7 +865,8 @@ footer .social-link:hover {
 #webDevModal .modal-dialog,
 #landingPageModal .modal-dialog,
 #ecommerceModal .modal-dialog,
-#snapitModal .modal-dialog {
+#snapitModal .modal-dialog,
+#cmsModal .modal-dialog {
   max-width: 85vw;
   width: 85vw;
   margin: 2rem auto;
@@ -874,7 +875,8 @@ footer .social-link:hover {
 #webDevModal .modal-content,
 #landingPageModal .modal-content,
 #ecommerceModal .modal-content,
-#snapitModal .modal-content {
+#snapitModal .modal-content,
+#cmsModal .modal-content {
   height: calc(85vh + 50px);
   border: none;
   border-radius: 15px;
@@ -884,7 +886,8 @@ footer .social-link:hover {
 #webDevModal .modal-header,
 #landingPageModal .modal-header,
 #ecommerceModal .modal-header,
-#snapitModal .modal-header {
+#snapitModal .modal-header,
+#cmsModal .modal-header {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
   color: white;
   border-radius: 15px 15px 0 0;
@@ -895,7 +898,8 @@ footer .social-link:hover {
 #webDevModal .modal-title,
 #landingPageModal .modal-title,
 #ecommerceModal .modal-title,
-#snapitModal .modal-title {
+#snapitModal .modal-title,
+#cmsModal .modal-title {
   font-size: 1.2rem;
   font-weight: 600;
 }
@@ -903,7 +907,8 @@ footer .social-link:hover {
 #webDevModal .btn-close,
 #landingPageModal .btn-close,
 #ecommerceModal .btn-close,
-#snapitModal .btn-close {
+#snapitModal .btn-close,
+#cmsModal .btn-close {
   filter: invert(1);
   opacity: 0.8;
 }
@@ -911,14 +916,16 @@ footer .social-link:hover {
 #webDevModal .btn-close:hover,
 #landingPageModal .btn-close:hover,
 #ecommerceModal .btn-close:hover,
-#snapitModal .btn-close:hover {
+#snapitModal .btn-close:hover,
+#cmsModal .btn-close:hover {
   opacity: 1;
 }
 
 #webDevModal .modal-body,
 #landingPageModal .modal-body,
 #ecommerceModal .modal-body,
-#snapitModal .modal-body {
+#snapitModal .modal-body,
+#cmsModal .modal-body {
   padding: 0;
   flex: 1;
   display: flex;
@@ -928,7 +935,8 @@ footer .social-link:hover {
 #webDevModal .modal-body iframe,
 #landingPageModal .modal-body iframe,
 #ecommerceModal .modal-body iframe,
-#snapitModal .modal-body iframe {
+#snapitModal .modal-body iframe,
+#cmsModal .modal-body iframe {
   width: 100%;
   height: 100%;
   border: none;
@@ -938,7 +946,8 @@ footer .social-link:hover {
 #webDevModal .modal-footer,
 #landingPageModal .modal-footer,
 #ecommerceModal .modal-footer,
-#snapitModal .modal-footer {
+#snapitModal .modal-footer,
+#cmsModal .modal-footer {
   border-top: 1px solid #e9ecef;
   padding: 15px 25px;
   background: #f8f9fa;
@@ -950,7 +959,8 @@ footer .social-link:hover {
   #webDevModal .modal-dialog,
   #landingPageModal .modal-dialog,
   #ecommerceModal .modal-dialog,
-  #snapitModal .modal-dialog {
+  #snapitModal .modal-dialog,
+  #cmsModal .modal-dialog {
     max-width: 95vw;
     width: 95vw;
   }
@@ -958,7 +968,8 @@ footer .social-link:hover {
   #webDevModal .modal-content,
   #landingPageModal .modal-content,
   #ecommerceModal .modal-content,
-  #snapitModal .modal-content {
+  #snapitModal .modal-content,
+  #cmsModal .modal-content {
     height: calc(80vh + 50px);
   }
 }
@@ -967,7 +978,8 @@ footer .social-link:hover {
   #webDevModal .modal-dialog,
   #landingPageModal .modal-dialog,
   #ecommerceModal .modal-dialog,
-  #snapitModal .modal-dialog {
+  #snapitModal .modal-dialog,
+  #cmsModal .modal-dialog {
     margin: 1rem;
     max-width: calc(100vw - 2rem);
   }
@@ -975,7 +987,8 @@ footer .social-link:hover {
   #webDevModal .modal-content,
   #landingPageModal .modal-content,
   #ecommerceModal .modal-content,
-  #snapitModal .modal-content {
+  #snapitModal .modal-content,
+  #cmsModal .modal-content {
     height: calc(75vh + 50px);
   }
   
@@ -986,7 +999,9 @@ footer .social-link:hover {
   #ecommerceModal .modal-header,
   #ecommerceModal .modal-footer,
   #snapitModal .modal-header,
-  #snapitModal .modal-footer {
+  #snapitModal .modal-footer,
+  #cmsModal .modal-header,
+  #cmsModal .modal-footer {
     padding: 10px 15px;
   }
 }
