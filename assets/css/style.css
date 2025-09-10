@@ -16,11 +16,21 @@ body {
   font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text-color);
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure main content takes up available space */
+main {
+  flex: 1;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 /* Typography */
@@ -88,9 +98,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-cta {
-  background-color: var(--accent-color);
-  border-color: var(--accent-color);
-  color: white;
+  background-color: #61dafb;
+  border-color: #61dafb;
+  color: var(--secondary-color);
   font-weight: 700;
   padding: 12px 30px;
   text-transform: uppercase;
@@ -98,8 +108,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-cta:hover {
-  background-color: #ff5252;
-  border-color: #ff5252;
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: white;
   transform: translateY(-3px);
 }
 
@@ -198,21 +209,9 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* Removing the shadow background effect */
-/* .highlight-text::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 30%;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(97, 218, 251, 0.3);
-  z-index: -1;
-} */
-
 /* About section */
 #about {
-  padding: 100px 0;
+  padding: 100px 0 50px 0;
 }
 
 .about-wrapper {
@@ -344,7 +343,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Projects section */
 #projects {
   background-color: var(--light-bg);
-  padding: 100px 0;
+  padding: 50px 0 100px 0;
 }
 
 .project-card {
@@ -533,6 +532,13 @@ footer {
   background-color: var(--secondary-color);
   color: rgba(255, 255, 255, 0.7);
   padding: 70px 0 20px;
+  position: relative;
+  z-index: 10;
+  clear: both;
+  width: 100%;
+  margin-top: 0;
+  display: block !important;
+  visibility: visible !important;
 }
 
 .footer-title {
