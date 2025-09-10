@@ -5,7 +5,7 @@
   --primary-color: #61dafb; /* React Blue */
   --primary-dark: #21a6cb;
   --secondary-color: #282c34; /* Dark background */
-  --accent-color: #ff6b6b; /* Accent for CTAs */
+  --accent-color: #FB8261; /* Accent for CTAs */
   --light-bg: #f8f9fa;
   --text-color: #333333;
   --text-light: #ffffff;
@@ -98,9 +98,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-cta {
-  background-color: #61dafb;
-  border-color: #61dafb;
-  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: white;
   font-weight: 700;
   padding: 12px 30px;
   text-transform: uppercase;
@@ -108,6 +108,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-cta:hover {
+  background-color: #e6744a;
+  border-color: #e6744a;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.btn-consultation {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--secondary-color);
+  font-weight: 700;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-consultation:hover {
   background-color: var(--primary-dark);
   border-color: var(--primary-dark);
   color: white;
