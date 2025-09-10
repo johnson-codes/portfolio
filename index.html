@@ -422,7 +422,7 @@
                                 </div>
                                 <h4>Web Development</h4>
                                 <p>Build fast, responsive websites using React, HTML/CSS, and Express.</p>
-                                <a href="#contact" class="btn btn-sm btn-primary mt-3">Learn More</a>
+                                <button class="btn btn-sm btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#webDevModal">View Live Demo</button>
                             </div>
                         </div>
                         
@@ -980,6 +980,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Web Development Live Demo Modal -->
+    <div class="modal fade" id="webDevModal" tabindex="-1" aria-labelledby="webDevModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="webDevModalLabel">
+                        <i class="fas fa-laptop-code me-2"></i>
+                        Web Development - Personality Quiz Live Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <iframe 
+                        src="https://johnson-codes.github.io/personality/" 
+                        width="100%" 
+                        height="600" 
+                        style="border: none;"
+                        title="Personality Quiz - Live Demo"
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Calendar Modal -->
     <div class="modal fade" id="calendarModal" tabindex="-1" aria-labelledby="calendarModalLabel" aria-hidden="true">
