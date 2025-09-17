@@ -1042,6 +1042,10 @@ footer .social-link:hover {
   justify-content: center;
   background: rgba(255,255,255,0.85);
   z-index: 1055;
+  /* Stack spinner above the text and center both */
+  flex-direction: column;
+  gap: 12px;
+  padding: 1rem;
 }
 .modal-iframe-loader.hidden { display: none; }
 .spinner {
@@ -1051,6 +1055,7 @@ footer .social-link:hover {
   border: 6px solid rgba(0,0,0,0.08);
   border-top-color: var(--primary-color);
   animation: spin 1s linear infinite;
+  display: block;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .loader-text {
@@ -1058,4 +1063,16 @@ footer .social-link:hover {
   font-size: 0.95rem;
   color: var(--text-color);
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  .spinner {
+    width: 44px;
+    height: 44px;
+    border-width: 5px;
+  }
+
+  .loader-text {
+    font-size: 0.9rem;
+  }
 }
