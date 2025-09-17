@@ -2330,5 +2330,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
+        <script>
+        // Show a loader overlay while modal iframes load
+        (function(){
+            function attachLoader(modalSelector){
+                const modal = document.querySelector(modalSelector);
+                if(!modal) return;
+                const iframe = modal.querySelector('iframe');
+                // create loader element
+                const loader = document.createElement('div');
+                loader.className = 'modal-iframe-loader hidden';
+                loader.innerHTML = '<div style="text-align:center"><div class="spinner"></div><div class="loader-text">Loading preview…</div></div>';
+                const content = modal.querySelector('.modal-content');
+                if(content) content.appendChild(loader);
+
+                modal.addEventListener('show.bs.modal', ()=>{
+                    loader.classList.remove('hidden');
+                    if(iframe){
+                        // hide loader when iframe loads
+                        iframe.addEventListener('load', ()=> loader.classList.add('hidden'), { once: true });
+                        // fallback timeout
+                        setTimeout(()=> loader.classList.add('hidden'), 4000);
+                    } else {
+                        loader.classList.add('hidden');
+                    }
+                });
+            }
+
+            ['#webDevModal','#landingPageModal','#ecommerceModal','#cmsModal','#mobileAppRNModal','#shopifyModal'].forEach(attachLoader);
+        })();
+        </script>
 </body>
 </html>
