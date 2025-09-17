@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shopify Dawn Customization Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <style>
+    :root { --brand:#10b981; --ink:#0f172a; --muted:#475569; --bg:#f8fafc; }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+    header{background:#111827;color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+    header .brand{font-weight:700}
+    header nav a{color:#cbd5e1;text-decoration:none;margin-left:16px}
+    .hero{background:linear-gradient(135deg,#e2f7f2,#f7fff6);padding:56px 24px;text-align:center}
+    .hero h1{margin:0 0 12px 0;font-size:28px}
+    .hero p{margin:0 0 20px 0;color:var(--muted)}
+    .btn{background:var(--brand);color:#fff;border:0;border-radius:999px;padding:10px 16px;font-weight:600}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));padding:24px}
+    .card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+    .badge{display:inline-block;background:#ecfeff;color:#0369a1;border:1px solid #bae6fd;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600}
+    .product{display:flex;gap:12px}
+    .product img{width:88px;height:88px;object-fit:cover;border-radius:8px}
+    .price{font-weight:700}
+    .swatch{display:inline-block;width:16px;height:16px;border-radius:50%;border:1px solid #cbd5e1;margin-right:6px}
+    .swatch[aria-label="Green"]{background:#10b981}
+    .swatch[aria-label="Blue"]{background:#3b82f6}
+    .swatch[aria-label="Black"]{background:#111827}
+    footer{padding:16px;text-align:center;color:#64748b}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand"><i class="fas fa-store"></i> Dawn Customization Demo</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Catalog</a>
+      <a href="#">Cart</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Polished Dawn Theme Customizations</h1>
+    <p>Colors, layout, badges, product cards, PDP, cart, checkout UI.</p>
+    <button class="btn">Shop Now</button>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <span class="badge">Badge • Bestseller</span>
+      <div class="product" style="margin-top:10px;">
+        <img src="../images/project1.jpg" alt="Product"/>
+        <div>
+          <div style="font-weight:600">Essential Hoodie</div>
+          <div class="price">$59.00</div>
+          <div style="margin-top:6px">
+            <span class="swatch" aria-label="Green"></span>
+            <span class="swatch" aria-label="Blue"></span>
+            <span class="swatch" aria-label="Black"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge">Badge • New</span>
+      <div class="product" style="margin-top:10px;">
+        <img src="../images/project2.jpg" alt="Product"/>
+        <div>
+          <div style="font-weight:600">Everyday Tee</div>
+          <div class="price">$24.00</div>
+          <div style="margin-top:6px">
+            <span class="swatch" aria-label="Green"></span>
+            <span class="swatch" aria-label="Blue"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge">Badge • Limited</span>
+      <div class="product" style="margin-top:10px;">
+        <img src="../images/project3.jpg" alt="Product"/>
+        <div>
+          <div style="font-weight:600">Classic Cap</div>
+          <div class="price">$19.00</div>
+          <div style="margin-top:6px">
+            <span class="swatch" aria-label="Black"></span>
+            <span class="swatch" aria-label="Blue"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="badge">PDP Enhancements</span>
+      <ul style="margin:10px 0 0 16px; color:#475569;">
+        <li>Size chart modal + trust badges</li>
+        <li>Variant selector with swatches</li>
+        <li>Sticky add-to-cart bar</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="badge">Checkout Polish</span>
+      <ul style="margin:10px 0 0 16px; color:#475569;">
+        <li>Brand colors & typography</li>
+        <li>Trust indicators & badges</li>
+        <li>Optimized error states</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="badge">Performance</span>
+      <ul style="margin:10px 0 0 16px; color:#475569;">
+        <li>Image strategy & lazy loading</li>
+        <li>Critical CSS & theme settings</li>
+        <li>App embeds hygiene</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Demo inspired by Shopify Dawn customizations</footer>
+</body>
+</html>
