@@ -228,101 +228,324 @@ h1, h2, h3, h4, h5, h6 {
 
 /* About section */
 #about {
-  padding: 100px 0 50px 0;
+  padding: 120px 0 80px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
 }
 
 .about-wrapper {
-  margin-top: 30px;
+  margin-top: 60px;
+  padding: 0 15px;
 }
 
 .profile-image-container {
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 1 / 1.2;
+  aspect-ratio: 2 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto 40px;
+  max-width: 350px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  transform: perspective(1200px) rotateY(12deg) rotateX(3deg) rotateZ(2deg);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: linear-gradient(135deg, rgba(97, 218, 251, 0.1) 0%, rgba(251, 130, 97, 0.1) 100%);
+  border: 3px solid rgba(97, 218, 251, 0.3);
+  animation: subtle-float 6s ease-in-out infinite;
+}
+
+.profile-image-container:hover {
+  transform: perspective(1200px) rotateY(8deg) rotateX(1deg) rotateZ(1deg) scale(1.05);
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.25);
+  border-color: var(--primary-color);
+}
+
+@keyframes subtle-float {
+  0%, 100% {
+    transform: perspective(1200px) rotateY(12deg) rotateX(3deg) rotateZ(2deg) translateY(0px);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(12deg) rotateX(3deg) rotateZ(2deg) translateY(-8px);
+  }
 }
 
 .profile-image {
   width: 100%;
   height: auto;
-  object-fit: contain;
-  border-radius: 8px;
+  object-fit: cover;
+  border-radius: 17px;
+  transition: all 0.4s ease;
 }
 
 .about-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #000000;
+  text-align: left;
 }
 
 .about-subtitle {
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   color: var(--primary-color);
+  font-size: 1.2rem;
+  padding-left: 20px;
 }
 
 .about-text {
-  font-size: 1.05rem;
-  margin-bottom: 25px;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+  line-height: 1.8;
+  color: var(--text-color);
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  border-left: 4px solid var(--primary-color);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.about-text::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 3rem;
+  color: var(--primary-color);
+  font-family: Georgia, serif;
+  opacity: 0.3;
 }
 
 .info-item {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
+  align-items: flex-start;
+  padding: 12px 10px;
+  background: rgba(97, 218, 251, 0.05);
+  border-radius: 10px;
+  border-left: 3px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(97, 218, 251, 0.1);
+  transform: translateX(5px);
 }
 
 .info-label {
-  font-weight: 600;
+  font-weight: 700;
   min-width: 70px;
-  margin-right: 10px;
+  margin-right: 8px;
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .info-value {
   color: var(--text-color);
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .download-resume {
-  padding: 10px 25px;
-  border-radius: 30px;
+  padding: 15px 35px;
+  border-radius: 50px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 25px rgba(97, 218, 251, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-resume::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
+}
+
+.download-resume:hover::before {
+  left: 100%;
 }
 
 .download-resume i {
-  margin-right: 8px;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 991.98px) {
+  .about-wrapper {
+    text-align: center;
+    padding: 0 20px;
+  }
+  
+  .profile-image-container {
+    transform: none;
+    max-width: 300px;
+    margin-bottom: 50px;
+  }
+  
+  .about-title {
+    text-align: center;
+    padding-left: 0;
+    font-size: 2.4rem;
+  }
+  
+  .about-title::before {
+    display: none;
+  }
+  
+  .about-subtitle {
+    text-align: center;
+    padding-left: 0;
+  }
+  
+  .about-text {
+    text-align: left;
+    margin: 0 0 30px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-title {
+    font-size: 2rem;
+  }
+  
+  .about-text {
+    font-size: 1rem;
+    padding: 20px;
+  }
+  
+  .profile-image-container {
+    max-width: 250px;
+  }
+}
+
+/* Stats Container Enhancement */
+.stats-container {
+  margin-top: 80px !important;
+  padding: 40px !important;
+  background: linear-gradient(135deg, rgba(97, 218, 251, 0.1) 0%, rgba(251, 130, 97, 0.1) 100%) !important;
+  border: 2px solid rgba(97, 218, 251, 0.2) !important;
+  border-radius: 25px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(97, 218, 251, 0.1), transparent);
+  transition: all 2s ease;
+}
+
+.stats-container:hover::before {
+  left: 100%;
 }
 
 .profile-stats {
-  background-color: var(--light-bg);
-  border-radius: 10px;
-  padding: 25px 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 35px 20px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+.profile-stats::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 18px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
 }
 
 .profile-stats:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary-color);
+}
+
+.profile-stats:hover::before {
+  opacity: 0.1;
+}
+
+.profile-stats:hover .stats-number {
+  transform: scale(1.1);
+  color: var(--primary-dark);
 }
 
 .stats-number {
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 2.8rem;
+  font-weight: 800;
   color: var(--primary-color);
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   line-height: 1;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .stats-text {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Responsive stats */
+@media (max-width: 768px) {
+  .stats-container {
+    margin-top: 60px !important;
+    padding: 30px 20px !important;
+  }
+  
+  .profile-stats {
+    padding: 25px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .stats-number {
+    font-size: 2.2rem;
+  }
+  
+  .stats-text {
+    font-size: 0.9rem;
+  }
 }
 
 /* Services section */
