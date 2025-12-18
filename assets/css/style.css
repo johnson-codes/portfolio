@@ -226,6 +226,44 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
+/* Wavy Divider */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+}
+
+.wave-divider .wave-path {
+  fill: #ffffff;
+  animation: wave 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes wave {
+  0%, 100% {
+    d: path("M0,20 C250,100 350,100 600,60 C850,20 950,20 1200,100 L1200,120 L0,120 Z");
+  }
+  25% {
+    d: path("M0,40 C250,80 350,80 600,70 C850,40 950,40 1200,80 L1200,120 L0,120 Z");
+  }
+  50% {
+    d: path("M0,60 C250,10 350,10 600,50 C850,90 950,90 1200,20 L1200,120 L0,120 Z");
+  }
+  75% {
+    d: path("M0,40 C250,80 350,80 600,70 C850,40 950,40 1200,80 L1200,120 L0,120 Z");
+  }
+}
+
 /* About section */
 #about {
   padding: 120px 0 80px 0;
