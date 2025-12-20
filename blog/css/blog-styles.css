@@ -2,7 +2,7 @@
 
 /* Blog hero section styling */
 #blog-hero {
-    background: linear-gradient(135deg, #21a6cb 0%, #61dafb 100%);
+    background: linear-gradient(135deg, #e3f5fc 0%, #b3e5fc 100%);
     margin-top: 76px;
     padding-top: 60px;
     padding-bottom: 60px;
@@ -10,7 +10,7 @@
 
 #blog-hero h1,
 #blog-hero p {
-    color: #ffffff !important;
+    color: #2c3e50 !important;
 }
 
 /* Force navbar to have white background on blog pages */
