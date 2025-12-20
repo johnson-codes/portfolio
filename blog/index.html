@@ -12,35 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../assets/css/style.css" rel="stylesheet">
-    <style>
-        /* Blog hero section styling */
-        #blog-hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin-top: 76px;
-            padding-top: 60px;
-            padding-bottom: 60px;
-        }
-        
-        #blog-hero h1,
-        #blog-hero p {
-            color: #ffffff !important;
-        }
-        
-        /* Force navbar to have white background on blog pages */
-        .navbar {
-            background-color: white !important;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .navbar .nav-link,
-        .navbar .nav-link.active {
-            color: #333333 !important;
-        }
-        
-        .navbar .navbar-brand {
-            color: #61dafb !important;
-        }
-    </style>
+    <!-- Blog CSS -->
+    <link href="css/blog-styles.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -77,75 +50,155 @@
             </div>
         </section>
 
-        <!-- Blog Posts Section -->
-        <section class="py-5">
+        <!-- Category Filter Section -->
+        <section class="pt-5 pb-5">
             <div class="container">
-                <div class="row">
+                <div class="category-section p-4">
+                <div class="row g-4">
+                    <!-- IT Category -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="category-card text-center p-4 h-100 shadow-sm" data-category="IT" onclick="filterBlogs('IT')">
+                            <i class="fas fa-laptop-code fa-3x mb-3" style="color: #667eea;"></i>
+                            <h4>IT</h4>
+                            <p class="text-muted mb-0">Technology & Development</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Marketing Category -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="category-card text-center p-4 h-100 shadow-sm active" data-category="Marketing" onclick="filterBlogs('Marketing')">
+                            <i class="fas fa-bullhorn fa-3x mb-3" style="color: #667eea;"></i>
+                            <h4>Marketing</h4>
+                            <p class="text-muted mb-0">Digital Marketing & Strategy</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Design Category -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="category-card text-center p-4 h-100 shadow-sm" data-category="Design" onclick="filterBlogs('Design')">
+                            <i class="fas fa-palette fa-3x mb-3" style="color: #667eea;"></i>
+                            <h4>Design</h4>
+                            <p class="text-muted mb-0">UI/UX & Creative</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Culture Category -->
+                    <div class="col-lg-3 col-md-6">
+                        <div class="category-card text-center p-4 h-100 shadow-sm" data-category="Culture" onclick="filterBlogs('Culture')">
+                            <i class="fas fa-users fa-3x mb-3" style="color: #667eea;"></i>
+                            <h4>Culture</h4>
+                            <p class="text-muted mb-0">Life & Insights</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Posts List Section -->
+        <section class="pb-5">
+            <div class="container">
+                <h3 class="mb-4" id="category-title">Marketing</h3>
+                
+                <div id="blog-list">
                     <!-- Blog Post 1 -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" class="card-img-top" alt="Digital Marketing Trends">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-2">
-                                    <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 18, 2024</small>
-                                    <span class="badge bg-primary ms-auto">Marketing</span>
+                    <div class="blog-item card mb-4 shadow-sm" data-category="Marketing">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Digital Marketing Trends">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 18, 2024</small>
+                                        <span class="badge bg-primary ms-3">Marketing</span>
+                                    </div>
+                                    <h4 class="card-title mb-3">Digital Marketing Trends for 2025</h4>
+                                    <p class="card-text text-muted">Explore the latest digital marketing trends that will shape the industry in 2025, from AI-powered campaigns to voice search optimization. Learn how to stay ahead of the curve and implement cutting-edge strategies.</p>
+                                    <a href="posts/Marketing/digital-marketing-trends-2025.html" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
                                 </div>
-                                <h5 class="card-title">Digital Marketing Trends for 2025</h5>
-                                <p class="card-text">Explore the latest digital marketing trends that will shape the industry in 2025, from AI-powered campaigns to voice search optimization.</p>
-                                <a href="posts/digital-marketing-trends-2025.html" class="btn btn-outline-primary">Read More</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Blog Post 2 -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=250&fit=crop" class="card-img-top" alt="Web Development">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-2">
-                                    <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 15, 2024</small>
-                                    <span class="badge bg-success ms-auto">Development</span>
+                    <div class="blog-item card mb-4 shadow-sm" data-category="IT">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=400&h=300&fit=crop" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Web Development">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 15, 2024</small>
+                                        <span class="badge bg-success ms-3">IT</span>
+                                    </div>
+                                    <h4 class="card-title mb-3">Building Modern Web Applications</h4>
+                                    <p class="card-text text-muted">Learn about the latest frameworks and best practices for creating fast, responsive, and user-friendly web applications in 2024. Discover tools and techniques that will enhance your development workflow.</p>
+                                    <a href="posts/IT/modern-web-applications.html" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
                                 </div>
-                                <h5 class="card-title">Building Modern Web Applications</h5>
-                                <p class="card-text">Learn about the latest frameworks and best practices for creating fast, responsive, and user-friendly web applications in 2024.</p>
-                                <a href="posts/modern-web-applications.html" class="btn btn-outline-primary">Read More</a>
                             </div>
                         </div>
                     </div>
 
                     <!-- Blog Post 3 -->
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="card h-100 shadow-sm">
-                            <img src="https://images.unsplash.com/photo-1553028826-f4804a6dfd3f?w=400&h=250&fit=crop" class="card-img-top" alt="SEO Strategy">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center mb-2">
-                                    <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 12, 2024</small>
-                                    <span class="badge bg-info ms-auto">SEO</span>
+                    <div class="blog-item card mb-4 shadow-sm" data-category="Marketing">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1553028826-f4804a6dfd3f?w=400&h=300&fit=crop" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="SEO Strategy">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 12, 2024</small>
+                                        <span class="badge bg-primary ms-3">Marketing</span>
+                                    </div>
+                                    <h4 class="card-title mb-3">SEO Strategies That Actually Work</h4>
+                                    <p class="card-text text-muted">Discover proven SEO techniques that can help your website rank higher in search results and drive more organic traffic. Implement these practical strategies to boost your online visibility.</p>
+                                    <a href="posts/seo-strategies-that-work.html" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
                                 </div>
-                                <h5 class="card-title">SEO Strategies That Actually Work</h5>
-                                <p class="card-text">Discover proven SEO techniques that can help your website rank higher in search results and drive more organic traffic.</p>
-                                <a href="posts/seo-strategies-that-work.html" class="btn btn-outline-primary">Read More</a>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Pagination -->
-                <div class="row">
-                    <div class="col-12">
-                        <nav aria-label="Blog pagination" class="d-flex justify-content-center mt-4">
-                            <ul class="pagination">
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                            </ul>
-                        </nav>
+                    <!-- Blog Post 4 -->
+                    <div class="blog-item card mb-4 shadow-sm" data-category="Design">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="UI Design">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 10, 2024</small>
+                                        <span class="badge bg-warning ms-3">Design</span>
+                                    </div>
+                                    <h4 class="card-title mb-3">Modern UI/UX Design Principles</h4>
+                                    <p class="card-text text-muted">Explore essential design principles that create intuitive and engaging user experiences. Learn how to balance aesthetics with functionality in your digital products.</p>
+                                    <a href="posts/Design/ui-ux-design-principles.html" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 5 -->
+                    <div class="blog-item card mb-4 shadow-sm" data-category="Culture">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=300&fit=crop" class="img-fluid h-100 w-100" style="object-fit: cover;" alt="Team Culture">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <small class="text-muted"><i class="fas fa-calendar me-1"></i>December 8, 2024</small>
+                                        <span class="badge bg-info ms-3">Culture</span>
+                                    </div>
+                                    <h4 class="card-title mb-3">Building a Strong Remote Work Culture</h4>
+                                    <p class="card-text text-muted">Discover strategies for fostering collaboration, communication, and connection in distributed teams. Learn how to create a thriving remote work environment.</p>
+                                    <a href="posts/Culture/remote-work-culture.html" class="btn btn-outline-primary">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,5 +249,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="../assets/js/script.js"></script>
+    
+    <!-- Blog Filter Script -->
+    <script>
+        function filterBlogs(category) {
+            // Update active category card
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.querySelector(`.category-card[data-category="${category}"]`).classList.add('active');
+            
+            // Update category title
+            document.getElementById('category-title').textContent = category;
+            
+            // Filter blog items
+            document.querySelectorAll('.blog-item').forEach(item => {
+                if (item.dataset.category === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+        
+        // Initialize - show Marketing by default
+        document.addEventListener('DOMContentLoaded', function() {
+            filterBlogs('Marketing');
+        });
+    </script>
 </body>
 </html>
