@@ -252,11 +252,16 @@
                     item.classList.add('hidden');
                 }
             });
+            
+            // Update URL hash
+            window.location.hash = category;
         }
         
-        // Initialize - show Marketing by default
+        // Initialize - check for URL hash or default to Marketing
         document.addEventListener('DOMContentLoaded', function() {
-            filterBlogs('Marketing');
+            const hash = window.location.hash.substring(1);
+            const category = hash && ['IT', 'Marketing', 'Design', 'Culture'].includes(hash) ? hash : 'Marketing';
+            filterBlogs(category);
         });
     </script>
 </body>

@@ -109,3 +109,11 @@
 .blog-item.hidden {
     display: none;
 }
+
+/* Author bio image - ensure perfect circle */
+.author-bio img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
