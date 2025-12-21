@@ -281,6 +281,10 @@ main section.py-5:first-of-type {
     color: #61dafb !important;
 }
 
+.navbar-dark .nav-link:hover::after {
+    display: none;
+}
+
 .navbar-dark .nav-link.active {
     color: #61dafb !important;
     font-weight: 600;
