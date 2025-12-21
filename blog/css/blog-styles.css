@@ -263,13 +263,13 @@ main section.py-5:first-of-type {
 }
 
 .navbar-dark .navbar-brand {
-    color: #000 !important;
+    color: #61dafb !important;
     font-weight: 700;
     font-size: 1.5rem;
 }
 
 .navbar-dark .navbar-brand:hover {
-    color: #61dafb !important;
+    color: white !important;
 }
 
 .navbar-dark .nav-link {
