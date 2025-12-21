@@ -287,6 +287,10 @@ main section.py-5:first-of-type {
     position: relative;
 }
 
+.navbar-dark .nav-link.active:hover {
+    color: #61dafb !important;
+}
+
 .navbar-dark .nav-link.active::after {
     content: '';
     position: absolute;
