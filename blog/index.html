@@ -636,8 +636,8 @@
             // Update pagination
             updatePagination(totalPages, page);
             
-            // Scroll to top of blog list
-            document.getElementById('blog-list').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Scroll to top of page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             
             // Update URL hash
             window.location.hash = `${category}/page/${page}`;
