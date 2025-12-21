@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Checklist</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/Johnson-Frontend/cursor/74fbb9994f7e47dabc67bb20cd294f161bcc2fc0/image/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="stylesheet" href="header.css">
+    <script src="slider.js"></script>
+    <link rel="stylesheet" href="slider.css"> 
+    <style>
+        body, html {
+            overflow-x: hidden; /* Prevent horizontal overflow */
+        }
+
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)), url('image/bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+        }
+      
+        .container {
+            max-width: 900px;
+            margin: 10px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        h1 {
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            justify-content: center;
+        }
+        @media (max-width: 1024px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .project-category {
+            background-color: rgba(248, 249, 250, 0.6);
+            border-radius: 8px;
+            padding: 0 15px 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1rem;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+        .project-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .project-category ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .project-category li {
+            margin-bottom: 5px;
+            padding: 3px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .project-category li:hover {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+        .project-category a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+        }
+        .project-category a:hover {
+            color: #667eea;
+        }
+        footer {
+            background-color: rgba(45, 55, 72, 0.9);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+        }
+        .project-category h2 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin: 0 -15px 10px;
+            padding: 10px 15px;
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 500; /* Reduced from 600 if it was set */
+            letter-spacing: 0.5px; /* Added for better readability */
+        }
+        .project-category h2::after {
+            content: none;
+        }
+        /* Add this new style to create more space between rows */
+        .project-category:nth-child(n+4) {
+            margin-top: 0;
+        }
+        .search-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            max-width: 480px;
+            margin: 0;
+        }
+
+        #searchInput {
+            flex: 1; /* Allow the input to take available space */
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 20px 0 0 20px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-container button {
+            padding: 11px 25px;
+            font-size: 16px;
+            background-image: linear-gradient(to right, #6a11cb 20%, #2575fc 80%);
+            color: white;
+            border: none;
+            margin-left: 2px; /* Overlap the border with the input */
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-container button:hover {
+            opacity: 0.9;
+        }
+
+        .highlight {
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.4), rgba(37, 117, 252, 0.4));
+            border-radius: 3px;
+            padding: 2px 5px;
+            margin: 0 -5px;
+            position: relative;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+            color: #000;
+            font-weight: 600;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+        }
+
+        /* Updated animation for more visibility */
+        @keyframes highlightPulse {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 0 12px rgba(37, 117, 252, 0.5);
+            }
+            100% { 
+                transform: scale(1);
+                box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
+            }
+        }
+
+        .highlight {
+            animation: highlightPulse 1.5s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        /* Add styles for the parent element when it contains a highlight */
+        .project-category a:has(.highlight) {
+            background-color: rgba(106, 17, 203, 0.1);
+            display: block;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        /* Add a subtle hover effect */
+        .project-category:hover h2 {
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.9) 20%, rgba(37, 117, 252, 0.9) 80%);
+            transition: background-image 0.3s ease;
+        }
+
+        .back-to-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            padding: 10px;
+            margin: 20px auto 40px;
+            text-align: center;
+        }
+
+        .back-to-top img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 4px;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .back-to-top:hover img {
+            transform: translateY(-5px);
+        }
+
+        .back-to-top span {
+            color: #4a5568;
+            font-size: 1.1rem;
+            font-weight: 500;
+            white-space: nowrap;
+            margin-top: 5px;
+        }
+
+        .modern-footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            box-shadow: 0 -10px 20px rgba(106, 17, 203, 0.1);
+        }
+
+        .modern-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+        }
+
+        .footer-section.office p,
+        .footer-section.office a {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section.links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section.links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section.links ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-section.links ul li a:hover {
+            padding-left: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 4px 0 0 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .subscribe-btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #6a11cb;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background: #fff;
+            transform: translateX(3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        header {
+            margin-bottom: 0; /* Ensure no margin below header */
+        }
+
+        /* Footer styles from foot.css */
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 10px;
+        }
+
+        .footer-list a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;    
+            transition: color 0.3s ease;
+        }
+
+        .footer-list a:hover,
+        .footer-list a:focus {
+            color: #ffcc00;
+        }
+
+        .footer-section {
+            padding: 10px;
+        }
+
+        .footer-logo {
+            width: 60px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #d9e2ec);
+            border-radius: 20px;
+            box-shadow: 4px 4px 26px rgba(0.1, 0.1, 0.1, 0.1);
+        }
+
+        .footer-section.brand {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .footer-sections {
+            display: flex;
+            flex: 3;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.6rem;
+            color: #ffffff;
+        }
+
+        .footer-section.newsletter {
+            text-align: left;
+            margin-right: 30px;
+        }
+
+        .social-links {
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #ccc;
+        }
+
+        .newsletter-form button {
+            padding: 8px 16px;
+            background-color: #ffcc00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        } 
+
+        .project-list-link {
+            color: #fff; /* Text color */
+            background: linear-gradient(135deg, #9b59b6, #3498db); /* Purple to blue gradient */
+            padding: 0.5rem 1rem; /* Padding for better appearance */
+            border-radius: 15px; /* Larger rounded corners */
+            position: relative; /* For positioning the animation */
+            display: inline-block; /* Ensure proper padding */
+        }
+
+
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #searchInput::placeholder {
+            color: #aaa; /* Light grey color for placeholder */
+        }
+
+        .hero-image {
+            position: relative; /* Ensure the hero image is positioned relative */
+            z-index: 1; /* Keep the image below the search container */
+            display: block; /* Ensure the image is a block element */
+            margin: 0 auto; /* Center the image horizontally */
+            padding: 0; /* Remove any default padding */
+            width: 100%; /* Make the image take the full width of its container */
+            height: auto; /* Maintain the aspect ratio */
+            object-fit: cover; /* Ensure the image covers the container */
+            object-position: center; /* Center the image within its container */
+        }
+
+        .search-container {
+            position: absolute; /* Position the search container absolutely */
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Adjust for the element's own dimensions */
+            z-index: 2; /* Ensure it appears above the hero image */
+            text-align: center; /* Center text inside the search container */
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Center items vertically */
+            justify-content: center; /* Center items horizontally */
+            width: 80%; /* Set a fixed width for the search container */
+            max-width: 480px; /* Optional: limit the maximum width */
+            margin: 0; /* Remove any default margin */
+        }
+
+        #searchInput {
+            flex: 1; /* Allow the input to take available space */
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 20px 0 0 20px;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-container button {
+            padding: 11px 25px;
+            font-size: 16px;
+            background-image: linear-gradient(to right, #6a11cb 20%, #2575fc 80%);
+            color: white;
+            border: none;
+            margin-left: 2px; /* Overlap the border with the input */
+            border-radius: 0 20px 20px 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-container button:hover {
+            opacity: 0.9;
+        }
+
+.hero-image-placeholder {
+    width: 100%;
+    height: 450px;
+    background-color: transparent;
+    position: relative;
+    background-image: url('https://johnsonmarketer.com/image/marketing.png');
+    
+    /* Ensure the image retains its original size */
+    background-size: 250px 250px;
+    
+    /* Position the image to the right and vertically center it */
+    background-position: 85.66% 60.66%; /* 2/3 horizontally, centered vertically */
+    
+    /* Prevent the background image from repeating */
+    background-repeat: no-repeat;
+    
+    /* Optional: If you want some padding or space on the left */
+    padding-right: 20px; /* Adjust as needed */
+}
+
+
+        .timestamp {
+            color: black; /* Change text color to black */
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <!-- Directly include the header -->
+    <header class="sticky-header debug-header">
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="https://www.johnsonmarketer.com/">
+                    <img id="logo" src="https://raw.githubusercontent.com/Johnson-Frontend/project/ed55a241c8b75ccef3b99e1cba704eb85ea39ad8/image/logo.svg" alt="Brand Logo">
+                </a>
+                <a href="https://www.johnsonmarketer.com/" style="text-decoration: none; color: inherit;">
+                    <span style="font-size: 1.2rem;">ByteBoost</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="https://www.johnsonmarketer.com/">Home</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">Services</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">About</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="project-list-link pulse">Project List</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="get-in-touch-link">Get in touch</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Add this script right after the header -->
+    <script>
+        // Debug script to check if header is working
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.debug-header');
+            const scrollPosition = window.scrollY;
+            console.log('Scroll position:', scrollPosition);
+            console.log('Header position:', header.getBoundingClientRect().top);
+        });
+    </script>
+
+    <div style="height: 100px;"></div>
+    <div class="hero-image-placeholder"></div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="">
+        <button onclick="searchProjects()">Search</button>
+    </div>
+    <div class="container">
+        
+        
+       
+        <h1>Marketing Projects</h1>
+        <br>
+        <div class="project-grid">
+    <!-- 1. Strategy -->
+    <div class="project-category">
+        <h2>Strategy</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/7ps.html" target="_blank">7Ps Framework</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/branding.html" target="_blank">Branding</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/positioning.html" target="_blank">Positioning</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/promotion.html" target="_blank">Promotion</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/research.html" target="_blank">Research</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/product.html" target="_blank">product</a></li>
+
+
+        </ul>
+    </div>
+    <!-- 2. Content -->
+    <div class="project-category">
+        <h2>Content</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/blogging.html" target="_blank">Blogging</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/physical_evidence.html" target="_blank">Sensory marketing</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/graphic.html" target="_blank">Graphic Design</a></li>
+
+            <li><a href="https://marketing.johnsonmarketer.com/copy.html" target="_blank">Copywriting</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/Story.html" target="_blank">Business Story</a></li>
+        </ul>
+    </div>
+    <!-- 3. Channels -->
+    <div class="project-category">
+        <h2>Channels</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/social_media.html" target="_blank">Social Media</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/email.html" target="_blank">Email Marketing</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/mail.html" target="_blank">Direct Mail</a></li>
+        </ul>
+    </div>
+    <!-- 4. Analytics -->
+    <div class="project-category">
+        <h2>Analytics</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/ga.html" target="_blank">Google Ads</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/feedback.html" target="_blank">Customer Feedback</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/review.html" target="_blank">Social listening</a></li>
+        </ul>
+    </div>
+    <!-- 5. Leads -->
+    <div class="project-category">
+        <h2>Leads</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/lead.html" target="_blank">Lead Generation</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/crm.html" target="_blank">CRM Management</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/kol.html" target="_blank">KOL Collaboration</a></li>
+        </ul>
+    </div>
+    <!-- 6. SEO -->
+    <div class="project-category">
+        <h2>SEO</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/on_page_seo.html" target="_blank">On-Page SEO</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/backlink.html" target="_blank">Backlink Building</a></li>
+        </ul>
+    </div>
+    <!-- 7. Planning -->
+    <div class="project-category">
+        <h2>Planning</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/plan.html" target="_blank">Marketing Plan</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/budget.html" target="_blank">Budget Planning</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/pm.html" target="_blank">Project Management</a></li>
+        </ul>
+    </div>
+    <!-- 8. Campaigns -->
+    <div class="project-category">
+        <h2>Campaigns</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/campaign.html" target="_blank">Campaign Management</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/catalogue.html" target="_blank"> Catalogue</a></li>
+        </ul>
+    </div>
+    <!-- 9. Team -->
+    <div class="project-category">
+        <h2>Team</h2>
+        <ul>
+            <li><a href="https://marketing.johnsonmarketer.com/team.html" target="_blank">Team management</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/competitor.html" target="_blank">Differentiation</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/persona.html" target="_blank">Customer Persona</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/user_journey_map.html" target="_blank">User Journey Mapping</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/meeting.html" target="_blank">Team Meeting</a></li>
+            <li><a href="https://marketing.johnsonmarketer.com/reporting.html" target="_blank">Reporting</a></li>
+
+
+        </ul>
+    </div>
+</div>
+        
+    </div>
+    <div class="back-to-top" id="backToTopBtn" onclick="scrollToTop()">
+        <img src="https://github.com/Johnson-Frontend/cursor/blob/main/image/uparrow.png?raw=true" alt="Back to Top">
+        <span>Back To Top</span>
+    </div>
+
+
+
+  
+
+    <!-- Include footer -->
+    <div id="footer-placeholder"></div>
+
+               <!-- Chat widget -->
+    <div id="chatContainer"></div>
+
+               <script src="script.js"></script>
+               <script>
+                   document.addEventListener('DOMContentLoaded', function() {
+                       // Focus on the input field when the page loads
+                       const todoInput = document.getElementById('todo-input');
+                       if (todoInput) {
+                           todoInput.focus();
+                       }
+           
+                       // Load chat widget HTML
+                       fetch('chat.html')
+                           .then(response => response.text())
+                           .then(data => {
+                               document.getElementById('chatContainer').innerHTML = data;
+                               // Initialize chat widget functionality
+                               const chatButton = document.getElementById('chatButton');
+                               const chatContainer = document.querySelector('.chat-container');
+                               const closeChat = document.getElementById('closeChat');
+           
+                               if (chatButton) {
+                                   chatButton.addEventListener('click', function() {
+                                       chatContainer.classList.toggle('active');
+                                       console.log('Chat button clicked, chatContainer active:', chatContainer.classList.contains('active'));
+                                   });
+                               } else {
+                                   console.error('Chat button not found!');
+                               }
+           
+                               if (closeChat) {
+                                   closeChat.addEventListener('click', function() {
+                                       chatContainer.classList.remove('active');
+                                       console.log('Close chat button clicked');
+                                   });
+                               } else {
+                                   console.error('Close chat button not found!');
+                               }
+                           })
+                           .catch(error => console.error('Error loading chat widget:', error));
+                   });
+           
+                   function navigateTo(url) {
+                       window.location.href = url;
+                   }
+          
+        function searchProjects() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const projectCategories = document.querySelectorAll('.project-category');
+            let firstMatch = null;
+
+            projectCategories.forEach(category => {
+                const links = category.querySelectorAll('a');
+
+                links.forEach(link => {
+                    const text = link.textContent.toLowerCase();
+                    if (text.includes(input)) {
+                        link.innerHTML = text.replace(new RegExp(input, 'gi'), match => `<span class="highlight">${match}</span>`);
+                        if (!firstMatch) {
+                            firstMatch = link;
+                        }
+                    } else {
+                        link.innerHTML = text; // Reset the link text
+                    }
+                });
+            });
+
+            // Scroll to the first matching result
+            if (firstMatch) {
+                firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function openHighlightedLinks() {
+            const highlightedLinks = document.querySelectorAll('.highlight');
+            highlightedLinks.forEach(highlight => {
+                const link = highlight.closest('a');
+                if (link) {
+                    window.open(link.href, '_blank');
+                }
+            });
+        }
+
+        function scrollToTop() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectListLink = document.querySelector('.project-list-link');
+            if (projectListLink) {
+                projectListLink.classList.add('pulse');
+                setTimeout(() => {
+                    projectListLink.classList.remove('pulse');
+                }, 1500); // Remove the pulse class after 1.5 seconds
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const placeholderText = "Search Johnson's projects...";
+            let index = 0;
+
+            function type() {
+                if (index < placeholderText.length) {
+                    searchInput.setAttribute('placeholder', placeholderText.substring(0, index + 1));
+                    index++;
+                    setTimeout(type, 100); // Adjust typing speed here
+                } else {
+                    setTimeout(() => {
+                        index = 0;
+                        type();
+                    }, 2000); // Pause before restarting
+                }
+            }
+
+            type();
+        });
+
+        // Load footer.html into the footer-placeholder div
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+
+        // Load header.html into the header-placeholder div
+        <!--
+        fetch('header.html')
+      .then(response => response.text())
+      .then(html => {
+          document.getElementById('header-placeholder').innerHTML = html;
+      });
+        -->
+    </script>
+</body>
+</html>

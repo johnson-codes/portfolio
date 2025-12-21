@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Mail That Delivers</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/Johnson-Frontend/cursor/74fbb9994f7e47dabc67bb20cd294f161bcc2fc0/image/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="highlight.css">
+    <script src="highlight.js"></script>
+    <script src="slider.js"></script>
+    <link rel="stylesheet" href="slider.css"> 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #000; /* Changed text color to black */
+            padding: 0 px; /* Removed padding to get rid of the big gap */
+            background-image: url('/image/background2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6); /* Semi-transparent white overlay */
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 490px; 
+            background: url('image/mail.svg') center center no-repeat;
+            background-size: contain; /* Set the background size to contain */
+            color: #000; /* Changed text color to black */
+            text-align: center;
+            border-radius: 26px; /* Added border-radius to make edges less sharp */
+            background-position: center center; /* Ensure the image is centered */
+            max-width: 1200px; /* Set max-width for background image */
+            margin: 10px  auto; /* Center the hero section */
+            position: relative; /* Added to position the content absolutely */
+        }
+
+        .hero div {
+            position: absolute;
+            bottom: 50px; /* Adjusted to provide enough margin space */
+            left: 50px; /* Adjusted to provide enough margin space */
+            text-align: left; /* Align text to the left */
+        }
+
+        .hero h1, .hero p, .hero button {
+            text-align: left; /* Ensure individual elements are left-aligned */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 2px solid #fff; /* Changed border color to white */
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%); /* Updated background image */
+            color: white; /* Changed text color to white */
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .hero button:hover {
+            background-image: linear-gradient(to right, rgba(37, 117, 252, 0.8) 20%, rgba(106, 17, 203, 0.8) 80%); /* Inverted gradient on hover */
+            color: white; /* Ensure text color remains white */
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+        }
+
+        /* Main Content Area */
+        .content {
+            padding: 40px; /* Reduced padding */
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Reduced box-shadow */
+            border-radius: 26px; /* Reduced border-radius */
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            margin-bottom: 20px;
+            margin-top: 20px; /* Added margin-top for spacing between sections */
+        }
+
+        .section:last-child {
+            margin-bottom: 80px;
+        }
+
+        .section:nth-child(odd) img {
+            order: -1;
+        }
+
+        .section img {
+            width: 45%; /* Set width to 45% for even share */
+            margin: 0 2.5%; /* Add margin to balance the space */
+            border-radius: 8px;
+        }
+
+        .section .text {
+            width: 45%; /* Set width to 45% for even share */
+            margin: 0 2.5%; /* Add margin to balance the space */
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            line-height: 1.8;
+        }
+
+        /* Bottom Form Section */
+        .form-section {
+            text-align: center;
+            padding: 80px; /* Updated padding to match big-container */
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 26px; /* Updated border-radius to match big-container */
+            max-width: 920px; /* Updated max-width to match big-container */
+            margin: 40px auto;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-section input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%); /* Updated background image */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .form-section button:hover {
+            background-image: linear-gradient(to right, rgba(37, 117, 252, 0.8) 20%, rgba(106, 17, 203, 0.8) 80%); /* Inverted gradient on hover */
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+        }
+
+        .business-case-heading {
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%);
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding: 10px; /* Added padding for better spacing */
+            border-radius: 8px; /* Added border-radius for rounded corners */
+        }
+
+        footer {
+            background-color: rgba(45, 55, 72, 0.9);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+        }
+
+        .modern-footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            box-shadow: 0 -10px 20px rgba(106, 17, 203, 0.1);
+        }
+
+        .modern-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+        }
+
+        .footer-section.office p,
+        .footer-section.office a {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section.links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section.links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section.links ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-section.links ul li a:hover {
+            padding-left: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 4px 0 0 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .subscribe-btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #6a11cb;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background: #fff;
+            transform: translateX(3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        header {
+            margin-bottom: 0; /* Ensure no margin below header */
+        }
+
+        /* Footer styles from foot.css */
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 10px;
+        }
+
+        .footer-list a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;    
+            transition: color 0.3s ease;
+        }
+
+        .footer-list a:hover,
+        .footer-list a:focus {
+            color: #ffcc00;
+        }
+
+        .footer-section {
+            padding: 10px;
+        }
+
+        .footer-logo {
+            width: 60px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #d9e2ec);
+            border-radius: 20px;
+            box-shadow: 4px 4px 26px rgba(0.1, 0.1, 0.1, 0.1);
+        }
+
+        .footer-section.brand {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .footer-sections {
+            display: flex;
+            flex: 3;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.6rem;
+            color: #ffffff;
+        }
+
+        .footer-section.newsletter {
+            text-align: left;
+            margin-right: 30px;
+        }
+
+        .social-links {
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #ccc;
+        }
+
+        .newsletter-form button {
+            padding: 8px 16px;
+            background-color: #ffcc00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        } 
+
+        .project-list-link {
+            color: #fff; /* Text color */
+            background: linear-gradient(135deg, #9b59b6, #3498db); /* Purple to blue gradient */
+            padding: 0.5rem 1rem; /* Padding for better appearance */
+            border-radius: 15px; /* Larger rounded corners */
+            position: relative; /* For positioning the animation */
+            display: inline-block; /* Ensure proper padding */
+        }
+
+        p {
+            font-size: 18px; /* Set font size of paragraphs to 18px */
+        }
+
+        .icon-placeholder {
+    width: 20%; /* Changed from previous width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add margin to the right of the icon */
+}
+
+.text-content {
+    width: 70%; /* Ensure text takes 70% of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.6; /* Increase line height for better readability */
+    /* ...existing styles... */
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Adjust image size within the icon-placeholder if necessary */
+.icon-placeholder img {
+    width: 60%; /* Adjust as needed */
+    height: auto;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Load header from header.html -->
+     <!-- Directly include the header -->
+     <header class="debug-header">
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="https://marketing.johnsonmarketer.com/">
+                    <img id="logo" src="https://raw.githubusercontent.com/Johnson-Frontend/project/ed55a241c8b75ccef3b99e1cba704eb85ea39ad8/image/logo.svg" alt="Brand Logo">
+                </a>
+                <a href="https://marketing.johnsonmarketer.com/" style="text-decoration: none; color: inherit;">
+                    <span style="font-size: 1.2rem;">ByteBoost</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="https://marketing.johnsonmarketer.com/">Home</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">Services</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">About</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="project-list-link pulse">Project List</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="get-in-touch-link">Get in touch</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div>
+            <h1>Direct Mail That Delivers</h1>
+            <p>Turning mailboxes into marketing goldmines.</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <div class="big-container">
+            <div class="section">
+                <img src="image/Challenge.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Challenge</h2>
+                    <p>Direct mail marketing can feel a bit like throwing a boomerang—you hope it comes back with results. But let’s be real: poorly executed campaigns usually end up in the <span class="highlight-keyword"> recycling bin</span> faster than you can say “junk mail.”</p>
+                    <p>The challenge is standing out while navigating costs, databases, and postal rules. I’ve seen amazing ideas fail because the wrong audience was targeted or the mailer didn’t fit into a mailbox (true story).</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Research</h2>
+                    <p>Before you even think about printing a postcard, <span class="highlight-keyword"> research is </span> everything. Who’s your audience? What do they care about? Build a strong, targeted database—it’s your campaign’s backbone. Services like Canada Post and USPS help with regional segmentation, but for B2B campaigns, hiring a developer to scrape Google Maps’ Merchant Center can be a game-changer.</p>
+                    <p>This approach ensures a custom database, but here’s the kicker: screen out permanently closed businesses. Nothing says “out of touch” like sending mail to a ghost address. A clean, curated database is your golden ticket to a successful campaign.</p>
+                </div>
+                <img src="image/Research.svg" alt="Placeholder Image">
+            </div>
+            <div class="section">
+                <img src="image/solution.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Solution</h2>
+                    <p>Here’s where the magic happens. Your mailer should be a <span class="highlight-keyword"> work of art </span> —literally. Invest in professional artwork that aligns with your brand but also pops in the mailbox. Keep your key message clear and benefits-driven, and don’t skimp on the call-to-action.</p>
+                    <p>If possible, test with a small sample first. Nothing beats real feedback before going full steam ahead. One time, I caught a typo in the CTA on a test run—imagine mailing out 10,000 of those! Lesson learned.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Set Objectives</h2>
+                    <p>Let’s make sure this campaign isn’t just a pretty piece of paper. Set <span class="highlight-keyword"> specific goals </span>, like response rate, new leads generated, or even ROI. A standard benchmark is 1–3% response rate for direct mail, but with good targeting and a killer offer, I’ve seen campaigns hit 10%.</p>
+                    <p>Track everything—use unique coupon codes or landing pages to tie responses back to the mailer. Your KPIs should show you what’s working and where to improve next time.</p>
+                </div>
+                <img src="image/objective.svg" alt="Placeholder Image">
+            </div>
+            <div class="section">
+                <img src="image/resource.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Get Resources</h2>
+                    <p>A successful direct mail campaign requires <span class="highlight-keyword"> teamwork</span>. You’ll need a great designer for the artwork, a database expert to nail down targeting, and a reliable printer who won’t miss deadlines. Trust me, late mailers are wasted mailers.</p>
+                    <p>If scraping Google Maps isn’t an option, hire a list broker, but verify the quality. Canada Post and USPS have distribution services, but budget for extra touches like professional proofreading—typos are the enemy of conversions. Sizewise, it's always good to choose the right size. Make sure it can go through the mailbox.With the right resources, your mailer can become irresistible.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Evaluate Results</h2>
+                    <p>The moment of truth: did your campaign work? <span class="highlight-keyword"> Gather data</span> from your codes, track sales, and look at your response rate. Compare the results to your goals and dissect what worked—and what didn’t.</p>
+                    <p>Always save your samples, too! They’re not just keepsakes; they’re a learning tool for your next campaign. Success in direct mail is all about refining your approach each time. 📬</p>
+                </div>
+                <img src="image/evaluation.svg" alt="Placeholder Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section -->
+     <!-- Insert star_email.html content above the form section -->
+     <div class="content">
+        <main class="container mx-auto py-8">
+            <!-- Features Section -->
+            <h2 class="business-case-heading">Case in Action</h2>
+            <br>
+
+
+        <div class="content gradient-border flex items-center feature-item" style="margin-top: -20px;">
+            <div id="banner-slider" data-images='["pic/101.png", "pic/102.png"]'>
+                <button class="slider-btn left">&lt;</button>
+                <button class="slider-btn right">&gt;</button>
+            </div>
+        </div>
+        
+                    <!-- Feature Item 1 -->
+                    <div class="content gradient-border flex items-center feature-item">
+                        <div class="icon-placeholder">
+                            <img src="image/1.png" alt="Icon 1" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-content">
+                            <h2 class="text-lg font-semibold mb-2">Situation</h2>
+                            <p class="text-gray-600 text-lg">
+                                Our Direct mail marketing campaign idea all started in 2023. You know those random flyers you get in the mail—the ones that usually end up as coffee coasters or emergency fire starters? Well, turns out they <span class="highlight-keyword"> actually work</span>. We kept getting flashy mail from Pizza Hut, Sephora, Staples, even our competitors, and we actually opened them. Not out of boredom, but because they were visually striking, packed with discounts, and even had QR codes (very fancy). That got us thinking—if this works on us, maybe it’ll work on our customers too. Time to weaponize the mailbox.                            </p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 2 -->
+                    <div class="content gradient-border flex items-center feature-item">
+                        <div class="icon-placeholder">
+                            <img src="image/2.png" alt="Icon 2" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-content">
+                            <h2 class="text-lg font-semibold mb-2">Objectives</h2>
+                            <p class="text-gray-600 text-lg">
+                                We didn’t just want to throw paper at people and hope for the best. We set <span class="highlight-keyword"> set goals</span>. First, we targeted specific areas, city by city, province by province in Canada, because nationwide carpet-bombing is expensive. Next, we tracked how many mailers actually made it by randomly calling folks (not creepy, just thorough). We measured how many orders came from the campaign and calculated ROI, because if we’re spending money, we better be making it back (and then some). Oh, and we hired a developer to scrape data from our audience—because why stop at mail when you can also have a data-driven approach?                            </p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 3 -->
+                    <div class="content gradient-border flex items-center feature-item">
+                        <div class="icon-placeholder">
+                            <img src="image/3.png" alt="Icon 3" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-content">
+                            <h2 class="text-lg font-semibold mb-2">Actions Taken</h2>
+                            <p class="text-gray-600 text-lg">
+                                Finding a <span class="highlight-keyword"> good service supplier</span> was our first hurdle. Turns out, not all printing companies are created equal—some send you samples that look like they were printed with a potato, wrong size, wrong weight is a commoplace. After several rounds of "Hey, can we fix this?" and "Why does this QR code lead to nowhere?", we finally locked in the right team. With that settled, we moved on to testing. We launched small—3,000 mailers first, then 5,000, then another 3,000. Each batch was designed with a strong message, a juicy discount code, and a clear call to action. Basically, we made sure they weren’t the kind of flyers you use to kill a spider but the kind you actually act on.                            </p>
+                        </div>
+                    </div>
+                    <!-- Feature Item 4 -->
+                    <div class="content gradient-border flex items-center feature-item">
+                        <div class="icon-placeholder">
+                            <img src="image/4.png" alt="Icon 4" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="text-content">
+                            <h2 class="text-lg font-semibold mb-2">Results</h2>
+                            <p class="text-gray-600 text-lg">
+                                Drumroll, please! The first round of 3,000 mailers delivered an ROI of 2.9:1. The second round, with 5,000 mailers, performed even better at 3.2:1. By the third round, another 3,000 mailers brought in a solid 3:1 return. Solid returns, no angry mobs, and actual sales—success! Turns out, when done right, direct mail is still a powerhouse. Lesson learned? If you put effort into making it useful, people don’t just toss it—they use it. And that means more sales, better branding, and a reason to keep that printer running.
+                                <span class="highlight-keyword"> Moral of the story</span>: Never underestimate the power of a well-placed discount code in someone’s mailbox.                            </p>
+
+                        </div>
+                    </div>
+    
+    </div>
+    <!-- Bottom Form Section -->
+    <div class="form-section">
+        <h2>Keep in Touch</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="chatContainer"></div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus on the input field when the page loads
+            const todoInput = document.getElementById('todo-input');
+            if (todoInput) {
+                todoInput.focus();
+            }
+
+            // Load chat widget HTML
+            fetch('chat.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('chatContainer').innerHTML = data;
+                    // Initialize chat widget functionality
+                    const chatButton = document.getElementById('chatButton');
+                    const chatContainer = document.querySelector('.chat-container');
+                    const closeChat = document.getElementById('closeChat');
+
+                    if (chatButton) {
+                        chatButton.addEventListener('click', function() {
+                            chatContainer.classList.toggle('active');
+                            console.log('Chat button clicked, chatContainer active:', chatContainer.classList.contains('active'));
+                        });
+                    } else {
+                        console.error('Chat button not found!');
+                    }
+
+                    if (closeChat) {
+                        closeChat.addEventListener('click', function() {
+                            chatContainer.classList.remove('active');
+                            console.log('Close chat button clicked');
+                        });
+                    } else {
+                        console.error('Close chat button not found!');
+                    }
+                })
+                .catch(error => console.error('Error loading chat widget:', error));
+        });
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+<div id="footer-placeholder"></div>
+
+<script>
+
+// Load footer.html into the footer-placeholder div
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+    });
+
+// Load header.html into the header-placeholder div
+<!--
+fetch('header.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('header-placeholder').innerHTML = html;
+});
+-->
+</script>
+
+
+
+
+</body>
+</html>

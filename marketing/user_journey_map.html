@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map It or Miss It</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/Johnson-Frontend/cursor/74fbb9994f7e47dabc67bb20cd294f161bcc2fc0/image/favicon.svg" type="image/svg+xml">
+   
+    <link rel="stylesheet" href="highlight.css">
+    <script src="highlight.js"></script>
+    <script src="slider.js"></script>
+    <link rel="stylesheet" href="slider.css"> 
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #000; /* Changed text color to black */
+            padding: 0 px; /* Removed padding to get rid of the big gap */
+            background-image: url('/image/background2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6); /* Semi-transparent white overlay */
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 490px; 
+            background: url('image/map.png') center center no-repeat;
+            background-size: contain; /* Set the background size to contain */
+            color: #000; /* Changed text color to black */
+            text-align: center;
+            border-radius: 26px; /* Added border-radius to make edges less sharp */
+            background-position: center center; /* Ensure the image is centered */
+            max-width: 1200px; /* Set max-width for background image */
+            margin: 10px  auto; /* Center the hero section */
+            position: relative; /* Added to position the content absolutely */
+        }
+
+        .hero div {
+            position: absolute;
+            bottom: 50px; /* Adjusted to provide enough margin space */
+            left: 50px; /* Adjusted to provide enough margin space */
+            text-align: left; /* Align text to the left */
+        }
+
+        .hero h1, .hero p, .hero button {
+            text-align: left; /* Ensure individual elements are left-aligned */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 2px solid #fff; /* Changed border color to white */
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%); /* Updated background image */
+            color: white; /* Changed text color to white */
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .hero button:hover {
+            background-image: linear-gradient(to right, rgba(37, 117, 252, 0.8) 20%, rgba(106, 17, 203, 0.8) 80%); /* Inverted gradient on hover */
+            color: white; /* Ensure text color remains white */
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+        }
+
+        /* Main Content Area */
+        .content {
+            padding: 40px; /* Reduced padding */
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Reduced box-shadow */
+            border-radius: 26px; /* Reduced border-radius */
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            margin-bottom: 20px;
+            margin-top: 20px; /* Added margin-top for spacing between sections */
+        }
+
+        .section:last-child {
+            margin-bottom: 80px;
+        }
+
+        .section:nth-child(odd) img {
+            order: -1;
+        }
+
+        .section img {
+            width: 45%; /* Set width to 45% for even share */
+            margin: 0 2.5%; /* Add margin to balance the space */
+            border-radius: 8px;
+        }
+
+        .section .text {
+            width: 45%; /* Set width to 45% for even share */
+            margin: 0 2.5%; /* Add margin to balance the space */
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            line-height: 1.8;
+        }
+
+        /* Bottom Form Section */
+        .form-section {
+            text-align: center;
+            padding: 80px; /* Updated padding to match big-container */
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 26px; /* Updated border-radius to match big-container */
+            max-width: 920px; /* Updated max-width to match big-container */
+            margin: 40px auto;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-section input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%); /* Updated background image */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .form-section button:hover {
+            background-image: linear-gradient(to right, rgba(37, 117, 252, 0.8) 20%, rgba(106, 17, 203, 0.8) 80%); /* Inverted gradient on hover */
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+        }
+
+        .business-case-heading {
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%);
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding: 10px; /* Added padding for better spacing */
+            border-radius: 8px; /* Added border-radius for rounded corners */
+        }
+
+        footer {
+            background-color: rgba(45, 55, 72, 0.9);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+        }
+
+        .modern-footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            box-shadow: 0 -10px 20px rgba(106, 17, 203, 0.1);
+        }
+
+        .modern-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+        }
+
+        .footer-section.office p,
+        .footer-section.office a {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section.links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section.links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section.links ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-section.links ul li a:hover {
+            padding-left: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 4px 0 0 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .subscribe-btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #6a11cb;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background: #fff;
+            transform: translateX(3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        header {
+            margin-bottom: 0; /* Ensure no margin below header */
+        }
+
+        /* Footer styles from foot.css */
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 10px;
+        }
+
+        .footer-list a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;    
+            transition: color 0.3s ease;
+        }
+
+        .footer-list a:hover,
+        .footer-list a:focus {
+            color: #ffcc00;
+        }
+
+        .footer-section {
+            padding: 10px;
+        }
+
+        .footer-logo {
+            width: 60px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #d9e2ec);
+            border-radius: 20px;
+            box-shadow: 4px 4px 26px rgba(0.1, 0.1, 0.1, 0.1);
+        }
+
+        .footer-section.brand {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .footer-sections {
+            display: flex;
+            flex: 3;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.6rem;
+            color: #ffffff;
+        }
+
+        .footer-section.newsletter {
+            text-align: left;
+            margin-right: 30px;
+        }
+
+        .social-links {
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #ccc;
+        }
+
+        .newsletter-form button {
+            padding: 8px 16px;
+            background-color: #ffcc00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        } 
+
+        .project-list-link {
+            color: #fff; /* Text color */
+            background: linear-gradient(135deg, #9b59b6, #3498db); /* Purple to blue gradient */
+            padding: 0.5rem 1rem; /* Padding for better appearance */
+            border-radius: 15px; /* Larger rounded corners */
+            position: relative; /* For positioning the animation */
+            display: inline-block; /* Ensure proper padding */
+        }
+
+        p {
+            font-size: 18px; /* Set font size of paragraphs to 18px */
+        }
+
+        .icon-placeholder {
+    width: 20%; /* Changed from previous width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add margin to the right of the icon */
+}
+.text-content {
+    width: 70%; /* Ensure text takes 70% of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.6; /* Increase line height for better readability */
+    /* ...existing styles... */
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Adjust image size within the icon-placeholder if necessary */
+.icon-placeholder img {
+    width: 60%; /* Adjust as needed */
+    height: auto;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Load header from header.html -->
+     <!-- Directly include the header -->
+     <header class="debug-header">
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="https://marketing.johnsonmarketer.com/">
+                    <img id="logo" src="https://raw.githubusercontent.com/Johnson-Frontend/project/ed55a241c8b75ccef3b99e1cba704eb85ea39ad8/image/logo.svg" alt="Brand Logo">
+                </a>
+                <a href="https://marketing.johnsonmarketer.com/" style="text-decoration: none; color: inherit;">
+                    <span style="font-size: 1.2rem;">ByteBoost</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="https://marketing.johnsonmarketer.com/">Home</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">Services</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">About</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="project-list-link pulse">Project List</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="get-in-touch-link">Get in touch</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div>
+            <h1>Map It or Miss It</h1>
+            <p>Understand your customers—or watch them vanish.</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <div class="big-container">
+            <div class="section">
+                <img src="image/Challenge.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Challenge</h2>
+                    <p>If your business can’t <span class="highlight-keyword">impress, engage, or convert </span>  customers, you’re not alone—it’s a pretty common problem. Some companies don’t even know where their customers are popping up, let alone how to target them. It’s like throwing a party but forgetting to send out invitations. Awkward, right?</p>
+                    <p>And let’s not forget the dreaded drop-offs. You’ve got people browsing your website, adding things to their cart, and then poof—they disappear faster than my motivation to work out. If you don’t know where you’re losing them, how do you fix it?</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>What is Customer Journey Mapping?</h2>
+                    <p>Customer journey mapping is like creating a treasure map—except the treasure is customer loyalty and sales. You’re charting the entire experience, from the first “Who are you?” to the final “Shut up and take my money.” It’s about knowing every <span class="highlight-keyword">touchpoint, obstacle, </span> and opportunity.</p>
+                    <p>Think of it as the customer’s diary. What are they feeling? What do they need at each stage? When you understand that, you can show up with solutions before they even ask. It’s not magic—it’s just good marketing.</p>
+                </div>
+                <img src="image/Research.svg" alt="Placeholder Image">
+            </div>
+            <div class="section">
+                <img src="image/solution.svg" alt="Placeholder Image">
+                <div class="text">  
+                    <h2>Why Mapping Matters</h2>
+                    <p>A solid customer journey map helps you spot where <span class="highlight-keyword"> things go wrong.</span> Is your website too slow? Are your ads targeting people who don’t care? Maybe your follow-up emails are as exciting as a beige wall. Whatever it is, mapping helps you find and fix it.</p>
+                    <p>It also helps you impress. When you meet customers exactly where they are—with the right offer, tone, and timing—you’re not just selling; you’re building relationships. And relationships turn one-time buyers into loyal advocates.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>How to Map It Out</h2>
+                    <p>Start by walking in your customer’s shoes. What does their day look like? Where do they hang out online? And what makes them stop scrolling to pay attention? I once built a journey map by literally stalking customer feedback (legally, of course). The insights were gold.</p>
+                    <p>Use tools like <span class="highlight-keyword"> heatmaps (Hotjar), </span>   surveys, and analytics to track behaviors. And don’t forget to ask your sales team—they’re on the front lines and know the pain points better than anyone. They might even surprise you with some good ideas—yes, even salespeople have them.</p>
+                </div>
+                <img src="image/objective.svg" alt="Placeholder Image">
+            </div>
+            <div class="section">
+                <img src="image/resource.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Lessons from the Pros</h2>
+                    <p>Look at brands that get it right. Amazon is the undisputed king of customer journeys. From the personalized homepage to the 1-click purchase button, everything screams convenience. They know what you want before you do—creepy, but effective.</p>
+                    <p>Or consider <span class="highlight-keyword"> Airbnb  </span>
+                        . They’ve mapped their journey so well, from dreamy Instagram ads to a seamless booking process, that staying in someone’s guest room feels like a luxury vacation. That’s the power of understanding your customer’s mindset at every stage.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Final Thought</h2>
+                    <p>Customer journey mapping isn’t just for fun—it’s a business survival tool. When you understand where your customers come from, what they want, and why they leave, you’re in control.</p>
+                    <p>So, whether you’re smoothing out a rocky checkout process or creating killer follow-up emails, remember: <span class="highlight-keyword"> the journey matters </span> as much as the destination. 
+
+                        And if you do it right, that destination will be repeat customers and glowing reviews. 🗺️</p>
+                </div>
+                <img src="image/evaluation.svg" alt="Placeholder Image">
+            </div>
+        </div>
+    </div>
+
+<!-- Insert star_email.html content above the form section -->
+<div class="content">
+    <main class="container mx-auto py-8">
+        <!-- Features Section -->
+        <h2 class="business-case-heading">Case in Action</h2>
+        <br>
+
+
+        <div class="content gradient-border flex items-center feature-item" style="margin-top: -20px;">
+            <div id="banner-slider" data-images='["pic/71.png", "pic/81.png"]'>
+                <button class="slider-btn left">&lt;</button>
+                <button class="slider-btn right">&gt;</button>
+            </div>
+        </div>
+        
+
+        <!-- Feature Item 1: Situation -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/1.png" alt="Icon 1" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Situation</h2>
+                <p class="text-gray-600 text-lg">
+                    A few years ago, I joined a lighting company that had all the traffic in the world but almost nothing to show for it. 
+                    People clicked on our ads, browsed the site, even added products to their carts—but then disappeared like they’d seen a ghost. 
+                    The bounce rate was sitting at a <span class="highlight-keyword"> painful 70%
+                    </span>
+                    , conversion was a dismal 1.1%, and, strangely enough, even some placed orders weren’t 
+                    translating into actual payments. It was like running a restaurant where people came in, ordered a full meal, and then just walked 
+                    out before the food arrived. Clearly, something was broken, but what?
+                </p>
+            </div>
+        </div>
+
+        <!-- Feature Item 2: Tasks -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/2.png" alt="Icon 2" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Tasks</h2>
+                <p class="text-gray-600 text-lg">
+                    To crack the case, we went full detective mode. We started with an in-depth marketing research phase, poring over heatmaps, 
+                    session recordings, and customer feedback like it was an FBI investigation. Even with all that, we knew we needed fresh eyes, 
+                    so we brought in a third-party <span class="highlight-keyword">CRO expert
+
+
+                    </span>
+                     to confirm our suspicions. 
+               
+                    The problem wasn’t just one glaring mistake—it was death by a thousand cuts. The ad messaging didn’t always match the landing page, 
+                    the product pages weren’t convincing enough, the checkout process felt like an interrogation, and post-purchase engagement was 
+                    non-existent. That’s when we developed a five-phase framework to fix every single point of friction in the customer journey.
+                </p>
+            </div>
+        </div>
+
+        <!-- Feature Item 3: Actions -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/3.png" alt="Icon 3" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Actions</h2>
+                <p class="text-gray-600 text-lg">
+                    First, we cleaned up our ads and landing pages, making sure they spoke the same language and reassured visitors they were in the right place. 
+                    Then, we tackled the product pages, rewriting descriptions, upgrading images, and adding Q & A that felt real rather than written by a marketing intern on a caffeine binge. 
+                </p>
+                <p class="text-gray-600 text-lg">
+                    Once we got them to click ‘Add to Cart,’ we made sure they didn’t regret it—<span class="highlight-keyword">simplifying checkout
+
+
+
+
+                    </span>
+                    , reducing form fields, and making the whole process feel effortless. 
+                    And it didn’t stop there. We optimized our post-purchase email flows, ensuring customers didn’t just buy once but came back for more, building long-term relationships 
+                    instead of one-and-done transactions. Every little tweak added up, and soon, the funnel that once leaked like a sinking ship started holding water.
+                </p>
+            </div>
+        </div>
+
+        <!-- Feature Item 4: Results -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/4.png" alt="Icon 4" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Results</h2>
+                <p class="text-gray-600 text-lg">
+                    The results spoke for themselves. The conversion rate jumped from 1.1% to 3.5%, which for a <span class="highlight-keyword"> B2B business
+
+
+
+
+
+
+                    </span>
+                    , is like going from “barely surviving” to “printing money.” 
+                    More importantly, we proved that fixing the customer journey is often more profitable than just spending more on ads. Every business wants more traffic, 
+                    but the real magic happens when you make the most of the visitors you already have.
+            
+                    This project was a game-changer, not just for the company but for how I approach marketing in general. It’s not always about bringing in more people—it’s about 
+                    making sure the right ones stay, buy, and come back for more.
+                </p>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+
+    <!-- Bottom Form Section -->
+    <div class="form-section">
+        <h2>Keep in Touch</h2>
+        <form></form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <br>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="chatContainer"></div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus on the input field when the page loads
+            const todoInput = document.getElementById('todo-input');
+            if (todoInput) {
+                todoInput.focus();
+            }
+
+            // Load chat widget HTML
+            fetch('chat.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('chatContainer').innerHTML = data;
+                    // Initialize chat widget functionality
+                    const chatButton = document.getElementById('chatButton');
+                    const chatContainer = document.querySelector('.chat-container');
+                    const closeChat = document.getElementById('closeChat');
+
+                    if (chatButton) {
+                        chatButton.addEventListener('click', function() {
+                            chatContainer.classList.toggle('active');
+                            console.log('Chat button clicked, chatContainer active:', chatContainer.classList.contains('active'));
+                        });
+                    } else {
+                        console.error('Chat button not found!');
+                    }
+
+                    if (closeChat) {
+                        closeChat.addEventListener('click', function() {
+                            chatContainer.classList.remove('active');
+                            console.log('Close chat button clicked');
+                        });
+                    } else {
+                        console.error('Close chat button not found!');
+                    }
+                })
+                .catch(error => console.error('Error loading chat widget:', error));
+        });
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+<div id="footer-placeholder"></div>
+
+<script>
+
+// Load footer.html into the footer-placeholder div
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+    });
+
+// Load header.html into the header-placeholder div
+<!--
+fetch('header.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('header-placeholder').innerHTML = html;
+});
+-->
+</script>
+
+
+
+
+</body>
+</html>

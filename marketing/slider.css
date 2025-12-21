@@ -1,0 +1,65 @@
+/* slider.css */
+
+/* Slider container styling */
+#banner-slider {
+    margin-top: -20px;
+    padding: -20px;
+
+    width: 1200px;
+    height: 430px;
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    border-radius: 8px;
+  }
+  
+  /* All images are positioned on top of each other and hidden by default */
+  #banner-slider img {
+    padding-top: -20px;
+    margin-bottom: -20px;
+    padding-bottom: -20px;
+    border-radius: 80px;
+
+    width: 900px;
+    height: 430px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  /* Active image is shown */
+  #banner-slider img.active {
+    opacity: 1;
+  }
+  
+  /* Navigation buttons styling */
+  .slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color:#8c52ff;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 60%;
+  }
+  
+  /* Left button positioning */
+  .slider-btn.left {
+    left: 10px;
+  }
+  
+  /* Right button positioning */
+  .slider-btn.right {
+    right: 25px;
+  }
+  
+  /* Optional: Hover effect for navigation buttons */
+  .slider-btn:hover {
+    background-color: #9b59b6;
+  }
+  

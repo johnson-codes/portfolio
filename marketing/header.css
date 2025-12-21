@@ -1,0 +1,122 @@
+/* header.css */
+
+/* Reset some basic elements */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: none;
+    height: auto; /* Ensure header height is auto */
+}
+
+/* Remove sticky-header class */
+.sticky-header {
+    position: static !important;
+    top: auto;
+    z-index: auto;
+    box-shadow: none;
+}
+
+.nav-logo a {
+    display: inline-block;
+}
+.nav-logo img {
+    max-width: 45px;
+    margin-right: 10px;
+    transition: transform 0.5s ease;
+    vertical-align: middle;
+}
+.nav-logo {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+.nav-logo:hover img {
+    transform: scale(1.05);
+}
+.nav-logo span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 0.25rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+nav a:hover {
+    color: #ffcc00;
+    transform: translateY(-2px);
+}
+
+.project-list-link {
+    color: #fff;
+    background: linear-gradient(135deg, #9b59b6, #3498db);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.get-in-touch-link {
+    color: #3498db; 
+    background: white; 
+    padding: 0.5rem 1rem; 
+    border-radius: 15px;
+    position: relative;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+.get-in-touch-link:hover {
+    background-color: #ffe26e;
+    color: #9b59b6;
+    transform: translateY(-2px);
+}
+
+/* Add these debug styles */
+.debug-header {
+    position: static !important;
+    top: auto !important;
+    z-index: auto !important;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%) !important;
+}
+
+/* Ensure no overflow is hidden */
+html, body {
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+}
+
+

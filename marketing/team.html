@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Building</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="chat.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/Johnson-Frontend/cursor/74fbb9994f7e47dabc67bb20cd294f161bcc2fc0/image/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="highlight.css">
+    <script src="highlight.js"></script>
+    <script src="slider.js"></script>
+    <link rel="stylesheet" href="slider.css">   
+
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #000; /* Changed text color to black */
+            padding: 0 px; /* Removed padding to get rid of the big gap */
+            background-image: url('/image/background2.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6); /* Semi-transparent white overlay */
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 490px; 
+            background: url('image/team.png') center center no-repeat;
+            background-size: contain; /* Set the background size to contain */
+            color: #000; /* Changed text color to black */
+            text-align: center;
+            border-radius: 26px; /* Added border-radius to make edges less sharp */
+            background-position: center center; /* Ensure the image is centered */
+            max-width: 1200px; /* Set max-width for background image */
+            margin: 10px  auto; /* Center the hero section */
+            position: relative; /* Added to position the content absolutely */
+        }
+
+        .hero div {
+            position: absolute;
+            bottom: 50px; /* Adjusted to provide enough margin space */
+            left: 50px; /* Adjusted to provide enough margin space */
+            text-align: left; /* Align text to the left */
+        }
+
+        .hero h1, .hero p, .hero button {
+            text-align: left; /* Ensure individual elements are left-aligned */
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin: 10px 0;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: 2px solid #fff; /* Changed border color to white */
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%); /* Updated background image */
+            color: white; /* Changed text color to white */
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .hero button:hover {
+            background-image: linear-gradient(to right, rgba(37, 117, 252, 0.8) 20%, rgba(106, 17, 203, 0.8) 80%); /* Inverted gradient on hover */
+            color: white; /* Ensure text color remains white */
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+        }
+
+        /* Main Content Area */
+        .content {
+            padding: 40px; /* Reduced padding */
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Reduced box-shadow */
+            border-radius: 26px; /* Reduced border-radius */
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center horizontally */
+            margin-bottom: 20px;
+            margin-top: 20px; /* Added margin-top for spacing between sections */
+        }
+
+        .section:last-child {
+            margin-bottom: 80px;
+        }
+
+        .section:nth-child(odd) img {
+            order: -1;
+        }
+
+        .section img {
+            width: 45%; /* Set width to 45% for even share */
+            margin: 0 2.5%; /* Add margin to balance the space */
+            border-radius: 8px;
+        }
+
+        .section .text {
+            width: 45%; /* Set width to 45% for even share */
+            margin: 0 2.5%; /* Add margin to balance the space */
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            line-height: 1.8;
+        }
+
+        /* Bottom Form Section */
+        .form-section {
+            text-align: center;
+            padding: 80px; /* Updated padding to match big-container */
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 26px; /* Updated border-radius to match big-container */
+            max-width: 920px; /* Updated max-width to match big-container */
+            margin: 40px auto;
+        }
+
+        .form-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-section input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        }
+
+        .form-section button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%); /* Updated background image */
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* 3D effect */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .form-section button:hover {
+            background-image: linear-gradient(to right, rgba(37, 117, 252, 0.8) 20%, rgba(106, 17, 203, 0.8) 80%); /* Inverted gradient on hover */
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Reduced shadow on hover */
+        }
+
+        .business-case-heading {
+            background-image: linear-gradient(to right, rgba(106, 17, 203, 0.8) 20%, rgba(37, 117, 252, 0.8) 80%);
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding: 10px; /* Added padding for better spacing */
+            border-radius: 8px; /* Added border-radius for rounded corners */
+        }
+
+        footer {
+            background-color: rgba(45, 55, 72, 0.9);
+            color: #e2e8f0;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 40px;
+        }
+
+        .modern-footer {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 60px 0 20px;
+            position: relative;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            box-shadow: 0 -10px 20px rgba(106, 17, 203, 0.1);
+        }
+
+        .modern-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.2), rgba(37, 117, 252, 0.2));
+            border-top-left-radius: 200px;
+            border-top-right-radius: 0;
+            pointer-events: none;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section {
+            padding: 0 15px;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .footer-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+        }
+
+        .footer-section.office p,
+        .footer-section.office a {
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section.links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section.links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section.links ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-section.links ul li a:hover {
+            padding-left: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 4px 0 0 4px;
+            backdrop-filter: blur(5px);
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .subscribe-btn {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            color: #6a11cb;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .subscribe-btn:hover {
+            background: #fff;
+            transform: translateX(3px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        @media (max-width: 1024px) {
+            .footer-content {
+                max-width: 800px;
+                grid-template-columns: 1fr 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section.brand {
+                grid-column: 1 / -1;
+            }
+
+            .tagline {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                max-width: 600px;
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .footer-section {
+                padding: 0;
+            }
+
+            /* Remove this if you want to keep the same radius on mobile */
+            /* .modern-footer {
+                border-top-left-radius: 200px;
+            } */
+        }
+
+        /* Update these specific styles in your footer CSS */
+
+        /* Standard text size for all footer content */
+        .footer-section p,
+        .footer-section a,
+        .footer-section li a,
+        .footer-section.office p,
+        .footer-section.office a,
+        .tagline,
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        /* Heading size */
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        /* Newsletter input text size */
+        .newsletter-form input {
+            font-size: 0.9rem;
+        }
+
+        .newsletter-form input::placeholder {
+            font-size: 0.9rem;
+        }
+
+        /* Social icons size adjustment */
+        .social-link {
+            font-size: 1.1rem;
+        }
+
+        /* Remove any specific size declarations that might conflict */
+        .tagline {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section.links ul li a {
+            transition: padding-left 0.3s ease;
+        }
+
+        .footer-bottom p {
+            text-align: center;
+        }
+
+
+        header {
+            margin-bottom: 0; /* Ensure no margin below header */
+        }
+
+        /* Footer styles from foot.css */
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-list li {
+            margin-bottom: 10px;
+        }
+
+        .footer-list a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;    
+            transition: color 0.3s ease;
+        }
+
+        .footer-list a:hover,
+        .footer-list a:focus {
+            color: #ffcc00;
+        }
+
+        .footer-section {
+            padding: 10px;
+        }
+
+        .footer-logo {
+            width: 60px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.9rem;
+            color: #ffffff;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #d9e2ec);
+            border-radius: 20px;
+            box-shadow: 4px 4px 26px rgba(0.1, 0.1, 0.1, 0.1);
+        }
+
+        .footer-section.brand {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        .footer-sections {
+            display: flex;
+            flex: 3;
+            justify-content: space-between;
+        }
+
+        .footer-section {
+            flex: 1;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .footer-logo {
+            max-width: 75px;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            color: #ffffff;
+            line-height: 1.5;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #fff;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 10px;
+            background: none;
+        }
+
+        .footer-bottom p {
+            font-size: 0.6rem;
+            color: #ffffff;
+        }
+
+        .footer-section.newsletter {
+            text-align: left;
+            margin-right: 30px;
+        }
+
+        .social-links {
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .newsletter-form {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            background-color: transparent;
+            color: #fff;
+        }
+
+        .newsletter-form input[type="email"]::placeholder {
+            color: #ccc;
+        }
+
+        .newsletter-form button {
+            padding: 8px 16px;
+            background-color: #ffcc00;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e6b800;
+            transform: translateY(-2px);
+        } 
+
+        .project-list-link {
+            color: #fff; /* Text color */
+            background: linear-gradient(135deg, #9b59b6, #3498db); /* Purple to blue gradient */
+            padding: 0.5rem 1rem; /* Padding for better appearance */
+            border-radius: 15px; /* Larger rounded corners */
+            position: relative; /* For positioning the animation */
+            display: inline-block; /* Ensure proper padding */
+        }
+
+        p {
+            font-size: 18px; /* Set font size of paragraphs to 18px */
+        }
+        
+
+        .icon-placeholder {
+    width: 20%; /* Changed from previous width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Add margin to the right of the icon */
+}
+.text-content {
+    width: 70%; /* Ensure text takes 70% of the container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.6; /* Increase line height for better readability */
+    /* ...existing styles... */
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Optional: Adjust image size within the icon-placeholder if necessary */
+.icon-placeholder img {
+    width: 60%; /* Adjust as needed */
+    height: auto;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Load header from header.html -->
+     <!-- Directly include the header -->
+     <header class="debug-header">
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="https://marketing.johnsonmarketer.com/">
+                    <img id="logo" src="https://raw.githubusercontent.com/Johnson-Frontend/project/ed55a241c8b75ccef3b99e1cba704eb85ea39ad8/image/logo.svg" alt="Brand Logo">
+                </a>
+                <a href="https://marketing.johnsonmarketer.com/" style="text-decoration: none; color: inherit;">
+                    <span style="font-size: 1.2rem;">ByteBoost</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="https://marketing.johnsonmarketer.com/">Home</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">Services</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html">About</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="project-list-link pulse">Project List</a>
+                <a href="https://marketing.johnsonmarketer.com/implementing.html" class="get-in-touch-link">Get in touch</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div>
+            <h1>Team Building</h1>
+            <p>Strategies, laughs, and lessons in team leadership.</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        <div class="big-container">
+            <div class="section">
+                <img src="image/Challenge.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Challenge</h2>
+                    <p>Managing a team is like <span class="highlight-keyword"> herding cats</span>... ambitious, talented cats with opinions. Everyone has their quirks, strengths, and, let’s face it, moods. The challenge isn’t just meeting deadlines; it’s keeping everyone motivated, aligned, and, ideally, not passive-aggressively responding to emails. Been there, had to fake a smile in those meetings.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Research</h2>
+                    <p>I’ve watched other managers—and yeah, sometimes it’s a cringefest. Some rely on <span class="highlight-keyword"> micromanaging</span> , which honestly works as well as asking toddlers to sit still during dinner. Others overpromise freedom and then panic when chaos ensues. The real sweet spot? Observing what teams value most: autonomy, clear goals, and yes, snacks (don’t underestimate snacks).</p>
+                </div>
+                <img src="image/Research.svg" alt="Placeholder Image">
+            </div>
+            <div class="section">
+                <img src="image/solution.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Solution</h2>
+                    <p>Open communication saves lives—or at least morale. Recognize people’s <span class="highlight-keyword"> strengths</span> , delegate smartly, and ditch micromanaging. Trust me, micromanaging doesn’t work. People only fake self-consciousness when they know they’re being watched—fake productivity at its finest. You’re not running a daycare; give them space to own their work and shine. Also, laughter? That’s the ultimate glue.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Set Objectives</h2>
+                    <p>I learned to measure team success through more than numbers. Sure, deadlines matter, but so does engagement— watch for <span class="highlight-keyword"> participation</span>  in meetings and enthusiasm (or the absence of glazed-over eyes). Also, check individual progress without obsessing over every keystroke. Happy, productive people = goals. 🎯</p>
+                </div>
+                <img src="image/objective.svg" alt="Placeholder Image">
+            </div>
+            <div class="section">
+                <img src="image/resource.svg" alt="Placeholder Image">
+                <div class="text">
+                    <h2>Get Resources</h2>
+                    <p>You’ll need patience (seriously, a lot), <span class="highlight-keyword"> solid communication tools </span>, and occasional bribery... I mean, incentives. Invest in team training sessions and maybe the occasional coffee-fueled brainstorming spree. Also, don’t forget to ask for feedback from your boss—it’s a two-way street, after all.</p>
+                </div>
+            </div>
+            <div class="section">
+                <div class="text">
+                    <h2>Evaluate Results</h2>
+                    <p>Reflection’s the <span class="highlight-keyword"> secret sauce</span>. What worked? Celebrate it. What tanked? Learn from it—preferably over pizza with the team. I’ve found that being upfront about both wins and failures strengthens trust. Build a culture where experiments aren’t scary, and you’ll watch your team thrive. 🚀</p>
+                </div>
+                <img src="image/evaluation.svg" alt="Placeholder Image">
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section -->
+   <!-- Insert star_email.html content above the form section -->
+<div class="content">
+    <main class="container mx-auto py-8">
+        <!-- Features Section -->
+        <h2 class="business-case-heading">Case in Action</h2>
+        <br>
+
+
+        <div class="content gradient-border flex items-center feature-item" style="margin-top: -20px;">
+            <div id="banner-slider" data-images='["pic/44.png", "pic/final.png"]'>
+                <button class="slider-btn left">&lt;</button>
+                <button class="slider-btn right">&gt;</button>
+            </div>
+        </div>
+          
+        
+        <!-- Feature Item 1 -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/1.png" alt="Icon 1" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Situation</h2>
+                <p class="text-gray-600 text-lg">
+                    Ah, 2020—the year the world went sideways, and apparently, so did my <span class="highlight-keyword"> new marketing team</span>. I had just been promoted to Marketing Supervisor at a printing company, only to discover I had inherited a directionless, demotivated team. Leadership? Missing in action. Strategy? Nonexistent. Morale? Somewhere in the basement, crying. People were frustrated, marketing was aimless, and the only thing spreading faster than complaints was the confusion about what we were actually supposed to be doing.
+                </p>
+            </div>
+        </div>
+
+        <!-- Feature Item 2 -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/2.png" alt="Icon 2" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Tasks</h2>
+                <p class="text-gray-600 text-lg">
+                    Since running for the hills wasn’t an option, I decided to <span class="highlight-keyword"> lead differently</span>. My approach? Happy employees = happy customers. The first step? Communication. I implemented a structured communication plan (who, what, when, where, and why—no more cryptic Slack messages). Next, I defined clear goals and aligned objectives, so we were all rowing in the same direction instead of paddling in circles. Micromanagement was banned, trust and respect became the new norm, and delegation was based on strengths (because forcing a social media person to handle data analytics is like making a cat take swimming lessons).
+                </p>
+            </div>
+        </div>
+
+        <!-- Feature Item 3 -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/3.png" alt="Icon 3" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Actions</h2>
+                <p class="text-gray-600 text-lg">
+                    As we tackled KOL partnerships and social media campaigns, I focused on creating <span class="highlight-keyword"> an environment </span> where people wanted to work, not just had to. I embraced coaching leadership, acted as a facilitator rather than a dictator, and made recognition a regular thing (because let’s face it, people work better when their efforts are acknowledged). Asana became our best friend for tracking progress, and expectation management ensured accountability without turning me into the office villain. With open communication and inclusivity, team members stopped blaming each other and actually started collaborating.
+                </p>
+            </div>
+        </div>
+
+        <!-- Feature Item 4 -->
+        <div class="content gradient-border flex items-center feature-item">
+            <div class="icon-placeholder">
+                <img src="image/4.png" alt="Icon 4" class="w-full h-full object-cover rounded-full">
+            </div>
+            <div class="text-content">
+                <h2 class="text-lg font-semibold mb-2">Results</h2>
+                <p class="text-gray-600 text-lg">
+                    Within months, the difference was <span class="highlight-keyword"> night and day</span>. Productivity soared, morale improved, and projects actually got delivered smoothly. The transformation was so effective that our new approach spread to the entire marketing team. The best part? People weren’t just doing their jobs—they were thriving in them.
+                    Lesson learned? Leadership isn’t about control. It’s about creating clarity, fostering trust, and giving people the space to succeed. Turns out, when you lead like a human, your team responds like one. 🚀
+                </p>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+    <!-- Bottom Form Section -->
+    <div class="form-section">
+        <h2>Keep in Touch</h2>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <div id="chatContainer"></div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Focus on the input field when the page loads
+            const todoInput = document.getElementById('todo-input');
+            if (todoInput) {
+                todoInput.focus();
+            }
+
+            // Load chat widget HTML
+            fetch('chat.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('chatContainer').innerHTML = data;
+                    // Initialize chat widget functionality
+                    const chatButton = document.getElementById('chatButton');
+                    const chatContainer = document.querySelector('.chat-container');
+                    const closeChat = document.getElementById('closeChat');
+
+                    if (chatButton) {
+                        chatButton.addEventListener('click', function() {
+                            chatContainer.classList.toggle('active');
+                            console.log('Chat button clicked, chatContainer active:', chatContainer.classList.contains('active'));
+                        });
+                    } else {
+                        console.error('Chat button not found!');
+                    }
+
+                    if (closeChat) {
+                        closeChat.addEventListener('click', function() {
+                            chatContainer.classList.remove('active');
+                            console.log('Close chat button clicked');
+                        });
+                    } else {
+                        console.error('Close chat button not found!');
+                    }
+                })
+                .catch(error => console.error('Error loading chat widget:', error));
+        });
+
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+<div id="footer-placeholder"></div>
+
+<script>
+
+// Load footer.html into the footer-placeholder div
+fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+    });
+
+// Load header.html into the header-placeholder div
+<!--
+fetch('header.html')
+.then(response => response.text())
+.then(html => {
+  document.getElementById('header-placeholder').innerHTML = html;
+});
+-->
+</script>
+
+
+
+
+</body>
+</html>
