@@ -275,3 +275,41 @@ main section.py-5:first-of-type {
     background-color: #e67350;
     border-color: #e67350;
 }
+/* Pagination Styles */
+.pagination {
+    margin-top: 2rem;
+}
+
+.pagination .page-link {
+    color: #2c3e50;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 0.75rem;
+    margin: 0 0.25rem;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: #e3f5fc;
+    border-color: #61dafb;
+    color: #2c3e50;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #61dafb;
+    border-color: #61dafb;
+    color: white;
+    font-weight: 600;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+#results-count {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
