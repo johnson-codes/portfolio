@@ -268,10 +268,6 @@ main section.py-5:first-of-type {
     font-size: 1.5rem;
 }
 
-.navbar-dark .navbar-brand:hover {
-    color: white !important;
-}
-
 .navbar-dark .nav-link {
     color: white !important;
     font-weight: 500;
