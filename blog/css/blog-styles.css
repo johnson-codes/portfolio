@@ -263,7 +263,7 @@ main section.py-5:first-of-type {
 }
 
 .navbar-dark .navbar-brand {
-    color: white !important;
+    color: #000 !important;
     font-weight: 700;
     font-size: 1.5rem;
 }
