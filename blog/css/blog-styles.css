@@ -46,18 +46,18 @@ main section.py-5:first-of-type {
     text-decoration: underline;
 }
 
-/* Force navbar to have white background on blog pages */
-.navbar {
+/* Force navbar to have white background on blog index page */
+.navbar:not(.navbar-dark) {
     background-color: white !important;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .nav-link,
-.navbar .nav-link.active {
+.navbar:not(.navbar-dark) .nav-link,
+.navbar:not(.navbar-dark) .nav-link.active {
     color: #333333 !important;
 }
 
-.navbar .navbar-brand {
+.navbar:not(.navbar-dark) .navbar-brand {
     color: #61dafb !important;
 }
 
