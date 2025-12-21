@@ -1,7 +1,13 @@
 /* Blog-specific styles */
 
+/* Main section spacing for blog posts */
+main section.py-5:first-of-type {
+    margin-top: 80px;
+}
+
 /* Blog hero section styling */
-#blog-hero {
+#blog-hero,
+.blog-hero {
     background: linear-gradient(135deg, #e3f5fc 0%, #b3e5fc 100%);
     margin-top: 76px;
     padding-top: 60px;
@@ -9,8 +15,30 @@
 }
 
 #blog-hero h1,
-#blog-hero p {
+#blog-hero p,
+.blog-hero h1,
+.blog-hero p,
+.blog-hero .breadcrumb,
+.blog-hero .breadcrumb a {
     color: #2c3e50 !important;
+}
+
+.blog-hero .breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.blog-hero .breadcrumb-item + .breadcrumb-item::before {
+    color: #2c3e50;
+}
+
+.blog-hero .breadcrumb a {
+    text-decoration: none;
+}
+
+.blog-hero .breadcrumb a:hover {
+    text-decoration: underline;
 }
 
 /* Force navbar to have white background on blog pages */
@@ -149,6 +177,101 @@
 }
 
 .btn-primary:hover {
+    background-color: #e67350;
+    border-color: #e67350;
+}
+
+/* Post meta styling */
+.post-meta {
+    font-size: 0.9rem;
+}
+
+.post-meta .badge {
+    background-color: #FB8261 !important;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+}
+
+/* Post content styling */
+.post-content h2 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.post-content p {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+}
+
+.post-content ul {
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.post-content ul li {
+    margin-bottom: 0.75rem;
+}
+
+.post-content ul li strong {
+    color: #2c3e50;
+}
+
+/* Author bio styling */
+.author-bio {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #FB8261;
+}
+
+.author-bio h5 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.author-bio .text-muted {
+    font-size: 0.9rem;
+}
+
+/* Post navigation styling */
+.post-navigation {
+    font-size: 0.95rem;
+}
+
+.post-navigation a {
+    color: #2c3e50;
+    transition: color 0.3s ease;
+}
+
+.post-navigation a:hover {
+    color: #FB8261;
+}
+
+/* Navbar styling for blog posts */
+.navbar-dark {
+    background-color: #2c3e50 !important;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+    color: white !important;
+}
+
+.navbar-dark .nav-link:hover {
+    color: #FB8261 !important;
+}
+
+.navbar-dark .btn-primary {
+    background-color: #FB8261;
+    border-color: #FB8261;
+}
+
+.navbar-dark .btn-primary:hover {
     background-color: #e67350;
     border-color: #e67350;
 }
