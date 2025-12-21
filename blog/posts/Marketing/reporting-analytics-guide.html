@@ -19,7 +19,7 @@
     <link href="../../css/blog-styles.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Header/Navigation -->  
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="../../../index.html">Johnson</a>
@@ -32,7 +32,7 @@
                     <li class="nav-item"><a class="nav-link" href="../../../index.html#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../../index.html#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../../index.html#testimonials">Testimonials</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../../index.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact</a></li>
                     <li class="nav-item ms-lg-3"><a class="btn btn-cta" href="../../../index.html#contact">Hire Me</a></li>
                 </ul>
@@ -40,45 +40,50 @@
         </div>
     </nav>
 
-    <!-- Blog Post Header -->
     <main>
+        <!-- Blog Post Header -->
         <section class="py-5">
             <div class="container">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="../../index.html">Blog</a></li>
-                        <li class="breadcrumb-item"><a href="../../index.html#Marketing">Marketing</a></li>
-                        <li class="breadcrumb-item active">Reporting Like a Rockstar</li>
-                    </ol>
-                </nav>
-
                 <div class="row">
-                    <div class="col-lg-10 mx-auto">
-                        <article>
-                            <h1 class="display-4 mb-4">Reporting Like a Rockstar</h1>
-                            <div class="post-meta mb-4">
-                                <span><i class="far fa-calendar"></i> December 20, 2025</span>
-                                <span><i class="far fa-clock"></i> 7 min read</span>
-                                <span><i class="fas fa-tag"></i> Marketing</span>
-                            </div>
+                    <div class="col-lg-8 mx-auto">
+                        <!-- Breadcrumb -->
+                        <nav aria-label="breadcrumb" class="mb-4">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="../../index.html">Blog</a></li>
+                                <li class="breadcrumb-item"><a href="../../index.html#Marketing">Marketing</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Reporting Like a Rockstar</li>
+                            </ol>
+                        </nav>
 
-                            <img src="../../../assets/images/reporting.png" alt="Reporting Like a Rockstar" class="img-fluid rounded mb-4 featured-image">
+                        <!-- Post Meta -->
+                        <div class="mb-3">
+                            <span class="badge bg-primary me-2">Marketing</span>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>December 20, 2025
+                                <i class="fas fa-clock ms-3 me-1"></i>7 min read
+                            </small>
+                        </div>
 
-                            <div class="lead mb-4">
-                                Show off your wins without the snooze. Master the art of presenting marketing data in ways that inspire, engage, and drive action.
-                            </div>
-                        </article>
+                        <!-- Post Title -->
+                        <h1 class="display-5 fw-bold mb-4">Reporting Like a Rockstar</h1>
+
+                        <!-- Featured Image -->
+                        <img src="../../../assets/images/reporting.png" 
+                             class="img-fluid rounded shadow-sm mb-4" 
+                             alt="Reporting Like a Rockstar">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Content -->
+        <!-- Blog Post Content -->
         <section class="pb-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-10 mx-auto blog-content">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="blog-content">
+                            <p class="lead">Show off your wins without the snooze. Master the art of presenting marketing data in ways that inspire, engage, and drive action.</p>
                         
                         <h2>Challenge</h2>
                         <p>Let's be real: reporting your marketing achievements can feel like a chore. The numbers don't lie, but they can bore. I've seen people check out faster than a teenager during a family lecture if you just dump a spreadsheet on them. Keeping the team inspired while presenting data? That's the real challenge.</p>
@@ -122,25 +127,31 @@
                             <li><strong>Use consistent reporting formats:</strong> Make it easy to compare periods and track trends over time</li>
                             <li><strong>Deliver reports on time:</strong> Maintain a regular cadence so teams know when to expect insights</li>
                             <li><strong>Encourage feedback:</strong> Make reports a two-way conversation where team members can ask questions and share perspectives</li>
-                        </ul>
+                            </ul>
 
-                        <!-- Author Bio -->
-                        <div class="author-bio">
-                            <img src="https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%2Fapp%2FJohnsonZachary%2F9Ri2WpIhpw.jpg?alt=media&token=cafc43c0-2a92-4a51-9ba8-73cd03d5f7dc" alt="Johnson Wang">
-                            <div class="author-info">
-                                <h5>Johnson Wang</h5>
-                                <p>Marketing strategist and data storyteller passionate about transforming analytics into actionable insights. Experienced in making reporting engaging, transparent, and motivating for teams.</p>
+                            <hr class="my-5">
+
+                            <!-- Author Bio -->
+                            <div class="author-bio d-flex align-items-center p-4 bg-light rounded">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1765585567292_1111111.jpg?alt=media&token=ef596b75-945b-4a93-8ea1-c18bf187fa72" 
+                                     alt="Johnson Wang" 
+                                     class="rounded-circle me-3" 
+                                     width="80" height="80">
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1">Johnson Wang</h5>
+                                    <p class="mb-2 text-muted">Digital Marketing Specialist & Software Developer with 10+ years of experience helping businesses grow through strategic marketing and custom development solutions.</p>
+                                    <a href="mailto:johnsonmarketer@outlook.com" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i>Contact Me
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Navigation Buttons -->
-                        <div class="post-navigation">
-                            <a href="../../index.html#Marketing" class="btn btn-outline-primary">
-                                <i class="fas fa-arrow-left"></i> Back to Marketing
-                            </a>
-                            <a href="../../../index.html#contact" class="btn btn-primary">
-                                Get in Touch <i class="fas fa-arrow-right"></i>
-                            </a>
+                            <!-- Navigation -->
+                            <div class="d-flex justify-content-between mt-5">
+                                <a href="../../index.html" class="btn btn-outline-primary">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Blog
+                                </a>
+                            </div>
                         </div>
 
                     </div>
