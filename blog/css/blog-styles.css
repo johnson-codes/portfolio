@@ -69,7 +69,7 @@ h1.display-5 {
 }
 
 .blog-post-header .lead {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     line-height: 1.6;
     color: var(--blog-text-light);
     margin-bottom: 2rem;
@@ -154,7 +154,7 @@ section img.img-fluid {
     max-width: var(--blog-content-width);
     margin: 0 auto;
     padding: 0 1.5rem;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.75;
     color: var(--blog-text);
 }
@@ -182,7 +182,7 @@ section img.img-fluid {
 }
 
 .blog-content .lead {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 400;
     color: var(--blog-text-light);
     margin-bottom: 2rem;
@@ -431,7 +431,7 @@ section img.img-fluid {
     line-height: 1.8;
     color: #333;
     margin-bottom: 1.25rem;
-    font-size: 1.05rem;
+    font-size: 1.175rem;
 }
 
 .post-content ul {
