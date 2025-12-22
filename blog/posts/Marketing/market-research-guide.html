@@ -236,6 +236,36 @@
                 }, 2000);
             });
         }
+
+        // Smart positioning for social sharing sidebar
+        function updateSidebarPosition() {
+            const sidebar = document.querySelector('.social-sharing-sidebar');
+            const authorBio = document.querySelector('.author-bio');
+            
+            if (!sidebar || !authorBio) return;
+            
+            const authorBioTop = authorBio.getBoundingClientRect().top;
+            const sidebarHeight = sidebar.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            
+            if (authorBioTop - sidebarHeight < 50) {
+                // When we're near the author bio, switch to absolute positioning
+                const authorBioOffset = authorBio.offsetTop;
+                sidebar.style.position = 'absolute';
+                sidebar.style.top = (authorBioOffset - sidebarHeight - 50) + 'px';
+                sidebar.style.transform = 'none';
+            } else {
+                // Normal sticky positioning
+                sidebar.style.position = 'fixed';
+                sidebar.style.top = '50%';
+                sidebar.style.transform = 'translateY(-50%)';
+            }
+        }
+
+        // Initialize smart positioning
+        window.addEventListener('scroll', updateSidebarPosition);
+        window.addEventListener('resize', updateSidebarPosition);
+        document.addEventListener('DOMContentLoaded', updateSidebarPosition);
     </script>
 </body>
 </html>
