@@ -3,12 +3,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Navbar color change on scroll
     const navbar = document.querySelector('.navbar');
+    const navbarBrand = document.querySelector('.navbar-brand');
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
+            if (navbarBrand) {
+                navbarBrand.classList.add('scrolled');
+            }
         } else {
             navbar.classList.remove('scrolled');
+            if (navbarBrand) {
+                navbarBrand.classList.remove('scrolled');
+            }
         }
         
         // Update active nav item based on scroll position

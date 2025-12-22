@@ -148,6 +148,15 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-size: 1.8rem;
   color: var(--primary-color) !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand.scrolled {
+  color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color);
+  border-radius: 50px;
+  padding: 8px 20px;
+  display: inline-block;
 }
 
 /* Change default nav link color to white */
