@@ -60,6 +60,12 @@ main section.py-5:first-of-type {
     color: var(--blog-text);
     margin: 1.5rem 0;
     letter-spacing: -0.025em;
+    text-align: center;
+}
+
+/* Center blog post titles */
+h1.display-5 {
+    text-align: center;
 }
 
 .blog-post-header .lead {
