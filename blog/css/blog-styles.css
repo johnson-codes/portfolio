@@ -640,3 +640,96 @@ section img.img-fluid {
     font-size: 0.9rem;
     color: #6c757d;
 }
+
+/* Social Sharing Sidebar */
+.social-sharing-sidebar {
+    position: fixed;
+    left: calc(50% - 450px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background: white;
+    padding: 1rem 0.5rem;
+    border-radius: var(--blog-radius);
+    box-shadow: var(--blog-shadow-lg);
+    border: 1px solid var(--blog-border);
+}
+
+.social-sharing-sidebar .share-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.social-sharing-sidebar .share-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-sharing-sidebar .share-btn.twitter {
+    background-color: #1da1f2;
+}
+
+.social-sharing-sidebar .share-btn.twitter:hover {
+    background-color: #0d8bd9;
+    color: white;
+}
+
+.social-sharing-sidebar .share-btn.facebook {
+    background-color: #4267b2;
+}
+
+.social-sharing-sidebar .share-btn.facebook:hover {
+    background-color: #365899;
+    color: white;
+}
+
+.social-sharing-sidebar .share-btn.linkedin {
+    background-color: #0077b5;
+}
+
+.social-sharing-sidebar .share-btn.linkedin:hover {
+    background-color: #005885;
+    color: white;
+}
+
+.social-sharing-sidebar .share-btn.link {
+    background-color: var(--blog-text);
+}
+
+.social-sharing-sidebar .share-btn.link:hover {
+    background-color: var(--blog-accent);
+    color: white;
+}
+
+/* Hide social sharing on smaller screens where there's no room next to content */
+@media (max-width: 1300px) {
+    .social-sharing-sidebar {
+        left: 2rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .social-sharing-sidebar {
+        display: none;
+    }
+}
+
+/* Adjust for very large screens */
+@media (min-width: 1600px) {
+    .social-sharing-sidebar {
+        left: calc(50% - 500px);
+    }
+}
