@@ -263,6 +263,11 @@ section img.img-fluid {
     color: #61dafb !important;
 }
 
+.navbar:not(.navbar-dark) .navbar-brand.scrolled {
+    color: #2c3e50 !important;
+    border-color: #2c3e50 !important;
+}
+
 /* Category section container */
 .category-section {
     border: 2px solid #e0e0e0;
@@ -554,6 +559,11 @@ section img.img-fluid {
     color: #61dafb !important;
     font-weight: 700;
     font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-brand.scrolled {
+    color: #2c3e50 !important;
+    border-color: #2c3e50 !important;
 }
 
 .navbar-dark .nav-link {
