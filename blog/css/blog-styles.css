@@ -289,7 +289,6 @@ section img.img-fluid {
 .category-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(97, 218, 251, 0.3) !important;
-    border-color: #61dafb;
 }
 
 .category-card.active {
@@ -383,7 +382,6 @@ section img.img-fluid {
 .blog-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--blog-shadow-lg);
-    border-color: var(--blog-secondary);
 }
 
 .blog-item.hidden {
