@@ -386,7 +386,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const bottomLimit = endAnchor.offsetTop; // document position
             const sidebarHeight = sidebar.offsetHeight;
             const viewportMid = window.scrollY + window.innerHeight / 2;
-            const desiredTop = viewportMid - sidebarHeight / 2; // centered in viewport
+            const offset = 50; // move up by 50px
+            const desiredTop = viewportMid - sidebarHeight / 2 - offset; // centered then shifted up
 
             if (desiredTop + sidebarHeight + 50 >= bottomLimit) {
                 // Switch to absolute at a safe stop point above end anchor
@@ -396,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Normal fixed centered behaviour
                 sidebar.style.position = 'fixed';
-                sidebar.style.top = '50%';
+                sidebar.style.top = `calc(50% - ${offset}px)`;
                 sidebar.style.transform = 'translateY(-50%)';
             }
         };
