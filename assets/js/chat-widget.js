@@ -57,6 +57,15 @@ class ChatWidget {
     }
     
     createWidget() {
+        // Prevent duplicate widget creation and clean up extras
+        const existingWidgets = document.querySelectorAll('.chat-widget');
+        if (existingWidgets.length > 0) {
+            // If one exists, remove any extras
+            existingWidgets.forEach((el, idx) => { if (idx > 0) el.remove(); });
+            if (document.getElementById('chatWidget')) {
+                return; // Keep existing widget
+            }
+        }
         const widgetHTML = `
             <div class="chat-widget" id="chatWidget">
                 <button class="chat-toggle-btn" id="chatToggleBtn">
@@ -95,7 +104,6 @@ class ChatWidget {
                 </div>
             </div>
         `;
-        
         document.body.insertAdjacentHTML('beforeend', widgetHTML);
         this.initializeElements();
     }
@@ -117,35 +125,80 @@ class ChatWidget {
     }
     
     attachEventListeners() {
-        // Toggle chat window
-        this.toggleBtn.addEventListener('click', () => this.toggleChat());
-        this.closeBtn.addEventListener('click', () => this.closeChat());
-        
+        // Toggle chat window (always toggles)
+        if (this.toggleBtn) {
+            this.toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (this.isOpen) {
+                    this.closeChat();
+                } else {
+                    this.openChat();
+                }
+            });
+        }
+
+        // Always close on close button
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.closeChat();
+            });
+        }
+
+        // Fallback: also close if user clicks the X icon inside the close button
+        const closeIcon = this.closeBtn ? this.closeBtn.querySelector('i') : null;
+        if (closeIcon) {
+            closeIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.closeChat();
+            });
+        }
+
         // Send message
-        this.sendBtn.addEventListener('click', () => this.sendMessage());
-        this.chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                this.sendMessage();
-            }
-        });
-        
+        if (this.sendBtn) {
+            this.sendBtn.addEventListener('click', () => this.sendMessage());
+        }
+
+        if (this.chatInput) {
+            this.chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    this.sendMessage();
+                }
+            });
+        }
+
         // Input validation
-        this.chatInput.addEventListener('input', () => {
-            const hasText = this.chatInput.value.trim().length > 0;
-            this.sendBtn.disabled = !hasText;
-        });
-        
+        if (this.chatInput && this.sendBtn) {
+            this.chatInput.addEventListener('input', () => {
+                const hasText = this.chatInput.value.trim().length > 0;
+                this.sendBtn.disabled = !hasText;
+            });
+        }
+
         // Close on outside click
         document.addEventListener('click', (e) => {
-            if (!document.getElementById('chatWidget').contains(e.target) && this.isOpen) {
+            const chatWidget = document.getElementById('chatWidget');
+            if (chatWidget && !chatWidget.contains(e.target) && this.isOpen) {
                 this.closeChat();
             }
         });
-        
-        // Prevent closing when clicking inside chat window
-        this.chatWindow.addEventListener('click', (e) => {
-            e.stopPropagation();
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isOpen) {
+                this.closeChat();
+            }
         });
+
+        // Prevent closing when clicking inside chat window
+        if (this.chatWindow) {
+            this.chatWindow.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
     }
     
     expandButton() {
@@ -200,6 +253,7 @@ class ChatWidget {
     }
     
     toggleChat() {
+        console.log('Toggle chat called, isOpen:', this.isOpen); // Debug log
         if (this.isOpen) {
             this.closeChat();
         } else {
@@ -208,62 +262,96 @@ class ChatWidget {
     }
     
     openChat() {
+        console.log('Opening chat'); // Debug log
         this.isOpen = true;
-        this.chatWindow.classList.add('opening');
-        this.chatWindow.classList.add('open');
         
-        // Update icon - try multiple methods
-        this.updateToggleIcon('fas fa-times');
+        if (this.chatWindow) {
+            // Ensure visible before animation
+            this.chatWindow.style.display = 'flex';
+            this.chatWindow.classList.add('opening');
+            this.chatWindow.classList.add('open');
+        }
         
-        this.toggleBtn.classList.remove('has-notification');
+        // Update icon to xmark (close)
+        this.updateToggleIcon('xmark');
+        
+        if (this.toggleBtn) {
+            this.toggleBtn.classList.remove('has-notification');
+        }
         
         // Focus input
         setTimeout(() => {
-            this.chatInput.focus();
+            if (this.chatInput) {
+                this.chatInput.focus();
+            }
             this.scrollToBottom();
         }, 300);
         
         // Remove opening animation class
         setTimeout(() => {
-            this.chatWindow.classList.remove('opening');
+            if (this.chatWindow) {
+                this.chatWindow.classList.remove('opening');
+            }
         }, 300);
     }
     
     closeChat() {
+        console.log('Closing chat'); // Debug log
         this.isOpen = false;
-        this.chatWindow.classList.add('closing');
         
-        // Update icon - try multiple methods
-        this.updateToggleIcon('fas fa-comment');
+        if (this.chatWindow) {
+            this.chatWindow.classList.add('closing');
+        }
+        
+        // Update icon back to comment (open)
+        this.updateToggleIcon('comment');
         
         setTimeout(() => {
-            this.chatWindow.classList.remove('open', 'closing');
+            if (this.chatWindow) {
+                this.chatWindow.classList.remove('open', 'closing');
+                // Force hidden state post-animation
+                this.chatWindow.style.display = 'none';
+            }
         }, 300);
     }
     
-    updateToggleIcon(iconClass) {
-        // Method 1: Use stored reference
-        if (this.chatIcon) {
-            this.chatIcon.className = iconClass;
+    updateToggleIcon(iconName) {
+        // Collect possible icon targets (supports SVG replaced by Font Awesome)
+        const targets = [];
+        if (this.chatIcon) targets.push(this.chatIcon);
+        const byId = document.getElementById('chatIcon');
+        if (byId) targets.push(byId);
+        if (this.toggleBtn) {
+            const inBtn = this.toggleBtn.querySelector('svg, i');
+            if (inBtn) targets.push(inBtn);
         }
-        
-        // Method 2: Query by ID (fallback)
-        const iconById = document.getElementById('chatIcon');
-        if (iconById) {
-            iconById.className = iconClass;
-        }
-        
-        // Method 3: Query within button (double fallback)
-        const iconInButton = this.toggleBtn ? this.toggleBtn.querySelector('i') : null;
-        if (iconInButton) {
-            iconInButton.className = iconClass;
-        }
-        
-        // Method 4: Global query (final fallback)
-        const iconGlobal = document.querySelector('#chatToggleBtn i');
-        if (iconGlobal) {
-            iconGlobal.className = iconClass;
-        }
+        const global = document.querySelector('#chatToggleBtn svg, #chatToggleBtn i');
+        if (global) targets.push(global);
+
+        targets.forEach(el => {
+            if (!el) return;
+            const tag = (el.tagName || '').toLowerCase();
+            if (tag === 'svg') {
+                // Update Font Awesome SVG icon via class and data-icon
+                const current = el.getAttribute('class') || '';
+                let next = current;
+                // Replace existing fa-<name> with requested icon
+                if (/fa-(comment|times|xmark)/.test(next)) {
+                    next = next.replace(/fa-(comment|times|xmark)/, 'fa-' + iconName);
+                } else {
+                    next += ' fa-' + iconName;
+                }
+                el.setAttribute('class', next.trim());
+                // Update data-icon attribute for FA
+                el.setAttribute('data-icon', iconName);
+            } else {
+                // Update regular <i> element classes
+                el.classList.remove('fa-comment', 'fa-times', 'fa-xmark');
+                el.classList.add('fa-' + iconName);
+                // Ensure solid style class exists
+                el.classList.add('fas');
+            }
+        });
     }
     
     sendMessage() {
@@ -417,15 +505,16 @@ class ChatWidget {
 document.addEventListener('DOMContentLoaded', () => {
     // Check if chat widget should be loaded
     if (typeof window.disableChatWidget === 'undefined' || !window.disableChatWidget) {
-        window.chatWidget = new ChatWidget();
-        
-        // Add to global scope for external access
-        window.ChatWidget = ChatWidget;
-        
-        // Expose utility functions
-        window.showChatNotification = () => window.chatWidget.addNotification();
-        window.sendChatMessage = (message) => window.chatWidget.sendBotMessage(message);
-        window.clearChatHistory = () => window.chatWidget.clearHistory();
+        // Prevent duplicate initialization
+        if (!window.chatWidget) {
+            window.chatWidget = new ChatWidget();
+            // Add to global scope for external access
+            window.ChatWidget = ChatWidget;
+            // Expose utility functions
+            window.showChatNotification = () => window.chatWidget.addNotification();
+            window.sendChatMessage = (message) => window.chatWidget.sendBotMessage(message);
+            window.clearChatHistory = () => window.chatWidget.clearHistory();
+        }
     }
 });
 
@@ -435,3 +524,23 @@ window.addEventListener('popstate', () => {
         window.chatWidget.closeChat();
     }
 });
+
+// Robust bootstrap: initialize even if script loads after DOMContentLoaded
+(function bootstrapChatWidget(){
+    const start = () => {
+        if (typeof window.disableChatWidget !== 'undefined' && window.disableChatWidget) return;
+        if (!window.chatWidget) {
+            window.chatWidget = new ChatWidget();
+            window.ChatWidget = ChatWidget;
+            window.showChatNotification = () => window.chatWidget.addNotification();
+            window.sendChatMessage = (message) => window.chatWidget.sendBotMessage(message);
+            window.clearChatHistory = () => window.chatWidget.clearHistory();
+        }
+    };
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start, { once: true });
+    } else {
+        // DOM already ready, start immediately
+        start();
+    }
+})();

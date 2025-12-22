@@ -33,7 +33,7 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  z-index: 1000;
+  z-index: 9999;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -55,6 +55,7 @@
   overflow: hidden;
   line-height: 1;
   padding: 0;
+  z-index: 2; /* keep above window */
 }
 
 .chat-toggle-btn i {
@@ -118,6 +119,7 @@
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 1;
 }
 
 .chat-window.open {
