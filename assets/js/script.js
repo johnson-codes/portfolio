@@ -356,4 +356,54 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // Social Sharing Sidebar: holistic positioning/clamping
+    (function initSharingSidebar() {
+        const sidebar = document.querySelector('.social-sharing-sidebar');
+        if (!sidebar) return;
+
+        const getContentEl = () =>
+            document.querySelector('.blog-content') ||
+            document.querySelector('.col-lg-8.mx-auto') ||
+            document.querySelector('main .container');
+
+        const getEndAnchor = () =>
+            document.querySelector('.author-bio') ||
+            document.querySelector('footer');
+
+        const update = () => {
+            const content = getContentEl();
+            const endAnchor = getEndAnchor();
+            if (!content || !endAnchor) return;
+
+            // Keep sidebar horizontally next to the content column
+            const contentRect = content.getBoundingClientRect();
+            const sidebarWidth = sidebar.offsetWidth;
+            const leftPx = contentRect.left + window.scrollX - sidebarWidth - 16; // 16px gutter
+            sidebar.style.left = `${Math.max(16, leftPx)}px`;
+
+            // Clamp vertically so it never overlaps author bio or footer
+            const bottomLimit = endAnchor.offsetTop; // document position
+            const sidebarHeight = sidebar.offsetHeight;
+            const viewportMid = window.scrollY + window.innerHeight / 2;
+            const desiredTop = viewportMid - sidebarHeight / 2; // centered in viewport
+
+            if (desiredTop + sidebarHeight + 50 >= bottomLimit) {
+                // Switch to absolute at a safe stop point above end anchor
+                sidebar.style.position = 'absolute';
+                sidebar.style.top = `${bottomLimit - sidebarHeight - 50}px`;
+                sidebar.style.transform = 'none';
+            } else {
+                // Normal fixed centered behaviour
+                sidebar.style.position = 'fixed';
+                sidebar.style.top = '50%';
+                sidebar.style.transform = 'translateY(-50%)';
+            }
+        };
+
+        // Initialize and keep updated on scroll/resize
+        update();
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+    })();
 });
