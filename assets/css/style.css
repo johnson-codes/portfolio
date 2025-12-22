@@ -273,10 +273,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .profile-image-container {
-  border-radius: 20px;
+  border-radius: 50%;
   overflow: hidden;
   position: relative;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -285,15 +285,12 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   transform: perspective(1200px) rotateY(12deg) rotateX(3deg) rotateZ(2deg);
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background: linear-gradient(135deg, rgba(97, 218, 251, 0.1) 0%, rgba(251, 130, 97, 0.1) 100%);
-  border: 3px solid rgba(97, 218, 251, 0.3);
   animation: subtle-float 6s ease-in-out infinite;
 }
 
 .profile-image-container:hover {
   transform: perspective(1200px) rotateY(8deg) rotateX(1deg) rotateZ(1deg) scale(1.05);
   box-shadow: 0 35px 100px rgba(0, 0, 0, 0.25);
-  border-color: var(--primary-color);
 }
 
 @keyframes subtle-float {
@@ -307,9 +304,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .profile-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-  border-radius: 17px;
+  border-radius: 50%;
   transition: all 0.4s ease;
 }
 
