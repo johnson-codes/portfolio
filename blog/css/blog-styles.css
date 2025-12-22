@@ -117,7 +117,7 @@ main section.py-5:first-of-type {
 
 /* Featured image styling */
 .blog-featured-image {
-    max-width: var(--blog-content-width);
+    max-width: 600px; /* Reduced from 768px */
     margin: 0 auto 4rem auto;
     padding: 0 1.5rem;
 }
@@ -127,8 +127,20 @@ main section.py-5:first-of-type {
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: var(--blog-radius-lg);
+    border-radius: 2rem; /* Increased from 1rem */
     box-shadow: var(--blog-shadow-lg);
+}
+
+/* Also style featured images in blog posts directly */
+.blog-content img,
+section img.img-fluid {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 2rem !important;
+    box-shadow: var(--blog-shadow-lg);
+    margin: 0 auto;
+    display: block;
 }
 
 /* Blog content styling - Enhanced typography */
