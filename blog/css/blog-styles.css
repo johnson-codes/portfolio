@@ -650,9 +650,9 @@ section img.img-fluid {
     z-index: 1000;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
     background: white;
-    padding: 1rem 0.5rem;
+    padding: 0.75rem 0.5rem;
     border-radius: var(--blog-radius);
     box-shadow: var(--blog-shadow-lg);
     border: 1px solid var(--blog-border);
@@ -662,56 +662,42 @@ section img.img-fluid {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     text-decoration: none;
-    color: white;
-    font-size: 1.1rem;
+    color: #333;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid #e0e0e0;
     cursor: pointer;
+    background: white;
 }
 
 .social-sharing-sidebar .share-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.social-sharing-sidebar .share-btn.twitter {
-    background-color: #1da1f2;
-}
-
-.social-sharing-sidebar .share-btn.twitter:hover {
-    background-color: #0d8bd9;
+    background: #333;
     color: white;
+    border-color: #333;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
-.social-sharing-sidebar .share-btn.facebook {
-    background-color: #4267b2;
-}
-
-.social-sharing-sidebar .share-btn.facebook:hover {
-    background-color: #365899;
-    color: white;
-}
-
-.social-sharing-sidebar .share-btn.linkedin {
-    background-color: #0077b5;
-}
-
-.social-sharing-sidebar .share-btn.linkedin:hover {
-    background-color: #005885;
-    color: white;
-}
-
+.social-sharing-sidebar .share-btn.twitter,
+.social-sharing-sidebar .share-btn.facebook,
+.social-sharing-sidebar .share-btn.linkedin,
 .social-sharing-sidebar .share-btn.link {
-    background-color: var(--blog-text);
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
 }
 
+.social-sharing-sidebar .share-btn.twitter:hover,
+.social-sharing-sidebar .share-btn.facebook:hover,
+.social-sharing-sidebar .share-btn.linkedin:hover,
 .social-sharing-sidebar .share-btn.link:hover {
-    background-color: var(--blog-accent);
+    background: #333;
     color: white;
+    border-color: #333;
 }
 
 /* Hide social sharing on smaller screens where there's no room next to content */
