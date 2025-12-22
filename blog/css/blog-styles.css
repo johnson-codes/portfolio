@@ -645,7 +645,7 @@ section img.img-fluid {
 .social-sharing-sidebar {
     position: fixed;
     left: calc(50% - 450px);
-    top: calc(50% - 50px);
+    top: calc(50% - 60px);
     transform: translateY(-50%);
     z-index: 1000;
     display: flex;

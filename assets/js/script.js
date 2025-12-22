@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const bottomLimit = endAnchor.offsetTop; // document position
             const sidebarHeight = sidebar.offsetHeight;
             const viewportMid = window.scrollY + window.innerHeight / 2;
-            const offset = 50; // move up by 50px
+            const offset = 60; // move up by 60px
             const desiredTop = viewportMid - sidebarHeight / 2 - offset; // centered then shifted up
 
             if (desiredTop + sidebarHeight + 50 >= bottomLimit) {
