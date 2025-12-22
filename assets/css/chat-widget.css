@@ -469,3 +469,10 @@
 .chat-toggle-btn.pulse {
   animation: pulse 2s infinite;
 }
+
+/* Hide widget on mobile devices */
+@media (max-width: 768px) {
+  .chat-widget {
+    display: none !important;
+  }
+}
