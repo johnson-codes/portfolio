@@ -109,6 +109,11 @@ class ChatWidget {
         this.closeBtn = document.getElementById('chatCloseBtn');
         this.quickActions = document.getElementById('quickActions');
         this.chatIcon = document.getElementById('chatIcon');
+        
+        // Ensure icon element exists
+        if (!this.chatIcon) {
+            this.chatIcon = this.toggleBtn.querySelector('i');
+        }
     }
     
     attachEventListeners() {
@@ -206,7 +211,10 @@ class ChatWidget {
         this.isOpen = true;
         this.chatWindow.classList.add('opening');
         this.chatWindow.classList.add('open');
-        this.chatIcon.className = 'fas fa-times';
+        
+        // Update icon - try multiple methods
+        this.updateToggleIcon('fas fa-times');
+        
         this.toggleBtn.classList.remove('has-notification');
         
         // Focus input
@@ -224,11 +232,38 @@ class ChatWidget {
     closeChat() {
         this.isOpen = false;
         this.chatWindow.classList.add('closing');
-        this.chatIcon.className = 'fas fa-comment';
+        
+        // Update icon - try multiple methods
+        this.updateToggleIcon('fas fa-comment');
         
         setTimeout(() => {
             this.chatWindow.classList.remove('open', 'closing');
         }, 300);
+    }
+    
+    updateToggleIcon(iconClass) {
+        // Method 1: Use stored reference
+        if (this.chatIcon) {
+            this.chatIcon.className = iconClass;
+        }
+        
+        // Method 2: Query by ID (fallback)
+        const iconById = document.getElementById('chatIcon');
+        if (iconById) {
+            iconById.className = iconClass;
+        }
+        
+        // Method 3: Query within button (double fallback)
+        const iconInButton = this.toggleBtn ? this.toggleBtn.querySelector('i') : null;
+        if (iconInButton) {
+            iconInButton.className = iconClass;
+        }
+        
+        // Method 4: Global query (final fallback)
+        const iconGlobal = document.querySelector('#chatToggleBtn i');
+        if (iconGlobal) {
+            iconGlobal.className = iconClass;
+        }
     }
     
     sendMessage() {
