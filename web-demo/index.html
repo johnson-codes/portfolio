@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Demo Hub | Johnson Portfolio</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../assets/css/style.css" rel="stylesheet">
+    <!-- Chat Widget CSS -->
+    <link href="../assets/css/chat-widget.css" rel="stylesheet">
+    
+    <!-- Custom Tab Styling -->
+    <style>
+        .nav-pills .nav-link:not(.active) {
+            background-color: rgba(91, 192, 222, 0.1) !important;
+            color: #000000 !important;
+            border: 1px solid rgba(91, 192, 222, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-pills .nav-link:not(.active):hover {
+            background-color: rgba(91, 192, 222, 0.2) !important;
+            color: #000000 !important;
+            border-color: #5bc0de;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(91, 192, 222, 0.3);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: #5bc0de !important;
+            color: #ffffff !important;
+            border: 1px solid #5bc0de;
+        }
+        
+        .nav-pills .nav-item {
+            margin: 0 5px;
+        }
+        
+        /* Custom Dropdown Styling */
+        .dropdown-menu {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(91, 192, 222, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            min-width: 160px;
+        }
+        
+        .dropdown-item {
+            color: var(--text-color) !important;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            margin: 2px 8px;
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(91, 192, 222, 0.1) !important;
+            color: #5bc0de !important;
+            transform: translateX(5px);
+        }
+        
+        .dropdown-toggle::after {
+            display: none !important;
+        }
+        
+        .dropdown.show .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        /* Ensure dropdown works properly with scrolled navbar */
+        .navbar.scrolled .dropdown-menu {
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .navbar.scrolled .dropdown-item {
+            color: var(--text-color) !important;
+        }
+        
+        .navbar.scrolled .dropdown-item:hover {
+            background-color: rgba(91, 192, 222, 0.15) !important;
+        }
+        
+        /* Fix navigation text visibility on demo pages */
+        .navbar .nav-link {
+            color: var(--text-color) !important;
+        }
+        
+        .navbar .navbar-brand {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        /* Add subtle bottom shadow to navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Demo Hub Specific Styles */
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            color: var(--text-color);
+        }
+        
+        .demo-content {
+            padding-top: 120px;
+            padding-bottom: 60px;
+        }
+        
+        .demo-hero {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e9ecef;
+        }
+        
+        .demo-hero h1 {
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+        
+        .demo-hero .lead {
+            color: #6c757d;
+        }
+        
+        .demo-card {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(97, 218, 251, 0.3);
+        }
+        
+        .demo-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .demo-card h3 {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .demo-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        
+        .btn-demo {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(97, 218, 251, 0.3);
+        }
+        
+        .btn-demo:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(97, 218, 251, 0.4);
+        }
+        
+        .btn-demo:disabled {
+            background: #e9ecef;
+            color: #6c757d;
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+        
+        .btn-demo:disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .btn-live {
+            background: #28a745;
+            color: white;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn-live:hover {
+            background: #218838;
+            color: white;
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+        }
+        
+        .status-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .status-live {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status-coming {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .cta-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-top: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .cta-section .lead {
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(97, 218, 251, 0.3);
+        }
+        
+        /* Accounting Demo Modal Styling */
+        .demo-modal {
+            z-index: 1060;
+        }
+        
+        .demo-modal .modal-dialog {
+            max-width: 95vw;
+            height: 95vh;
+            margin: 2.5vh auto;
+        }
+        
+        .demo-modal .modal-content {
+            height: 100%;
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .demo-modal .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border-radius: 15px 15px 0 0;
+            padding: 20px 30px;
+            border-bottom: none;
+        }
+        
+        .demo-modal .modal-title {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .demo-modal .btn-close {
+            background: #FB8261;
+            border-radius: 50%;
+            padding: 8px;
+            opacity: 1;
+            transition: all 0.3s ease;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .demo-modal .btn-close:hover {
+            background: #e67350;
+            transform: scale(1.1);
+        }
+        
+        .demo-modal .btn-close::before,
+        .demo-modal .btn-close::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+        }
+        
+        .demo-modal .btn-close::before {
+            transform: rotate(45deg);
+        }
+        
+        .demo-modal .btn-close::after {
+            transform: rotate(-45deg);
+        }
+        
+        .demo-modal .modal-body {
+            padding: 0;
+            height: calc(100% - 80px);
+        }
+        
+        .demo-modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 0 0 15px 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Johnson</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../index.html#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#testimonials">Testimonials</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Demo
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="index.html">Web Demo</a></li>
+                            <li><a class="dropdown-item" href="../mobile-demo/index.html">Mobile Demo</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="../blog/index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../index.html#contact">Contact</a></li>
+                    <li class="nav-item ms-lg-3"><a class="btn btn-cta" href="../index.html#contact">Hire Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="demo-content">
+            <div class="container py-5">
+                <div class="demo-hero text-center">
+                    <h1 class="display-4 mb-4">Web Demo Hub</h1>
+                    <p class="lead">Explore professional web applications and interactive experiences</p>
+                </div>
+
+                <div class="row">
+                    <!-- Accounting Service Demo -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h3>Accounting Service Platform</h3>
+                            <p>Professional accounting service website with modern design and client portal integration.</p>
+                            <button class="btn btn-demo btn-live btn-lg" data-bs-toggle="modal" data-bs-target="#accountingDemoModal">
+                                <i class="fas fa-external-link-alt me-2"></i>View Live Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Medical Clinic -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-stethoscope"></i>
+                            </div>
+                            <h3>Medical Clinic Website</h3>
+                            <p>Professional medical practice website with appointment booking and patient portal.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-heart me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Dental Clinic -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-tooth"></i>
+                            </div>
+                            <h3>Dental Clinic Website</h3>
+                            <p>Modern dental practice website with services showcase and online scheduling.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-calendar-alt me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Law Firms -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h3>Law Firm Website</h3>
+                            <p>Professional legal services website with case studies and attorney profiles.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-balance-scale me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Notaries -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-stamp"></i>
+                            </div>
+                            <h3>Notary Services Website</h3>
+                            <p>Professional notary services website with document processing and scheduling.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-file-signature me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- General Contractors -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h3>General Contractors</h3>
+                            <p>Construction and renovation website with project gallery and quote requests.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-hammer me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- HVAC Services -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-thermometer-half"></i>
+                            </div>
+                            <h3>HVAC Services</h3>
+                            <p>Heating and cooling services website with maintenance scheduling and emergency calls.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-fan me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Plumbers & Electricians -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>Plumbers & Electricians</h3>
+                            <p>Home services website for plumbing and electrical work with emergency booking.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-wrench me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Landscape & Exterior Cleaning -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3>Landscape & Exterior Cleaning</h3>
+                            <p>Landscaping and cleaning services website with seasonal packages and quotes.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-seedling me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Local Manufacturers -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h3>Local Manufacturers</h3>
+                            <p>Manufacturing company website with product catalog and B2B ordering system.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-cogs me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Boutique Hotels & Lodges -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <h3>Boutique Hotels & Lodges</h3>
+                            <p>Luxury accommodation website with room booking and guest experience features.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-concierge-bell me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Specialty Foods Producers -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h3>Specialty Foods Producers</h3>
+                            <p>Artisan food producer website with online store and local distribution info.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-shopping-cart me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Clean-tech and AI Startups -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>Clean-tech & AI Startups</h3>
+                            <p>Innovation startup website with technology showcase and investor presentations.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-lightbulb me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <p class="lead">More web demos coming soon!</p>
+                    <a href="../index.html#contact" class="btn btn-outline-custom btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Request Custom Web Solution
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Accounting Demo Modal -->
+    <div class="modal fade demo-modal" id="accountingDemoModal" tabindex="-1" aria-labelledby="accountingDemoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accountingDemoModalLabel">
+                        <i class="fas fa-calculator me-2"></i>Accounting Service Platform - Live Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://smoke-link-18729882.figma.site" 
+                            title="Accounting Service Demo"
+                            allowfullscreen
+                            allow="fullscreen; clipboard-read; clipboard-write">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Column 1: About -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="footer-title">Johnson</h4>
+                    <p>Helping businesses grow through strategic digital marketing and custom software development solutions that drive measurable results and enhance user experiences.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../index.html#about"><i class="fas fa-angle-right me-2"></i>About Me</a></li>
+                        <li><a href="../index.html#projects"><i class="fas fa-angle-right me-2"></i>Projects</a></li>
+                        <li><a href="../blog/index.html"><i class="fas fa-angle-right me-2"></i>Blog</a></li>
+                        <li><a href="../index.html#contact"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Connect With Me</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/johnson_wang_art/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/johnsonwang-marketer/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright Bar -->
+            <div class="text-center copyright">
+                <p>© 2025 Johnson | Digital Marketing Specialist & Software Developer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <!-- Chat Widget JavaScript -->
+    <script src="../assets/js/chat-widget.js"></script>
+</body>
+</html>
