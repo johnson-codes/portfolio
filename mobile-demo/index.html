@@ -101,12 +101,41 @@
             color: var(--primary-color) !important;
         }
         
+        /* Make Johnson brand black when scrolled */
+        .navbar.scrolled .navbar-brand {
+            color: var(--text-color) !important;
+        }
+        
         .navbar .nav-link:hover {
             color: var(--primary-color) !important;
         }
         
         .navbar .nav-link.active {
-            color: var(--primary-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        /* Demo dropdown active state styling - override global nav underline */
+        .nav-link.dropdown-toggle.active {
+            color: var(--text-color) !important;
+            position: relative;
+        }
+        
+        /* Completely disable global nav underline for dropdown toggles */
+        .nav-link.dropdown-toggle::after,
+        .nav-link.dropdown-toggle.active::after {
+            display: none !important;
+        }
+        
+        /* Create single custom underline for active dropdown */
+        .nav-link.dropdown-toggle.active::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            display: block;
         }
         
         /* Add subtle bottom shadow to navbar */
@@ -295,58 +324,170 @@
                 </div>
 
                 <div class="row">
-                    <!-- React Native Demo -->
+                    <!-- Home Maintenance & Repair -->
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
-                                <i class="fab fa-react"></i>
+                                <i class="fas fa-home"></i>
                             </div>
-                            <h3>React Native App</h3>
-                            <p>Cross-platform mobile application built with React Native.</p>
+                            <h3>Home Maintenance & Repair</h3>
+                            <p>Mobile app for scheduling home repairs with real-time technician tracking.</p>
                             <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-mobile-alt me-2"></i>Coming Soon
+                                <i class="fas fa-tools me-2"></i>Coming Soon
                             </button>
                         </div>
                     </div>
 
-                    <!-- Progressive Web App -->
+                    <!-- Mobile Personal Services -->
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
-                                <i class="fas fa-globe"></i>
+                                <i class="fas fa-user-check"></i>
                             </div>
-                            <h3>Progressive Web App</h3>
-                            <p>Modern PWA with offline capabilities and push notifications.</p>
+                            <h3>Mobile Personal Services</h3>
+                            <p>On-demand personal services app with booking and payment integration.</p>
                             <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-rocket me-2"></i>Coming Soon
+                                <i class="fas fa-calendar-check me-2"></i>Coming Soon
                             </button>
                         </div>
                     </div>
 
-                    <!-- Flutter Demo -->
+                    <!-- Food & Beverage -->
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
-                                <i class="fas fa-mobile"></i>
+                                <i class="fas fa-utensils"></i>
                             </div>
-                            <h3>Flutter Application</h3>
-                            <p>Beautiful, natively compiled mobile application built with Flutter.</p>
+                            <h3>Food & Beverage App</h3>
+                            <p>Restaurant ordering and delivery app with menu customization and tracking.</p>
                             <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-play me-2"></i>Coming Soon
+                                <i class="fas fa-shopping-cart me-2"></i>Coming Soon
                             </button>
                         </div>
                     </div>
 
-                    <!-- Responsive Design Showcase -->
+                    <!-- Wellness & Health -->
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
-                                <i class="fas fa-tablet-alt"></i>
+                                <i class="fas fa-heart"></i>
                             </div>
-                            <h3>Responsive Showcase</h3>
-                            <p>Interactive demonstration of responsive web design principles.</p>
+                            <h3>Wellness & Health App</h3>
+                            <p>Health tracking app with appointment booking and wellness monitoring.</p>
                             <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-expand-arrows-alt me-2"></i>Coming Soon
+                                <i class="fas fa-heartbeat me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Fitness & Training -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h3>Fitness & Training App</h3>
+                            <p>Personal fitness app with workout plans and progress tracking features.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-chart-line me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Education & Learning -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Education & Learning App</h3>
+                            <p>Interactive learning platform with course management and progress tracking.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-book me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Real Estate -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h3>Real Estate App</h3>
+                            <p>Property search and virtual tour app with mortgage calculator integration.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-search me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Property Management -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>Property Management App</h3>
+                            <p>Landlord and tenant management app with maintenance requests and payments.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-key me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tourism & Travel -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <h3>Tourism & Travel App</h3>
+                            <p>Local tourism guide with interactive maps and booking capabilities.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-plane me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Event Management -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>Event Management App</h3>
+                            <p>Event planning and management app with guest lists and vendor coordination.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-glass-cheers me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Local Services -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-map-pin"></i>
+                            </div>
+                            <h3>Local Services App</h3>
+                            <p>Community services directory with reviews and instant booking features.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-star me-2"></i>Coming Soon
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Transportation -->
+                    <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="demo-card text-center">
+                            <div class="demo-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3>Transportation App</h3>
+                            <p>Ride-sharing and transportation booking app with route optimization.</p>
+                            <button class="btn btn-demo btn-lg" disabled>
+                                <i class="fas fa-route me-2"></i>Coming Soon
                             </button>
                         </div>
                     </div>

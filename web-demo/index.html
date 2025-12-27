@@ -101,12 +101,41 @@
             color: var(--primary-color) !important;
         }
         
+        /* Make Johnson brand black when scrolled */
+        .navbar.scrolled .navbar-brand {
+            color: var(--text-color) !important;
+        }
+        
         .navbar .nav-link:hover {
             color: var(--primary-color) !important;
         }
         
         .navbar .nav-link.active {
-            color: var(--primary-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        /* Demo dropdown active state styling - override global nav underline */
+        .nav-link.dropdown-toggle.active {
+            color: var(--text-color) !important;
+            position: relative;
+        }
+        
+        /* Completely disable global nav underline for dropdown toggles */
+        .nav-link.dropdown-toggle::after,
+        .nav-link.dropdown-toggle.active::after {
+            display: none !important;
+        }
+        
+        /* Create single custom underline for active dropdown */
+        .nav-link.dropdown-toggle.active::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            display: block;
         }
         
         /* Add subtle bottom shadow to navbar */
