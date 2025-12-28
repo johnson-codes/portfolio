@@ -612,8 +612,8 @@
                             </div>
                             <h3>Notary Services Website</h3>
                             <p>Professional notary services website with document processing and scheduling.</p>
-                            <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-file-signature me-2"></i>Coming Soon
+                            <button class="btn btn-secondary-demo btn-lg" data-bs-toggle="modal" data-bs-target="#notaryDemoModal">
+                                <i class="fas fa-external-link-alt me-2"></i>View Live Demo
                             </button>
                         </div>
                     </div>
@@ -779,6 +779,27 @@
                 <div class="modal-body">
                     <iframe src="https://bug-cameo-51920962.figma.site/" 
                             title="HVAC Service Demo"
+                            allowfullscreen
+                            allow="fullscreen; clipboard-read; clipboard-write">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Notary Demo Modal -->
+    <div class="modal fade demo-modal" id="notaryDemoModal" tabindex="-1" aria-labelledby="notaryDemoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notaryDemoModalLabel">
+                        <i class="fas fa-stamp me-2"></i>Notary Services - Live Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://viola-night-35114851.figma.site" 
+                            title="Notary Service Demo"
                             allowfullscreen
                             allow="fullscreen; clipboard-read; clipboard-write">
                     </iframe>
