@@ -160,21 +160,72 @@
         }
         
         .demo-hero {
-            background: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            margin-bottom: 50px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e9ecef;
+            background: linear-gradient(135deg, #ff9a56 0%, #ff6b9d 100%);
+            border-radius: 20px;
+            padding: 80px 40px;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .demo-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 154, 86, 0.9) 0%, rgba(255, 107, 157, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .demo-hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .demo-hero h1 {
-            color: var(--secondary-color);
-            font-weight: 700;
+            color: white;
+            font-weight: 800;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
         .demo-hero .lead {
-            color: #6c757d;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+        
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .industry-tag {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .industry-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
         }
         
         .demo-card {
@@ -322,8 +373,22 @@
         <div class="demo-content">
             <div class="container py-5">
                 <div class="demo-hero text-center">
-                    <h1 class="display-4 mb-4">Mobile Demo Hub</h1>
-                    <p class="lead">Explore responsive mobile applications and experiences</p>
+                    <div class="demo-hero-content">
+                        <h1 class="display-4 mb-4">Mobile App Solutions</h1>
+                        <p class="lead">Innovative mobile experiences that connect businesses with their customers</p>
+                        <div class="industry-tags">
+                            <span class="industry-tag">Home Services</span>
+                            <span class="industry-tag">Personal Care</span>
+                            <span class="industry-tag">Food & Beverage</span>
+                            <span class="industry-tag">Wellness</span>
+                            <span class="industry-tag">Fitness</span>
+                            <span class="industry-tag">Education</span>
+                            <span class="industry-tag">Real Estate</span>
+                            <span class="industry-tag">Tourism</span>
+                            <span class="industry-tag">Transportation</span>
+                            <span class="industry-tag">Events</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">
