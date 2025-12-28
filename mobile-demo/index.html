@@ -556,8 +556,8 @@
                             </div>
                             <h3>Mobile Personal Services</h3>
                             <p>On-demand personal services app with booking and payment integration.</p>
-                            <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-calendar-check me-2"></i>Coming Soon
+                            <button class="btn btn-secondary-demo btn-lg" data-bs-toggle="modal" data-bs-target="#personalServicesDemoModal">
+                                <i class="fas fa-external-link-alt me-2"></i>View Live Demo
                             </button>
                         </div>
                     </div>
@@ -729,6 +729,27 @@
                 <div class="modal-body">
                     <iframe src="https://access-coup-28291261.figma.site" 
                             title="Food & Beverage Demo"
+                            allowfullscreen
+                            allow="fullscreen; clipboard-read; clipboard-write">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Personal Services Modal -->
+    <div class="modal fade demo-modal" id="personalServicesDemoModal" tabindex="-1" aria-labelledby="personalServicesDemoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="personalServicesDemoModalLabel">
+                        <i class="fas fa-user-check me-2"></i>Mobile Personal Services - Live Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://stack-silver-24437120.figma.site" 
+                            title="Mobile Personal Services Demo"
                             allowfullscreen
                             allow="fullscreen; clipboard-read; clipboard-write">
                     </iframe>
