@@ -340,28 +340,7 @@
             box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
         }
         
-        .status-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .status-live {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .status-coming {
-            background: #fff3cd;
-            color: #856404;
-            border: 1px solid #ffeaa7;
-        }
+        /* status badges removed — not needed */
         
         .cta-section {
             background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
@@ -656,13 +635,14 @@
                     <!-- HVAC Services -->
                     <div class="col-lg-6 col-md-6 mb-4">
                         <div class="demo-card text-center">
+                    
                             <div class="demo-icon">
                                 <i class="fas fa-thermometer-half"></i>
                             </div>
                             <h3>HVAC Services</h3>
                             <p>Heating and cooling services website with maintenance scheduling and emergency calls.</p>
-                            <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-fan me-2"></i>Coming Soon
+                            <button class="btn btn-secondary-demo btn-lg" data-bs-toggle="modal" data-bs-target="#hvacDemoModal">
+                                <i class="fas fa-external-link-alt me-2"></i>View Live Demo
                             </button>
                         </div>
                     </div>
@@ -778,6 +758,27 @@
                 <div class="modal-body">
                     <iframe src="https://smoke-link-18729882.figma.site" 
                             title="Accounting Service Demo"
+                            allowfullscreen
+                            allow="fullscreen; clipboard-read; clipboard-write">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HVAC Demo Modal -->
+    <div class="modal fade demo-modal" id="hvacDemoModal" tabindex="-1" aria-labelledby="hvacDemoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hvacDemoModalLabel">
+                        <i class="fas fa-thermometer-half me-2"></i>HVAC Services - Live Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe src="https://bug-cameo-51920962.figma.site/" 
+                            title="HVAC Service Demo"
                             allowfullscreen
                             allow="fullscreen; clipboard-read; clipboard-write">
                     </iframe>
