@@ -853,9 +853,29 @@
                             </div>
                             <h3>Clean-tech & AI Startups</h3>
                             <p>Innovation startup website with technology showcase and investor presentations.</p>
-                            <button class="btn btn-demo btn-lg" disabled>
-                                <i class="fas fa-lightbulb me-2"></i>Coming Soon
+                            <button class="btn btn-secondary-demo btn-lg" data-bs-toggle="modal" data-bs-target="#aiStartupsDemoModal">
+                                <i class="fas fa-external-link-alt me-2"></i>View Live Demo
                             </button>
+                        </div>
+                    </div>
+                    <!-- AI Startups Modal -->
+                    <div class="modal fade demo-modal" id="aiStartupsDemoModal" tabindex="-1" aria-labelledby="aiStartupsDemoModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen-lg-down">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="aiStartupsDemoModalLabel">
+                                        <i class="fas fa-robot me-2"></i>Clean-tech & AI Startups - Live Demo
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <iframe src="https://flight-alive-04362953.figma.site" 
+                                            title="AI Startups Demo"
+                                            allowfullscreen
+                                            allow="fullscreen; clipboard-read; clipboard-write">
+                                    </iframe>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
