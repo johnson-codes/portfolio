@@ -98,6 +98,40 @@
             50% { transform: translateY(-20px); }
         }
         
+        /* Cursor Trail Effect */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        #hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particleFade 1.5s ease-out forwards;
+        }
+        
+        @keyframes particleFade {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
+        
         .mobile-demo-frame {
             transition: transform 0.3s ease;
         }
@@ -218,6 +252,7 @@
     <main>
     <!-- Hero Section -->
     <section id="hero" style="min-height: 95vh; position: relative;">
+        <canvas id="hero-canvas"></canvas>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -2444,5 +2479,7 @@
     
     <!-- Chat Widget JavaScript -->
     <script src="assets/js/chat-widget.js"></script>
+    <!-- Cursor Trail Effect -->
+    <script src="assets/js/cursor-trail.js"></script>
 </body>
 </html>
