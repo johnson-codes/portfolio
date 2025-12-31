@@ -297,7 +297,71 @@
                             <style>
                             .about-text {
                                 font-size: 1.35rem;
+                                line-height: 1.7;
                             }
+                            
+                            /* Mobile responsive text sizes */
+                            @media (max-width: 768px) {
+                                .about-text {
+                                    font-size: 1.1rem;
+                                }
+                            }
+                            
+                            @media (max-width: 576px) {
+                                .about-text {
+                                    font-size: 1rem;
+                                    line-height: 1.6;
+                                }
+                            }
+                            
+                            /* Zoom Stats Animation Styles */
+                            .zoom-stats-wrapper {
+                                position: relative;
+                                min-height: 100vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: flex-start;
+                                padding-top: 60px;
+                                margin-top: 0px;
+                            }
+                            
+                            .zoom-stats-wrapper .stats-container {
+                                position: sticky;
+                                top: 50%;
+                                transform: translateY(-50%) scale(0.85);
+                                width: 90%;
+                                max-width: 1200px;
+                                margin: 0 auto;
+                                transition: all 0.1s ease-out;
+                                transform-origin: center center;
+                                will-change: transform, opacity;
+                            }
+                            
+                            @media (max-width: 1023px) {
+                                .zoom-stats-wrapper {
+                                    min-height: auto;
+                                    padding-top: 40px;
+                                    padding-bottom: 40px;
+                                }
+                                .zoom-stats-wrapper .stats-container {
+                                    position: relative;
+                                    top: auto;
+                                    transform: scale(1);
+                                    width: 95%;
+                                }
+                            }
+                            
+                            @media (max-width: 768px) {
+                                .zoom-stats-wrapper {
+                                    padding-top: 30px;
+                                    padding-bottom: 30px;
+                                }
+                                .zoom-stats-wrapper .stats-container {
+                                    width: 100%;
+                                    padding: 1rem !important;
+                                }
+                            }
+                            
                             .highlight-keyword {
                                 display: inline-block;
                                 position: relative;
@@ -325,6 +389,18 @@
                             .highlight-keyword:hover::before {
                                 box-shadow: 0 4px 16px rgba(251,130,97,0.18);
                                 border-color: #ff9a56;
+                            }
+                            
+                            /* Mobile responsive keyword highlights */
+                            @media (max-width: 576px) {
+                                .highlight-keyword {
+                                    padding: 0.05em 0.4em;
+                                    margin: 0 0.05em;
+                                    font-size: 0.95em;
+                                }
+                                .highlight-keyword::before {
+                                    border: 2px solid var(--accent-color);
+                                }
                             }
                             </style>
                     <div class="row mt-4">
@@ -357,30 +433,32 @@
             </div>
             
             <!-- Stats Container with Background -->
-            <div class="stats-container mt-5 p-4 rounded shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 1px solid #dee2e6;">
-                <div class="row">
-                    <div class="col-md-3 col-6">
-                        <div class="profile-stats">
-                            <span class="stats-number">11</span>
-                            <span class="stats-text">Years Experience</span>
+            <div id="zoomStatsSection" class="zoom-stats-wrapper">
+                <div class="stats-container p-4 rounded shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 1px solid #dee2e6;">
+                    <div class="row">
+                        <div class="col-md-3 col-6">
+                            <div class="profile-stats">
+                                <span class="stats-number">11</span>
+                                <span class="stats-text">Years Experience</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="profile-stats">
-                            <span class="stats-number">30</span>
-                            <span class="stats-text">Projects Completed</span>
+                        <div class="col-md-3 col-6">
+                            <div class="profile-stats">
+                                <span class="stats-number">30</span>
+                                <span class="stats-text">Projects Completed</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="profile-stats">
-                            <span class="stats-number">5+</span>
-                            <span class="stats-text">Happy Clients</span>
+                        <div class="col-md-3 col-6">
+                            <div class="profile-stats">
+                                <span class="stats-number">5+</span>
+                                <span class="stats-text">Happy Clients</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="profile-stats">
-                            <span class="stats-number">28000</span>
-                            <span class="stats-text">Leads Generated</span>
+                        <div class="col-md-3 col-6">
+                            <div class="profile-stats">
+                                <span class="stats-number">28000</span>
+                                <span class="stats-text">Leads Generated</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -644,7 +722,7 @@
     <section id="testimonials">
         <div class="container">
             <h2 class="text-center section-title">Client Testimonials</h2>
-            <p class="text-center mb-5">Don't just take my word for it - here's what my clients have to say</p>
+            <p class="text-center mb-5">Don't just take my word for it - here's what people I've worked with have to say</p>
             
             <div class="row g-4">
                 <!-- Testimonial 1 -->
@@ -2479,6 +2557,79 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
+    
+    <!-- Zoom Stats Animation Script -->
+    <script>
+    (function() {
+        const zoomSection = document.getElementById('zoomStatsSection');
+        if (!zoomSection) return;
+        
+        const statsContainer = zoomSection.querySelector('.stats-container');
+        
+        function handleZoomScroll() {
+            // Disable zoom effect on mobile and tablet (screens smaller than 1024px)
+            if (window.innerWidth < 1024) {
+                statsContainer.style.transform = 'translateY(-50%) scale(0.85)';
+                statsContainer.style.opacity = '1';
+                statsContainer.style.filter = 'blur(0px)';
+                return;
+            }
+            
+            const rect = zoomSection.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const sectionHeight = zoomSection.offsetHeight;
+            
+            // Calculate raw scroll progress through the section
+            const rawProgress = (windowHeight - rect.top) / (windowHeight + sectionHeight * 0.5);
+            
+            // Add delay: only start zooming after 25% scroll progress
+            // Map 0.25-1.0 range to 0-1 for the zoom effect
+            const scrollProgress = Math.max(0, Math.min(1, (rawProgress - 0.25) / 0.75));
+            
+            // Zoom scale: starts at 0.85, zooms up to 2.5x
+            const scale = 0.85 + (scrollProgress * 1.65);
+            
+            // Move down as it zooms to avoid overlap with content above
+            // Calculate offset: moves down progressively as it zooms
+            const verticalOffset = scrollProgress * 200; // moves down 0-200px for more spacing
+            
+            // Opacity: fades out as it gets too big
+            const opacity = scrollProgress < 0.7 ? 1 : 1 - ((scrollProgress - 0.7) / 0.3) * 0.8;
+            
+            // Apply transformations with vertical offset to prevent overlap
+            statsContainer.style.transform = `translateY(calc(-50% + ${verticalOffset}px)) scale(${scale})`;
+            statsContainer.style.opacity = opacity;
+            
+            // Optional: blur effect when zooming too much
+            if (scrollProgress > 0.8) {
+                const blur = (scrollProgress - 0.8) * 20;
+                statsContainer.style.filter = `blur(${blur}px)`;
+            } else {
+                statsContainer.style.filter = 'blur(0px)';
+            }
+        }
+        
+        // Throttle scroll event for performance
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    handleZoomScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // Re-check on window resize
+        window.addEventListener('resize', function() {
+            handleZoomScroll();
+        });
+        
+        // Initialize on load
+        handleZoomScroll();
+    })();
+    </script>
         <script>
         // Show a loader overlay while modal iframes load
         (function(){
