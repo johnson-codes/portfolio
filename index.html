@@ -293,7 +293,40 @@
                     <br>
                     <hr>
 
-                        <p class="about-text"> I’m a digital marketer and full-stack developer with 10+ years of hands-on experience across strategy and execution. I enjoy working at the intersection of marketing, design, and engineering—turning ideas into clear, usable systems that deliver real results. With a background in linguistics, marketing, and computer science, I bring a practical, thoughtful approach to problem-solving and enjoy collaborating with teams to build things that actually work.</p>
+                        <p class="about-text">I’m a digital marketer and full-stack developer with 10+ years of experience making ideas behave. I blend marketing strategy, design thinking, and engineering to build systems that people can actually use. Backed by <span class="highlight-keyword">linguistics</span>, <span class="highlight-keyword">marketing</span>, and <span class="highlight-keyword">computer science</span>, I enjoy collaborating with teams, solving real problems, and shipping things that don’t break on day one.</p>
+                            <style>
+                            .about-text {
+                                font-size: 1.35rem;
+                            }
+                            .highlight-keyword {
+                                display: inline-block;
+                                position: relative;
+                                padding: 0.1em 0.5em 0.1em 0.5em;
+                                margin: 0 0.1em;
+                                color: inherit;
+                                font-weight: 600;
+                                z-index: 1;
+                            }
+                            .highlight-keyword::before {
+                                content: '';
+                                position: absolute;
+                                left: -0.18em;
+                                top: 0.08em;
+                                width: 105%;
+                                height: 90%;
+                                background: none;
+                                z-index: -1;
+                                border-radius: 44% 56% 60% 40%/50% 40% 60% 50%;
+                                border: 2.5px solid var(--accent-color);
+                                box-shadow: 0 2px 8px rgba(251,130,97,0.08);
+                                pointer-events: none;
+                                transition: box-shadow 0.2s, border-color 0.2s;
+                            }
+                            .highlight-keyword:hover::before {
+                                box-shadow: 0 4px 16px rgba(251,130,97,0.18);
+                                border-color: #ff9a56;
+                            }
+                            </style>
                     <div class="row mt-4">
                         <div class="col-md-6">
                             <div class="info-item">
