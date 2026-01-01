@@ -493,6 +493,31 @@
             border: none;
             border-radius: 0 0 15px 15px;
         }
+        
+        /* Filter Button Styling */
+        .industry-tag {
+            background: transparent;
+            border: 1px solid rgba(91, 192, 222, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .industry-tag:hover {
+            background: rgba(91, 192, 222, 0.2);
+            border-color: #5bc0de;
+            transform: translateY(-2px);
+        }
+        
+        .industry-tag.active {
+            background: #5bc0de;
+            color: white;
+            border-color: #5bc0de;
+        }
+        
+        /* Card Animation */
+        .demo-card-item {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -533,23 +558,23 @@
                         <h1 class="display-4 mb-4"> Web Solutions</h1>
                         <p class="lead">Crafting digital experiences that drive business growth across diverse industries</p>
                         <div class="industry-tags">
-                            <span class="industry-tag">Accounting</span>
-                            <span class="industry-tag">Healthcare</span>
-                            <span class="industry-tag">Legal Services</span>
-                            <span class="industry-tag">Construction</span>
-                            <span class="industry-tag">HVAC</span>
-                            <span class="industry-tag">Manufacturing</span>
-                            <span class="industry-tag">Hospitality</span>
-                            <span class="industry-tag">Food Production</span>
-                            <span class="industry-tag">Clean Tech</span>
-                            <span class="industry-tag">AI Startups</span>
+                            <button class="industry-tag active" data-filter="all">All</button>
+                            <button class="industry-tag" data-filter="accounting">Accounting</button>
+                            <button class="industry-tag" data-filter="healthcare">Healthcare</button>
+                            <button class="industry-tag" data-filter="legal">Legal Services</button>
+                            <button class="industry-tag" data-filter="construction">Construction</button>
+                            <button class="industry-tag" data-filter="manufacturing">Manufacturing</button>
+                            <button class="industry-tag" data-filter="hospitality">Hospitality</button>
+                            <button class="industry-tag" data-filter="food">Food Production</button>
+                            <button class="industry-tag" data-filter="cleantech">Clean Tech</button>
+                            <button class="industry-tag" data-filter="admin">Admin Tools</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <!-- Clean-tech and AI Startups -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="cleantech">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-robot"></i>
@@ -563,7 +588,7 @@
                     </div>
 
                     <!-- Admin Dashboard -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tachometer-alt"></i>
@@ -577,7 +602,7 @@
                     </div>
 
                     <!-- Specialty Foods Producers -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="food">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-utensils"></i>
@@ -591,7 +616,7 @@
                     </div>
 
                     <!-- Local Manufacturers -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-industry"></i>
@@ -605,7 +630,7 @@
                     </div>
 
                     <!-- Law Firm Website -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="legal">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-gavel"></i>
@@ -619,7 +644,7 @@
                     </div>
 
                     <!-- Notary Services Website -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="legal">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-stamp"></i>
@@ -633,7 +658,7 @@
                     </div>
 
                     <!-- Landscape & Exterior Cleaning -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="construction">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-leaf"></i>
@@ -647,7 +672,7 @@
                     </div>
 
                     <!-- Boutique Hotels & Lodges -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="hospitality">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-bed"></i>
@@ -661,7 +686,7 @@
                     </div>
 
                     <!-- Accounting Service Platform -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="accounting">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-calculator"></i>
@@ -675,7 +700,7 @@
                     </div>
 
                     <!-- Dental Clinic Website -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="healthcare">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tooth"></i>
@@ -689,7 +714,7 @@
                     </div>
 
                     <!-- Medical Clinic Website -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="healthcare">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-stethoscope"></i>
@@ -703,7 +728,7 @@
                     </div>
 
                     <!-- Plumbers & Electricians -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="construction">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tools"></i>
@@ -1047,5 +1072,46 @@
     <script src="../assets/js/script.js"></script>
     <!-- Chat Widget JavaScript -->
     <script src="../assets/js/chat-widget.js"></script>
+    
+    <!-- Category Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.industry-tag');
+            const demoCards = document.querySelectorAll('.demo-card-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    demoCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
