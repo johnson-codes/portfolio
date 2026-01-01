@@ -1,3 +1,21 @@
+/* Place GIF outside top right of .demo-hero */
+.outside-banner-gif {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateY(-60%) translateX(30%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.outside-banner-gif img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  background: #fff;
+  border: 2px solid #eee;
+}
 /* Custom styles for Digital Marketer portfolio */
 
 /* Color Scheme - React Blue */
