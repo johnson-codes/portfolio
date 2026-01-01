@@ -479,6 +479,31 @@
             border: none;
             border-radius: 0 0 15px 15px;
         }
+        
+        /* Filter Button Styling */
+        .industry-tag {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .industry-tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: white;
+            transform: translateY(-2px);
+        }
+        
+        .industry-tag.active {
+            background: white;
+            color: #ff6b9d;
+            border-color: white;
+        }
+        
+        /* Card Animation */
+        .demo-card-item {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
     </style>
 </head>
 <body>
@@ -519,23 +544,23 @@
                         <h1 class="display-4 mb-4">Mobile App Solutions</h1>
                         <p class="lead">Innovative mobile experiences that connect businesses with their customers</p>
                         <div class="industry-tags">
-                            <span class="industry-tag">Home Services</span>
-                            <span class="industry-tag">Personal Care</span>
-                            <span class="industry-tag">Food & Beverage</span>
-                            <span class="industry-tag">Wellness</span>
-                            <span class="industry-tag">Fitness</span>
-                            <span class="industry-tag">Education</span>
-                            <span class="industry-tag">Real Estate</span>
-                            <span class="industry-tag">Tourism</span>
-                            <span class="industry-tag">Transportation</span>
-                            <span class="industry-tag">Events</span>
+                            <button class="industry-tag active" data-filter="all">All</button>
+                            <button class="industry-tag" data-filter="home-services">Home Services</button>
+                            <button class="industry-tag" data-filter="personal-care">Personal Care</button>
+                            <button class="industry-tag" data-filter="food">Food & Beverage</button>
+                            <button class="industry-tag" data-filter="wellness">Wellness</button>
+                            <button class="industry-tag" data-filter="fitness">Fitness</button>
+                            <button class="industry-tag" data-filter="education">Education</button>
+                            <button class="industry-tag" data-filter="real-estate">Real Estate</button>
+                            <button class="industry-tag" data-filter="tourism">Tourism</button>
+                            <button class="industry-tag" data-filter="events">Events</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <!-- Home Maintenance & Repair -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="home-services">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tools"></i>
@@ -571,7 +596,7 @@
 
 
                     <!-- Mobile Personal Services -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="personal-care">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-user-check"></i>
@@ -585,7 +610,7 @@
                     </div>
 
                     <!-- Food & Beverage -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="food">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-utensils"></i>
@@ -599,7 +624,7 @@
                     </div>
 
                     <!-- Dental Care App -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wellness">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tooth"></i>
@@ -613,7 +638,7 @@
                     </div>
 
                     <!-- Fitness & Training -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="fitness">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-dumbbell"></i>
@@ -667,7 +692,7 @@
     </div>
 
                     <!-- Education & Learning -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="education">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-graduation-cap"></i>
@@ -701,7 +726,7 @@
     </div>
 
                     <!-- Real Estate -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="real-estate">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-home"></i>
@@ -715,7 +740,7 @@
                     </div>
 
                     <!-- Property Management -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="real-estate">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-building"></i>
@@ -729,7 +754,7 @@
                     </div>
 
                     <!-- Tourism & Travel -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="tourism">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-map-marked-alt"></i>
@@ -763,7 +788,7 @@
     </div>
 
                     <!-- Event Management -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="events">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-calendar-alt"></i>
@@ -797,7 +822,7 @@
     </div>
 
                     <!-- Local Services -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="home-services">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-map-pin"></i>
@@ -811,7 +836,7 @@
                     </div>
 
                     <!-- Health Monitor App -->
-                    <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wellness">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-heartbeat"></i>
@@ -1025,5 +1050,46 @@
     <script src="../assets/js/script.js"></script>
     <!-- Chat Widget JavaScript -->
     <script src="../assets/js/chat-widget.js"></script>
+    
+    <!-- Category Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.industry-tag');
+            const demoCards = document.querySelectorAll('.demo-card-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter cards
+                    demoCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else if (card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.8)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
