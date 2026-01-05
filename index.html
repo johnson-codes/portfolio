@@ -18,25 +18,25 @@
     <!-- Custom Tab Styling -->
     <style>
         .nav-pills .nav-link:not(.active) {
-            background-color: rgba(91, 192, 222, 0.1) !important;
+            background-color: rgba(251, 130, 97, 0.1) !important;
             color: #000000 !important;
-            border: 1px solid rgba(91, 192, 222, 0.3);
+            border: 1px solid rgba(251, 130, 97, 0.3);
             transition: all 0.3s ease;
             cursor: pointer;
         }
         
         .nav-pills .nav-link:not(.active):hover {
-            background-color: rgba(91, 192, 222, 0.2) !important;
+            background-color: rgba(251, 130, 97, 0.2) !important;
             color: #000000 !important;
-            border-color: #5bc0de;
+            border-color: #FB8261;
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(91, 192, 222, 0.3);
+            box-shadow: 0 4px 8px rgba(251, 130, 97, 0.3);
         }
         
         .nav-pills .nav-link.active {
-            background-color: #5bc0de !important;
+            background-color: #FB8261 !important;
             color: #ffffff !important;
-            border: 1px solid #5bc0de;
+            border: 1px solid #FB8261;
         }
         
         .nav-pills .nav-item {
@@ -467,17 +467,19 @@
             <div class="projects-highlight-container p-4 rounded shadow-sm" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 1px solid #dee2e6;">
                 <h2 class="text-center section-title">My Projects</h2>
                 <!-- Service Tabs -->
-                <ul class="nav nav-pills mb-5 justify-content-center" id="services-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="marketing-tab" data-bs-toggle="pill" data-bs-target="#marketing" type="button" role="tab" aria-controls="marketing" aria-selected="true">Marketing Solutions</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="uiux-tab" data-bs-toggle="pill" data-bs-target="#uiux" type="button" role="tab" aria-controls="uiux" aria-selected="false">UI/UX</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="development-tab" data-bs-toggle="pill" data-bs-target="#development" type="button" role="tab" aria-controls="development" aria-selected="false">Software Development</button>
-                    </li>
-                </ul>
+                <div class="text-center mb-5">
+                    <ul class="nav nav-pills" id="services-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="marketing-tab" data-bs-toggle="pill" data-bs-target="#marketing" type="button" role="tab" aria-controls="marketing" aria-selected="true">Marketing Solutions</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="uiux-tab" data-bs-toggle="pill" data-bs-target="#uiux" type="button" role="tab" aria-controls="uiux" aria-selected="false">UI/UX</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="development-tab" data-bs-toggle="pill" data-bs-target="#development" type="button" role="tab" aria-controls="development" aria-selected="false">Software Development</button>
+                        </li>
+                    </ul>
+                </div>
                 <div class="tab-content" id="services-tab-content">
                     <!-- Marketing Services -->
                     <div class="tab-pane fade show active" id="marketing" role="tabpanel" aria-labelledby="marketing-tab">
@@ -784,17 +786,19 @@
             <p class="text-center mb-5">A comprehensive look at my marketing and technical expertise</p>
             
             <!-- Skill Tabs -->
-            <ul class="nav nav-pills mb-5 justify-content-center" id="skills-tab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="marketing-skills-tab" data-bs-toggle="pill" data-bs-target="#marketing-skills" type="button" role="tab" aria-controls="marketing-skills" aria-selected="true">Marketing Skills</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="uiux-skills-tab" data-bs-toggle="pill" data-bs-target="#uiux-skills" type="button" role="tab" aria-controls="uiux-skills" aria-selected="false">UI/UX Skills</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="dev-skills-tab" data-bs-toggle="pill" data-bs-target="#dev-skills" type="button" role="tab" aria-controls="dev-skills" aria-selected="false">Technical Skills</button>
-                </li>
-            </ul>
+            <div class="text-center mb-5">
+                <ul class="nav nav-pills" id="skills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="marketing-skills-tab" data-bs-toggle="pill" data-bs-target="#marketing-skills" type="button" role="tab" aria-controls="marketing-skills" aria-selected="true">Marketing Skills</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="uiux-skills-tab" data-bs-toggle="pill" data-bs-target="#uiux-skills" type="button" role="tab" aria-controls="uiux-skills" aria-selected="false">UI/UX Skills</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="dev-skills-tab" data-bs-toggle="pill" data-bs-target="#dev-skills" type="button" role="tab" aria-controls="dev-skills" aria-selected="false">Technical Skills</button>
+                    </li>
+                </ul>
+            </div>
             
             <div class="tab-content" id="skills-tab-content">
                 <!-- Marketing Skills -->
