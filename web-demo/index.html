@@ -534,9 +534,9 @@
                     <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="../index.html#testimonials">Testimonials</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="nav-link dropdown-toggle active" id="navbarDropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Demo
-                        </a>
+                        </button>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="index.html">Web Demo</a></li>
                             <li><a class="dropdown-item" href="../mobile-demo/index.html">Mobile Demo</a></li>
@@ -1372,26 +1372,7 @@
         </div>
     </div>
 
-    <!-- Accounting Service Platform Modal -->
-    <div class="modal fade demo-modal" id="accountingDemoModal" tabindex="-1" aria-labelledby="accountingDemoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen-lg-down">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="accountingDemoModalLabel">
-                        <i class="fas fa-calculator me-2"></i>Accounting Service Platform - Live Demo
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <iframe src="https://living-wood-20961742.figma.site/" 
-                            title="Accounting Demo"
-                            allowfullscreen
-                            allow="fullscreen; clipboard-read; clipboard-write">
-                    </iframe>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     <!-- Dental Clinic Website Modal -->
     <div class="modal fade demo-modal" id="dentalClinicDemoModal" tabindex="-1" aria-labelledby="dentalClinicDemoModalLabel" aria-hidden="true">
@@ -1611,35 +1592,38 @@
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.industry-tag');
             const demoCards = document.querySelectorAll('.demo-card-item');
-            
+
+            function showCard(card) {
+                card.style.display = 'block';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 10);
+            }
+
+            function hideCard(card) {
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 300);
+            }
+
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    
+                    const filter = this.dataset.filter;
+
                     // Update active state
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     // Filter cards
                     demoCards.forEach(card => {
-                        if (filter === 'all') {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'scale(1)';
-                            }, 10);
-                        } else if (card.getAttribute('data-category') === filter) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'scale(1)';
-                            }, 10);
+                        const category = card.dataset.category;
+                        if (filter === 'all' || category === filter) {
+                            showCard(card);
                         } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'scale(0.8)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
+                            hideCard(card);
                         }
                     });
                 });
