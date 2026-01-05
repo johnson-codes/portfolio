@@ -219,6 +219,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+/* Bold only primary header labels (Home, Demo, Blog, Contact) */
+.navbar .nav-link:not(.dropdown-item):not([href*="projects"]) {
+  font-weight: 700;
+}
+.navbar .dropdown-toggle {
+  font-weight: 700;
+}
+
 /* Also ensure the Hire Me button text is visible when scrolled */
 .navbar.scrolled .btn-primary {
   color: var(--secondary-color);
