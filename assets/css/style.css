@@ -628,11 +628,31 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
   height: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.service-card .btn {
+  margin-top: auto !important;
+  background-color: transparent !important;
+  border: 2px solid var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  border-radius: 25px !important;
+  padding: 10px 25px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.service-card .btn:hover {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(251, 130, 97, 0.3);
 }
 
 .service-icon {
