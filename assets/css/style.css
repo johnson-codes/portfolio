@@ -1085,6 +1085,22 @@ footer .social-link:hover {
   transform: translateY(-5px);
 }
 
+/* Mobile footer layout - 2 rows */
+@media (max-width: 767px) {
+  /* Make About full width */
+  footer .row > .col-md-4 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 30px;
+  }
+  /* Stack Quick Links and Connect With Me each on its own row */
+  footer .row > .col-6 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 24px;
+  }
+}
+
 /* Newsletter Subscription */
 .newsletter-section {
   margin-top: 30px;
