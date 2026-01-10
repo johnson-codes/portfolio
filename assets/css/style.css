@@ -866,7 +866,7 @@ h1, h2, h3, h4, h5, h6 {
 .contact-form {
   background-color: white;
   border-radius: 10px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
@@ -876,10 +876,11 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: space-between;
 }
 
 .contact-form .btn-cta {
-  margin-top: auto;
+  margin-top: 20px;
 }
 
 /* Make contact section columns equal height */
@@ -895,8 +896,8 @@ h1, h2, h3, h4, h5, h6 {
 .form-control {
   border: 1px solid #e9ecef;
   border-radius: 5px;
-  padding: 12px 15px;
-  margin-bottom: 20px;
+  padding: 10px 15px;
+  margin-bottom: 18px;
 }
 
 .form-control:focus {
