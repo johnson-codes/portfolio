@@ -836,51 +836,86 @@ h1, h2, h3, h4, h5, h6 {
   padding: 100px 0;
 }
 
+/* Left Column - Contact Info Items */
 .contact-info-item {
   display: flex;
-  margin-bottom: 30px;
+  gap: 20px;
+  margin-bottom: 25px;
   align-items: flex-start;
+  padding: 28px 0;
+}
+
+.contact-info-item:first-child {
+  padding-top: 28px;
 }
 
 .contact-info-item:last-child {
   margin-bottom: 0;
+  padding-bottom: 28px;
 }
 
 .contact-icon {
-  width: 50px;
-  height: 50px;
-  background-color: rgba(97, 218, 251, 0.1);
-  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(91, 192, 222, 0.12) 0%, rgba(91, 192, 222, 0.08) 100%);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.contact-info-item:hover .contact-icon {
+  background: linear-gradient(135deg, rgba(91, 192, 222, 0.18) 0%, rgba(91, 192, 222, 0.12) 100%);
+  transform: translateY(-2px);
 }
 
 .contact-icon i {
   color: var(--primary-color);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
+.contact-info-item h5 {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.contact-info-item p {
+  margin: 0;
+  color: white;
+  line-height: 1.6;
+}
+
+/* Right Column - Contact Form */
 .contact-form {
   background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 32px 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .contact-form form {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
+  flex: 1;
+}
+
+.contact-form .row {
+  margin-bottom: 0;
 }
 
 .contact-form .btn-cta {
-  margin-top: 20px;
+  margin-top: auto;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
 }
 
 /* Make contact section columns equal height */
@@ -889,20 +924,27 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
 }
 
-#contact .col-lg-6 .contact-form {
-  height: 100%;
+#contact .col-lg-6:first-child {
+  padding-top: 8px;
 }
 
 .form-control {
-  border: 1px solid #e9ecef;
-  border-radius: 5px;
-  padding: 10px 15px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 13px 16px;
   margin-bottom: 18px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
 }
 
 .form-control:focus {
-  box-shadow: none;
+  box-shadow: 0 0 0 3px rgba(91, 192, 222, 0.1);
   border-color: var(--primary-color);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
 }
 
 /* Social icons */
