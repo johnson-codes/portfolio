@@ -842,6 +842,10 @@ h1, h2, h3, h4, h5, h6 {
   align-items: flex-start;
 }
 
+.contact-info-item:last-child {
+  margin-bottom: 0;
+}
+
 .contact-icon {
   width: 50px;
   height: 50px;
@@ -864,6 +868,28 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.contact-form .btn-cta {
+  margin-top: auto;
+}
+
+/* Make contact section columns equal height */
+#contact .row > .col-lg-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+#contact .col-lg-6 .contact-form {
+  height: 100%;
 }
 
 .form-control {
