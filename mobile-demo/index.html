@@ -116,20 +116,32 @@
             color: var(--text-color) !important;
         }
         
-        /* Force btn-cta styling for button elements */
-        button.btn-cta,
-        button.btn-cta:focus,
-        a.btn-cta,
-        a.btn-cta:focus {
+        /* Force btn-cta styling for button elements (except newsletter) */
+        button.btn-cta:not(.newsletter-form .btn-cta),
+        button.btn-cta:not(.newsletter-form .btn-cta):focus,
+        a.btn-cta:not(.newsletter-form .btn-cta),
+        a.btn-cta:not(.newsletter-form .btn-cta):focus {
             background-color: #FB8261 !important;
             border: 2px solid #FB8261 !important;
             color: white !important;
         }
         
-        button.btn-cta:hover,
-        a.btn-cta:hover {
+        button.btn-cta:not(.newsletter-form .btn-cta):hover,
+        a.btn-cta:not(.newsletter-form .btn-cta):hover {
             background-color: #e6744a !important;
             border-color: #e6744a !important;
+        }
+        
+        /* Newsletter button hollow style */
+        .newsletter-form .btn-cta {
+            background-color: transparent !important;
+            border: 2px solid var(--accent-color) !important;
+            color: var(--accent-color) !important;
+        }
+        
+        .newsletter-form .btn-cta:hover {
+            background-color: var(--accent-color) !important;
+            color: white !important;
         }
         
         /* Hide dropdown arrow */
@@ -1236,6 +1248,20 @@
                         <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                         <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
                     </div>
+
+                    <!-- Newsletter Subscription -->
+                    <div class="newsletter-section mt-4">
+                        <h5 class="newsletter-title mb-3">Subscribe to Newsletter</h5>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="newsletterEmail" placeholder="Your email" required>
+                                <button class="btn btn-cta" type="submit">Subscribe</button>
+                            </div>
+                            <div id="newsletterFeedback" class="newsletter-feedback mt-2" style="display: none;">
+                                <i class="fas fa-check-circle me-1"></i>Thanks for subscribing!
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             
@@ -1251,6 +1277,7 @@
     <script src="../assets/js/script.js"></script>
     <!-- Chat Widget JavaScript -->
     <script src="../assets/js/chat-widget.js"></script>
+    <script src="../assets/js/newsletter.js"></script>
     
     <!-- Category Filter Script -->
     <script>

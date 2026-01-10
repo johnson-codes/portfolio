@@ -969,6 +969,89 @@ footer .social-link:hover {
   transform: translateY(-5px);
 }
 
+/* Newsletter Subscription */
+.newsletter-section {
+  margin-top: 30px;
+}
+
+.newsletter-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.newsletter-form .input-group {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.newsletter-form .form-control {
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 8px 0 0 8px;
+  padding: 12px 15px;
+  font-size: 0.95rem;
+  color: var(--text-color);
+  flex: 1;
+  margin: 0;
+}
+
+.newsletter-form .form-control:focus {
+  background-color: #ffffff;
+  box-shadow: none;
+  outline: none;
+}
+
+.newsletter-form .form-control::placeholder {
+  color: rgba(51, 51, 51, 0.5);
+}
+
+.newsletter-form .btn-cta {
+  border-radius: 0 8px 8px 0;
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.newsletter-form .btn-cta:hover {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.newsletter-feedback {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  background-color: rgba(97, 218, 251, 0.1);
+  border-radius: 6px;
+  border-left: 3px solid var(--primary-color);
+  animation: slideInUp 0.3s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 25px;
