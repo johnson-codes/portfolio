@@ -220,6 +220,7 @@ class ChatWidget {
         };
         
         this.messages.push(welcomeMessage);
+        this.renderMessage(welcomeMessage);
         this.renderQuickActions();
     }
     
