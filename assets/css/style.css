@@ -235,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hero section */
 #hero {
-  background: linear-gradient(rgba(40, 44, 52, 0.8), rgba(40, 44, 52, 0.9)), url('../images/hero-bg.jpg');
+  background: var(--secondary-color);
   background-size: cover;
   background-position: center;
   color: var(--text-light);
@@ -266,7 +266,7 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* Wavy Divider */
+/* Wavy Divider - For hero section (inside positioned container) */
 .wave-divider {
   position: absolute;
   bottom: 0;
@@ -284,10 +284,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wave-divider .wave-path {
-  fill: #ffffff;
+  fill: #f8f9fa;
   animation: wave 8s ease-in-out infinite;
   transform-origin: center;
 }
+
+/* Wavy Divider - For footer transitions (standalone with inline styles) */
+/* SVG paths with wave animation */
 
 @keyframes wave {
   0%, 100% {
@@ -1021,7 +1024,7 @@ h1, h2, h3, h4, h5, h6 {
 footer {
   background-color: var(--secondary-color);
   color: rgba(255, 255, 255, 0.7);
-  padding: 70px 0 20px;
+  padding: 50px 0 20px;
   position: relative;
   z-index: 10;
   clear: both;
