@@ -752,12 +752,6 @@ section img.img-fluid {
 }
 
 /* Hide social sharing on smaller screens where there's no room next to content */
-@media (max-width: 1300px) {
-    .social-sharing-sidebar {
-        left: 2rem;
-    }
-}
-
 @media (max-width: 1199px) {
     .social-sharing-sidebar {
         display: none;
@@ -767,6 +761,6 @@ section img.img-fluid {
 /* Adjust for very large screens */
 @media (min-width: 1600px) {
     .social-sharing-sidebar {
-        left: calc(50% - 500px);
+        left: calc(50% - 580px);
     }
 }
