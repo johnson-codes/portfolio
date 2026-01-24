@@ -99,6 +99,12 @@ main section.py-5:first-of-type {
     margin-bottom: 3rem !important;
 }
 
+/* Metadata section spacing (Culture badge, date, read time) - add space above */
+.blog-post-page header .d-flex {
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+}
+
 .blog-post-page .img-fluid {
     margin-top: 2rem !important;
     margin-bottom: 2.5rem !important;
