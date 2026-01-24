@@ -19,7 +19,7 @@
     <link href="../../../assets/css/chat-widget.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Reading Progress Bar -->
+            <!-- Reading Progress Bar -->
     <div style="position: fixed; top: 100px; left: 50%; transform: translateX(-50%); max-width: 1320px; width: calc(100% - 30px); height: 3px; z-index: 10000;">
         <div id="readingProgress" style="height: 100%; background: linear-gradient(90deg, #FB8261, #FF9F7F); width: 0%; transition: width 0.1s ease;"></div>
     </div>
@@ -226,19 +226,36 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle (CDN) -->
+        <!-- Bootstrap JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="../../../assets/js/script.js"></script>
-    <!-- Reading Progress Indicator -->
+    <!-- Chat Widget -->
+    <script src="../../../assets/js/chat-widget.js"></script>
+    
     <script>
+        // Reading Progress Bar
         window.addEventListener('scroll', function() {
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / docHeight) * 100;
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
             document.getElementById('readingProgress').style.width = scrolled + '%';
         });
+
+        // Social Share Functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=450');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=450');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=550,height=450');
+        }
     </script>
-    <!-- Chat Widget JavaScript -->
-    <script src="../../../assets/js/chat-widget.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1768067295349_johnson1.png?alt=media&token=f8b8220e-9605-4500-aea4-effea80f0239">
     <title>Marriage & Practicality | Johnson's Blog</title>
     <meta name="description" content="Exploring material stability versus romantic chemistry in relationships across cultures.">
     
@@ -17,96 +18,56 @@
     <link rel="stylesheet" href="../../css/blog-styles.css">
     <link rel="stylesheet" href="../../../assets/css/chat-widget.css">
     
-    <style>
-        .progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: #f1f1f1;
-            z-index: 1000;
-        }
-        .progress-bar-reading {
-            height: 4px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-        .social-share {
-            position: fixed;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
-        }
-        .social-share a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            color: #333;
-            transition: all 0.3s ease;
-        }
-        .social-share a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        @media (max-width: 768px) {
-            .social-share {
-                position: static;
-                transform: none;
-                flex-direction: row;
-                justify-content: center;
-                margin: 20px 0;
-            }
-        }
-    </style>
-</head>
+    </head>
 <body>
-    <!-- Reading Progress Bar -->
-    <div class="progress-container">
-        <div class="progress-bar-reading"></div>
+            <!-- Reading Progress Bar -->
+    <div style="position: fixed; top: 100px; left: 50%; transform: translateX(-50%); max-width: 1320px; width: calc(100% - 30px); height: 3px; z-index: 10000;">
+        <div id="readingProgress" style="height: 100%; background: linear-gradient(90deg, #FB8261, #FF9F7F); width: 0%; transition: width 0.1s ease;"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <!-- Header/Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="../../../index.html">Johnson's Portfolio</a>
+            <a class="navbar-brand" href="../../../index.html">Johnson</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../../../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../../index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="../../index.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact</a></li>
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="btn btn-cta dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Demo
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../../../web-demo/index.html">Web Demo</a></li>
+                            <li><a class="dropdown-item" href="../../../mobile-demo/index.html">Mobile Demo</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Social Share Buttons -->
-    <div class="social-share">
-        <a href="#" onclick="shareOnTwitter(); return false;" title="Share on Twitter">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" onclick="shareOnLinkedIn(); return false;" title="Share on LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#" onclick="shareOnFacebook(); return false;" title="Share on Facebook">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-    </div>
+        <main>
+        <!-- Social Sharing Sidebar -->
+        <div class="social-sharing-sidebar">
+            <button class="share-btn twitter" onclick="shareOnTwitter()" title="Share on Twitter">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button class="share-btn facebook" onclick="shareOnFacebook()" title="Share on Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button class="share-btn linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </button>
+            <button class="share-btn link" onclick="copyLink()" title="Copy Link">
+                <i class="fas fa-link"></i>
+            </button>
+        </div>
 
-    <!-- Blog Post Content -->
+        <!-- Blog Post Content -->
     <article class="blog-post-page">
         <div class="container mt-5 pt-5">
             <div class="row justify-content-center">
@@ -156,6 +117,8 @@
             </div>
         </div>
     </article>
+
+    </main>
 
     <!-- Wavy Divider -->
     <svg style="display: block; width: 100%; height: 100px; margin-bottom: -1px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -216,7 +179,37 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS (CDN) -->
+        <!-- Bootstrap JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chat Widget -->
+    <script src="../../../assets/js/chat-widget.js"></script>
+    
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+
+        // Social Share Functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=450');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=450');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=550,height=450');
+        }
+    </script>
 </body>
 </html>
+
