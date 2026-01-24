@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage & Practicality | Johnson's Blog</title>
+    <meta name="description" content="Exploring material stability versus romantic chemistry in relationships across cultures.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../css/blog-styles.css">
+    <link rel="stylesheet" href="../../../assets/css/chat-widget.css">
+    
+    <style>
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #f1f1f1;
+            z-index: 1000;
+        }
+        .progress-bar-reading {
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        .social-share {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 100;
+        }
+        .social-share a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        .social-share a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 768px) {
+            .social-share {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar-reading"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">Johnson's Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Social Share Buttons -->
+    <div class="social-share">
+        <a href="#" onclick="shareOnTwitter(); return false;" title="Share on Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" onclick="shareOnLinkedIn(); return false;" title="Share on LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" onclick="shareOnFacebook(); return false;" title="Share on Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+
+    <!-- Blog Post Content -->
+    <article class="blog-post-page">
+        <div class="container mt-5 pt-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <!-- Post Header -->
+                    <header class="mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="badge bg-warning text-dark me-2">Culture</span>
+                            <small class="text-muted"><i class="fas fa-calendar me-1"></i>January 24, 2026</small>
+                            <small class="text-muted ms-3"><i class="fas fa-clock me-1"></i>5 min read</small>
+                        </div>
+                        <h1 class="display-4 fw-bold mb-3">Marriage & Practicality</h1>
+                        <p class="lead text-muted">婚姻与现实主义 - Material stability versus romantic chemistry in relationships</p>
+                    </header>
+
+                    <!-- Featured Image -->
+                    <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1768678623544_canada_tree.jpg?alt=media&token=efe6d208-6917-47d2-96d7-dc4eb43ba93c" class="img-fluid rounded mb-4 shadow" alt="Marriage & Practicality">
+
+                    <!-- Post Content -->
+                    <div class="post-content">
+                        <h2>Two Philosophies of Partnership</h2>
+                        <p>Approaches to marriage and romantic relationships reveal profound cultural differences between China and the West. Chinese culture traditionally views marriage as a practical arrangement - a strategic union between families considering financial stability, social status, and compatibility of material conditions. Western culture, influenced by Romantic ideals, emphasizes emotional connection, personal chemistry, and "marrying for love." Both approaches have historical roots and contemporary relevance, though each culture increasingly grapples with elements of the other's perspective.</p>
+
+                        <h2>Chinese Matchmaking Culture</h2>
+                        <p>In China, marriage markets (相亲角) in parks see parents posting ads for their adult children, listing education, income, housing, and family background. The infamous "three requirements" for male suitors - apartment, car, and stable job - remain powerful expectations. Marriage is viewed as too important for emotions alone; practical considerations ensure long-term stability. Families often heavily influence or arrange marriages, and dating involves explicit discussion of material circumstances early in the relationship. This pragmatic approach stems from collective cultural values and historical economic insecurity.</p>
+
+                        <h2>Western Romantic Love</h2>
+                        <p>Western culture celebrates "falling in love" as the essential foundation for marriage. Romantic comedies reinforce narratives of soulmates, love conquering all obstacles, and following your heart despite practical concerns. While financial compatibility matters, discussing money early in dating is often considered unromantic or mercenary. Marriage proposals emphasize spontaneity and romantic gesture over calculated planning. This cultural narrative values individual emotional fulfillment and personal choice over family approval or material conditions.</p>
+
+                        <h2>Modern Dating Apps</h2>
+                        <p>Dating apps reveal these cultural differences starkly. Chinese platforms like Baihe explicitly list income, property ownership, and education alongside photos. Western apps like Tinder emphasize photos, witty bios, and personality - income details are considered inappropriate. Yet both cultures are experiencing shifts: young Chinese increasingly seek emotional connection, while Westerners grapple with economic realities making the "marry for love" ideal harder to sustain. Cross-cultural couples must navigate these fundamentally different expectations about what marriage means.</p>
+
+                        <h2>Finding Balance</h2>
+                        <p>Neither approach is inherently superior. Chinese pragmatism provides security but can sacrifice emotional fulfillment. Western romanticism celebrates passion but may ignore practical challenges. Modern couples increasingly seek hybrid models - acknowledging practical necessities while not sacrificing emotional connection. The key is understanding that "love" itself is culturally defined: Chinese 爱 (ài) encompasses duty, care, and commitment; Western "love" emphasizes emotional intensity and romance. Both are valid frameworks for building lasting partnerships.</p>
+                    </div>
+
+                    <!-- Author Info -->
+                    <div class="author-bio mt-5 p-4 bg-light rounded">
+                        <div class="d-flex align-items-center">
+                            <div class="ms-3">
+                                <h5 class="mb-1">Johnson</h5>
+                                <p class="text-muted mb-0">Cultural Analyst & Marketing Strategist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="text-white mt-5 position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <!-- Wave Shape Divider -->
+        <div style="position: absolute; top: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0;">
+            <svg style="position: relative; display: block; width: calc(100% + 1.3px); height: 80px;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" style="fill: #ffffff;"></path>
+            </svg>
+        </div>
+
+        <div class="container pt-5" style="margin-top: 60px;">
+            <div class="row g-4">
+                <!-- About Section -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">About Johnson</h5>
+                    <p class="small">Marketing strategist and digital innovator passionate about bridging cultures and creating meaningful connections through technology and storytelling.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../../../index.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
+                        <li class="mb-2"><a href="../../index.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Blog</a></li>
+                        <li class="mb-2"><a href="../../../marketing/index.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Marketing Hub</a></li>
+                        <li class="mb-2"><a href="../../../index.html#contact" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social & Newsletter -->
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="mb-3">Stay Connected</h5>
+                    <div class="d-flex gap-2 mb-3">
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-github"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="input-group input-group-sm">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-light" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 bg-white">
+
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small">&copy; 2026 Johnson's Portfolio. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0 small">Built with <i class="fas fa-heart text-danger"></i> and Bootstrap</p>
+                </div>
+            </div>
+        </div>
+        <div class="pb-3"></div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Chat Widget -->
+    <script src="../../../assets/js/chat-widget.js"></script>
+    
+    <script>
+        // Reading Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.progress-bar-reading').style.width = scrolled + '%';
+        });
+
+        // Social Share Functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=450');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=450');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=550,height=450');
+        }
+    </script>
+</body>
+</html>
