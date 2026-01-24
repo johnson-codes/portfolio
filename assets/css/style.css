@@ -134,18 +134,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-consultation {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
   font-weight: 700;
   padding: 12px 30px;
   text-transform: uppercase;
   letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
 .btn-consultation:hover {
-  background-color: var(--primary-dark);
-  border-color: var(--primary-dark);
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
   color: white;
   transform: translateY(-3px);
 }
