@@ -206,7 +206,7 @@ section img.img-fluid {
     font-size: 1.875rem;
     font-weight: 700;
     color: var(--blog-text);
-    margin: 3rem 0 1.5rem 0;
+    margin: 3rem 0 2.5rem 0;
     line-height: 1.3;
     letter-spacing: -0.025em;
 }
@@ -215,7 +215,7 @@ section img.img-fluid {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--blog-text);
-    margin: 2.5rem 0 1rem 0;
+    margin: 2.5rem 0 1.5rem 0;
     line-height: 1.4;
 }
 
