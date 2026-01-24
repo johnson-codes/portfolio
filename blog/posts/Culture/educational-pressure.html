@@ -157,94 +157,66 @@
         </div>
     </article>
 
+    <!-- Wavy Divider -->
+    <svg style="display: block; width: 100%; height: 100px; margin-bottom: -1px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,20 C250,100 350,100 600,60 C850,20 950,20 1200,100 L1200,120 L0,120 Z" style="fill: #282c34;"></path>
+    </svg>
+
     <!-- Footer -->
-    <footer class="text-white mt-5 position-relative" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-        <!-- Wave Shape Divider -->
-        <div style="position: absolute; top: -1px; left: 0; width: 100%; overflow: hidden; line-height: 0;">
-            <svg style="position: relative; display: block; width: calc(100% + 1.3px); height: 80px;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" style="fill: #ffffff;"></path>
-            </svg>
-        </div>
-
-        <div class="container pt-5" style="margin-top: 60px;">
-            <div class="row g-4">
-                <!-- About Section -->
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="mb-3">About Johnson</h5>
-                    <p class="small">Marketing strategist and digital innovator passionate about bridging cultures and creating meaningful connections through technology and storytelling.</p>
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Column 1: About -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="footer-title">Johnson</h4>
+                    <p>Helping businesses grow through strategic digital marketing and custom software development solutions that drive measurable results and enhance user experiences.</p>
                 </div>
-
-                <!-- Quick Links -->
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="../../../index.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Home</a></li>
-                        <li class="mb-2"><a href="../../index.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Blog</a></li>
-                        <li class="mb-2"><a href="../../../marketing/index.html" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Marketing Hub</a></li>
-                        <li class="mb-2"><a href="../../../index.html#contact" class="text-white text-decoration-none"><i class="fas fa-chevron-right me-2"></i>Contact</a></li>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../../../index.html#about"><i class="fas fa-angle-right me-2"></i>About Me</a></li>
+                        <li><a href="../../../index.html#projects"><i class="fas fa-angle-right me-2"></i>Projects</a></li>
+                        <li><a href="../../index.html"><i class="fas fa-angle-right me-2"></i>Blog</a></li>
+                        <li><a href="../../../index.html#contact"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
                     </ul>
                 </div>
-
-                <!-- Social & Newsletter -->
-                <div class="col-lg-4 col-md-12">
-                    <h5 class="mb-3">Stay Connected</h5>
-                    <div class="d-flex gap-2 mb-3">
-                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-github"></i></a>
-                        <a href="#" class="btn btn-outline-light btn-sm"><i class="fab fa-instagram"></i></a>
+                
+                <!-- Column 3: Social Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Connect With Me</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/johnson_wang_art/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/johnsonwang-marketer/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
                     </div>
-                    <div class="input-group input-group-sm">
-                        <input type="email" class="form-control" placeholder="Your email">
-                        <button class="btn btn-light" type="button">Subscribe</button>
+
+                    <!-- Newsletter Subscription -->
+                    <div class="newsletter-section mt-4">
+                        <h5 class="newsletter-title mb-3">Subscribe to Newsletter</h5>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="newsletterEmail" placeholder="Your email" required>
+                                <button class="btn btn-cta" type="submit">Subscribe</button>
+                            </div>
+                            <div id="newsletterFeedback" class="newsletter-feedback mt-2" style="display: none;">
+                                <i class="fas fa-check-circle me-1"></i>Thanks for subscribing!
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-
-            <hr class="my-4 bg-white">
-
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 small">&copy; 2026 Johnson's Portfolio. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0 small">Built with <i class="fas fa-heart text-danger"></i> and Bootstrap</p>
-                </div>
+            
+            <!-- Copyright Bar -->
+            <div class="text-center copyright">
+                <p>© 2026 Johnson | Digital Marketing Specialist & Web Designer. All rights reserved.</p>
             </div>
         </div>
-        <div class="pb-3"></div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Chat Widget -->
-    <script src="../../../assets/js/chat-widget.js"></script>
-    
-    <script>
-        // Reading Progress Bar
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.querySelector('.progress-bar-reading').style.width = scrolled + '%';
-        });
-
-        // Social Share Functions
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent(document.title);
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=450');
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=450');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=550,height=450');
-        }
-    </script>
 </body>
 </html>
