@@ -1,3 +1,44 @@
+/* === Gallery Figma Section Custom Styles === */
+.gallery-figma-section .card {
+  background: #fff;
+  border-radius: 16px;
+  border-width: 2.5px;
+  border-style: solid;
+  border-color: var(--primary-color);
+  box-shadow: 0 10px 15px 0 rgba(0,0,0,0.10), 0 4px 6px 0 rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.gallery-figma-section .card:hover {
+  box-shadow: 0 16px 32px 0 rgba(91,33,182,0.12), 0 8px 16px 0 rgba(0,0,0,0.10);
+  transform: translateY(-4px) scale(1.02);
+}
+.gallery-figma-section .card img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+}
+.gallery-figma-section .fw-bold {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+}
+.gallery-figma-section p {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  opacity: 0.85;
+  line-height: 1.6;
+}
+.gallery-figma-section .row > div {
+  min-height: 340px;
+}
+@media (max-width: 991.98px) {
+  .gallery-figma-section .row > div { min-height: 280px; }
+}
+@media (max-width: 767.98px) {
+  .gallery-figma-section .row > div { min-height: 220px; }
+}
 /* Place GIF outside top right of .demo-hero */
 .outside-banner-gif {
   position: absolute;
