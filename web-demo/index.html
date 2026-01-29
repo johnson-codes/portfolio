@@ -536,11 +536,36 @@
         .demo-card-item {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+        
+        /* Search Bar Styling */
+        .search-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #searchInput::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        #searchInput:focus {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-container .input-group-text {
+            transition: all 0.3s ease;
+        }
+        
+        #searchInput:focus + .input-group-text,
+        .search-container:focus-within .input-group-text {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
 <body>
-    <!-- Reading Progress Bar -->
-    <div id="readingProgress" style="position: fixed; top: 100px; left: 50%; transform: translateX(-50%); max-width: 1320px; width: calc(100% - 30px); height: 3px; background: linear-gradient(90deg, #FB8261, #FF9F7F); z-index: 10000; transition: width 0.1s ease;"></div>
     <!-- Header/Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -590,12 +615,23 @@
                             <button class="industry-tag" data-filter="admin">Admin Tools</button>
                             <button class="industry-tag" data-filter="landing-page">Landing Page</button>
                         </div>
+                        
+                        <!-- Search Bar -->
+                        <div class="search-container mt-4">
+                            <div class="input-group" style="max-width: 500px; margin: 0 auto;">
+                                <input type="text" id="searchInput" class="form-control" placeholder="Search for solutions..." 
+                                    style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); border-right: none; color: white; backdrop-filter: blur(10px); border-radius: 30px 0 0 30px; padding: 14px 20px; height: 50px;">
+                                <span class="input-group-text" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); border-left: none; color: white; border-radius: 0 30px 30px 0; padding: 0 20px; display: flex; align-items: center; justify-content: center; height: 50px;">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <!-- Clean-tech and AI Startups -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="cleantech">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="cleantech" data-keywords="clean technology ai artificial intelligence startup innovation renewable energy green tech sustainability investor pitch venture capital">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-robot"></i>
@@ -609,7 +645,7 @@
                     </div>
                     
                     <!-- CRM System -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="crm customer relationship management sales pipeline contacts leads deals reporting analytics teams collaboration client">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-users"></i>
@@ -623,7 +659,7 @@
                     </div>
 
                     <!-- Admin Dashboard -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="admin dashboard ecommerce analytics metrics statistics reports users management operations control panel monitoring">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tachometer-alt"></i>
@@ -637,7 +673,7 @@
                     </div>
 
                     <!-- HRIS Portal (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="hris hr human resources employee payroll leave attendance benefits records personnel management staff compliance">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-id-badge"></i>
@@ -651,7 +687,7 @@
                     </div>
 
                     <!-- Content Management System (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="cms content management system wordpress pages posts media blog articles publishing editor website permissions">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-layer-group"></i>
@@ -665,7 +701,7 @@
                     </div>
 
                     <!-- Marketing Automation System (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="marketing automation campaign email newsletter audience segmentation conversion tracking workflow crm sales funnel">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-gears"></i>
@@ -679,7 +715,7 @@
                     </div>
 
                     <!-- Warehouse Management System (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing" data-keywords="warehouse inventory stock picking packing shipping logistics fulfillment storage distribution supply chain wms">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-warehouse"></i>
@@ -693,7 +729,7 @@
                     </div>
 
                     <!-- Supply Chain Management (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing" data-keywords="supply chain logistics procurement sourcing delivery vendor planning operations distribution fulfillment tracking scm">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-truck"></i>
@@ -707,7 +743,7 @@
                     </div>
 
                     <!-- Procurement Management (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing" data-keywords="procurement purchasing buying vendor supplier purchase order po approval tracking sourcing contract bidding">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-clipboard-list"></i>
@@ -721,7 +757,7 @@
                     </div>
 
                     <!-- Manufacturing Management System (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing" data-keywords="manufacturing production factory planning scheduling quality control assembly line operations equipment maintenance mrp erp">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-industry"></i>
@@ -735,7 +771,7 @@
                     </div>
 
                     <!-- Document Management System (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="document management system dms files storage search share permissions versioning audit trails archive records digital">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-folder-open"></i>
@@ -749,7 +785,7 @@
                     </div>
                     
                     <!-- Kanban Board -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="kanban board project management tasks todo workflow agile scrum sprint team collaboration productivity trello jira">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-columns"></i>
@@ -763,7 +799,7 @@
                     </div>
 
                     <!-- Local Manufacturers -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="manufacturing" data-keywords="manufacturer factory production industrial products catalog b2b wholesale ordering business supplier">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-industry"></i>
@@ -777,7 +813,7 @@
                     </div>
 
                     <!-- Law Firm Website -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="legal">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="legal" data-keywords="law lawyer attorney legal firm practice case litigation consultation court justice services advocate paralegal">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-gavel"></i>
@@ -791,7 +827,7 @@
                     </div>
 
                     <!-- Notary Services Website -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="legal">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="legal" data-keywords="notary public notarize documents certification authentication signature witness legal stamp seal apostille">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-stamp"></i>
@@ -805,7 +841,7 @@
                     </div>
 
                     <!-- Landing Page for Tea and Beverage -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page" data-keywords="tea beverage drink landing page product marketing cafe herbal green black chai coffee">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-leaf"></i>
@@ -819,7 +855,7 @@
                     </div>
 
                         <!-- Landing Page for Pet Care Services -->
-                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page">
+                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page" data-keywords="pet care landing page dog cat animal grooming walking boarding sitting veterinary vet kennel daycare">
                             <div class="demo-card text-center">
                                 <div class="demo-icon">
                                     <i class="fas fa-paw"></i>
@@ -854,7 +890,7 @@
                     </div>
 
                     <!-- Landing Page for Auto Body Services -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page" data-keywords="auto body car repair automotive mechanic collision paint dent garage vehicle shop landing page">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-car-side"></i>
@@ -868,7 +904,7 @@
                     </div>
 
                     <!-- Landing Page for Moving Services -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page" data-keywords="moving mover relocation logistics transport packing unpacking delivery truck movers services landing page">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-truck-moving"></i>
@@ -882,7 +918,7 @@
                     </div>
 
                     <!-- Landing Page for Jewelry Business -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="landing-page" data-keywords="jewelry jewel diamond gold silver ring necklace bracelet earring luxury jeweler gemstone precious landing page">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-gem"></i>
@@ -917,7 +953,7 @@
                     </div>
 
                     <!-- Landscape & Exterior Cleaning -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="construction">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="construction" data-keywords="landscape landscaping garden lawn mowing exterior cleaning yard maintenance outdoor groundskeeping tree shrub">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-leaf"></i>
@@ -931,7 +967,7 @@
                     </div>
 
                     <!-- Boutique Hotels & Lodges -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="hospitality">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="hospitality" data-keywords="hotel boutique lodge accommodation room booking reservation guest luxury hospitality travel vacation resort inn">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-bed"></i>
@@ -945,7 +981,7 @@
                     </div>
 
                     <!-- Accounting Service Platform -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="accounting">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="accounting" data-keywords="accounting accountant bookkeeping tax cpa financial services audit payroll consulting business finance">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-calculator"></i>
@@ -959,7 +995,7 @@
                     </div>
 
                     <!-- Accounting Management System (NEW) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="accounting">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="accounting" data-keywords="accounting system ledger invoice billing expense report financial quickbooks xero bookkeeping erp">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-file-invoice-dollar"></i>
@@ -973,7 +1009,7 @@
                     </div>
 
                     <!-- Dental Clinic Website -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="healthcare">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="healthcare" data-keywords="dental dentist clinic teeth tooth oral care orthodontist hygienist checkup cleaning cavity braces healthcare">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tooth"></i>
@@ -987,7 +1023,7 @@
                     </div>
 
                     <!-- Medical Clinic Website -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="healthcare">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="healthcare" data-keywords="medical clinic doctor physician healthcare health hospital appointment patient portal nurse practitioner family medicine">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-stethoscope"></i>
@@ -1001,7 +1037,7 @@
                     </div>
 
                     <!-- Plumbers & Electricians -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="construction">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="construction" data-keywords="plumber plumbing electrician electrical contractor hvac emergency repair maintenance pipe wiring fix">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tools"></i>
@@ -1015,7 +1051,7 @@
                     </div>
 
                     <!-- Leaderboard -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="leaderboard ranking scoreboard competition achievement trophy top performers gamification contest standings">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-trophy"></i>
@@ -1028,7 +1064,7 @@
                         </div>
                     </div>
                         <!-- POS Machine System -->
-                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="pos point of sale register cash payment transaction retail checkout inventory sales terminal">
                             <div class="demo-card text-center">
                                 <div class="demo-icon">
                                     <i class="fas fa-cash-register"></i>
@@ -1041,7 +1077,7 @@
                             </div>
                         </div>
                         <!-- Kiosk Ordering System -->
-                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="kiosk self service ordering menu touchscreen restaurant fast food retail payment terminal automated">
                             <div class="demo-card text-center">
                                 <div class="demo-icon">
                                     <i class="fas fa-concierge-bell"></i>
@@ -1054,7 +1090,7 @@
                             </div>
                         </div>
                         <!-- Home Studio Hub -->
-                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin">
+                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="admin" data-keywords="home studio video movie film media gallery preview share upload drive cloud recording production editing">
                             <div class="demo-card text-center">
                                 <div class="demo-icon">
                                     <i class="fas fa-film"></i>
@@ -1805,6 +1841,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.industry-tag');
             const demoCards = document.querySelectorAll('.demo-card-item');
+            const searchInput = document.getElementById('searchInput');
+            let currentFilter = 'all';
 
             function showCard(card) {
                 card.style.display = 'block';
@@ -1821,35 +1859,57 @@
                     card.style.display = 'none';
                 }, 300);
             }
+            
+            // Filter function
+            function filterCards() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                demoCards.forEach(card => {
+                    const cardTitle = card.querySelector('h3').textContent.toLowerCase();
+                    const cardDescription = card.querySelector('p').textContent.toLowerCase();
+                    const cardKeywords = card.getAttribute('data-keywords')?.toLowerCase() || '';
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    const matchesSearch = searchTerm === '' || 
+                                        cardTitle.includes(searchTerm) || 
+                                        cardDescription.includes(searchTerm) ||
+                                        cardKeywords.includes(searchTerm);
+                    const matchesCategory = currentFilter === 'all' || cardCategory === currentFilter;
+                    
+                    if (matchesSearch && matchesCategory) {
+                        showCard(card);
+                    } else {
+                        hideCard(card);
+                    }
+                });
+            }
+            
+            // Search input event
+            searchInput.addEventListener('input', function() {
+                // Reset category filter to 'all' when searching
+                if (searchInput.value.trim() !== '') {
+                    currentFilter = 'all';
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    filterButtons[0].classList.add('active'); // First button is 'All'
+                }
+                filterCards();
+            });
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const filter = this.dataset.filter;
+                    currentFilter = this.dataset.filter;
+                    
+                    // Clear search input when chip is clicked
+                    searchInput.value = '';
 
                     // Update active state
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
 
-                    // Filter cards
-                    demoCards.forEach(card => {
-                        const category = card.dataset.category;
-                        if (filter === 'all' || category === filter) {
-                            showCard(card);
-                        } else {
-                            hideCard(card);
-                        }
-                    });
+                    // Apply filter
+                    filterCards();
                 });
             });
-        });
-    </script>
-    
-    <!-- Reading Progress Indicator -->
-    <script>
-        window.addEventListener('scroll', function() {
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / docHeight) * 100;
-            document.getElementById('readingProgress').style.width = scrolled + '%';
         });
     </script>
 </body>

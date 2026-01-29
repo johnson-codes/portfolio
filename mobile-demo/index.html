@@ -525,11 +525,36 @@
         .demo-card-item {
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
+        
+        /* Search Bar Styling */
+        .search-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        #searchInput::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        #searchInput:focus {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            color: white;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
+        }
+        
+        .search-container .input-group-text {
+            transition: all 0.3s ease;
+        }
+        
+        #searchInput:focus + .input-group-text,
+        .search-container:focus-within .input-group-text {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
     </style>
 </head>
 <body>
-    <!-- Reading Progress Bar -->
-    <div id="readingProgress" style="position: fixed; top: 100px; left: 50%; transform: translateX(-50%); max-width: 1320px; width: calc(100% - 30px); height: 3px; background: linear-gradient(90deg, #FB8261, #FF9F7F); z-index: 10000; transition: width 0.1s ease;"></div>
     <!-- Header/Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -582,12 +607,23 @@
                             <button class="industry-tag" data-filter="social">Social</button>
                             <button class="industry-tag" data-filter="finance">Finance</button>
                         </div>
+                        
+                        <!-- Search Bar -->
+                        <div class="search-container mt-4">
+                            <div class="input-group" style="max-width: 500px; margin: 0 auto;">
+                                <input type="text" id="searchInput" class="form-control" placeholder="Search for apps..." 
+                                    style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); border-right: none; color: white; backdrop-filter: blur(10px); border-radius: 30px 0 0 30px; padding: 14px 20px; height: 50px;">
+                                <span class="input-group-text" style="background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); border-left: none; color: white; border-radius: 0 30px 30px 0; padding: 0 20px; display: flex; align-items: center; justify-content: center; height: 50px;">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <!-- Wear OS App (TOP) -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wearables">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wearables" data-keywords="smartwatch watch wearable device health fitness tracker notifications alerts android wear google time activity heart rate steps">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-stopwatch"></i>
@@ -600,7 +636,7 @@
                         </div>
                     </div>
                     <!-- Home Maintenance & Repair -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="home-services">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="home-services" data-keywords="repair handyman plumber electrician contractor fix home house maintenance service booking hvac carpentry painting">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tools"></i>
@@ -636,7 +672,7 @@
 
 
                     <!-- Mobile Personal Services -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="personal-care">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="personal-care" data-keywords="beauty salon spa barber hairstylist massage nails manicure pedicure grooming appointment booking stylist">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-user-check"></i>
@@ -650,7 +686,7 @@
                     </div>
 
                     <!-- Food & Beverage -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="food">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="food" data-keywords="restaurant food delivery takeout order menu dining eat meal cuisine pizza burger sushi coffee drink beverage catering">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-utensils"></i>
@@ -664,7 +700,7 @@
                     </div>
 
                     <!-- Dental Care App -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wellness">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wellness" data-keywords="dentist dental teeth tooth orthodontist braces clinic doctor medical health appointment oral care checkup cleaning cavity">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-tooth"></i>
@@ -678,7 +714,7 @@
                     </div>
 
                     <!-- Fitness & Training -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="fitness">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="fitness" data-keywords="gym workout exercise training fitness health wellness bodybuilding cardio strength yoga pilates crossfit personal trainer muscle weight loss">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-dumbbell"></i>
@@ -732,7 +768,7 @@
     </div>
 
                     <!-- Education & Learning -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="education">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="education" data-keywords="school learning education course class training study student teacher tutor academy university college online elearning tutorial lesson">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-graduation-cap"></i>
@@ -766,7 +802,7 @@
     </div>
 
                     <!-- Real Estate -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="real-estate">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="real-estate" data-keywords="property house home apartment condo real estate buy sell rent lease realtor agent broker mortgage listing virtual tour">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-home"></i>
@@ -780,7 +816,7 @@
                     </div>
 
                     <!-- Property Management -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="real-estate">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="real-estate" data-keywords="landlord tenant property management rent lease maintenance payment invoice repair request building apartment rental">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-building"></i>
@@ -794,7 +830,7 @@
                     </div>
 
                     <!-- Tourism & Travel -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="tourism">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="tourism" data-keywords="travel tourism vacation trip holiday destination guide tour hotel booking flight ticket adventure sightseeing map itinerary">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-map-marked-alt"></i>
@@ -828,7 +864,7 @@
     </div>
 
                     <!-- Event Management -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="events">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="events" data-keywords="event planning party wedding conference meeting venue guest list rsvp invitation catering vendor coordination schedule calendar">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-calendar-alt"></i>
@@ -862,7 +898,7 @@
     </div>
 
                     <!-- Local Services -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="home-services">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="home-services" data-keywords="local community services directory business review booking contractor professional handyman cleaning landscaping">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-map-pin"></i>
@@ -877,7 +913,7 @@
 
 
                     <!-- Health Monitor App -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wellness">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="wellness" data-keywords="health monitor tracking wellness medical fitness activity heart rate blood pressure vitals metrics analytics doctor patient">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-heartbeat"></i>
@@ -911,7 +947,7 @@
                     </div>
 
                     <!-- Local Grocery Shopping App -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="food">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="food" data-keywords="grocery shopping supermarket store food delivery pickup cart list vegetables fruits meat dairy pantry online market">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-shopping-basket"></i>
@@ -945,7 +981,7 @@
                     </div>
 
                     <!-- Hiking and Clothing App -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="lifestyle">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="lifestyle" data-keywords="hiking outdoor adventure trail nature camping gear clothing apparel shop ecommerce fashion sportswear equipment backpack">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-hiking"></i>
@@ -979,7 +1015,7 @@
                     </div>
 
                     <!-- Messaging App -->
-                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="social">
+                    <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="social" data-keywords="messaging chat communication texting talk conversation group message media sharing instant messenger whatsapp telegram">
                         <div class="demo-card text-center">
                             <div class="demo-icon">
                                 <i class="fas fa-comments"></i>
@@ -992,7 +1028,7 @@
                         </div>
                     </div>
                         <!-- Social Media App -->
-                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="social">
+                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="social" data-keywords="social media network facebook instagram twitter post share photo video friends followers community feed like comment">
                             <div class="demo-card text-center">
                                 <div class="demo-icon">
                                     <i class="fas fa-share-alt"></i>
@@ -1045,7 +1081,7 @@
                             </div>
                         </div>
                         <!-- Mobile Banking App -->
-                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="finance">
+                        <div class="col-lg-6 col-md-6 mb-4 demo-card-item" data-category="finance" data-keywords="bank banking finance money account transfer payment bill credit debit card transaction balance investment savings loan atm mobile wallet\">
                             <div class="demo-card text-center">
                                 <div class="demo-icon">
                                     <i class="fas fa-university"></i>
@@ -1307,48 +1343,68 @@
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.industry-tag');
             const demoCards = document.querySelectorAll('.demo-card-item');
+            const searchInput = document.getElementById('searchInput');
+            let currentFilter = 'all';
             
+            // Filter function
+            function filterCards() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                
+                demoCards.forEach(card => {
+                    const cardTitle = card.querySelector('h3').textContent.toLowerCase();
+                    const cardDescription = card.querySelector('p').textContent.toLowerCase();
+                    const cardKeywords = card.getAttribute('data-keywords')?.toLowerCase() || '';
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    const matchesSearch = searchTerm === '' || 
+                                        cardTitle.includes(searchTerm) || 
+                                        cardDescription.includes(searchTerm) ||
+                                        cardKeywords.includes(searchTerm);
+                    const matchesCategory = currentFilter === 'all' || cardCategory === currentFilter;
+                    
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            }
+            
+            // Search input event
+            searchInput.addEventListener('input', function() {
+                // Reset category filter to 'all' when searching
+                if (searchInput.value.trim() !== '') {
+                    currentFilter = 'all';
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    filterButtons[0].classList.add('active'); // First button is 'All'
+                }
+                filterCards();
+            });
+            
+            // Category filter buttons
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
+                    currentFilter = this.getAttribute('data-filter');
+                    
+                    // Clear search input when chip is clicked
+                    searchInput.value = '';
                     
                     // Update active state
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
-                    // Filter cards
-                    demoCards.forEach(card => {
-                        if (filter === 'all') {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'scale(1)';
-                            }, 10);
-                        } else if (card.getAttribute('data-category') === filter) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'scale(1)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'scale(0.8)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
+                    // Apply filter
+                    filterCards();
                 });
             });
-        });
-    </script>
-    
-    <!-- Reading Progress Indicator -->
-    <script>
-        window.addEventListener('scroll', function() {
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / docHeight) * 100;
-            document.getElementById('readingProgress').style.width = scrolled + '%';
         });
     </script>
 </body>
