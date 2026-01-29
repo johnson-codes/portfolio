@@ -233,14 +233,21 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer py-5">
+    <!-- Wavy Divider (matches web-demo / index footer style) -->
+    <svg style="display: block; width: 100%; height: 100px; margin-bottom: -1px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,20 C250,100 350,100 600,60 C850,20 950,20 1200,100 L1200,120 L0,120 Z" style="fill: #282c34;"></path>
+    </svg>
+
+    <!-- Footer (consistent with web-demo and index) -->
+    <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-6 mb-4 mb-md-0">
+            <div class="row justify-content-between">
+                <!-- Column 1: About -->
+                <div class="col-md-4 mb-4 mb-md-0">
                     <h4 class="footer-title">Johnson</h4>
-                    <p class="footer-desc">Digital Marketing Specialist & Software Developer</p>
+                    <p>Helping businesses grow through strategic digital marketing and custom software development solutions that drive measurable results and enhance user experiences.</p>
                 </div>
+                <!-- Column 2: Quick Links -->
                 <div class="col-md-3 col-6 mb-4 mb-md-0">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="list-unstyled footer-links">
@@ -251,6 +258,7 @@
                         <li><a href="gallery.html"><i class="fas fa-angle-right me-2"></i>Gallery</a></li>
                     </ul>
                 </div>
+                <!-- Column 3: Social Links + Newsletter -->
                 <div class="col-md-3 col-6 mb-4 mb-md-0">
                     <h4 class="footer-title">Connect With Me</h4>
                     <div class="social-links">
@@ -259,9 +267,21 @@
                         <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
                         <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
                     </div>
+                    <div class="newsletter-section mt-4">
+                        <h5 class="newsletter-title mb-3">Subscribe to Newsletter</h5>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="newsletterEmail" placeholder="Your email" required>
+                                <button class="btn btn-cta" type="submit">Subscribe</button>
+                            </div>
+                            <div id="newsletterFeedback" class="newsletter-feedback mt-2" style="display: none;">
+                                <i class="fas fa-check-circle me-1"></i>Thanks for subscribing!
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="text-center copyright mt-4">
+            <div class="text-center copyright">
                 <p>© 2026 Johnson | Digital Marketing Specialist & Web Designer. All rights reserved.</p>
             </div>
         </div>
@@ -289,5 +309,6 @@
         });
     </script>
     <script src="assets/js/chat-widget.js"></script>
+    <script src="assets/js/newsletter.js"></script>
 </body>
 </html>
