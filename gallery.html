@@ -73,7 +73,7 @@
         }
         /* Gallery banner – purple gradient, generous white space, rounded like web-demo hero */
         .gallery-banner-wrap {
-            padding-top: 120px;
+            padding-top: 270px;
             padding-bottom: 64px;
             padding-left: 32px;
             padding-right: 32px;
@@ -82,7 +82,7 @@
             .gallery-banner-wrap {
                 padding-left: 48px;
                 padding-right: 48px;
-                padding-top: 140px;
+                padding-top: 270px;
                 padding-bottom: 80px;
             }
         }
@@ -90,7 +90,7 @@
             .gallery-banner-wrap {
                 padding-left: 56px;
                 padding-right: 56px;
-                padding-top: 160px;
+                padding-top: 290px;
                 padding-bottom: 96px;
             }
         }
@@ -101,8 +101,17 @@
             margin: 0;
             max-width: 100%;
             position: relative;
-            overflow: hidden;
             box-shadow: 0 20px 60px rgba(91, 33, 182, 0.25);
+        }
+        .gallery-banner .banner-gif {
+            position: absolute;
+            top: -150px;
+            right: 20px;
+            width: 293px;
+            height: 293px;
+            opacity: 1;
+            border-radius: 12px;
+            object-fit: cover;
         }
         .gallery-banner .banner-title {
             font-size: 2.5rem;
@@ -253,6 +262,7 @@
         <div class="gallery-banner-wrap">
             <div class="container px-0">
                 <section class="gallery-banner" id="gallery-hero">
+            <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1769736168788_designer.gif?alt=media&token=3206fe9e-1b80-46eb-9e08-566df505ecb1" alt="Designer Animation" class="banner-gif">
             <h1 class="banner-title">Project Gallery</h1>
             <p class="banner-subtitle">Crafting digital experiences that drive business growth across diverse industries</p>
             <div class="category-pills">
