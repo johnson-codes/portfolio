@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+
 /* === Gallery Figma Section Custom Styles === */
 .gallery-figma-section .card {
   background: #fff;
@@ -18,13 +20,13 @@
   margin-bottom: 8px;
 }
 .gallery-figma-section .fw-bold {
-  font-family: 'Poppins', 'Inter', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: 0.01em;
 }
 .gallery-figma-section p {
-  font-family: 'Poppins', 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   color: #444;
   opacity: 0.85;
@@ -68,11 +70,13 @@
   --light-bg: #f8f9fa;
   --text-color: #333333;
   --text-light: #ffffff;
+  --font-heading: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 /* Global styles */
 body {
-  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-body);
   color: var(--text-color);
   line-height: 1.6;
   min-height: 100vh;
@@ -94,6 +98,7 @@ html {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
@@ -447,7 +452,8 @@ h1, h2, h3, h4, h5, h6 {
   left: 15px;
   font-size: 3rem;
   color: var(--primary-color);
-  font-family: Georgia, serif;
+  font-family: var(--font-heading);
+  font-style: italic;
   opacity: 0.3;
 }
 

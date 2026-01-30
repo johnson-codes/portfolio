@@ -34,7 +34,7 @@
   bottom: 24px;
   right: 24px;
   z-index: 9999;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body, 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif);
 }
 
 .chat-toggle-btn {
