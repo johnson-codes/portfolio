@@ -48,6 +48,24 @@
         }
         .navbar.scrolled .dropdown-menu { background-color: rgba(255, 255, 255, 0.98); }
 
+        .gallery-page .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.7) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+            margin: 15px 40px 0 40px;
+            border-radius: 20px;
+        }
+
+        .gallery-page .navbar.scrolled .navbar-brand {
+            color: #1e293b !important;
+            border: 2px solid #1e293b;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
         /* Gallery page: light background so white space reads clearly */
         .gallery-page main {
             background: #f8f9fa;
@@ -217,7 +235,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
                     <li class="nav-item dropdown ms-lg-3">
-                        <button class="btn btn-cta dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                        <button class="btn btn-cta" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" type="button">
                             Demo
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
