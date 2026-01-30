@@ -1,5 +1,9 @@
 /* slider.css */
 
+:root {
+  --radius-base: 12px;
+}
+
 /* Slider container styling */
 #banner-slider {
     margin-top: -20px;
@@ -10,7 +14,7 @@
     position: relative;
     overflow: hidden;
     margin: 20px auto;
-    border-radius: 8px;
+    border-radius: var(--radius-base);
   }
   
   /* All images are positioned on top of each other and hidden by default */
@@ -18,7 +22,7 @@
     padding-top: -20px;
     margin-bottom: -20px;
     padding-bottom: -20px;
-    border-radius: 80px;
+    border-radius: var(--radius-base);
 
     width: 900px;
     height: 430px;

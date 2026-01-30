@@ -13,8 +13,9 @@
     --blog-border: #e2e8f0;
     --blog-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --blog-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --blog-radius: 0.75rem;
-    --blog-radius-lg: 1rem;
+    --radius-base: 12px;
+    --blog-radius: var(--radius-base);
+    --blog-radius-lg: var(--radius-base);
     --blog-spacing: 1.5rem;
     --blog-content-width: 768px;
 }
@@ -117,7 +118,7 @@ main section.py-5:first-of-type {
     background-color: #eef2ff;
     color: #4338ca;
     padding: 0.5rem 1rem;
-    border-radius: 9999px;
+    border-radius: var(--blog-radius);
     font-size: 0.875rem;
     font-weight: 500;
     border: none;
@@ -203,7 +204,7 @@ h1.display-5 {
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    border-radius: 2rem; /* Increased from 1rem */
+    border-radius: var(--blog-radius);
     box-shadow: var(--blog-shadow-lg);
 }
 
@@ -213,7 +214,7 @@ section img.img-fluid {
     max-width: var(--blog-content-width);
     width: 100%;
     height: auto;
-    border-radius: 2rem !important;
+    border-radius: var(--blog-radius) !important;
     box-shadow: var(--blog-shadow-lg);
     margin: 0 auto;
     display: block;
@@ -341,7 +342,7 @@ section img.img-fluid {
 /* Category section container */
 .category-section {
     border: 2px solid #e0e0e0;
-    border-radius: 15px;
+    border-radius: var(--blog-radius);
     background: #f8f9fa;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
     margin-bottom: 0;
@@ -350,7 +351,7 @@ section img.img-fluid {
 /* Category cards */
 .category-card {
     background: white;
-    border-radius: 10px;
+    border-radius: var(--blog-radius);
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
@@ -472,7 +473,7 @@ section img.img-fluid {
     color: var(--blog-accent);
     border-color: var(--blog-accent);
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--blog-radius);
     font-weight: 500;
     transition: all 0.2s ease;
     text-decoration: none;
@@ -496,7 +497,7 @@ section img.img-fluid {
     border-color: var(--blog-accent);
     color: white;
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--blog-radius);
     font-weight: 500;
     transition: all 0.2s ease;
 }
@@ -600,7 +601,7 @@ section img.img-fluid {
 .author-bio .btn {
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: var(--blog-radius);
     transition: all 0.2s ease;
 }
 
@@ -690,7 +691,7 @@ section img.img-fluid {
     border: 1px solid #dee2e6;
     padding: 0.5rem 0.75rem;
     margin: 0 0.25rem;
-    border-radius: 0.25rem;
+    border-radius: var(--blog-radius);
     transition: all 0.3s ease;
 }
 

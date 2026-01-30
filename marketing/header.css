@@ -4,6 +4,7 @@
 :root {
     --font-heading: 'Poppins', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    --radius-base: 12px;
 }
 
 /* Reset some basic elements */
@@ -21,8 +22,8 @@ header {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     padding: 1.5rem 0;
     text-align: center;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: var(--radius-base);
+    border-bottom-right-radius: var(--radius-base);
     box-shadow: none;
     height: auto; /* Ensure header height is auto */
 }
@@ -95,7 +96,7 @@ nav a:hover {
     color: #fff;
     background: linear-gradient(135deg, #9b59b6, #3498db);
     padding: 0.5rem 1rem;
-    border-radius: 15px;
+    border-radius: var(--radius-base);
     position: relative;
     display: inline-block;
 }
@@ -104,7 +105,7 @@ nav a:hover {
     color: #3498db; 
     background: white; 
     padding: 0.5rem 1rem; 
-    border-radius: 15px;
+    border-radius: var(--radius-base);
     position: relative;
     transition: background 0.3s ease, transform 0.3s ease;
     display: inline-block;
@@ -114,6 +115,14 @@ nav a:hover {
     background-color: #ffe26e;
     color: #9b59b6;
     transform: translateY(-2px);
+}
+
+/* Shared button radius for marketing pages */
+.hero button,
+.form-section button,
+.newsletter-form button,
+.search-container button {
+    border-radius: var(--radius-base) !important;
 }
 
 /* Add these debug styles */

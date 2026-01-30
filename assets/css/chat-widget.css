@@ -10,7 +10,7 @@
   --chat-user-text: #ffffff;
   --chat-bot-bg: #f8f9fa;
   --chat-bot-text: #333333;
-  --chat-radius: 12px;
+  --chat-radius: var(--radius-base, 12px);
   --chat-header-height: 80px;
   --chat-input-height: 50px;
   --chat-widget-size: 60px;
@@ -71,7 +71,7 @@
 .chat-toggle-btn.expanded {
   width: auto;
   padding: 0 20px;
-  border-radius: 30px;
+  border-radius: var(--chat-radius);
   min-width: 120px;
   height: 48px;
 }
@@ -226,7 +226,7 @@
 .message-bubble {
   max-width: 75%;
   padding: 12px 16px;
-  border-radius: 18px;
+  border-radius: var(--chat-radius);
   font-size: 14px;
   line-height: 1.4;
   position: relative;
@@ -235,14 +235,14 @@
 .message.bot .message-bubble {
   background: var(--chat-bot-bg);
   color: var(--chat-bot-text);
-  border-bottom-left-radius: 6px;
+  border-bottom-left-radius: var(--chat-radius);
   border: 1px solid var(--chat-border);
 }
 
 .message.user .message-bubble {
   background: var(--chat-user-bg);
   color: var(--chat-user-text);
-  border-bottom-right-radius: 6px;
+  border-bottom-right-radius: var(--chat-radius);
 }
 
 .message-time {
@@ -258,8 +258,8 @@
   align-items: center;
   padding: 12px 16px;
   background: var(--chat-bot-bg);
-  border-radius: 18px;
-  border-bottom-left-radius: 6px;
+  border-radius: var(--chat-radius);
+  border-bottom-left-radius: var(--chat-radius);
   border: 1px solid var(--chat-border);
   margin-bottom: 16px;
   max-width: 75%;
@@ -309,7 +309,7 @@
   display: flex;
   align-items: center;
   background: #f8f9fa;
-  border-radius: 24px;
+  border-radius: var(--chat-radius);
   padding: 4px 4px 4px 16px;
   border: 1px solid var(--chat-border);
   transition: border-color 0.2s ease;
@@ -372,7 +372,7 @@
   color: var(--chat-text);
   border: 1px solid var(--chat-border);
   padding: 8px 12px;
-  border-radius: 16px;
+  border-radius: var(--chat-radius);
   font-size: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -408,7 +408,7 @@
     bottom: 70px;
     right: 10px;
     left: 10px;
-    border-radius: 8px;
+    border-radius: var(--chat-radius);
   }
   
   .chat-widget {
