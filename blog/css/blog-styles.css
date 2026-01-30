@@ -61,6 +61,22 @@ h3 {
     z-index: 1;
 }
 
+.blog-hero-gif {
+    position: absolute;
+    top: -68px;
+    right: 32px;
+    width: 192px;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .blog-hero-gif {
+        width: 144px;
+        right: 16px;
+        top: -72px;
+    }
+}
+
 #blog-hero h1 {
     color: var(--blog-primary);
     font-weight: 800;
