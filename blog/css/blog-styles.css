@@ -95,6 +95,7 @@ h3 {
     transition: all 0.3s ease;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    z-index: 1055;
 }
 
 /* Main section spacing for blog posts - Modern spacing */
@@ -114,6 +115,33 @@ main section.py-5:first-of-type {
 /* Post header margin and featured image spacing */
 .blog-post-page header {
     margin-bottom: 3rem !important;
+}
+
+/* Post page background accent */
+body:has(.social-sharing-sidebar)::before {
+    content: '';
+    position: fixed;
+    top: 50%;
+    right: -160px;
+    transform: translateY(-50%);
+    width: 960px;
+    height: 960px;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1769815523032_lines.svg?alt=media&token=1c85e67f-dd8f-494b-98cd-f5a278b948dd");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body:has(.social-sharing-sidebar) main {
+    position: relative;
+    z-index: 0;
+}
+
+body:has(.social-sharing-sidebar) nav {
+    position: relative;
+    z-index: 1050;
 }
 
 /* Metadata section spacing (Culture badge, date, read time) - add space above */
