@@ -21,10 +21,6 @@
     <link href="../../../assets/css/chat-widget.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Reading Progress Bar -->
-    <div style="position: fixed; top: 100px; left: 50%; transform: translateX(-50%); max-width: 1320px; width: calc(100% - 30px); height: 3px; z-index: 10000;">
-        <div id="readingProgress" style="height: 100%; background: linear-gradient(90deg, #FB8261, #FF9F7F); width: 0%; transition: width 0.1s ease;"></div>
-    </div>
     <!-- Header/Navigation (Copied from blog collection) -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -279,13 +275,6 @@
                 alert('Link copied: ' + window.location.href);
             });
         }
-
-        // Reading Progress Indicator
-        window.addEventListener('scroll', function() {
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (window.scrollY / docHeight) * 100;
-            document.getElementById('readingProgress').style.width = scrolled + '%';
-        });
     </script>
     <!-- Chat Widget JavaScript -->
     <script src="../../../assets/js/chat-widget.js"></script>
