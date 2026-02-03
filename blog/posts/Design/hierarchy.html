@@ -3,34 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hierarchy Done Right</title>
-    <link rel="stylesheet" href="../../css/blog-styles.css">
+    <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1768067295349_johnson1.png?alt=media&token=f8b8220e-9605-4500-aea4-effea80f0239">
+    <title>Hierarchy Done Right | Johnson's Blog</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <!-- Blog CSS -->
+    <link href="../../css/blog-styles.css" rel="stylesheet">
+    <!-- Chat Widget CSS -->
+    <link href="../../../assets/css/chat-widget.css" rel="stylesheet">
 </head>
 <body>
-    <div class="blog-content">
-        <h2 class="mt-4">Hierarchy Done Right</h2>
-        <h2 class="mt-4">The Invisible Hand That Guides the Eye</h2>
+    <!-- Header/Navigation (Copied from blog collection) -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">Johnson</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="../../index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../gallery.html">Gallery</a></li>
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="btn btn-cta dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Demo
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../../../web-demo/index.html">Web Demo</a></li>
+                            <li><a class="dropdown-item" href="../../../mobile-demo/index.html">Mobile Demo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Social Sharing Sidebar -->
+        <div class="social-sharing-sidebar">
+            <button class="share-btn twitter" onclick="shareOnTwitter()" title="Share on Twitter">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button class="share-btn facebook" onclick="shareOnFacebook()" title="Share on Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button class="share-btn linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </button>
+            <button class="share-btn link" onclick="copyLink()" title="Copy Link">
+                <i class="fas fa-link"></i>
+            </button>
+        </div>
+
+        <!-- Blog Post Header -->
+        <section class="py-5" style="margin-top: 80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+
+                        <!-- Post Meta -->
+                        <div class="mb-3">
+                            <span class="badge bg-success me-2">DESIGN</span>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>February 3, 2026
+                                <i class="fas fa-clock ms-3 me-1"></i>5 min read
+                            </small>
+                        </div>
+
+                        <!-- Post Title -->
+                        <h1 class="display-5 fw-bold mb-4">Hierarchy Done Right</h1>
+
+                        <!-- Featured Image -->
+                            <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1770143821323_image.jpg?alt=media&token=c9a7f7cd-ff0a-435d-92f8-d85aee652b44" 
+                                class="img-fluid rounded shadow-sm mb-4" 
+                                alt="Hierarchy Done Right">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Post Content -->
+        <section class="pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+
+                        <div class="blog-content">
+                            
+                            <h2 class="mt-4">When Everything Shouts, Nothing Is Heard</h2>
         <p>
-            Early in my design career, I created a dashboard that looked clean and modern, but users struggled to find the most important information. The problem wasn’t the color or typography — it was a lack of visual hierarchy. Everything looked equally important, so nothing stood out. That project taught me that hierarchy isn’t just about making things bigger or bolder; it’s about guiding attention, creating flow, and helping users make sense of complexity at a glance.
+            I once reviewed a webpage where every element was styled to stand out — bold headlines, bright buttons, large icons, strong colors everywhere. Individually, each piece looked good, but together it felt exhausting. My eyes didn’t know where to land first, and that confusion mirrored how users navigated the page. After toning down secondary elements and giving one clear focal point per section, the experience became calmer and more intuitive. That moment reminded me that hierarchy is not about making things louder; it’s about deciding what deserves attention first, second, and last.
         </p>
-        <h2 class="mt-4">What Makes Hierarchy Work?</h2>
+
+                            <h2 class="mt-4">The Small Signals That Direct Attention</h2>
         <p>
-            Visual hierarchy is the arrangement of elements to signal their relative importance. It’s achieved through size, color, contrast, spacing, and placement. Headlines are larger and bolder, buttons are more prominent, and supporting details are more subtle. But true hierarchy is more than a checklist — it’s about sequencing information so users always know what to look at first, next, and last.
-        </p>
-        <p>
-            For example, a landing page might use a bold headline to grab attention, a subheading to clarify the offer, and a brightly colored call-to-action button to drive conversion. Supporting details and legal disclaimers are visually minimized, so they don’t compete for attention. This intentional layering of information helps users scan, understand, and act without friction.
-        </p>
-        <h2 class="mt-4">Hierarchy in Action: Beyond the Obvious</h2>
-        <p>
-            Hierarchy isn’t just about making the main thing big. It’s about creating a rhythm and flow. White space can separate sections, icons can signal categories, and color can group related content. Even subtle cues — like a slight shadow or a change in font weight — can nudge the eye in the right direction. The best hierarchies feel natural, not forced; they help users feel smart, not lost.
+            Visual hierarchy is built from multiple components working together rather than one dramatic change. Typography often leads — larger headlines and stronger weights signal importance, while lighter text supports context. Iconography reinforces quick recognition, helping users scan without reading every word.
         </p>
         <p>
-            When hierarchy is done right, users rarely notice it. They just find what they need, feel confident, and move forward. When it’s missing, confusion and frustration quickly follow.
+            Spacing and margin create breathing room so key elements stand out naturally instead of fighting for space. Grid systems quietly align everything, giving structure so the eye moves predictably rather than randomly. Buttons communicate action priority through size, contrast, and placement, while color subtly highlights focal points or warns against distractions. None of these elements work alone; they collaborate like instruments in an orchestra, each contributing to the same rhythm of attention.
         </p>
-        <h2 class="mt-4">What Stays With Me</h2>
+
+                            <h2 class="mt-4">The Bigger Picture of Navigation and Flow</h2>
         <p>
-            Hierarchy is the silent guide of every great interface. It’s not about decoration, but about communication. Whenever I design now, I ask: What do I want users to see first? What should they do next? And what can wait until later? By answering these questions and building hierarchy into every layer, I help users succeed — and that’s the real measure of design done right.
+            Stepping back, hierarchy is essentially the roadmap of a webpage. It guides users from entry points to decisions without requiring conscious effort. When hierarchy is clear, navigation feels smooth because users instinctively know where to look next — headline, supporting text, visual cue, action button.
         </p>
-    </div>
-</body>
-</html>
+        <p>
+            Psychologically, humans prefer order and pattern. A consistent hierarchy reduces cognitive load because the brain doesn’t need to re-interpret structure on every screen. Instead of thinking “Where am I supposed to focus?” users simply follow the visual flow. This is why design systems often define heading sizes, button variants, and spacing scales — not to limit creativity, but to maintain clarity across pages and devices.
+        </p>
+
+                            <h2 class="mt-4">What Stays With Me</h2>
+        <p>
+            Hierarchy in UI/UX is less about decoration and more about storytelling through emphasis. It determines how information unfolds and how confidently users move from one step to the next. When typography, icons, spacing, grids, buttons, and color align with intention, the interface stops feeling like a collection of parts and starts feeling like a guided journey.
+        </p>
+        <p>
+            Whenever I design now, I think of hierarchy as choreography rather than styling. Each element has a role, and when those roles are balanced, users don’t just see the page — they understand it effortlessly.
+                            </p>
+                        </div>
+                            <hr class="my-5">
+
+                            <!-- Author Bio -->
+                            <div class="author-bio d-flex align-items-center p-4 bg-light rounded">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1766294351931_12222.png?alt=media&token=29c01df2-c92b-4641-b3d2-5e0ae38856ff" 
+                                     alt="Johnson Wang" 
+                                     class="rounded-circle me-3" 
+                                     width="80" height="80">
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1">Johnson Wang</h5>
+                                    <p class="mb-2 text-muted">Digital Marketing Specialist & Software Developer with 10+ years of experience helping businesses grow through strategic marketing and custom development solutions.</p>
+                                    <a href="mailto:johnsonmarketer@outlook.com" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i>Contact Me
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Wavy Divider -->
+    <svg style="display: block; width: 100%; height: 100px; margin-bottom: -1px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,20 C250,100 350,100 600,60 C850,20 950,20 1200,100 L1200,120 L0,120 Z" style="fill: #282c34;"></path>
+    </svg>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Column 1: About -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="footer-title">Johnson</h4>
+                    <p>Helping businesses grow through strategic digital marketing and custom software development solutions that drive measurable results and enhance user experiences.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../../../index.html#about"><i class="fas fa-angle-right me-2"></i>About Me</a></li>
+                        <li><a href="../../../index.html#projects"><i class="fas fa-angle-right me-2"></i>Projects</a></li>
+                        <li><a href="../../index.html"><i class="fas fa-angle-right me-2"></i>Blog</a></li>
+                        <li><a href="../../../index.html#contact"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
+                        <li><a href="../../../gallery.html"><i class="fas fa-angle-right me-2"></i>Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Connect With Me</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/johnson_wang_art/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/johnsonwang-marketer/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    </div>
+
+                    <!-- Newsletter Subscription -->
+                    <div class="newsletter-section mt-4">
+                        <h5 class="newsletter-title mb-3">Subscribe to Newsletter</h5>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="newsletterEmail" placeholder="Your email" required>
+                                <button class="btn btn-cta" type="submit">Subscribe</button>
+                            </div>
+                            <div id="newsletterFeedback" class="newsletter-feedback mt-2" style="display: none;">
+                                <i class="fas fa-check-circle me-1"></i>Thanks for subscribing!
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright Bar -->
+            <div class="text-center copyright">
+                <p>© 2026 Johnson | Digital Marketing Specialist & Web Designer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Social Sharing Functions
+        function shareOnTwitter() {
+            const url = window.location.href;
+            const text = document.querySelector('h1').innerText;
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = window.location.href;
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            document.getElementById('newsletterFeedback').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('newsletterFeedback').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+
