@@ -1320,7 +1320,7 @@
     <script>
         const POSTS_PER_PAGE = 5;
         let currentPage = 1;
-        let currentCategory = 'Marketing';
+        let currentCategory = 'Design';
         
         function filterBlogs(category, page = 1) {
             currentCategory = category;
@@ -1433,10 +1433,10 @@
             pagination.appendChild(nextLi);
         }
         
-        // Initialize - check for URL hash or default to Marketing
+        // Initialize - check for URL hash or default to Design
         document.addEventListener('DOMContentLoaded', function() {
             const hash = window.location.hash.substring(1);
-            let category = 'Marketing';
+            let category = 'Design';
             let page = 1;
             
             // Parse hash format: Category/page/1
