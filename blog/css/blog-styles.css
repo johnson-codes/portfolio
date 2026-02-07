@@ -130,6 +130,7 @@ body:has(.social-sharing-sidebar)::before {
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
+    filter: grayscale(1) contrast(1.1);
     pointer-events: none;
     z-index: -1;
 }
