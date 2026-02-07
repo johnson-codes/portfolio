@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PVF7NWXQ');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Form</title>
+  <style>
+    :root {
+      color-scheme: light;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f7f8fb;
+      color: #1c1c1c;
+    }
+
+    .form-card {
+      width: min(420px, 92vw);
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #d9dce3;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #ffffff;
+      background: #2563eb;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .thank-you {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #ecfdf3;
+      color: #166534;
+      font-weight: 600;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVF7NWXQ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <main class="form-card">
+    <h1>Quick Contact</h1>
+    <form id="nameForm">
+      <label for="nameInput">Name</label>
+      <input type="text" id="nameInput" name="name" placeholder="Enter your name" required />
+      <button type="submit">Submit</button>
+      <p class="thank-you" id="thankYou">Thank you! We received your name.</p>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById("nameForm");
+    const thankYou = document.getElementById("thankYou");
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      thankYou.style.display = "block";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
