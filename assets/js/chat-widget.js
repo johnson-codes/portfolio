@@ -77,7 +77,7 @@ class ChatWidget {
                     <div class="chat-header">
                         <div class="chat-header-content">
                             <div class="chat-avatar">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1766294351931_12222.png?alt=media&token=29c01df2-c92b-4641-b3d2-5e0ae38856ff" alt="Johnson" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1769796687101_profile9.png?alt=media&token=78536f1c-7b50-4f03-8e56-054416b7f23a" alt="Johnson" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
                             </div>
                             <div class="chat-header-info">
                                 <h4>Chat with Johnson</h4>
