@@ -1273,21 +1273,39 @@ footer .social-link:hover {
 
 /* Tabs styling - Segmented Control */
 .nav-pills {
+  position: relative;
   display: inline-flex;
+  align-items: center;
   justify-content: center;
   margin-bottom: 30px;
-  background: #f1f3f5;
-  padding: 6px;
-  border-radius: var(--radius-base);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-  gap: 6px;
+  padding: 7px;
+  gap: 4px;
+  background: linear-gradient(180deg, #f3f4f6 0%, rgba(229, 231, 235, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 9999px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08),
+              0 8px 16px rgba(0, 0, 0, 0.12),
+              inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+
+.nav-pills .nav-item {
+  margin: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .nav-pills .nav-link {
-  color: #495057;
+  color: #4a5565;
   font-weight: 500;
-  border-radius: var(--radius-base);
-  padding: 10px 22px;
+  font-size: 14px;
+  letter-spacing: -0.15px;
+  border-radius: 9999px;
+  padding: 0 24px;
+  height: 40px;
   margin: 0;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
@@ -1296,20 +1314,24 @@ footer .social-link:hover {
   position: relative;
   z-index: 1;
   white-space: nowrap;
-  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-pills .nav-link:hover:not(.active) {
-  color: #212529;
-  background: rgba(255, 255, 255, 0.6);
+  color: #2d3748;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .nav-pills .nav-link.active {
-  background: var(--accent-color);
-  color: white;
+  background: linear-gradient(180deg, #e87152 0%, #d96344 100%);
+  color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(251, 130, 97, 0.3),
-              0 1px 2px rgba(0, 0, 0, 0.06);
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(232, 113, 82, 0.3),
+              0 1px 2px rgba(0, 0, 0, 0.1),
+              inset 0 1px 1px rgba(255, 255, 255, 0.2);
   border: none;
 }
 
