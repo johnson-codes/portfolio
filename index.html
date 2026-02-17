@@ -253,6 +253,47 @@
                 animation: none;
             }
         }
+
+        /* Testimonials Horizontal Scroll */
+        #testimonials .scroll-wrapper {
+            height: 130vh;
+        }
+
+        #testimonials .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-start;
+            padding: 24px 0 16px;
+            box-sizing: border-box;
+        }
+
+        #testimonials .horizontal-track {
+            display: flex;
+            gap: 24px;
+            padding: 0 6vw;
+            will-change: transform;
+        }
+
+        #testimonials .horizontal-card {
+            flex: 0 0 400px;
+            width: 400px;
+            max-width: 80vw;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            #testimonials .horizontal-track {
+                gap: 16px;
+                padding: 0 8vw;
+            }
+
+            #testimonials .horizontal-card {
+                max-width: 85vw;
+            }
+        }
     </style>
 </head>
 <body>
@@ -855,57 +896,78 @@
             <h2 class="text-center section-title">Client Testimonials</h2>
             <p class="text-center mb-5">Don't just take my word for it - here's what people I've worked with have to say</p>
             
-            <div class="row g-4">
-                <!-- Testimonial 1 -->
-                <div class="col-md-4 mb-4">
-                    <div class="testimonial-card">
-                        <img src="assets/images/client1.png" alt="Client 1" class="testimonial-img" loading="lazy">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+            <div class="scroll-wrapper">
+                <div class="sticky-container">
+                    <div class="horizontal-track">
+                        <div class="testimonial-card reveal-right horizontal-card">
+                            <img src="assets/images/client1.png" alt="Client 1" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Johnson stood out as a UI/UX student who truly 'got it.' His mobile and web projects were not only visually polished, but grounded in real user thinking. He collaborated naturally with teammates, asked the right questions, and consistently pushed ideas further than required. Also, his Figma design is one of a kind."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Dan — Instructor (UI/UX)</h5>
+                            </div>
                         </div>
-                        <p>"Johnson stood out as a UI/UX student who truly 'got it.' His mobile and web projects were not only visually polished, but grounded in real user thinking. He collaborated naturally with teammates, asked the right questions, and consistently pushed ideas further than required.Also, his Figma design is one of a kind."</p>
-                        <div class="client-info">
-                            <h5 class="client-name">Dan — Instructor (UI/UX)</h5>
+                        <div class="testimonial-card reveal-right horizontal-card">
+                            <img src="assets/images/client2.png" alt="Client 2" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Johnson is a marketing manager with a rare big-picture mindset. He understands the full customer lifecycle, focuses on real value, and connects strategy with execution effortlessly. Insightful, practical, and results-driven—he's the kind of marketer teams rely on."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Annie — Operations Manager</h5>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="col-md-4 mb-4">
-                    <div class="testimonial-card">
-                        <img src="assets/images/client2.png" alt="Client 2" class="testimonial-img" loading="lazy">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="assets/images/client3.png" alt="Client 3" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"Working with Johnson was energizing. He has a real passion for building systems that actually get used—by people and by businesses. He learns fast, thinks in agile terms, and is always open to feedback. More than a developer, he's a problem-solver who's great to work alongside."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Beni — Software Engineer</h5>
+                            </div>
                         </div>
-                        <p>" Johnson is a marketing manager with a rare big-picture mindset. He understands the full customer lifecycle, focuses on real value, and connects strategy with execution effortlessly. Insightful, practical, and results-driven—he's the kind of marketer teams rely on.</p>
-                        <div class="client-info">
-                            <h5 class="client-name">Annie — Operations Manager</h5>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="assets/images/profile.png" alt="Client 4" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p>"Johnson brought clarity to our architecture reviews and translated complex trade-offs into clean, actionable plans. He balances long-term scalability with day-to-day delivery, and the team trusted his direction."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Jen — Software Architecture</h5>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="col-md-4 mb-4">
-                    <div class="testimonial-card">
-                        <img src="assets/images/client3.png" alt="Client 3" class="testimonial-img" loading="lazy">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p>"Working with Johnson was energizing. He has a real passion for building systems that actually get used—by people and by businesses. He learns fast, thinks in agile terms, and is always open to feedback. More than a developer, he's a problem-solver who's great to work alongside."</p>
-                        <div class="client-info">
-                            <h5 class="client-name"> Beni — Software Engineer</h5>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="assets/images/profile.png" alt="Client 5" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p>"On the mobile side, Johnson tightened our performance budget, improved onboarding, and shipped features without breaking UX. He communicates clearly and keeps the roadmap realistic."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Rahul — Mobile Developer</h5>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2459,6 +2521,48 @@
     <!-- Custom JS -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/newsletter.js"></script>
+
+    <script>
+        (function() {
+            const wrapper = document.querySelector('#testimonials .scroll-wrapper');
+            const sticky = document.querySelector('#testimonials .sticky-container');
+            const track = document.querySelector('#testimonials .horizontal-track');
+            if (!wrapper || !sticky || !track) return;
+
+            let maxTranslate = 0;
+            let ticking = false;
+
+            function updateMetrics() {
+                const trackWidth = track.scrollWidth;
+                const containerWidth = sticky.clientWidth;
+                maxTranslate = Math.max(0, trackWidth - containerWidth);
+                updatePosition();
+            }
+
+            function updatePosition() {
+                const start = wrapper.offsetTop;
+                const end = start + wrapper.offsetHeight - window.innerHeight;
+                if (end <= start) return;
+
+                const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
+                const translateX = -progress * maxTranslate;
+                track.style.transform = `translate3d(${translateX}px, 0, 0)`;
+            }
+
+            function onScroll() {
+                if (ticking) return;
+                ticking = true;
+                window.requestAnimationFrame(function() {
+                    updatePosition();
+                    ticking = false;
+                });
+            }
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', updateMetrics);
+            updateMetrics();
+        })();
+    </script>
     
     <!-- Radar Charts for All Skills -->
     <script>

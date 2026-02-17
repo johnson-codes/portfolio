@@ -167,9 +167,22 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Apply animations to various elements
     animateOnScroll(document.querySelectorAll('.service-card'), 'animated');
-    animateOnScroll(document.querySelectorAll('.testimonial-card'), 'animated');
     animateOnScroll(document.querySelectorAll('.profile-stats'), 'animated');
-    
+
+    const revealRightCards = document.querySelectorAll('.testimonial-card.reveal-right');
+    if (revealRightCards.length) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        revealRightCards.forEach(card => observer.observe(card));
+    }
+
     // Style for animated elements
     document.querySelectorAll('.animated').forEach(el => {
         el.style.opacity = '1';

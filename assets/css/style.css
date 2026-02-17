@@ -828,7 +828,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Testimonials */
 #testimonials {
-  padding: 100px 0;
+  padding: 80px 0 60px;
 }
 
 .testimonial-card {
@@ -844,6 +844,18 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   position: relative;
   overflow: hidden;
+}
+
+.testimonial-card.reveal-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.testimonial-card.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .testimonial-card::before {
