@@ -256,16 +256,17 @@
 
         /* Testimonials Horizontal Scroll */
         #testimonials .scroll-wrapper {
-            height: 65vh;
+            /* tall enough to give scroll room for all cards */
+            height: auto;
         }
 
         #testimonials .sticky-container {
             position: sticky;
             top: 0;
-            height: 100vh;
+            height: 70vh;
             overflow: hidden;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             padding: 24px 0 16px;
             box-sizing: border-box;
         }
@@ -275,6 +276,7 @@
             gap: 24px;
             padding: 0 6vw;
             will-change: transform;
+            margin-top: -100px;
         }
 
         #testimonials .horizontal-card {
@@ -731,11 +733,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
                 
-                <!-- UI/UX Services -->
-                <div class="tab-pane fade" id="uiux" role="tabpanel" aria-labelledby="uiux-tab">
-                    <div class="row">
+                    <!-- UI/UX Services -->
+                    <div class="tab-pane fade" id="uiux" role="tabpanel" aria-labelledby="uiux-tab">
+                        <div class="row">
                         <!-- UI/UX Service 1 -->
                         <div class="col-md-6 col-lg-4 mb-4">
                             <div class="service-card">
@@ -2523,46 +2525,112 @@
     <script src="assets/js/newsletter.js"></script>
 
     <script>
-        (function() {
-            const wrapper = document.querySelector('#testimonials .scroll-wrapper');
-            const sticky = document.querySelector('#testimonials .sticky-container');
-            const track = document.querySelector('#testimonials .horizontal-track');
-            if (!wrapper || !sticky || !track) return;
+    (function () {
+        const section = document.getElementById('testimonials');
+        const track   = section && section.querySelector('.horizontal-track');
+        const sticky  = section && section.querySelector('.sticky-container');
+        if (!section || !track || !sticky) return;
 
-            let maxTranslate = 0;
-            let ticking = false;
+        let targetX    = 0;   // where we want to be
+        let currentX   = 0;   // where we are (lerped)
+        let maxTranslate = 0;
+        let animating  = false;
 
-            function updateMetrics() {
-                const trackWidth = track.scrollWidth;
-                const containerWidth = sticky.clientWidth;
-                maxTranslate = Math.max(0, trackWidth - containerWidth);
-                updatePosition();
+        const LERP = 0.10;    // smoothing factor (0 = no movement, 1 = instant)
+
+        function getMaxTranslate() {
+            return Math.max(0, track.scrollWidth - sticky.clientWidth);
+        }
+
+        function isSectionInViewport() {
+            const r = section.getBoundingClientRect();
+            return r.top <= window.innerHeight * 0.15 && r.bottom > 0;
+        }
+
+        /* ── smooth animation loop ───────────────────────────── */
+        function animate() {
+            const diff = targetX - currentX;
+            if (Math.abs(diff) < 0.5) {
+                currentX = targetX;
+                track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+                animating = false;
+                return;
             }
+            currentX += diff * LERP;
+            track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+            requestAnimationFrame(animate);
+        }
 
-            function updatePosition() {
-                const start = wrapper.offsetTop;
-                const scrollRange = window.innerHeight * 0.35;
-                const end = start + scrollRange;
-                if (end <= start) return;
-
-                const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
-                const translateX = -progress * maxTranslate;
-                track.style.transform = `translate3d(${translateX}px, 0, 0)`;
+        function startAnimate() {
+            if (!animating) {
+                animating = true;
+                requestAnimationFrame(animate);
             }
+        }
 
-            function onScroll() {
-                if (ticking) return;
-                ticking = true;
-                window.requestAnimationFrame(function() {
-                    updatePosition();
-                    ticking = false;
-                });
+        /* ── wheel handler ───────────────────────────────────── */
+        function onWheel(e) {
+            maxTranslate = getMaxTranslate();
+            if (!isSectionInViewport()) return;
+
+            const atStart = targetX >= 0;
+            const atEnd   = targetX <= -maxTranslate;
+
+            if (e.deltaY < 0 && atStart) return;
+            if (e.deltaY > 0 && atEnd)   return;
+
+            e.preventDefault();
+
+            // Scale down large trackpad deltas for a gentler feel
+            const delta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
+            targetX = Math.min(0, Math.max(-maxTranslate, targetX - delta));
+            startAnimate();
+        }
+
+        /* ── touch support ───────────────────────────────────── */
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        section.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        section.addEventListener('touchmove', (e) => {
+            if (!isSectionInViewport()) return;
+            maxTranslate = getMaxTranslate();
+
+            const dx = touchStartX - e.touches[0].clientX;
+            const dy = touchStartY - e.touches[0].clientY;
+            if (Math.abs(dx) < Math.abs(dy)) return;
+
+            const atStart = targetX >= 0;
+            const atEnd   = targetX <= -maxTranslate;
+            if (dx < 0 && atStart) return;
+            if (dx > 0 && atEnd)   return;
+
+            e.preventDefault();
+            targetX = Math.min(0, Math.max(-maxTranslate, targetX - dx));
+            touchStartX = e.touches[0].clientX;
+            startAnimate();
+        }, { passive: false });
+
+        /* ── reset when scrolled back above section ──────────── */
+        window.addEventListener('scroll', () => {
+            if (section.getBoundingClientRect().top > window.innerHeight) {
+                targetX  = 0;
+                currentX = 0;
+                track.style.transform = 'translate3d(0px, 0, 0)';
+                animating = false;
             }
+        }, { passive: true });
 
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', updateMetrics);
-            updateMetrics();
-        })();
+        window.addEventListener('wheel', onWheel, { passive: false });
+        window.addEventListener('resize', () => { maxTranslate = getMaxTranslate(); });
+
+        maxTranslate = getMaxTranslate();
+        track.style.transform = 'translate3d(0px, 0, 0)';
+    })();
     </script>
     
     <!-- Radar Charts for All Skills -->
