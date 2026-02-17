@@ -2541,8 +2541,8 @@
 
             function updatePosition() {
                 const start = wrapper.offsetTop;
-                const stickyHeight = sticky.offsetHeight;
-                const end = start + stickyHeight;
+                const scrollRange = window.innerHeight * 0.35;
+                const end = start + scrollRange;
                 if (end <= start) return;
 
                 const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
