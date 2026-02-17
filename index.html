@@ -256,7 +256,7 @@
 
         /* Testimonials Horizontal Scroll */
         #testimonials .scroll-wrapper {
-            height: 130vh;
+            height: 65vh;
         }
 
         #testimonials .sticky-container {
@@ -2541,7 +2541,8 @@
 
             function updatePosition() {
                 const start = wrapper.offsetTop;
-                const end = start + wrapper.offsetHeight - window.innerHeight;
+                const stickyHeight = sticky.offsetHeight;
+                const end = start + stickyHeight;
                 if (end <= start) return;
 
                 const progress = Math.min(1, Math.max(0, (window.scrollY - start) / (end - start)));
