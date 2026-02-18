@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PVF7NWXQ');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1768067295349_johnson1.png?alt=media&token=f8b8220e-9605-4500-aea4-effea80f0239">
+    <title>Component Library: The Moment Design Stopped Repeating Itself | Johnson's Blog</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <!-- Blog CSS -->
+    <link href="../../css/blog-styles.css" rel="stylesheet">
+    <!-- Chat Widget CSS -->
+    <link href="../../../assets/css/chat-widget.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVF7NWXQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- Header/Navigation (Copied from blog collection) -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">Johnson</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="../../index.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../index.html#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="../../../gallery.html">Gallery</a></li>
+                    <li class="nav-item dropdown ms-lg-3">
+                        <a class="btn btn-cta dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Demo
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="../../../web-demo/index.html">Web Demo</a></li>
+                            <li><a class="dropdown-item" href="../../../mobile-demo/index.html">Mobile Demo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Social Sharing Sidebar -->
+        <div class="social-sharing-sidebar">
+            <button class="share-btn twitter" onclick="shareOnTwitter()" title="Share on Twitter">
+                <i class="fab fa-twitter"></i>
+            </button>
+            <button class="share-btn facebook" onclick="shareOnFacebook()" title="Share on Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </button>
+            <button class="share-btn linkedin" onclick="shareOnLinkedIn()" title="Share on LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </button>
+            <button class="share-btn link" onclick="copyLink()" title="Copy Link">
+                <i class="fas fa-link"></i>
+            </button>
+        </div>
+
+        <!-- Blog Post Header -->
+        <section class="py-5" style="margin-top: 80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+
+                        <!-- Post Meta -->
+                        <div class="mb-3">
+                            <span class="badge bg-success me-2">DESIGN</span>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>February 17, 2026
+                                <i class="fas fa-clock ms-3 me-1"></i>5 min read
+                            </small>
+                        </div>
+
+                        <!-- Post Title -->
+                        <h1 class="display-5 fw-bold mb-4">Component Library: The Moment Design Stopped Repeating Itself</h1>
+
+                        <!-- Featured Image -->
+                            <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1771373534741_UI.jpg?alt=media&token=7084a606-523d-4b18-8a22-68c702185b83" 
+                                class="img-fluid rounded shadow-sm mb-4" 
+                                alt="UI Components">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Post Content -->
+        <section class="pb-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="blog-content">
+                            
+                            <h2 class="mt-4">The Day I Realized I Was Designing the Same Button for the Fifth Time</h2>
+                            <p>
+                                There was a period when every new page I designed felt strangely familiar. Not in a good "consistent" way — more like déjà vu mixed with mild frustration. I was recreating the same button styles, the same cards, the same form fields again and again. Each version was slightly different, and those tiny differences slowly turned into visual drift.
+                            </p>
+                            <p>
+                                The turning point came when I finally paused and built a small component library. What surprised me wasn't just the time saved — it was the clarity gained. Instead of designing screens, I was designing building blocks. The interface stopped feeling like scattered pages and started feeling like a system with its own vocabulary.
+                            </p>
+                            <h2 class="mt-4">Thinking in Layers Instead of Pages</h2>
+                            <p>
+                                A strong UI component library isn't just a collection of random widgets. It's layered, almost like architecture. Each layer has a different level of responsibility and reusability. Once I started thinking this way, design decisions became faster and more intentional.
+                            </p>
+                            <h3 class="mt-4">Layer 1 — Foundations (The Atoms)</h3>
+                            <p>
+                                These are the smallest visual ingredients. Individually simple, but together they define the visual DNA. Examples include:
+                            </p>
+                            <ul>
+                                <li>Color tokens</li>
+                                <li>Typography styles</li>
+                                <li>Icon sets</li>
+                                <li>Spacing scales</li>
+                                <li>Border radius rules</li>
+                                <li>Shadows</li>
+                                <li>Grid units</li>
+                                <li>Breakpoints</li>
+                                <li>Line heights</li>
+                                <li>Opacity levels</li>
+                            </ul>
+                            <p>
+                                They rarely appear alone, but everything else depends on them.
+                            </p>
+                            <h3 class="mt-4">Layer 2 — Basic UI Elements (The Molecules)</h3>
+                            <p>
+                                This layer combines foundations into interactive or visible pieces users directly notice. These are the components I used to redesign repeatedly before building a library.
+                            </p>
+                            <p>
+                                Common UI components here include:
+                            </p>
+                            <ul>
+                                <li>Primary button</li>
+                                <li>Secondary button</li>
+                                <li>Tertiary button</li>
+                                <li>Icon button</li>
+                                <li>Text input</li>
+                                <li>Password input</li>
+                                <li>Checkbox</li>
+                                <li>Radio button</li>
+                                <li>Toggle switch</li>
+                                <li>Dropdown select</li>
+                                <li>Slider</li>
+                                <li>Progress bar</li>
+                                <li>Badge</li>
+                                <li>Chip / Tag</li>
+                                <li>Tooltip</li>
+                                <li>Avatar</li>
+                                <li>Divider</li>
+                                <li>Label</li>
+                                <li>Link</li>
+                                <li>Icon container</li>
+                            </ul>
+                            <p>
+                                At this stage, components start communicating behavior rather than just style.
+                            </p>
+                            <h3 class="mt-4">Layer 3 — Composite Components (The Organisms)</h3>
+                            <p>
+                                These are clusters of smaller components working together to complete a user task. This is where interfaces begin to feel functional rather than decorative.
+                            </p>
+                            <p>
+                                Examples include:
+                            </p>
+                            <ul>
+                                <li>Navigation bar</li>
+                                <li>Sidebar menu</li>
+                                <li>Breadcrumbs</li>
+                                <li>Search bar</li>
+                                <li>Pagination control</li>
+                                <li>Modal dialog</li>
+                                <li>Toast notification</li>
+                                <li>Alert banner</li>
+                                <li>Accordion</li>
+                                <li>Tabs</li>
+                                <li>Carousel / Slider gallery</li>
+                                <li>Card layout</li>
+                                <li>Pricing table</li>
+                                <li>Data table</li>
+                                <li>Form group</li>
+                                <li>Comment box</li>
+                                <li>Chat bubble</li>
+                                <li>Stepper / Wizard</li>
+                                <li>File upload box</li>
+                                <li>Date picker</li>
+                            </ul>
+                            <p>
+                                These pieces often become the most reused structures across different pages.
+                            </p>
+                            <h3 class="mt-4">Layer 4 — Layout & Page Patterns (The Templates)</h3>
+                            <p>
+                                This layer isn't always listed in libraries, but it's where design systems mature. These patterns shape full experiences rather than single interactions.
+                            </p>
+                            <p>
+                                Typical layout components include:
+                            </p>
+                            <ul>
+                                <li>Hero section</li>
+                                <li>Feature grid</li>
+                                <li>Footer</li>
+                                <li>Header bar</li>
+                                <li>Dashboard panel</li>
+                                <li>Profile layout</li>
+                                <li>Checkout flow</li>
+                                <li>Blog post layout</li>
+                                <li>Product detail section</li>
+                                <li>Empty state screen</li>
+                            </ul>
+                            <p>
+                                At this level, components stop being isolated tools and start forming journeys.
+                            </p>
+                            <h2 class="mt-4">Why a Component Library Changes Everything</h2>
+                            <p>
+                                The biggest shift isn't efficiency — though that alone is significant. The real impact is cognitive. Instead of inventing new visuals for every screen, you begin assembling from a trusted set. Consistency emerges naturally rather than being enforced. Collaboration improves because designers and developers share the same visual language.
+                            </p>
+                            <p>
+                                There's also a psychological benefit for users. When buttons, inputs, and navigation behave predictably across pages, the interface feels trustworthy. The brain doesn't need to relearn patterns, which reduces friction and increases confidence.
+                            </p>
+                            <h2 class="mt-4">What Stays With Me</h2>
+                            <p>
+                                A component library isn't just a toolkit; it's a philosophy of thinking in systems rather than surfaces. Each component becomes a word, each layout a sentence, and each page a paragraph in the same visual language.
+                            </p>
+                            <p>
+                                Looking back, the moment I built my first structured library was the moment design stopped feeling repetitive and started feeling intentional. Interfaces became less about drawing new shapes and more about composing familiar ones into meaningful experiences. In the end, a strong component library doesn't limit creativity — it gives creativity a stable foundation to grow from.
+                            </p>
+                        </div>
+                            <hr class="my-5">
+
+                            <!-- Author Bio -->
+                            <div class="author-bio d-flex align-items-center p-4 bg-light rounded">
+                                <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1769796687101_profile9.png?alt=media&token=78536f1c-7b50-4f03-8e56-054416b7f23a" 
+                                     alt="Johnson Wang" 
+                                     class="rounded-circle me-3" 
+                                     width="80" height="80">
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1">Johnson Wang</h5>
+                                    <p class="mb-2 text-muted">Digital Marketing Specialist & Software Developer with 10+ years of experience helping businesses grow through strategic marketing and custom development solutions.</p>
+                                    <a href="mailto:johnsonmarketer@outlook.com" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-envelope me-1"></i>Contact Me
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Wavy Divider -->
+    <svg style="display: block; width: 100%; height: 100px; margin-bottom: -1px;" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,20 C250,100 350,100 600,60 C850,20 950,20 1200,100 L1200,120 L0,120 Z" style="fill: #282c34;"></path>
+    </svg>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Column 1: About -->
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4 class="footer-title">Johnson</h4>
+                    <p>Helping businesses grow through strategic digital marketing and custom software development solutions that drive measurable results and enhance user experiences.</p>
+                </div>
+                
+                <!-- Column 2: Quick Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="../../../index.html#about"><i class="fas fa-angle-right me-2"></i>About Me</a></li>
+                        <li><a href="../../../index.html#projects"><i class="fas fa-angle-right me-2"></i>Projects</a></li>
+                        <li><a href="../../index.html"><i class="fas fa-angle-right me-2"></i>Blog</a></li>
+                        <li><a href="../../../index.html#contact"><i class="fas fa-angle-right me-2"></i>Contact</a></li>
+                        <li><a href="../../../gallery.html"><i class="fas fa-angle-right me-2"></i>Gallery</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3: Social Links -->
+                <div class="col-md-3 col-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Connect With Me</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/johnson_wang_art/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/johnsonwang-marketer/" class="social-link" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/johnson-codes" class="social-link" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/JohnSmi49632521" class="social-link" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+                    </div>
+
+                    <!-- Newsletter Subscription -->
+                    <div class="newsletter-section mt-4">
+                        <h5 class="newsletter-title mb-3">Subscribe to Newsletter</h5>
+                        <form id="newsletterForm" class="newsletter-form">
+                            <div class="input-group">
+                                <input type="email" class="form-control" id="newsletterEmail" placeholder="Your email" required>
+                                <button class="btn btn-cta" type="submit">Subscribe</button>
+                            </div>
+                            <div id="newsletterFeedback" class="newsletter-feedback mt-2" style="display: none;">
+                                <i class="fas fa-check-circle me-1"></i>Thanks for subscribing!
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright Bar -->
+            <div class="text-center copyright">
+                <p>© 2026 Johnson | Digital Marketing Specialist & Web Designer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Figma Demo Modal -->
+    <div class="modal fade" id="figmaModal" tabindex="-1" aria-labelledby="figmaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="figmaModalLabel">
+                        <i class="fas fa-palette me-2"></i>Component Library Design System - Live Demo
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9" style="min-height: 500px;">
+                        <iframe 
+                            src="https://oak-action-23714295.figma.site/" 
+                            title="Component Library Design System"
+                            allowfullscreen
+                            style="border: none; width: 100%; height: 100%;">
+                        </iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="https://oak-action-23714295.figma.site/" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-external-link-alt me-1"></i>Open in New Tab
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Social Sharing Functions
+        function shareOnTwitter() {
+            const url = window.location.href;
+            const text = document.querySelector('h1').innerText;
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function shareOnFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareOnLinkedIn() {
+            const url = window.location.href;
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+
+        // Newsletter Form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            document.getElementById('newsletterFeedback').style.display = 'block';
+            this.reset();
+            setTimeout(() => {
+                document.getElementById('newsletterFeedback').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+    <script src="../../../assets/js/chat-widget.js"></script>
+</body>
+</html>
