@@ -352,6 +352,12 @@ main > .section-divider--compact + .timeline-wrap {
   }
 }
 
+@media (min-width: 901px) {
+  .hero-media {
+    transform: translateX(-80px);
+  }
+}
+
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
