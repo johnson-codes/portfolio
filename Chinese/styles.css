@@ -187,6 +187,9 @@ main {
 
 .hero-media {
   min-width: 0;
+  max-width: 347px;
+  width: 100%;
+  justify-self: end;
 }
 
 .hero-figure {
@@ -208,7 +211,8 @@ main {
   height: auto;
   object-fit: cover;
   aspect-ratio: 4 / 5;
-  max-height: min(520px, 70vh);
+  max-width: 347px;
+  max-height: min(347px, 47vh);
   vertical-align: middle;
 }
 
@@ -219,13 +223,15 @@ main {
   }
 
   .hero-media {
-    max-width: 420px;
+    max-width: 280px;
     margin: 0 auto;
     width: 100%;
+    justify-self: center;
   }
 
   .hero-img {
-    max-height: min(440px, 55vh);
+    max-width: 280px;
+    max-height: min(280px, 37vh);
   }
 }
 
