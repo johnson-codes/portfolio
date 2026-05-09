@@ -103,9 +103,9 @@ a:hover {
 }
 
 .site-header .inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.5rem;
+  padding: 1rem clamp(1.25rem, 5vw, 2.75rem);
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -158,15 +158,75 @@ a:hover {
 main {
   position: relative;
   z-index: 1;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 5rem;
+  padding: 2.5rem clamp(1.25rem, 5vw, 2.75rem) 5rem;
 }
 
-/* Hero */
+/* Hero — full width, text / image columns */
 .hero {
-  padding: 2rem 0 3.5rem;
-  max-width: 42rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 2rem clamp(1.25rem, 5vw, 2.75rem) 3.5rem;
+  box-sizing: border-box;
+}
+
+.hero-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  gap: clamp(1.75rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-media {
+  min-width: 0;
+}
+
+.hero-figure {
+  margin: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface-solid);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(167, 139, 250, 0.1) inset,
+    0 32px 80px rgba(124, 58, 237, 0.15);
+  animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  max-height: min(520px, 70vh);
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .hero-shell {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-media {
+    max-width: 420px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-img {
+    max-height: min(440px, 55vh);
+  }
 }
 
 .hero-eyebrow {
@@ -175,8 +235,7 @@ main {
   gap: 0.5rem;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.12em;
   color: var(--muted2);
   margin-bottom: 1.25rem;
   animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
