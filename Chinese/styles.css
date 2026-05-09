@@ -99,20 +99,8 @@ a:hover {
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
-}
-
-.brand {
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.brand:hover {
-  color: var(--accent);
 }
 
 .nav-back {
