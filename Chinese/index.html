@@ -26,10 +26,10 @@
             <p class="hero-lead">你好，这里是我以中文呈现的简介。下面的四个维度——身份、能力、差异化与方向——概括了我如何思考工作，以及我希望与怎样的团队与项目并肩前行。</p>
         </section>
 
-        <p class="pillars-intro">如果你只想快速扫一眼，可以从每一段的<strong>加粗摘要</strong>读起；展开段落是对该维度的延伸说明。</p>
+        <p class="pillars-intro" data-reveal style="--reveal-delay: 0ms">如果你只想快速扫一眼，可以从每一段的<strong>加粗摘要</strong>读起；展开段落是对该维度的延伸说明。</p>
 
         <div class="pillars-grid">
-            <article class="pillar pillar--wide">
+            <article class="pillar pillar--wide" data-reveal style="--reveal-delay: 0ms">
                 <div>
                     <div class="pillar-meta">
                         <span class="pillar-index">01</span>
@@ -43,7 +43,7 @@
                 </div>
             </article>
 
-            <article class="pillar">
+            <article class="pillar" data-reveal style="--reveal-delay: 70ms">
                 <div class="pillar-meta">
                     <span class="pillar-index">02</span>
                     <h2 class="pillar-label">能力</h2>
@@ -53,7 +53,7 @@
                 <p class="pillar-body">三项能力叠加的意义在于：许多数字化迭代不必再经历漫长的「外包式」交接——同一人能贯穿策略、协调与实现，缩短反馈回路。</p>
             </article>
 
-            <article class="pillar">
+            <article class="pillar" data-reveal style="--reveal-delay: 140ms">
                 <div class="pillar-meta">
                     <span class="pillar-index">03</span>
                     <h2 class="pillar-label">差异化</h2>
@@ -63,7 +63,7 @@
                 <p class="pillar-body">结果是：需求更干净，排期更诚实，上线后更少「当初以为」式的遗憾。</p>
             </article>
 
-            <article class="pillar pillar--wide">
+            <article class="pillar pillar--wide" data-reveal style="--reveal-delay: 210ms">
                 <div>
                     <div class="pillar-meta">
                         <span class="pillar-index">04</span>
@@ -78,9 +78,33 @@
             </article>
         </div>
 
-        <footer class="closing">
+        <footer class="closing" data-reveal style="--reveal-delay: 0ms">
             <p>希望进一步交流？欢迎回到 <a href="../index.html">Portfolio</a> 查看项目与联系方式。</p>
         </footer>
     </main>
+    <script>
+    (function () {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.querySelectorAll("[data-reveal]").forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+        return;
+      }
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
+      );
+      document.querySelectorAll("[data-reveal]").forEach(function (el) {
+        io.observe(el);
+      });
+    })();
+    </script>
 </body>
 </html>
