@@ -115,7 +115,15 @@
                 <ol class="timeline__list" role="list">
                     <li class="timeline__item" data-reveal style="--reveal-delay: 0ms">
                         <div class="timeline__year"><span class="timeline__year-pill">2024 — 至今</span></div>
-                        <div class="timeline__card">
+                        <div
+                            class="timeline__card timeline__card--clickable"
+                            role="button"
+                            tabindex="0"
+                            aria-haspopup="dialog"
+                            aria-controls="timeline-demo-dialog"
+                            data-modal-title="高级数字营销经理 · 星云互联（示例）"
+                            data-modal-body="演示弹窗：此处可替换为项目详情、指标说明、案例链接等。按 Esc 或点击关闭即可返回。"
+                        >
                             <h3 class="timeline__role">高级数字营销经理 · 星云互联（示例）</h3>
                             <ul class="timeline__achievements">
                                 <li>统筹搜索与信息流投放，优化落地页链路，季度合格线索环比 +32%（示意）。</li>
@@ -170,6 +178,15 @@
             </div>
         </footer>
     </main>
+
+    <dialog class="timeline-modal" id="timeline-demo-dialog" aria-labelledby="timeline-modal-title">
+        <div class="timeline-modal__panel">
+            <button type="button" class="timeline-modal__close" aria-label="关闭弹窗">&times;</button>
+            <h2 id="timeline-modal-title" class="timeline-modal__title"></h2>
+            <p class="timeline-modal__body"></p>
+        </div>
+    </dialog>
+
     <script>
     (function () {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -195,5 +212,6 @@
     })();
     </script>
     <script src="cursor-trail.js"></script>
+    <script src="timeline-modal.js"></script>
 </body>
 </html>
