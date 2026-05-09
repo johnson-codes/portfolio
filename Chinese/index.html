@@ -115,16 +115,7 @@
                 <ol class="timeline__list" role="list">
                     <li class="timeline__item" data-reveal style="--reveal-delay: 0ms">
                         <div class="timeline__year"><span class="timeline__year-pill">2024 — 至今</span></div>
-                        <div
-                            class="timeline__card timeline__card--clickable"
-                            role="button"
-                            tabindex="0"
-                            aria-haspopup="dialog"
-                            aria-controls="timeline-demo-dialog"
-                            data-modal-title="高级数字营销经理 · 星云互联（示例）"
-                            data-modal-subtitle="示例：邮件 nurture 旅程流程图 · Sample: email nurture journey (illustrative)"
-                            data-modal-body=""
-                        >
+                        <div class="timeline__card">
                             <h3 class="timeline__role">高级数字营销经理 · 星云互联（示例）</h3>
                             <ul class="timeline__achievements">
                                 <li>统筹搜索与信息流投放，优化落地页链路，季度合格线索环比 +32%（示意）。</li>
@@ -180,106 +171,6 @@
         </footer>
     </main>
 
-    <dialog class="timeline-modal" id="timeline-demo-dialog" aria-labelledby="timeline-modal-title">
-        <div class="timeline-modal__panel">
-            <button type="button" class="timeline-modal__close" aria-label="关闭弹窗">&times;</button>
-            <h2 id="timeline-modal-title" class="timeline-modal__title"></h2>
-            <p id="timeline-modal-subtitle" class="timeline-modal__subtitle"></p>
-            <p class="timeline-modal__body"></p>
-            <div class="email-flow" id="email-flow" data-email-flow aria-hidden="true">
-                <div class="email-flow__scroll">
-                    <svg
-                        class="email-flow__svg"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 360 668"
-                        width="100%"
-                        height="auto"
-                        preserveAspectRatio="xMidYMin meet"
-                        role="img"
-                        aria-labelledby="email-flow-title email-flow-desc"
-                    >
-                        <title id="email-flow-title">Email nurture journey</title>
-                        <desc id="email-flow-desc">
-                            Website Visitor, Email Signup, Welcome Series, Product Education, Abandoned Cart,
-                            Purchase, Post-Purchase Follow-up, Repeat Customer.
-                        </desc>
-                        <defs>
-                            <linearGradient id="email-flow-edge" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop class="email-flow__gradient-stop email-flow__gradient-stop--a" offset="0%" stop-color="rgba(196, 181, 253, 0.85)" />
-                                <stop class="email-flow__gradient-stop email-flow__gradient-stop--b" offset="100%" stop-color="rgba(99, 102, 241, 0.45)" />
-                            </linearGradient>
-                            <filter id="email-flow-soft-glow" x="-40%" y="-40%" width="180%" height="180%">
-                                <feGaussianBlur stdDeviation="2.5" result="b" />
-                                <feMerge>
-                                    <feMergeNode in="b" />
-                                    <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        <!-- Connectors (strict top → bottom order) -->
-                        <path class="email-flow__connector" pathLength="1" data-connector="0" d="M180 68 L180 92" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <path class="email-flow__connector" pathLength="1" data-connector="1" d="M180 144 L180 168" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <path class="email-flow__connector" pathLength="1" data-connector="2" d="M180 220 L180 244" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <path class="email-flow__connector" pathLength="1" data-connector="3" d="M180 296 L180 320" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <path class="email-flow__connector" pathLength="1" data-connector="4" d="M180 372 L180 396" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <path class="email-flow__connector" pathLength="1" data-connector="5" d="M180 448 L180 472" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <path class="email-flow__connector" pathLength="1" data-connector="6" d="M180 524 L180 548" fill="none" stroke="url(#email-flow-edge)" stroke-width="2" stroke-linecap="round" />
-                        <!-- Nodes (outer g = y position; inner g = animated) -->
-                        <g transform="translate(0 16)">
-                            <g class="email-flow__node" data-flow-step="0">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Website Visitor</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 92)">
-                            <g class="email-flow__node" data-flow-step="1">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Email Signup</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 168)">
-                            <g class="email-flow__node" data-flow-step="2">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Welcome Series</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 244)">
-                            <g class="email-flow__node" data-flow-step="3">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Product Education</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 320)">
-                            <g class="email-flow__node" data-flow-step="4">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Abandoned Cart</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 396)">
-                            <g class="email-flow__node" data-flow-step="5">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Purchase</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 472)">
-                            <g class="email-flow__node" data-flow-step="6">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label email-flow__label--tight" x="180" y="23">Post-Purchase</text>
-                                <text class="email-flow__label email-flow__label--tight" x="180" y="38">Follow-up</text>
-                            </g>
-                        </g>
-                        <g transform="translate(0 548)">
-                            <g class="email-flow__node email-flow__node--tail" data-flow-step="7">
-                                <rect class="email-flow__rect" x="42" y="0" width="276" height="52" rx="14" ry="14" />
-                                <text class="email-flow__label" x="180" y="32">Repeat Customer</text>
-                            </g>
-                        </g>
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </dialog>
-
     <script>
     (function () {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -305,6 +196,5 @@
     })();
     </script>
     <script src="cursor-trail.js"></script>
-    <script src="timeline-modal.js"></script>
 </body>
 </html>
