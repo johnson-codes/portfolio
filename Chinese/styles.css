@@ -229,6 +229,42 @@ main {
   pointer-events: none;
 }
 
+/* Pillars → timeline: same gem/lines as hero→main, tighter vertical rhythm */
+.section-divider--compact {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section-divider--compact .section-divider__inner {
+  padding: 1.35rem 0 0.65rem;
+}
+
+.section-divider--compact .section-divider__glow {
+  max-width: min(420px, 72vw);
+  height: 34px;
+  margin: -1.45rem auto 0;
+}
+
+main > .section-divider--compact + .timeline-wrap {
+  margin-top: 0;
+  padding-top: 0.35rem;
+}
+
+@media (max-width: 768px) {
+  .section-divider--compact .section-divider__inner {
+    padding: 1.05rem 0 0.5rem;
+  }
+
+  .section-divider--compact .section-divider__glow {
+    height: 28px;
+    margin: -1.2rem auto 0;
+  }
+
+  main > .section-divider--compact + .timeline-wrap {
+    padding-top: 0.25rem;
+  }
+}
+
 @keyframes divider-gem-pulse {
   0%,
   100% {
