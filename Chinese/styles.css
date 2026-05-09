@@ -1442,12 +1442,6 @@ main > .section-divider--compact + .timeline-wrap {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .email-flow--play .email-flow__node,
-  .email-flow--play .email-flow__connector,
-  .email-flow--play .email-flow__node--tail .email-flow__rect {
-    animation: none !important;
-  }
-
   .site-header,
   .hero-eyebrow,
   .hero-eyebrow::before,
