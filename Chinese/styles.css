@@ -228,18 +228,6 @@ main {
 }
 
 /* Pillars grid */
-.pillars-intro {
-  font-size: 0.9375rem;
-  color: var(--muted);
-  margin: 0 0 1.75rem;
-  max-width: 36rem;
-}
-
-.pillars-intro strong {
-  color: var(--text);
-  font-weight: 600;
-}
-
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
