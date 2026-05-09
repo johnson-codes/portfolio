@@ -811,8 +811,8 @@ main > .section-divider--compact + .timeline-wrap {
 .timeline-modal {
   position: fixed;
   inset: 0;
-  width: min(94vw, 56rem);
-  max-height: min(88vh, 44rem);
+  width: min(98vw, 80rem);
+  max-height: min(92vh, 90vh);
   height: min-content;
   margin: auto;
   padding: 0;
@@ -829,8 +829,8 @@ main > .section-divider--compact + .timeline-wrap {
 .timeline-modal__panel {
   position: relative;
   direction: ltr;
-  padding: clamp(1.75rem, 3vw, 2.35rem) clamp(1.5rem, 3vw, 2.25rem)
-    clamp(1.75rem, 3vw, 2.25rem);
+  padding: clamp(2rem, 4.5vw, 3.5rem) clamp(1.75rem, 4vw, 3.25rem)
+    clamp(2rem, 4.5vw, 3.25rem);
   border-radius: calc(var(--radius) + 2px);
   border: 1px solid rgba(196, 181, 253, 0.28);
   background: linear-gradient(
@@ -842,18 +842,20 @@ main > .section-divider--compact + .timeline-wrap {
     0 24px 64px rgba(0, 0, 0, 0.45),
     0 0 0 1px rgba(255, 255, 255, 0.05) inset,
     0 0 48px rgba(124, 58, 237, 0.15);
-  max-height: min(82vh, 100%);
+  max-height: min(88vh, 100%);
   overflow-x: hidden;
   overflow-y: auto;
 }
 
 .timeline-modal__close {
   position: absolute;
-  top: clamp(0.85rem, 2vw, 1.15rem);
-  right: clamp(0.85rem, 2vw, 1.15rem);
+  top: clamp(0.85rem, 2.2vw, 1.35rem);
+  right: clamp(0.85rem, 2.2vw, 1.35rem);
   left: auto;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.875rem;
+  height: 2.875rem;
+  min-width: 44px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -862,7 +864,7 @@ main > .section-divider--compact + .timeline-wrap {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.06);
   color: var(--muted);
-  font-size: 1.35rem;
+  font-size: clamp(1.35rem, 2.2vw, 1.55rem);
   line-height: 1;
   cursor: pointer;
   z-index: 1;
@@ -884,9 +886,9 @@ main > .section-divider--compact + .timeline-wrap {
 }
 
 .timeline-modal__title {
-  margin: 0 0 1rem;
-  padding-right: 3.25rem;
-  font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+  margin: 0 0 clamp(0.85rem, 2vw, 1.35rem);
+  padding-right: clamp(3.25rem, 8vw, 4.25rem);
+  font-size: clamp(1.35rem, 2.2vw + 0.35rem, 2.25rem);
   font-weight: 700;
   color: var(--text);
   line-height: 1.35;
@@ -895,7 +897,7 @@ main > .section-divider--compact + .timeline-wrap {
 
 .timeline-modal__body {
   margin: 0;
-  font-size: clamp(0.98rem, 1.6vw, 1.08rem);
+  font-size: clamp(1.05rem, 1.35vw + 0.4rem, 1.35rem);
   color: var(--muted);
   line-height: 1.8;
 }
@@ -932,8 +934,8 @@ main > .section-divider--compact + .timeline-wrap {
 
 @media (max-width: 720px) {
   .timeline-modal {
-    width: min(94vw, 100%);
-    max-height: min(90vh, 100%);
+    width: min(98vw, 100%);
+    max-height: min(92vh, 90vh);
   }
 
   .timeline {
