@@ -40,6 +40,9 @@
     if (subtitleEl) subtitleEl.textContent = card.getAttribute("data-modal-subtitle") || "";
     if (bodyEl) bodyEl.textContent = card.getAttribute("data-modal-body") || "";
     dialog.showModal();
+    if (!prefersReducedMotion()) {
+      dialog.classList.add("is-animating");
+    }
     if (flowRoot) {
       flowRoot.setAttribute("aria-hidden", "false");
       applyFlowForOpen();
@@ -69,7 +72,16 @@
     if (e.target === dialog) closeModal();
   });
 
+  dialog.addEventListener("toggle", function () {
+    if (dialog.open) {
+      if (!prefersReducedMotion()) dialog.classList.add("is-animating");
+    } else {
+      dialog.classList.remove("is-animating");
+    }
+  });
+
   dialog.addEventListener("close", function () {
+    dialog.classList.remove("is-animating");
     if (flowRoot) {
       flowRoot.setAttribute("aria-hidden", "true");
       resetFlowClasses();
