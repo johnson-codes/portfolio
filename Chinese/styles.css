@@ -160,7 +160,88 @@ main {
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2.5rem clamp(1.25rem, 5vw, 2.75rem) 5rem;
+  padding: 1.75rem clamp(1.25rem, 5vw, 2.75rem) 5rem;
+}
+
+/* Divider between hero and content */
+.section-divider {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 clamp(1.25rem, 5vw, 2.75rem);
+  box-sizing: border-box;
+}
+
+.section-divider__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem 0 1.25rem;
+}
+
+.section-divider__line {
+  flex: 1;
+  min-width: 1.5rem;
+  height: 1px;
+}
+
+.section-divider__line--left {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(129, 140, 248, 0.2) 35%,
+    rgba(196, 181, 253, 0.65) 100%
+  );
+}
+
+.section-divider__line--right {
+  background: linear-gradient(
+    90deg,
+    rgba(196, 181, 253, 0.65) 0%,
+    rgba(129, 140, 248, 0.2) 65%,
+    transparent 100%
+  );
+}
+
+.section-divider__gem {
+  flex-shrink: 0;
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  background: linear-gradient(145deg, #f5f0ff 0%, #a78bfa 42%, #6366f1 100%);
+  box-shadow:
+    0 0 18px rgba(167, 139, 250, 0.5),
+    0 0 36px rgba(99, 102, 241, 0.18);
+  animation: divider-gem-pulse 5.5s ease-in-out infinite;
+}
+
+.section-divider__glow {
+  max-width: min(480px, 60vw);
+  height: 44px;
+  margin: -1.85rem auto 0;
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    rgba(167, 139, 250, 0.16) 0%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+@keyframes divider-gem-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 16px rgba(167, 139, 250, 0.42),
+      0 0 32px rgba(99, 102, 241, 0.14);
+  }
+  50% {
+    box-shadow:
+      0 0 24px rgba(167, 139, 250, 0.6),
+      0 0 48px rgba(99, 102, 241, 0.22);
+  }
 }
 
 /* Hero — full width, text / image columns */
@@ -548,7 +629,8 @@ main {
   .hero-title .gradient,
   .page-bg::before,
   .page-bg::after,
-  .pillar::before {
+  .pillar::before,
+  .section-divider__gem {
     animation: none !important;
   }
 
