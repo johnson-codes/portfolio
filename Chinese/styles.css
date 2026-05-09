@@ -558,14 +558,17 @@ main {
 .timeline {
   position: relative;
   padding-top: 0.35rem;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .timeline__spine {
   position: absolute;
-  left: calc(7.25rem - 1px);
+  left: 50%;
   top: 0.5rem;
   bottom: 1.25rem;
   width: 2px;
+  margin-left: -1px;
   border-radius: 2px;
   background: linear-gradient(
     180deg,
@@ -592,10 +595,12 @@ main {
 .timeline__item {
   position: relative;
   display: grid;
-  grid-template-columns: 7.25rem 1fr;
-  gap: 1.25rem 1.75rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  column-gap: 2.5rem;
+  row-gap: 0.45rem;
   align-items: start;
-  padding-bottom: 1.85rem;
+  padding-bottom: 2rem;
 }
 
 .timeline__item:last-child {
@@ -605,19 +610,20 @@ main {
 .timeline__item::before {
   content: "";
   position: absolute;
-  left: calc(7.25rem - 5px);
-  top: 0.55rem;
+  left: 50%;
+  top: 1.2rem;
   width: 10px;
   height: 10px;
+  margin-left: -5px;
   border-radius: 50%;
   background: var(--bg-deep);
   border: 2px solid #c4b5fd;
   box-shadow:
     0 0 14px rgba(167, 139, 250, 0.55),
     0 0 0 3px rgba(167, 139, 250, 0.12);
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
-  transform: scale(0.4);
+  transform: scale(0.35);
   transition:
     opacity 0.45s ease,
     transform 0.5s cubic-bezier(0.34, 1.45, 0.64, 1);
@@ -629,10 +635,41 @@ main {
   transform: scale(1);
 }
 
-.timeline__year {
+.timeline__item:nth-child(odd) .timeline__year {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
   text-align: right;
   padding-top: 0.2rem;
-  padding-right: 0.25rem;
+  padding-right: 0;
+}
+
+.timeline__item:nth-child(odd) .timeline__card {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: end;
+  width: 100%;
+  max-width: min(400px, 100%);
+}
+
+.timeline__item:nth-child(even) .timeline__year {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  text-align: left;
+  padding-top: 0.2rem;
+}
+
+.timeline__item:nth-child(even) .timeline__card {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  width: 100%;
+  max-width: min(400px, 100%);
+}
+
+.timeline__year {
+  min-width: 0;
 }
 
 .timeline__year-pill {
@@ -661,6 +698,7 @@ main {
   background: rgba(36, 43, 61, 0.55);
   backdrop-filter: blur(10px);
   overflow: hidden;
+  text-align: left;
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease,
@@ -678,10 +716,16 @@ main {
   opacity: 0.75;
 }
 
-.timeline__item[data-reveal].is-visible:hover .timeline__card {
+.timeline__item:nth-child(odd)[data-reveal].is-visible:hover .timeline__card {
   border-color: rgba(167, 139, 250, 0.28);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
-  transform: translateX(4px);
+  transform: translateX(6px);
+}
+
+.timeline__item:nth-child(even)[data-reveal].is-visible:hover .timeline__card {
+  border-color: rgba(167, 139, 250, 0.28);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  transform: translateX(-6px);
 }
 
 .timeline__role {
@@ -708,14 +752,20 @@ main {
   margin-bottom: 0;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
+  .timeline {
+    max-width: none;
+  }
+
   .timeline__spine {
     display: none;
   }
 
   .timeline__item {
     grid-template-columns: 1fr;
-    gap: 0.65rem;
+    grid-template-rows: auto auto;
+    column-gap: 0;
+    row-gap: 0.65rem;
     padding-bottom: 1.5rem;
   }
 
@@ -723,16 +773,28 @@ main {
     display: none;
   }
 
-  .timeline__year {
+  .timeline__item:nth-child(odd) .timeline__year,
+  .timeline__item:nth-child(even) .timeline__year {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
     text-align: left;
-    padding-right: 0;
+  }
+
+  .timeline__item:nth-child(odd) .timeline__card,
+  .timeline__item:nth-child(even) .timeline__card {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: stretch;
+    max-width: none;
   }
 
   .timeline__year-pill {
     white-space: normal;
   }
 
-  .timeline__item[data-reveal].is-visible:hover .timeline__card {
+  .timeline__item:nth-child(odd)[data-reveal].is-visible:hover .timeline__card,
+  .timeline__item:nth-child(even)[data-reveal].is-visible:hover .timeline__card {
     transform: none;
   }
 }
@@ -888,7 +950,8 @@ main {
     transform: scale(1) !important;
   }
 
-  .timeline__item[data-reveal].is-visible:hover .timeline__card {
+  .timeline__item:nth-child(odd)[data-reveal].is-visible:hover .timeline__card,
+  .timeline__item:nth-child(even)[data-reveal].is-visible:hover .timeline__card {
     transform: none;
   }
 }
