@@ -271,6 +271,15 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-color) !important;
 }
 
+.navbar a.nav-secondary-label:hover {
+  opacity: 0.88;
+  color: white !important;
+}
+
+.navbar.scrolled a.nav-secondary-label:hover {
+  color: var(--text-color) !important;
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
