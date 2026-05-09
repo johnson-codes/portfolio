@@ -876,13 +876,13 @@ main {
   opacity: 0.75;
 }
 
-.timeline__item:nth-child(odd)[data-reveal].is-visible:hover .timeline__card {
+.timeline__item:nth-child(odd) .timeline__card:hover {
   border-color: rgba(167, 139, 250, 0.28);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
   transform: translateX(6px);
 }
 
-.timeline__item:nth-child(even)[data-reveal].is-visible:hover .timeline__card {
+.timeline__item:nth-child(even) .timeline__card:hover {
   border-color: rgba(167, 139, 250, 0.28);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
   transform: translateX(-6px);
@@ -953,8 +953,8 @@ main {
     white-space: normal;
   }
 
-  .timeline__item:nth-child(odd)[data-reveal].is-visible:hover .timeline__card,
-  .timeline__item:nth-child(even)[data-reveal].is-visible:hover .timeline__card {
+  .timeline__item:nth-child(odd) .timeline__card:hover,
+  .timeline__item:nth-child(even) .timeline__card:hover {
     transform: none;
   }
 }
@@ -1123,8 +1123,8 @@ main {
     transform: scale(1) !important;
   }
 
-  .timeline__item:nth-child(odd)[data-reveal].is-visible:hover .timeline__card,
-  .timeline__item:nth-child(even)[data-reveal].is-visible:hover .timeline__card {
+  .timeline__item:nth-child(odd) .timeline__card:hover,
+  .timeline__item:nth-child(even) .timeline__card:hover {
     transform: none;
   }
 }
