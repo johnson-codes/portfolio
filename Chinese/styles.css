@@ -268,7 +268,7 @@ main {
 
 .hero-media {
   min-width: 0;
-  max-width: 347px;
+  max-width: 289px;
   width: 100%;
   justify-self: end;
 }
@@ -292,8 +292,8 @@ main {
   height: auto;
   object-fit: cover;
   aspect-ratio: 4 / 5;
-  max-width: 347px;
-  max-height: min(347px, 47vh);
+  max-width: 289px;
+  max-height: min(289px, 39vh);
   vertical-align: middle;
 }
 
@@ -304,15 +304,15 @@ main {
   }
 
   .hero-media {
-    max-width: 280px;
+    max-width: 233px;
     margin: 0 auto;
     width: 100%;
     justify-self: center;
   }
 
   .hero-img {
-    max-width: 280px;
-    max-height: min(280px, 37vh);
+    max-width: 233px;
+    max-height: min(233px, 31vh);
   }
 }
 
