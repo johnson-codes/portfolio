@@ -260,6 +260,17 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-color) !important;
 }
 
+.navbar .nav-secondary-label {
+  font-weight: 700;
+  color: white !important;
+  margin-left: 0.15rem;
+  white-space: nowrap;
+}
+
+.navbar.scrolled .nav-secondary-label {
+  color: var(--text-color) !important;
+}
+
 .nav-link::after {
   content: '';
   position: absolute;
