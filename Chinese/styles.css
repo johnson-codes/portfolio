@@ -29,7 +29,7 @@ body {
   font-weight: 400;
   background: var(--bg-deep);
   color: var(--text);
-  line-height: 1.75;
+  line-height: 1.78;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -159,7 +159,7 @@ main {
   z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1.75rem clamp(1.25rem, 5vw, 2.75rem) 5rem;
+  padding: 1.75rem clamp(1.35rem, 5vw, 3rem) 5.75rem;
 }
 
 /* Divider between hero and content */
@@ -167,7 +167,7 @@ main {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 0 clamp(1.25rem, 5vw, 2.75rem);
+  padding: 0 clamp(1.35rem, 5vw, 3rem);
   box-sizing: border-box;
 }
 
@@ -177,7 +177,7 @@ main {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.25rem 0 1.25rem;
+  padding: 0.45rem 0 1.55rem;
 }
 
 .section-divider__line {
@@ -237,7 +237,7 @@ main {
 }
 
 .section-divider--compact .section-divider__inner {
-  padding: 1.35rem 0 0.65rem;
+  padding: 1.55rem 0 0.9rem;
 }
 
 .section-divider--compact .section-divider__glow {
@@ -248,12 +248,12 @@ main {
 
 main > .section-divider--compact + .timeline-wrap {
   margin-top: 0;
-  padding-top: 0.35rem;
+  padding-top: 0.55rem;
 }
 
 @media (max-width: 768px) {
   .section-divider--compact .section-divider__inner {
-    padding: 1.05rem 0 0.5rem;
+    padding: 1.2rem 0 0.65rem;
   }
 
   .section-divider--compact .section-divider__glow {
@@ -262,7 +262,7 @@ main > .section-divider--compact + .timeline-wrap {
   }
 
   main > .section-divider--compact + .timeline-wrap {
-    padding-top: 0.25rem;
+    padding-top: 0.4rem;
   }
 }
 
@@ -285,7 +285,7 @@ main > .section-divider--compact + .timeline-wrap {
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.25rem, 5vw, 2.75rem) 3.5rem;
+  padding: clamp(2.65rem, 6.25vw, 4.25rem) clamp(1.35rem, 5vw, 3rem) 3.85rem;
   box-sizing: border-box;
 }
 
@@ -294,7 +294,7 @@ main > .section-divider--compact + .timeline-wrap {
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  gap: clamp(1.75rem, 5vw, 4rem);
+  gap: clamp(2rem, 5.5vw, 4.5rem);
   align-items: center;
 }
 
@@ -336,7 +336,7 @@ main > .section-divider--compact + .timeline-wrap {
 @media (max-width: 900px) {
   .hero-shell {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.25rem;
   }
 
   .hero-media {
@@ -366,7 +366,7 @@ main > .section-divider--compact + .timeline-wrap {
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--muted2);
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.45rem;
   animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -385,7 +385,7 @@ main > .section-divider--compact + .timeline-wrap {
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.45rem;
   animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
 }
 
@@ -411,7 +411,7 @@ main > .section-divider--compact + .timeline-wrap {
   color: var(--muted);
   margin: 0;
   max-width: 38rem;
-  line-height: 1.8;
+  line-height: 1.86;
   animation: fade-up 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
@@ -419,7 +419,7 @@ main > .section-divider--compact + .timeline-wrap {
 .pillars-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 1.35rem;
 }
 
 @media (max-width: 768px) {
@@ -430,7 +430,7 @@ main > .section-divider--compact + .timeline-wrap {
 
 .pillar {
   position: relative;
-  padding: 1.5rem 1.5rem 1.65rem;
+  padding: 1.75rem 1.65rem 1.85rem;
   border-radius: var(--radius);
   background: var(--surface);
   border: 1px solid var(--line);
@@ -489,7 +489,7 @@ main > .section-divider--compact + .timeline-wrap {
   .pillar--wide {
     display: grid;
     grid-template-columns: 1fr 1.15fr;
-    gap: 1.5rem 2rem;
+    gap: 1.65rem 2.25rem;
     align-items: start;
   }
 }
@@ -498,7 +498,7 @@ main > .section-divider--compact + .timeline-wrap {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  margin-bottom: 0.85rem;
+  margin-bottom: 1.05rem;
   flex-wrap: wrap;
 }
 
@@ -537,29 +537,29 @@ main > .section-divider--compact + .timeline-wrap {
   font-size: 0.9375rem;
   font-weight: 600;
   color: var(--text);
-  margin: 0 0 0.85rem;
-  line-height: 1.65;
+  margin: 0 0 1rem;
+  line-height: 1.68;
 }
 
 .pillar-body {
   margin: 0;
   font-size: 0.9375rem;
   color: var(--muted);
-  line-height: 1.85;
+  line-height: 1.88;
 }
 
 .pillar-body + .pillar-body {
-  margin-top: 0.85rem;
+  margin-top: 1rem;
 }
 
 /* Career timeline */
 .timeline-wrap {
-  margin-top: 3rem;
-  padding-top: 0.5rem;
+  margin-top: 3.65rem;
+  padding-top: 0.85rem;
 }
 
 .timeline-wrap__head {
-  margin-bottom: 1.75rem;
+  margin-bottom: 2.15rem;
 }
 
 .timeline-wrap__eyebrow {
@@ -570,7 +570,7 @@ main > .section-divider--compact + .timeline-wrap {
   font-weight: 600;
   letter-spacing: 0.12em;
   color: var(--muted2);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.9rem;
 }
 
 .timeline-wrap__eyebrow::before {
@@ -582,7 +582,7 @@ main > .section-divider--compact + .timeline-wrap {
 }
 
 .timeline-wrap__title {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.65rem;
   font-size: clamp(1.35rem, 3vw, 1.65rem);
   font-weight: 700;
   color: var(--text);
@@ -594,12 +594,12 @@ main > .section-divider--compact + .timeline-wrap {
   font-size: 0.9rem;
   color: var(--muted);
   max-width: 36rem;
-  line-height: 1.65;
+  line-height: 1.72;
 }
 
 .timeline {
   position: relative;
-  padding-top: 0.35rem;
+  padding-top: 0.65rem;
   max-width: 920px;
   margin: 0 auto;
 }
@@ -640,9 +640,9 @@ main > .section-divider--compact + .timeline-wrap {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   column-gap: 2.5rem;
-  row-gap: 0.45rem;
+  row-gap: 0.7rem;
   align-items: start;
-  padding-bottom: 2rem;
+  padding-bottom: 2.4rem;
 }
 
 .timeline__item:last-child {
@@ -734,7 +734,7 @@ main > .section-divider--compact + .timeline-wrap {
 
 .timeline__card {
   position: relative;
-  padding: 1.2rem 1.35rem 1.3rem;
+  padding: 1.35rem 1.45rem 1.45rem;
   border-radius: 14px;
   border: 1px solid var(--line);
   background: rgba(36, 43, 61, 0.55);
@@ -783,7 +783,7 @@ main > .section-divider--compact + .timeline-wrap {
   padding: 0 0 0 1.1rem;
   color: var(--muted);
   font-size: 0.9rem;
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
 .timeline__achievements li {
@@ -807,8 +807,8 @@ main > .section-divider--compact + .timeline-wrap {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
     column-gap: 0;
-    row-gap: 0.65rem;
-    padding-bottom: 1.5rem;
+    row-gap: 0.85rem;
+    padding-bottom: 1.85rem;
   }
 
   .timeline__item::before {
@@ -845,7 +845,7 @@ main > .section-divider--compact + .timeline-wrap {
 .closing {
   --closing-glow: rgba(124, 58, 237, 0.2);
   --closing-glow2: rgba(99, 102, 241, 0.1);
-  margin-top: 3.75rem;
+  margin-top: 4.25rem;
   position: relative;
   border-radius: calc(var(--radius) + 2px);
   padding: 2px;
@@ -878,7 +878,7 @@ main > .section-divider--compact + .timeline-wrap {
 
 .closing__shell {
   border-radius: var(--radius);
-  padding: clamp(1.45rem, 4vw, 2rem) clamp(1.25rem, 4vw, 2.1rem);
+  padding: clamp(1.65rem, 4.25vw, 2.25rem) clamp(1.35rem, 4.25vw, 2.35rem);
   background: linear-gradient(
     165deg,
     rgba(30, 38, 56, 0.96) 0%,
@@ -890,7 +890,7 @@ main > .section-divider--compact + .timeline-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.07);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.05) inset;
 }
@@ -909,7 +909,7 @@ main > .section-divider--compact + .timeline-wrap {
 .closing__text {
   margin: 0;
   font-size: clamp(1rem, 2.5vw, 1.125rem);
-  line-height: 1.7;
+  line-height: 1.76;
   max-width: 36rem;
   display: flex;
   flex-wrap: wrap;
