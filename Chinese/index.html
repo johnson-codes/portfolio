@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<!-- Static site: copy these files into your johnson-codes/Chinese git repo to publish. -->
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中文 | Johnson</title>
+    <title>中文 | Johnson — 跨领域数字化从业者</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
     <header class="site-header">
         <div class="inner">
             <a class="brand" href="index.html">中文</a>
@@ -19,15 +20,67 @@
     </header>
 
     <main>
-        <section class="hero">
-            <h1>中文内容站</h1>
-            <p class="lead">这里是中文页面的起点。你可以把课程、文章或笔记逐页加进来；静态 HTML，可直接部署到 GitHub Pages。</p>
+        <section class="hero" aria-labelledby="hero-title">
+            <p class="hero-eyebrow">Introduction</p>
+            <h1 id="hero-title" class="hero-title">用商业的敏锐、技术的可靠与创意的温度，<span class="gradient">做能落地的事</span>。</h1>
+            <p class="hero-lead">你好，这里是我以中文呈现的简介。下面的四个维度——身份、能力、差异化与方向——概括了我如何思考工作，以及我希望与怎样的团队与项目并肩前行。</p>
         </section>
 
-        <section class="card" aria-labelledby="next-heading">
-            <h2 id="next-heading">接下来</h2>
-            <p>在此目录新增页面（例如 <code>lesson-1.html</code>），从这里链过去即可。需要与 <code>johnson-codes/Chinese</code> 仓库同步时，请在本机终端克隆该仓库，再将本文件夹中的文件复制进去后提交推送。</p>
-        </section>
+        <p class="pillars-intro">如果你只想快速扫一眼，可以从每一段的<strong>加粗摘要</strong>读起；展开段落是对该维度的延伸说明。</p>
+
+        <div class="pillars-grid">
+            <article class="pillar pillar--wide">
+                <div>
+                    <div class="pillar-meta">
+                        <span class="pillar-index">01</span>
+                        <h2 class="pillar-label">身份</h2>
+                    </div>
+                    <p class="pillar-hook">一名结合商业、技术与创意的跨领域从业者。</p>
+                </div>
+                <div>
+                    <p class="pillar-body">我不把自己限定在单一职称里：会在用户洞察、增长策略、体验设计与工程协作之间切换角色，只为让想法能真正从纸面走进真实世界。对我而言，商业决定「为何做」，技术支撑「能否做成」，创意则负责让过程与结果<strong>值得被记住</strong>。</p>
+                    <p class="pillar-body">这种跨界不是杂糅，而是一种刻意练习——在复杂组织里，把不同语言（市场、产品、研发）翻译成彼此能执行的共识。</p>
+                </div>
+            </article>
+
+            <article class="pillar">
+                <div class="pillar-meta">
+                    <span class="pillar-index">02</span>
+                    <h2 class="pillar-label">能力</h2>
+                </div>
+                <p class="pillar-hook">具备数字营销、项目管理与软件开发能力。</p>
+                <p class="pillar-body">在营销侧，我熟悉渠道组合、内容节奏与可量化的增长实验；在项目侧，关注里程碑、风险、资源与干系人沟通，让交付<strong>可预期</strong>；在开发侧，能把原型推进到可上线的页面、集成与自动化流程。</p>
+                <p class="pillar-body">三项能力叠加的意义在于：许多数字化迭代不必再经历漫长的「外包式」交接——同一人能贯穿策略、协调与实现，缩短反馈回路。</p>
+            </article>
+
+            <article class="pillar">
+                <div class="pillar-meta">
+                    <span class="pillar-index">03</span>
+                    <h2 class="pillar-label">差异化</h2>
+                </div>
+                <p class="pillar-hook">能同时理解用户需求、商业目标与技术实现。</p>
+                <p class="pillar-body">常见瓶颈往往不是「不会做」，而是<strong>翻译失真</strong>：用户说的、老板要的和工程师能建的，是三套叙事。我习惯在同一套框架里对齐三方——既讲清楚价值与优先级，也讲清楚约束、路径与时间，从源头减少返工与误解。</p>
+                <p class="pillar-body">结果是：需求更干净，排期更诚实，上线后更少「当初以为」式的遗憾。</p>
+            </article>
+
+            <article class="pillar pillar--wide">
+                <div>
+                    <div class="pillar-meta">
+                        <span class="pillar-index">04</span>
+                        <h2 class="pillar-label">方向</h2>
+                    </div>
+                    <p class="pillar-hook">致力于通过 AI 与数字化技术打造有价值的产品。</p>
+                </div>
+                <div>
+                    <p class="pillar-body">对我而言，AI 不是噱头，而是<strong>放大器</strong>：加速研究与草稿、辅助内容生产、把重复性工作自动化，从而把时间留给判断与体验。但无论工具如何演进，核心问题不变——有没有人在真实场景里愿意持续使用，问题是否被更好地解决。</p>
+                    <p class="pillar-body">长期方向，是做可持续、可衡量、可演进的产品与服务：用数据验证假设，用小步发布降低风险，让技术投入与商业回报之间看得见联结。</p>
+                </div>
+            </article>
+        </div>
+
+        <footer class="closing">
+            <p>希望进一步交流？欢迎回到 <a href="../index.html">Portfolio</a> 查看项目与联系方式。</p>
+        </footer>
     </main>
 </body>
 </html>
