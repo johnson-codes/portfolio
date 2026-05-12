@@ -39,9 +39,19 @@
     if (titleEl) titleEl.textContent = card.getAttribute("data-modal-title") || "";
     if (subtitleEl) subtitleEl.textContent = card.getAttribute("data-modal-subtitle") || "";
     if (bodyEl) bodyEl.textContent = card.getAttribute("data-modal-body") || "";
-    dialog.showModal();
+    var showEmailFlow = card.getAttribute("data-modal-email-flow") !== "false";
     if (flowRoot) {
-      flowRoot.setAttribute("aria-hidden", "false");
+      resetFlowClasses();
+      if (showEmailFlow) {
+        flowRoot.classList.remove("email-flow--concealed");
+        flowRoot.setAttribute("aria-hidden", "false");
+      } else {
+        flowRoot.classList.add("email-flow--concealed");
+        flowRoot.setAttribute("aria-hidden", "true");
+      }
+    }
+    dialog.showModal();
+    if (flowRoot && showEmailFlow) {
       applyFlowForOpen();
     }
     if (closeBtn) closeBtn.focus();
@@ -72,6 +82,7 @@
   dialog.addEventListener("close", function () {
     if (flowRoot) {
       flowRoot.setAttribute("aria-hidden", "true");
+      flowRoot.classList.remove("email-flow--concealed");
       resetFlowClasses();
     }
     if (lastOpener && document.contains(lastOpener)) {

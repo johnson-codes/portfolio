@@ -729,14 +729,17 @@ main > .section-divider--compact + .timeline-wrap {
     rgba(99, 102, 241, 0.06) 100%
   );
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
+  white-space: normal;
+  max-width: min(100%, 14rem);
+  text-align: center;
+  line-height: 1.25;
 }
 
 .timeline__card {
   position: relative;
   padding: 1.35rem 1.45rem 1.45rem;
   border-radius: 14px;
-  border: 1px solid var(--line);
+  border: 2px solid rgba(148, 163, 184, 0.35);
   background: rgba(36, 43, 61, 0.55);
   backdrop-filter: blur(10px);
   overflow: hidden;
@@ -745,6 +748,38 @@ main > .section-divider--compact + .timeline-wrap {
     border-color 0.3s ease,
     box-shadow 0.3s ease,
     transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.timeline__item:nth-child(1) .timeline__card {
+  background: linear-gradient(
+    165deg,
+    rgba(52, 68, 98, 0.72) 0%,
+    rgba(32, 40, 58, 0.58) 100%
+  );
+}
+
+.timeline__item:nth-child(2) .timeline__card {
+  background: linear-gradient(
+    165deg,
+    rgba(58, 52, 88, 0.65) 0%,
+    rgba(34, 36, 56, 0.58) 100%
+  );
+}
+
+.timeline__item:nth-child(3) .timeline__card {
+  background: linear-gradient(
+    165deg,
+    rgba(48, 62, 72, 0.68) 0%,
+    rgba(30, 38, 48, 0.56) 100%
+  );
+}
+
+.timeline__item:nth-child(4) .timeline__card {
+  background: linear-gradient(
+    165deg,
+    rgba(72, 52, 68, 0.62) 0%,
+    rgba(38, 32, 44, 0.55) 100%
+  );
 }
 
 .timeline__card::before {
@@ -776,6 +811,14 @@ main > .section-divider--compact + .timeline-wrap {
   font-weight: 700;
   color: var(--text);
   line-height: 1.4;
+}
+
+.timeline__meta {
+  margin: -0.25rem 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted2);
+  line-height: 1.55;
 }
 
 .timeline__achievements {
@@ -872,6 +915,10 @@ main > .section-divider--compact + .timeline-wrap {
   background: transparent;
   max-width: min(100%, 42rem);
   margin: 0 auto;
+}
+
+.email-flow.email-flow--concealed {
+  display: none !important;
 }
 
 .email-flow__scroll {
