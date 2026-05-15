@@ -107,8 +107,39 @@ a:hover {
   padding: 1rem clamp(1.4rem, 5vw, 3rem);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.site-header__trailing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-me-link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #dce3f6;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-me-link:hover {
+  color: var(--text);
+}
+
+.nav-cn-label {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #eaeaf2;
+  margin-left: 0.15rem;
+  white-space: nowrap;
+}
+
+.nav-cn-label:hover {
+  color: var(--accent, #c4b5fd);
 }
 
 .nav-back {

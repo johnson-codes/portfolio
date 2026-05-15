@@ -390,6 +390,16 @@ section img.img-fluid {
     border-color: #2c3e50 !important;
 }
 
+/* Match 中文 label to dark nav links on white blog navbar (global style.css keeps it white for the main hero) */
+.navbar:not(.navbar-dark) .nav-secondary-label {
+    color: #333333 !important;
+}
+
+.navbar:not(.navbar-dark) a.nav-secondary-label:hover {
+    color: #61dafb !important;
+    opacity: 1;
+}
+
 /* Category section container */
 .category-section {
     border: 2px solid #e0e0e0;
