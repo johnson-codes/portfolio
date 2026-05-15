@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Canonical live URL (GitHub Pages + custom domain). Paths are relative so it also works locally and on preview hosts. -->
+  <link rel="canonical" href="https://portfolio.johnson-codes.com/web-demo/hero-sticky-scroll-demo.html">
+  <title>Sticky hero + scroll parallax (demo)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fbfaf1;
+      --forest: #1a3d2e;
+      --green: #3d6f4a;
+      --lime: #c8f08d;
+      --hero-p: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--forest);
+    }
+
+    /* --- Progress: JS sets --hero-p from 0 to 1 while this block is in view --- */
+    [data-hero-scroll-root] {
+      --hero-p: 0;
+    }
+
+    .back-link {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 100;
+      font-size: 0.875rem;
+      text-decoration: none;
+      color: var(--forest);
+      background: rgba(251, 250, 241, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 0.45rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(26, 61, 46, 0.15);
+    }
+
+    .back-link:hover {
+      color: var(--green);
+    }
+
+    /*
+     * Jetson-style layout:
+     * - Two full-viewport sticky layers (foreground house / background circle + clouds)
+     * - -100vh margins collapse flow so layers stack while you scroll
+     * - Copy + CTA live in normal flow so text moves up over the pinned scene
+     */
+
+    .hero-article {
+      position: relative;
+      overflow-x: clip;
+      min-height: 100vh;
+    }
+
+    .sticky-scene {
+      position: sticky;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+
+    .sticky-scene--fg {
+      z-index: 10;
+    }
+
+    .sticky-scene--bg {
+      z-index: 0;
+    }
+
+    .scroll-collapse {
+      height: 0;
+      margin-top: -100vh;
+      pointer-events: none;
+    }
+
+    /* Foreground: house + ground + solid grass strip */
+    .hero-house-wrap {
+      position: absolute;
+      z-index: 20;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18%;
+      width: min(90vw, 720px);
+      /* Replace with your art: optional extra motion */
+      transform: translateX(-50%) translateY(calc(var(--hero-p) * -24px)) scale(calc(1 - var(--hero-p) * 0.06));
+      transition: transform 0.15s linear;
+    }
+
+    .hero-house-wrap img,
+    .hero-house-wrap .placeholder-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-ground {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 15;
+      width: 100%;
+      height: 12px;
+      background: linear-gradient(180deg, rgba(61, 111, 74, 0.35), var(--green));
+      /* Swap for: <img class="hero-ground" src="ground.webp" alt=""> */
+    }
+
+    .hero-grass-fill {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 58%;
+      z-index: 12;
+      background: var(--green);
+    }
+
+    /* Background layer: decorative circle + clouds */
+    .hero-circle {
+      position: absolute;
+      left: 50%;
+      top: 14%;
+      width: min(85vw, 900px);
+      aspect-ratio: 1.2 / 1;
+      transform: translate(-50%, 0)
+        scale(calc(1 - var(--hero-p) * 0.12))
+        translateY(calc(var(--hero-p) * 36px));
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at 50% 45%,
+        rgba(200, 240, 141, 0.45) 0%,
+        rgba(61, 111, 74, 0.2) 55%,
+        transparent 70%
+      );
+      transition: transform 0.15s linear;
+    }
+
+    .cloud {
+      position: absolute;
+      z-index: 1;
+      width: min(28vw, 200px);
+      opacity: 0.95;
+      transition: transform 0.12s linear;
+      /* Swap img inside .cloud for your transparent PNG/WebP */
+    }
+
+    .cloud img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 24px rgba(26, 61, 46, 0.12));
+    }
+
+    .cloud--mid {
+      left: 50%;
+      top: 22%;
+      width: min(22vw, 160px);
+      margin-left: 4rem;
+      transform: translate(
+        calc(20px - var(--hero-p) * 100px),
+        calc(var(--hero-p) * 140px)
+      );
+    }
+
+    .cloud--left {
+      left: 50%;
+      top: 38%;
+      margin-left: -14rem;
+      width: min(36vw, 260px);
+      transform: translate(
+        calc(var(--hero-p) * -80px),
+        calc(30px + var(--hero-p) * 120px)
+      );
+    }
+
+    .cloud--right {
+      left: 50%;
+      top: 32%;
+      margin-left: 5rem;
+      width: min(34vw, 240px);
+      transform: translate(
+        calc(var(--hero-p) * -60px),
+        calc(20px + var(--hero-p) * 100px)
+      );
+    }
+
+    @media (max-width: 640px) {
+      .cloud--left { margin-left: -9rem; }
+      .cloud--right { margin-left: 3rem; }
+      .cloud--mid { margin-left: 2rem; }
+    }
+
+    /* --- Content over the scene --- */
+    .hero-copy {
+      position: relative;
+      z-index: 20;
+      padding: 8rem 1.5rem 2rem;
+      text-align: center;
+      pointer-events: auto;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 700;
+      line-height: 1.05;
+      max-width: 16ch;
+      margin: 0 auto;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-copy p {
+      max-width: 36rem;
+      margin: 1.25rem auto 0;
+      font-size: clamp(1rem, 2.5vw, 1.125rem);
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .sticky-cta-bar {
+      position: sticky;
+      top: 0;
+      z-index: 25;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: min(42vh, 420px);
+      pointer-events: none;
+    }
+
+    .sticky-cta-bar button {
+      pointer-events: auto;
+      font: inherit;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.65rem 1.25rem;
+      border: none;
+      border-radius: 0.75rem;
+      background: var(--lime);
+      color: var(--forest);
+      box-shadow: 0 4px 20px rgba(26, 61, 46, 0.15);
+      cursor: pointer;
+    }
+
+    .sticky-cta-bar button:hover {
+      filter: brightness(1.05);
+    }
+
+    .after-hero {
+      position: relative;
+      z-index: 20;
+      background: var(--green);
+      color: var(--cream);
+      padding: 4rem 1.5rem 6rem;
+      text-align: center;
+    }
+
+    .after-hero h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .note {
+      max-width: 40rem;
+      margin: 2rem auto 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.9;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+    }
+
+    code {
+      font-size: 0.85em;
+      background: rgba(0, 0, 0, 0.15);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cloud,
+      .hero-circle,
+      .hero-house-wrap {
+        transition: none;
+      }
+      .cloud--mid,
+      .cloud--left,
+      .cloud--right {
+        transform: none;
+      }
+      .hero-circle {
+        transform: translate(-50%, 0);
+      }
+      .hero-house-wrap {
+        transform: translateX(-50%);
+      }
+      [data-hero-scroll-root] {
+        --hero-p: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="back-link" href="./index.html">← Web demos</a>
+
+  <!--
+    ASSETS: Replace placeholders below with your files.
+    - House:  .hero-house-wrap → use <img src="your-house.webp" alt="">
+    - Clouds: .cloud--* → put PNG/WebP inside each .cloud
+    - Circle: .hero-circle is CSS-only; can be replaced with <img> in .sticky-scene--bg
+    - Ground:  .hero-ground is a gradient bar; swap for full-width illustration
+  -->
+
+  <article
+    class="hero-article"
+    data-hero-scroll-root
+    id="hero-scroll-demo"
+  >
+    <!-- Foreground sticky layer -->
+    <section class="sticky-scene sticky-scene--fg" aria-hidden="true">
+      <div class="hero-grass-fill"></div>
+      <div class="hero-ground"></div>
+      <div class="hero-house-wrap">
+        <!-- PLACEHOLDER: swap for your illustration -->
+        <svg class="placeholder-svg" viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2d4a3e"/>
+              <stop offset="100%" stop-color="#1a3d2e"/>
+            </linearGradient>
+          </defs>
+          <rect x="180" y="120" width="360" height="140" rx="8" fill="#e8e6dc" stroke="#1a3d2e" stroke-width="3"/>
+          <path d="M150 130 L360 40 L570 130 Z" fill="url(#roof)" stroke="#1a3d2e" stroke-width="3"/>
+          <rect x="320" y="180" width="80" height="80" rx="4" fill="#b8d4e8" stroke="#1a3d2e" stroke-width="2"/>
+          <rect x="240" y="150" width="64" height="48" rx="4" fill="#d4e8f7" stroke="#1a3d2e" stroke-width="2"/>
+          <rect x="416" y="150" width="64" height="48" rx="4" fill="#d4e8f7" stroke="#1a3d2e" stroke-width="2"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="scroll-collapse"></div>
+
+    <!-- Background sticky layer (circle + clouds) -->
+    <section class="sticky-scene sticky-scene--bg" aria-hidden="true">
+      <div class="hero-circle"></div>
+
+      <div class="cloud cloud--mid">
+        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#ffffff" d="M40 55c0-18 14-32 32-32 2 0 4 0 6 1 8-18 28-30 50-30 28 0 52 20 56 46 10 2 16 10 16 20 0 14-12 26-26 26H48c-15 0-28-13-28-31z"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--left">
+        <svg viewBox="0 0 280 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#ffffff" d="M50 60c0-22 18-40 40-40 3 0 6 1 9 2 10-22 35-37 62-37 35 0 64 25 68 55 12 3 20 14 20 28 0 18-16 33-34 33H62c-18 0-34-16-34-41z"/>
+        </svg>
+      </div>
+      <div class="cloud cloud--right">
+        <svg viewBox="0 0 260 88" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#ffffff" d="M45 58c0-20 16-36 36-36 4 0 8 1 12 2 9-20 32-34 56-34 32 0 58 23 62 52 11 3 18 13 18 26 0 17-15 32-34 32H58c-20 0-36-17-36-42z"/>
+        </svg>
+      </div>
+    </section>
+
+    <div class="scroll-collapse"></div>
+
+    <section class="hero-copy" id="headline">
+      <h1>All-electric<br />heating demo</h1>
+      <p>
+        Scroll the page: the headline and button move with the document, while the illustration
+        stays pinned. Clouds drift via scroll progress (same idea as Motion&nbsp;<code>useScroll</code> +
+        <code>useTransform</code>).
+      </p>
+    </section>
+
+    <!-- Negative margin pulls the next section up so the CTA sits in the “hero band” -->
+    <div style="margin-top: max(-35vh, -320px);"></div>
+
+    <section class="sticky-cta-bar" aria-label="Call to action">
+      <button type="button">Get an instant price</button>
+    </section>
+
+    <div style="margin-top: min(-65vh, -500px);"></div>
+
+    <section class="after-hero">
+      <h2>Next section</h2>
+      <p class="note">
+        <strong>How it works:</strong> Two <code>position: sticky; top: 0; height: 100vh</code> sections
+        stack the artwork. Empty blocks with <code>margin-top: -100vh</code> fold the layout so scroll distance
+        stays usable. JavaScript sets <code>--hero-p</code> (0→1) from scroll position inside
+        <code>[data-hero-scroll-root]</code>; CSS uses it in <code>transform</code> on clouds and the circle.
+        Swap SVGs for your WebP/PNG when ready.
+      </p>
+    </section>
+  </article>
+
+  <script>
+    (function () {
+      var root = document.querySelector("[data-hero-scroll-root]");
+      if (!root) return;
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function updateProgress() {
+        if (reduceMotion) return;
+        var rect = root.getBoundingClientRect();
+        var viewH = window.innerHeight;
+        var scrolled = -rect.top;
+        var total = root.offsetHeight - viewH;
+        if (total <= 0) {
+          root.style.setProperty("--hero-p", "0");
+          return;
+        }
+        var p = scrolled / total;
+        p = Math.min(Math.max(p, 0), 1);
+        root.style.setProperty("--hero-p", p.toFixed(4));
+      }
+
+      window.addEventListener("scroll", updateProgress, { passive: true });
+      window.addEventListener("resize", updateProgress);
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
