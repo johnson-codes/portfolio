@@ -24,21 +24,22 @@
         }
 
         .toolbox-hero {
-            padding: 180px 0 88px;
+            padding: 170px 0 96px;
             background:
-                radial-gradient(circle at 85% 15%, rgba(97, 218, 251, 0.18), transparent 30%),
-                linear-gradient(135deg, #0f172b 0%, #1e293b 56%, #111827 100%);
+                radial-gradient(circle at 15% 20%, rgba(97, 218, 251, 0.22), transparent 28%),
+                radial-gradient(circle at 86% 10%, rgba(251, 130, 97, 0.16), transparent 32%),
+                linear-gradient(135deg, #0f172b 0%, #1e293b 50%, #111827 100%);
         }
 
         .toolbox-hero__panel {
             border-radius: 16px;
-            background: rgba(255, 255, 255, 0.96);
+            background: rgba(255, 255, 255, 0.97);
             box-shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
             overflow: hidden;
         }
 
         .toolbox-hero__copy {
-            padding: 64px;
+            padding: 64px 64px 56px;
         }
 
         .toolbox-eyebrow {
@@ -69,7 +70,7 @@
         .toolbox-hero__image {
             min-height: 520px;
             background:
-                linear-gradient(180deg, rgba(15, 23, 43, 0.05), rgba(15, 23, 43, 0.28)),
+                linear-gradient(180deg, rgba(15, 23, 43, 0.02), rgba(15, 23, 43, 0.34)),
                 url('assets/images/hero-static.png') center / cover;
         }
 
@@ -88,50 +89,158 @@
             padding: 10px 14px;
         }
 
-        .toolbox-section {
-            background: #ffffff;
+        .toolbox-stats {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            margin-top: 38px;
+        }
+
+        .toolbox-stat {
+            border-left: 3px solid #61dafb;
+            padding-left: 14px;
+        }
+
+        .toolbox-stat strong {
+            color: #0f172b;
+            display: block;
+            font-size: 1.55rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .toolbox-stat span {
+            color: #64748b;
+            font-size: 0.84rem;
+            font-weight: 600;
+        }
+
+        .toolbox-library {
+            background: #f8fafc;
             padding: 88px 0;
         }
 
-        .toolbox-section h2 {
+        .toolbox-library__intro {
+            margin-bottom: 36px;
+            max-width: 780px;
+        }
+
+        .toolbox-library__intro h2 {
             color: #0F172B;
             font-size: 2.25rem;
             font-weight: 800;
-            margin-bottom: 32px;
+            margin-bottom: 12px;
         }
 
-        .toolbox-card {
+        .toolbox-library__intro p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .toolbox-category {
             height: 100%;
             border: 1px solid #e5e7eb;
             border-radius: 12px;
-            padding: 28px;
             background: #fff;
             box-shadow: 0 12px 32px rgba(15, 23, 43, 0.07);
+            overflow: hidden;
         }
 
-        .toolbox-card__icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 10px;
+        .toolbox-category__head {
             align-items: center;
-            background: #e8f9fe;
+            background: #0f172b;
             color: #1e293b;
             display: flex;
-            justify-content: center;
-            margin-bottom: 22px;
+            gap: 14px;
+            min-height: 96px;
+            padding: 22px 24px;
         }
 
-        .toolbox-card h3 {
-            color: #1e293b;
+        .toolbox-category__icon {
+            align-items: center;
+            background: rgba(97, 218, 251, 0.15);
+            border: 1px solid rgba(97, 218, 251, 0.34);
+            border-radius: 10px;
+            color: #61dafb;
+            display: flex;
+            flex: 0 0 46px;
+            height: 46px;
+            justify-content: center;
+            width: 46px;
+        }
+
+        .toolbox-category h3 {
+            color: #fff;
             font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 10px;
+            line-height: 1.25;
+            margin: 0;
         }
 
-        .toolbox-card p {
+        .toolbox-category__body {
+            padding: 22px;
+        }
+
+        .toolbox-category__body p {
             color: #64748b;
+            font-size: 0.93rem;
             line-height: 1.65;
-            margin: 0;
+            margin: 0 0 18px;
+        }
+
+        .tool-list {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .tool-item {
+            align-items: center;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            display: flex;
+            gap: 10px;
+            min-height: 56px;
+            padding: 9px 10px;
+        }
+
+        .tool-logo {
+            align-items: center;
+            background: #f8fafc;
+            border-radius: 8px;
+            display: flex;
+            flex: 0 0 34px;
+            height: 34px;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            width: 34px;
+        }
+
+        .tool-logo img {
+            background: #f8fafc;
+            height: 20px;
+            object-fit: contain;
+            position: relative;
+            width: 20px;
+            z-index: 2;
+        }
+
+        .tool-fallback {
+            color: #0f172b;
+            font-size: 0.72rem;
+            font-weight: 800;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .tool-name {
+            color: #1e293b;
+            font-size: 0.88rem;
+            font-weight: 600;
+            line-height: 1.25;
         }
 
         @media (max-width: 767px) {
@@ -145,6 +254,14 @@
 
             .toolbox-hero__image {
                 min-height: 320px;
+            }
+
+            .toolbox-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .tool-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -183,10 +300,15 @@
                             <h1>Toolbox</h1>
                             <p>A practical landing page for the software, systems, and production tools behind my strategy, design, analytics, and content work.</p>
                             <div class="toolbox-chip-row">
-                                <span class="toolbox-chip">Strategy</span>
+                                <span class="toolbox-chip">Paid Media</span>
                                 <span class="toolbox-chip">Analytics</span>
-                                <span class="toolbox-chip">Design</span>
-                                <span class="toolbox-chip">Production</span>
+                                <span class="toolbox-chip">Creative</span>
+                                <span class="toolbox-chip">Web & Cloud</span>
+                            </div>
+                            <div class="toolbox-stats">
+                                <div class="toolbox-stat"><strong>14</strong><span>tool categories</span></div>
+                                <div class="toolbox-stat"><strong>80+</strong><span>platforms and methods</span></div>
+                                <div class="toolbox-stat"><strong>Full</strong><span>marketing to deployment stack</span></div>
                             </div>
                         </div>
                         <div class="col-lg-6 toolbox-hero__image" aria-label="Digital marketing workspace"></div>
@@ -195,36 +317,237 @@
             </div>
         </section>
 
-        <section class="toolbox-section">
+        <section class="toolbox-library">
             <div class="container">
-                <h2>Core Tool Areas</h2>
+                <div class="toolbox-library__intro">
+                    <h2>Tool Stack by Workflow</h2>
+                    <p>Grouped by how the work actually happens: campaign setup, measurement, content, creative production, development, deployment, and reporting.</p>
+                </div>
+
                 <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <article class="toolbox-card">
-                            <div class="toolbox-card__icon"><i class="fas fa-chart-line"></i></div>
-                            <h3>Analytics</h3>
-                            <p>Measurement, reporting, and optimization workflows for campaign and website performance.</p>
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-bullhorn"></i></div><h3>Paid Ads & Campaigns</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Campaign builds, product feeds, audiences, creative testing, and conversion-focused optimization.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads logo"><span class="tool-fallback">GA</span></span><span class="tool-name">Google Ads</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/meta/0467DF" alt="Meta logo"><span class="tool-fallback">MB</span></span><span class="tool-name">Meta Business Suite</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/google/4285F4" alt="Google logo"><span class="tool-fallback">GM</span></span><span class="tool-name">Google Merchant Center</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/facebook/0866FF" alt="Facebook logo"><span class="tool-fallback">FB</span></span><span class="tool-name">Facebook Ads</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram logo"><span class="tool-fallback">IG</span></span><span class="tool-name">Instagram Ads</span></div>
+                                </div>
+                            </div>
                         </article>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <article class="toolbox-card">
-                            <div class="toolbox-card__icon"><i class="fas fa-pen-nib"></i></div>
-                            <h3>Creative</h3>
-                            <p>Design, copy, and content production systems for polished brand and campaign assets.</p>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-chart-line"></i></div><h3>Analytics & Tracking</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Event tracking, funnel diagnosis, behavior recordings, organic visibility, and dashboard inputs.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="GA4 logo"><span class="tool-fallback">G4</span></span><span class="tool-name">GA4</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googletagmanager/246FDB" alt="Google Tag Manager logo"><span class="tool-fallback">TM</span></span><span class="tool-name">Google Tag Manager</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/hotjar/FF3C00" alt="Hotjar logo"><span class="tool-fallback">HJ</span></span><span class="tool-name">Hotjar</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googlesearchconsole/458CF5" alt="Google Search Console logo"><span class="tool-fallback">SC</span></span><span class="tool-name">Search Console</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/google/4285F4" alt="Google logo"><span class="tool-fallback">LC</span></span><span class="tool-name">Looker Studio</span></div>
+                                </div>
+                            </div>
                         </article>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <article class="toolbox-card">
-                            <div class="toolbox-card__icon"><i class="fas fa-camera-retro"></i></div>
-                            <h3>Production</h3>
-                            <p>Photography, video, and editing tools for building visual assets across channels.</p>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-magnifying-glass-chart"></i></div><h3>SEO & Content Marketing</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Keyword planning, local search, technical audits, backlink research, and editorial publishing.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/semrush/FF642D" alt="SEMrush logo"><span class="tool-fallback">SE</span></span><span class="tool-name">SEMrush</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/google/4285F4" alt="Google logo"><span class="tool-fallback">GBP</span></span><span class="tool-name">Google Business Profile</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/screamingfrog/00B050" alt="Screaming Frog logo"><span class="tool-fallback">SF</span></span><span class="tool-name">Screaming Frog</span></div>
+                                </div>
+                            </div>
                         </article>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <article class="toolbox-card">
-                            <div class="toolbox-card__icon"><i class="fas fa-code"></i></div>
-                            <h3>Web</h3>
-                            <p>Front-end, landing page, and testing tools for turning ideas into usable experiences.</p>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-envelope-open-text"></i></div><h3>Email Marketing & CRM</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Lifecycle email, segmentation, CRM handoff, experiments, flows, and retention campaigns.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/klaviyo/000000" alt="Klaviyo logo"><span class="tool-fallback">KL</span></span><span class="tool-name">Klaviyo</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/mailchimp/FFE01B" alt="Mailchimp logo"><span class="tool-fallback">MC</span></span><span class="tool-name">Mailchimp</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot logo"><span class="tool-fallback">HS</span></span><span class="tool-name">HubSpot</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">EA</span></span><span class="tool-name">Email Automation</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">SG</span></span><span class="tool-name">Segmentation</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">AB</span></span><span class="tool-name">A/B Testing</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-store"></i></div><h3>E-commerce & CMS</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Storefront setup, content management, product detail pages, theme customization, and commerce basics.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify Plus logo"><span class="tool-fallback">S+</span></span><span class="tool-name">Shopify Plus</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">LQ</span></span><span class="tool-name">Shopify Liquid</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress logo"><span class="tool-fallback">WP</span></span><span class="tool-name">WordPress</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/wix/0C6EFC" alt="Wix logo"><span class="tool-fallback">WX</span></span><span class="tool-name">Wix</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-palette"></i></div><h3>Design & Branding</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Brand systems, layouts, campaign graphics, ad creatives, pitch assets, and visual polish.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva logo"><span class="tool-fallback">CA</span></span><span class="tool-name">Canva</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" alt="Photoshop logo"><span class="tool-fallback">PS</span></span><span class="tool-name">Photoshop</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" alt="Illustrator logo"><span class="tool-fallback">AI</span></span><span class="tool-name">Illustrator</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma logo"><span class="tool-fallback">FG</span></span><span class="tool-name">Figma</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobeindesign/FF3366" alt="InDesign logo"><span class="tool-fallback">ID</span></span><span class="tool-name">InDesign</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-film"></i></div><h3>Video & Motion Graphics</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Short-form editing, motion graphics, product videos, reels, and campaign-ready video assets.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">CC</span></span><span class="tool-name">CapCut</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" alt="Premiere Pro logo"><span class="tool-fallback">PR</span></span><span class="tool-name">Premiere Pro</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" alt="After Effects logo"><span class="tool-fallback">AE</span></span><span class="tool-name">After Effects</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-code"></i></div><h3>Web Development</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Landing pages, interactive prototypes, forms, front-end components, and web app foundations.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML logo"><span class="tool-fallback">H5</span></span><span class="tool-name">HTML</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/css/663399" alt="CSS logo"><span class="tool-fallback">CSS</span></span><span class="tool-name">CSS</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript logo"><span class="tool-fallback">JS</span></span><span class="tool-name">JavaScript</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React logo"><span class="tool-fallback">RE</span></span><span class="tool-name">React</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" alt="Node.js logo"><span class="tool-fallback">ND</span></span><span class="tool-name">Node.js</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/express/000000" alt="Express.js logo"><span class="tool-fallback">EX</span></span><span class="tool-name">Express.js</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-database"></i></div><h3>Backend / Cloud / Database</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Database models, serverless hosting, cloud deployment, API backends, and application data.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/firebase/DD2C00" alt="Firebase logo"><span class="tool-fallback">FB</span></span><span class="tool-name">Firebase</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/firebase/DD2C00" alt="Firestore logo"><span class="tool-fallback">FS</span></span><span class="tool-name">Firestore</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Google Cloud logo"><span class="tool-fallback">GC</span></span><span class="tool-name">GCP</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Cloud Run logo"><span class="tool-fallback">CR</span></span><span class="tool-name">Google Cloud Run</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/mongodb/47A248" alt="MongoDB logo"><span class="tool-fallback">MG</span></span><span class="tool-name">MongoDB</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL logo"><span class="tool-fallback">MY</span></span><span class="tool-name">MySQL</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-terminal"></i></div><h3>Deployment & Dev Tools</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Version control, code editing, containers, static hosting, production handoff, and project delivery.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/github/181717" alt="GitHub logo"><span class="tool-fallback">GH</span></span><span class="tool-name">GitHub</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/git/F05032" alt="Git logo"><span class="tool-fallback">GT</span></span><span class="tool-name">Git</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker logo"><span class="tool-fallback">DK</span></span><span class="tool-name">Docker</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" alt="VS Code logo"><span class="tool-fallback">VS</span></span><span class="tool-name">VS Code</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/firebase/DD2C00" alt="Firebase Hosting logo"><span class="tool-fallback">FH</span></span><span class="tool-name">Firebase Hosting</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/cursor/000000" alt="Cursor logo"><span class="tool-fallback">CU</span></span><span class="tool-name">Cursor</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/githubpages/222222" alt="GitHub Pages logo"><span class="tool-fallback">GP</span></span><span class="tool-name">GitHub Pages</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-list-check"></i></div><h3>Project Management</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Planning, task tracking, documentation, stakeholder updates, and shared operating systems.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/notion/000000" alt="Notion logo"><span class="tool-fallback">NO</span></span><span class="tool-name">Notion</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/jira/0052CC" alt="Jira logo"><span class="tool-fallback">JI</span></span><span class="tool-name">Jira</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/asana/F06A6A" alt="Asana logo"><span class="tool-fallback">AS</span></span><span class="tool-name">Asana</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleworkspace/4285F4" alt="Google Workspace logo"><span class="tool-fallback">GW</span></span><span class="tool-name">Google Workspace</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/microsoft365/D83B01" alt="Microsoft 365 logo"><span class="tool-fallback">M365</span></span><span class="tool-name">Microsoft 365</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/slack/4A154B" alt="Slack logo"><span class="tool-fallback">SL</span></span><span class="tool-name">Slack</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-object-group"></i></div><h3>UX/UI & Research</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Discovery, wireframes, user journeys, buyer personas, feedback forms, and experience mapping.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma logo"><span class="tool-fallback">FG</span></span><span class="tool-name">Figma</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">BQ</span></span><span class="tool-name">Balsamiq</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">WF</span></span><span class="tool-name">Wireframing</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">JM</span></span><span class="tool-name">Journey Mapping</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">BP</span></span><span class="tool-name">Buyer Personas</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleforms/7248B9" alt="Google Forms logo"><span class="tool-fallback">GF</span></span><span class="tool-name">Google Forms</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-wand-magic-sparkles"></i></div><h3>Creative Production</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Production-ready creative workflows for social ads, landing pages, video, and campaign assets.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobephotoshop/31A8FF" alt="Photoshop logo"><span class="tool-fallback">PS</span></span><span class="tool-name">Photoshop</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobeillustrator/FF9A00" alt="Illustrator logo"><span class="tool-fallback">AI</span></span><span class="tool-name">Illustrator</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobepremierepro/9999FF" alt="Premiere Pro logo"><span class="tool-fallback">PR</span></span><span class="tool-name">Premiere Pro</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/adobeaftereffects/9999FF" alt="After Effects logo"><span class="tool-fallback">AE</span></span><span class="tool-name">After Effects</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">CC</span></span><span class="tool-name">CapCut</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva logo"><span class="tool-fallback">CA</span></span><span class="tool-name">Canva</span></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="toolbox-category">
+                            <div class="toolbox-category__head"><div class="toolbox-category__icon"><i class="fas fa-chart-pie"></i></div><h3>Business & Reporting</h3></div>
+                            <div class="toolbox-category__body">
+                                <p>Executive reporting, KPI tracking, performance summaries, dashboards, and business-ready analysis.</p>
+                                <div class="tool-list">
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googlesheets/34A853" alt="Google Sheets logo"><span class="tool-fallback">GS</span></span><span class="tool-name">Google Sheets</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/microsoftexcel/217346" alt="Excel logo"><span class="tool-fallback">XL</span></span><span class="tool-name">Excel</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">DB</span></span><span class="tool-name">Performance Dashboards</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleanalytics/E37400" alt="Analytics logo"><span class="tool-fallback">AN</span></span><span class="tool-name">Channel Reporting</span></div>
+                                </div>
+                            </div>
                         </article>
                     </div>
                 </div>
@@ -291,6 +614,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/newsletter.js"></script>
+    <script>
+        document.querySelectorAll('.tool-logo img').forEach((logo) => {
+            logo.addEventListener('error', () => {
+                logo.style.display = 'none';
+            }, { once: true });
+        });
+    </script>
     <script src="assets/js/chat-widget.js"></script>
     <script src="assets/js/cursor-trail.js"></script>
 </body>
