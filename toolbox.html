@@ -39,7 +39,10 @@
         }
 
         .toolbox-hero__copy {
-            padding: 64px 64px 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 64px;
         }
 
         .toolbox-eyebrow {
@@ -63,15 +66,137 @@
             color: #64748b;
             font-size: 1.05rem;
             line-height: 1.7;
-            margin-bottom: 32px;
-            max-width: 560px;
+            margin: 0;
+            max-width: 480px;
         }
 
-        .toolbox-hero__image {
+        .toolbox-hero__visual {
+            align-items: center;
+            background: linear-gradient(160deg, #dff4ff 0%, #eef7fb 48%, #f8fafc 100%);
+            display: flex;
+            justify-content: center;
             min-height: 520px;
-            background:
-                linear-gradient(180deg, rgba(15, 23, 43, 0.02), rgba(15, 23, 43, 0.34)),
-                url('assets/images/hero-static.png') center / cover;
+            overflow: hidden;
+            padding: 48px;
+            position: relative;
+        }
+
+        .toolbox-hero__visual::before {
+            background: rgba(97, 218, 251, 0.2);
+            border-radius: 999px;
+            content: '';
+            height: 320px;
+            position: absolute;
+            width: 320px;
+        }
+
+        .tool-person {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: min(320px, 100%);
+            z-index: 1;
+        }
+
+        .tool-person__head {
+            background: #f6c7a9;
+            border: 6px solid #1e293b;
+            border-radius: 50%;
+            height: 92px;
+            position: relative;
+            width: 92px;
+            z-index: 3;
+        }
+
+        .tool-person__head::before,
+        .tool-person__head::after {
+            background: #1e293b;
+            border-radius: 50%;
+            content: '';
+            height: 8px;
+            position: absolute;
+            top: 38px;
+            width: 8px;
+        }
+
+        .tool-person__head::before {
+            left: 26px;
+        }
+
+        .tool-person__head::after {
+            right: 26px;
+        }
+
+        .tool-person__body {
+            background: #1e293b;
+            border-radius: 30px 30px 12px 12px;
+            height: 150px;
+            margin-top: -8px;
+            position: relative;
+            width: 150px;
+            z-index: 2;
+        }
+
+        .tool-person__body::before,
+        .tool-person__body::after {
+            background: #61dafb;
+            border-radius: 18px;
+            content: '';
+            height: 96px;
+            position: absolute;
+            top: 34px;
+            width: 28px;
+        }
+
+        .tool-person__body::before {
+            left: -36px;
+            transform: rotate(22deg);
+        }
+
+        .tool-person__body::after {
+            right: -36px;
+            transform: rotate(-22deg);
+        }
+
+        .tool-person__tool {
+            align-items: center;
+            background: #fff;
+            border: 1px solid #dbeafe;
+            border-radius: 12px;
+            box-shadow: 0 14px 32px rgba(15, 23, 43, 0.12);
+            color: #0f172b;
+            display: flex;
+            font-size: 0.9rem;
+            font-weight: 700;
+            gap: 8px;
+            min-width: 92px;
+            padding: 12px 14px;
+            position: absolute;
+        }
+
+        .tool-person__tool i {
+            color: #FB8261;
+        }
+
+        .tool-person__tool--ads {
+            left: -44px;
+            top: 34px;
+        }
+
+        .tool-person__tool--code {
+            right: -52px;
+            top: 82px;
+        }
+
+        .tool-person__tool--design {
+            bottom: 12px;
+            left: -16px;
+        }
+
+        .tool-person__tool--data {
+            bottom: 30px;
+            right: -22px;
         }
 
         .toolbox-chip-row {
@@ -192,45 +317,45 @@
 
         .tool-list {
             display: grid;
-            gap: 10px;
+            gap: 14px;
             grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .tool-item {
             align-items: center;
             border: 1px solid #e5e7eb;
-            border-radius: 10px;
+            border-radius: 12px;
             display: flex;
-            gap: 10px;
-            min-height: 56px;
-            padding: 9px 10px;
+            gap: 14px;
+            min-height: 70px;
+            padding: 12px 14px;
         }
 
         .tool-logo {
             align-items: center;
             background: #f8fafc;
-            border-radius: 8px;
+            border-radius: 10px;
             display: flex;
-            flex: 0 0 34px;
-            height: 34px;
+            flex: 0 0 46px;
+            height: 46px;
             justify-content: center;
             overflow: hidden;
             position: relative;
-            width: 34px;
+            width: 46px;
         }
 
         .tool-logo img {
             background: #f8fafc;
-            height: 20px;
+            height: 30px;
             object-fit: contain;
             position: relative;
-            width: 20px;
+            width: 30px;
             z-index: 2;
         }
 
         .tool-fallback {
             color: #0f172b;
-            font-size: 0.72rem;
+            font-size: 0.86rem;
             font-weight: 800;
             position: absolute;
             z-index: 1;
@@ -238,8 +363,8 @@
 
         .tool-name {
             color: #1e293b;
-            font-size: 0.88rem;
-            font-weight: 600;
+            font-size: 0.96rem;
+            font-weight: 700;
             line-height: 1.25;
         }
 
@@ -252,8 +377,15 @@
                 padding: 40px 28px;
             }
 
-            .toolbox-hero__image {
+            .toolbox-hero__visual {
                 min-height: 320px;
+                padding: 34px 24px;
+            }
+
+            .tool-person__tool {
+                font-size: 0.78rem;
+                min-width: 76px;
+                padding: 9px 10px;
             }
 
             .toolbox-stats {
@@ -296,22 +428,20 @@
                 <div class="toolbox-hero__panel">
                     <div class="row g-0 align-items-stretch">
                         <div class="col-lg-6 toolbox-hero__copy">
-                            <div class="toolbox-eyebrow">Marketing and creative stack</div>
+                            <div class="toolbox-eyebrow">Tool stack</div>
                             <h1>Toolbox</h1>
-                            <p>A practical landing page for the software, systems, and production tools behind my strategy, design, analytics, and content work.</p>
-                            <div class="toolbox-chip-row">
-                                <span class="toolbox-chip">Paid Media</span>
-                                <span class="toolbox-chip">Analytics</span>
-                                <span class="toolbox-chip">Creative</span>
-                                <span class="toolbox-chip">Web & Cloud</span>
-                            </div>
-                            <div class="toolbox-stats">
-                                <div class="toolbox-stat"><strong>14</strong><span>tool categories</span></div>
-                                <div class="toolbox-stat"><strong>80+</strong><span>platforms and methods</span></div>
-                                <div class="toolbox-stat"><strong>Full</strong><span>marketing to deployment stack</span></div>
+                            <p>The platforms I use to plan, build, measure, and ship marketing work.</p>
+                        </div>
+                        <div class="col-lg-6 toolbox-hero__visual" aria-label="Person holding different work tools">
+                            <div class="tool-person">
+                                <div class="tool-person__head"></div>
+                                <div class="tool-person__body"></div>
+                                <div class="tool-person__tool tool-person__tool--ads"><i class="fas fa-bullhorn"></i> Ads</div>
+                                <div class="tool-person__tool tool-person__tool--code"><i class="fas fa-code"></i> Code</div>
+                                <div class="tool-person__tool tool-person__tool--design"><i class="fas fa-palette"></i> Design</div>
+                                <div class="tool-person__tool tool-person__tool--data"><i class="fas fa-chart-line"></i> Data</div>
                             </div>
                         </div>
-                        <div class="col-lg-6 toolbox-hero__image" aria-label="Digital marketing workspace"></div>
                     </div>
                 </div>
             </div>
@@ -333,7 +463,6 @@
                                 <div class="tool-list">
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/googleads/4285F4" alt="Google Ads logo"><span class="tool-fallback">GA</span></span><span class="tool-name">Google Ads</span></div>
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/meta/0467DF" alt="Meta logo"><span class="tool-fallback">MB</span></span><span class="tool-name">Meta Business Suite</span></div>
-                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/google/4285F4" alt="Google logo"><span class="tool-fallback">GM</span></span><span class="tool-name">Google Merchant Center</span></div>
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/facebook/0866FF" alt="Facebook logo"><span class="tool-fallback">FB</span></span><span class="tool-name">Facebook Ads</span></div>
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt="Instagram logo"><span class="tool-fallback">IG</span></span><span class="tool-name">Instagram Ads</span></div>
                                 </div>
@@ -383,6 +512,7 @@
                                     <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">EA</span></span><span class="tool-name">Email Automation</span></div>
                                     <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">SG</span></span><span class="tool-name">Segmentation</span></div>
                                     <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">AB</span></span><span class="tool-name">A/B Testing</span></div>
+                                    <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/hubspot/FF7A59" alt="HubSpot Marketing Hub logo"><span class="tool-fallback">HM</span></span><span class="tool-name">HubSpot Marketing Hub</span></div>
                                 </div>
                             </div>
                         </article>
@@ -395,7 +525,6 @@
                                 <p>Storefront setup, content management, product detail pages, theme customization, and commerce basics.</p>
                                 <div class="tool-list">
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/shopify/7AB55C" alt="Shopify Plus logo"><span class="tool-fallback">S+</span></span><span class="tool-name">Shopify Plus</span></div>
-                                    <div class="tool-item"><span class="tool-logo"><span class="tool-fallback">LQ</span></span><span class="tool-name">Shopify Liquid</span></div>
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress logo"><span class="tool-fallback">WP</span></span><span class="tool-name">WordPress</span></div>
                                     <div class="tool-item"><span class="tool-logo"><img src="https://cdn.simpleicons.org/wix/0C6EFC" alt="Wix logo"><span class="tool-fallback">WX</span></span><span class="tool-name">Wix</span></div>
                                 </div>
