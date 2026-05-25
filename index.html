@@ -19,7 +19,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style.css?v=resume-pdf-1" rel="stylesheet">
     <!-- Chat Widget CSS -->
     <link href="assets/css/chat-widget.css" rel="stylesheet">
     
@@ -535,10 +535,11 @@
                                 <span class="info-label">Location:</span>
                                 <span class="info-value">Vancouver, BC, Canada</span>
                             </div>
-                            <div class="info-item">
-                                <span class="info-label">Available:</span>
-                                <span class="info-value">For Full-time & Part-time</span>
-                            </div>
+                            <label for="resumePreviewToggle" class="info-item resume-preview-trigger" role="button" tabindex="0">
+                                <span class="info-label">Resume:</span>
+                                <span class="info-value">Preview & Download</span>
+                                <i class="fas fa-file-arrow-down resume-preview-icon" aria-hidden="true"></i>
+                            </label>
                         </div>
                     </div>
                     
@@ -1162,6 +1163,31 @@
             </div>
         </div>
     </footer>
+
+    <!-- Resume Preview Modal -->
+    <input type="checkbox" class="resume-modal-toggle" id="resumePreviewToggle" aria-hidden="true">
+    <div class="modal fade resume-modal" id="resumePreviewModal" tabindex="-1" aria-labelledby="resumePreviewModalLabel" role="dialog" aria-modal="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="resumePreviewModalLabel">Resume Preview</h5>
+                    <label for="resumePreviewToggle" class="btn-close" role="button" aria-label="Close"></label>
+                </div>
+                <div class="modal-body resume-pdf-body">
+                    <iframe
+                        class="resume-pdf-frame"
+                        src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1779733334080_updated_Digital_Marketing_and_Commerce_Resume_Johnson_Wang_.pdf?alt=media&amp;token=fca2ed73-9c5a-403c-9a07-ac08bb0567d0#page=1&amp;zoom=150&amp;pagemode=none&amp;navpanes=0"
+                        title="Johnson Wang Resume PDF">
+                    </iframe>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" id="resumeDownloadBtn" href="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1779733334080_updated_Digital_Marketing_and_Commerce_Resume_Johnson_Wang_.pdf?alt=media&amp;token=fca2ed73-9c5a-403c-9a07-ac08bb0567d0" target="_blank" rel="noopener" download="Digital_Marketing_and_Commerce_Resume_Johnson_Wang.pdf">
+                        <i class="fas fa-download me-2" aria-hidden="true"></i>Download
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Web Development Live Demo Modal -->
     <div class="modal fade" id="webDevModal" tabindex="-1" aria-labelledby="webDevModalLabel" aria-hidden="true">
@@ -2505,7 +2531,7 @@
     <!-- Chart.js for Radar Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js?v=resume-preview-2"></script>
     <script src="assets/js/newsletter.js"></script>
 
     <script>

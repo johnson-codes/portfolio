@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navbar color change on scroll
     const navbar = document.querySelector('.navbar');
     const navbarBrand = document.querySelector('.navbar-brand');
+    const hasBootstrap = typeof bootstrap !== 'undefined';
 
     const initTypewriterText = () => {
         const elements = document.querySelectorAll('[data-typewriter]');
@@ -76,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     initTypewriterText();
-    
+
     // Function to update active navigation item on scroll
     function updateActiveNavItem() {
         const sections = document.querySelectorAll('section[id]');
@@ -100,6 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize Bootstrap tabs
     const triggerTabList = [].slice.call(document.querySelectorAll('#services-tab button, #projects-tab button, #skills-tab button'));
     triggerTabList.forEach(function (triggerEl) {
+        if (!hasBootstrap) {
+            return;
+        }
+
         const tabTrigger = new bootstrap.Tab(triggerEl);
         triggerEl.addEventListener('click', function (event) {
             event.preventDefault();
@@ -344,10 +349,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Initialize the calendar modal functionality
-    const calendarModal = new bootstrap.Modal(document.getElementById('calendarModal'));
+    const calendarEl = document.getElementById('calendarModal');
+    const calendarModal = hasBootstrap && calendarEl ? new bootstrap.Modal(calendarEl) : null;
     const bookBtn = document.getElementById('bookConsultationBtn');
     
-    if (bookBtn) {
+    if (bookBtn && calendarModal) {
         bookBtn.addEventListener('click', function() {
             // Initialize the calendar if it hasn't been loaded yet
             if (!window.calendarInitialized) {
