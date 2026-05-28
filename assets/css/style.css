@@ -348,7 +348,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-illustration {
-    max-width: 55%;
+    max-width: 60.5%;
     margin-top: -40px;
     margin-left: 100px;
   }
@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
 
   .hero-illustration {
     display: block;
-    max-width: min(300px, 72vw);
+    max-width: min(330px, 79vw);
     margin: 0 auto;
   }
 }
