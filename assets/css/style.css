@@ -332,6 +332,56 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 2rem;
 }
 
+.hero-illustration {
+  transform-origin: center center;
+  animation: hero-illustration-breathe 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-illustration-col {
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .hero-illustration-col {
+    margin-bottom: 0;
+  }
+
+  .hero-illustration {
+    max-width: 55%;
+    margin-top: -40px;
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-illustration-col {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-illustration {
+    display: block;
+    max-width: min(300px, 72vw);
+    margin: 0 auto;
+  }
+}
+
+@keyframes hero-illustration-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-illustration {
+    animation: none;
+  }
+}
+
 .text-primary {
   color: var(--primary-color) !important;
 }
