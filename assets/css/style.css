@@ -1101,6 +1101,30 @@ body.resume-modal-open {
   font-size: 1rem;
 }
 
+.client-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #0a66c2;
+  background: rgba(10, 102, 194, 0.08);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.client-linkedin[href="#"] {
+  pointer-events: none;
+}
+
+.client-linkedin:hover {
+  background: rgba(10, 102, 194, 0.15);
+  transform: translateY(-1px);
+}
+
 .client-position {
   font-size: 0.9rem;
   color: var(--secondary-color);
