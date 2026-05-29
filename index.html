@@ -205,28 +205,34 @@
             }
         }
 
-        /* Testimonials Horizontal Scroll */
-        #testimonials .scroll-wrapper {
-            /* tall enough to give scroll room for all cards */
-            height: auto;
-        }
-
-        #testimonials .sticky-container {
-            position: sticky;
-            top: 0;
-            height: 70vh;
+        /* Testimonials marquee */
+        #testimonials .testimonials-marquee {
             overflow: hidden;
-            display: flex;
-            align-items: center;
+            width: 100%;
             padding: 24px 0 16px;
-            box-sizing: border-box;
+            border-radius: var(--radius-base);
+            touch-action: pan-y;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
         }
 
-        #testimonials .horizontal-track {
+        #testimonials .testimonials-marquee__track {
             display: flex;
-            gap: 24px;
-            padding: 0 6vw;
+            width: max-content;
+            flex-shrink: 0;
+            animation: testimonials-marquee 45s linear infinite;
             will-change: transform;
+        }
+
+        #testimonials .testimonials-marquee:hover .testimonials-marquee__track {
+            animation-play-state: paused;
+        }
+
+        #testimonials .testimonials-marquee__group {
+            display: flex;
+            flex-shrink: 0;
+            gap: 24px;
+            padding: 0 12px;
         }
 
         #testimonials .horizontal-card {
@@ -236,14 +242,28 @@
             height: auto;
         }
 
+        @keyframes testimonials-marquee {
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(-50%, 0, 0); }
+        }
+
         @media (max-width: 768px) {
-            #testimonials .horizontal-track {
+            #testimonials .testimonials-marquee__group {
                 gap: 16px;
-                padding: 0 8vw;
             }
 
             #testimonials .horizontal-card {
                 max-width: 85vw;
+            }
+
+            #testimonials .testimonials-marquee__track {
+                animation-duration: 35s;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #testimonials .testimonials-marquee__track {
+                animation-duration: 75s;
             }
         }
     </style>
@@ -581,6 +601,141 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="text-center section-title">Client Testimonials</h2>
+            <p class="text-center mb-5">Don't just take my word for it - here's what people I've worked with have to say</p>
+
+            <div class="testimonials-marquee" aria-label="Scrolling client testimonials">
+                <div class="testimonials-marquee__track">
+                    <div class="testimonials-marquee__group">
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGCxapuUJyIAw/profile-displayphoto-crop_800_800/B4DZnrTAfbGkAM-/0/1760589253213?e=1781740800&amp;v=beta&amp;t=rEx-278J0bsnqLEIxxEO_ogrfEFkfWZI05p7krDh3l0" alt="Tan" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Johnson was a standout student in my Database Management Systems course in 2024. He was engaged, curious, and consistently challenged concepts with real-world, pragmatic thinking. He quickly grasped technical skills in building and deploying data systems while demonstrating strong judgment and leadership. His attendance was perfect, and he was always punctual, respectful, and fully engaged."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Tan — Instructor (Database)</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/william-tan-24a497a/" target="_blank" rel="noopener noreferrer" aria-label="Tan on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQFo-eOhZCdTTg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722709650307?e=1780531200&v=beta&t=Z-jTA0If9k4CeZbTtXwnYFdo0vAfjurpp5pRmtlfNJ0" alt="Amirali Kenarsarianhari" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Johnson did an excellent job optimizing our Shopify website, adding new features, and improving the overall UI/UX experience. His work helped create a smoother, more modern, and user-friendly website experience for our customers. It was a pleasure working with him."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Amirali — Sales Manager</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/amirali-kenarsarianhari-0b4456196/" target="_blank" rel="noopener noreferrer" aria-label="Amirali on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQFeQSdJA8y9tA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1728853132988?e=1781740800&amp;v=beta&amp;t=DHs3p2QCE3hq1NKOkhRrIWGLAsI1oChBYSDfRJ9Skl8" alt="Dan Fan" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Johnson is one of the most passionate, self-motivated UI/UX students I've worked with. He went beyond coursework—sharing portfolio work, discussing design ideas, and improving projects through feedback. His curiosity and dedication stood out, and I even showcased his work in class demos. He has a sharp eye for design and UX, and I strongly recommend him to anyone seeking a thoughtful, passionate designer."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Dan Fan — Computer Science Professor</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/920fandanny/" target="_blank" rel="noopener noreferrer" aria-label="Dan Fan on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQEFx2IZF98HZA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1718832840805?e=1780531200&v=beta&t=ggBfDpIXXXTC5923df0bbocHsa6bkFSphx3TfOkn-2g" alt="Saeed Govahi" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"I had the opportunity to know and work with Johnson on a marketing project and was impressed by his focus on process and organizing the tasks promptly. He is an experienced marketer and can impact the digital marketing presence and growth. I wish him all the best and am sure he will succeed in his future endeavours."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Saeed — Marketing Director</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/saeedgovahi/" target="_blank" rel="noopener noreferrer" aria-label="Saeed on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQHXS9jhjJk_pA/profile-displayphoto-crop_800_800/B56ZluNC3bJoAI-/0/1758490538410?e=1781740800&amp;v=beta&amp;t=bUsVYpdlHE-Lc_34BtErEU8N5JJSkZ3FBN6LqAUpV2g" alt="Annie" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Johnson is a marketing manager with a rare big-picture mindset. He understands the full customer lifecycle, focuses on real value, and connects strategy with execution effortlessly. Insightful, practical, and results-driven—he's the kind of marketer teams rely on."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Annie — Operations Manager</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/annie-yan/" target="_blank" rel="noopener noreferrer" aria-label="Annie on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E35AQHMVoRx5jdylA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1688523502507?e=1780686000&amp;v=beta&amp;t=QRGlitw7zFC-TWhEOOsU-zLU1p0bye32HZ8u0u8xE0I" alt="Nyamkhuu Enkhbat" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"I strongly recommend Johnson. He showed strong analytical skills, solid technical knowledge, and great teamwork on our Cloud Computing project. His presentation skills and design work were outstanding. He's reliable, disciplined, and always focused on delivering quality results."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Nyamkhuu — Data Scientist</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/nyamkhuu-enkhbat/" target="_blank" rel="noopener noreferrer" aria-label="Nyamkhuu on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQGMskVk3zwuwQ/profile-displayphoto-scale_200_200/B56Zwf14AtJEAY-/0/1770060769504?e=1781740800&amp;v=beta&amp;t=oks79keOXkoLdpR1wRucpN_3PehFBfS5QJl3pZ6qc48" alt="Rahul Kumar" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p>"It was a great experience working with Johnson on our Borrow-It application. He made a real impact on both the UI/UX and the project management side—thoughtful on design details and reliable in keeping things on track."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Rahul Kumar — Software Engineer</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/rahul-kumar-8a5a72103/" target="_blank" rel="noopener noreferrer" aria-label="Rahul Kumar on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="testimonial-card horizontal-card">
+                            <img src="https://media.licdn.com/dms/image/v2/D5635AQEkc6iU0h7cew/profile-framedphoto-shrink_200_200/B56Zk8SlRJH8AY-/0/1757653128680?e=1780686000&amp;v=beta&amp;t=ouoC36HNe4E_ir_nSSF4wWbbb3nH-G4z8QLtE3vcJUM" alt="Jen" class="testimonial-img" loading="lazy">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p>"I'm pleased to recommend Johnson. He's reliable, quick to learn, and consistently delivers high-quality work. He communicates well, takes ownership of his tasks, and brings a positive, professional attitude to every project. A true market talent—he'd be a strong addition to any team."</p>
+                            <div class="client-info">
+                                <h5 class="client-name">Jen — Software QA Specialist</h5>
+                                <a class="client-linkedin" href="https://www.linkedin.com/in/jennifer-xu-192b71238/" target="_blank" rel="noopener noreferrer" aria-label="Jen on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="bg-light py-5">
         <div class="container">
@@ -835,140 +990,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="container">
-            <h2 class="text-center section-title">Client Testimonials</h2>
-            <p class="text-center mb-5">Don't just take my word for it - here's what people I've worked with have to say</p>
-            
-            <div class="scroll-wrapper">
-                <div class="sticky-container">
-                    <div class="horizontal-track">
-                        <div class="testimonial-card reveal-right horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGCxapuUJyIAw/profile-displayphoto-crop_800_800/B4DZnrTAfbGkAM-/0/1760589253213?e=1781740800&amp;v=beta&amp;t=rEx-278J0bsnqLEIxxEO_ogrfEFkfWZI05p7krDh3l0" alt="Tan" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"Johnson was a standout student in my Database Management Systems course in 2024. He was engaged, curious, and consistently challenged concepts with real-world, pragmatic thinking. He quickly grasped technical skills in building and deploying data systems while demonstrating strong judgment and leadership. His attendance was perfect, and he was always punctual, respectful, and fully engaged."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Tan — Instructor (Database)</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/william-tan-24a497a/" target="_blank" rel="noopener noreferrer" aria-label="Tan on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card reveal-right horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQFo-eOhZCdTTg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1722709650307?e=1780531200&v=beta&t=Z-jTA0If9k4CeZbTtXwnYFdo0vAfjurpp5pRmtlfNJ0" alt="Amirali Kenarsarianhari" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"Johnson did an excellent job optimizing our Shopify website, adding new features, and improving the overall UI/UX experience. His work helped create a smoother, more modern, and user-friendly website experience for our customers. It was a pleasure working with him."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Amirali — Sales Manager</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/amirali-kenarsarianhari-0b4456196/" target="_blank" rel="noopener noreferrer" aria-label="Amirali on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card reveal-right horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQFeQSdJA8y9tA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1728853132988?e=1781740800&amp;v=beta&amp;t=DHs3p2QCE3hq1NKOkhRrIWGLAsI1oChBYSDfRJ9Skl8" alt="Dan Fan" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"Johnson is one of the most passionate, self-motivated UI/UX students I've worked with. He went beyond coursework—sharing portfolio work, discussing design ideas, and improving projects through feedback. His curiosity and dedication stood out, and I even showcased his work in class demos. He has a sharp eye for design and UX, and I strongly recommend him to anyone seeking a thoughtful, passionate designer."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Dan Fan — Computer Science Professor</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/920fandanny/" target="_blank" rel="noopener noreferrer" aria-label="Dan Fan on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card reveal-right horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQEFx2IZF98HZA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1718832840805?e=1780531200&v=beta&t=ggBfDpIXXXTC5923df0bbocHsa6bkFSphx3TfOkn-2g" alt="Saeed Govahi" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"I had the opportunity to know and work with Johnson on a marketing project and was impressed by his focus on process and organizing the tasks promptly. He is an experienced marketer and can impact the digital marketing presence and growth. I wish him all the best and am sure he will succeed in his future endeavours."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Saeed — Marketing Director</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/saeedgovahi/" target="_blank" rel="noopener noreferrer" aria-label="Saeed on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card reveal-right horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQHXS9jhjJk_pA/profile-displayphoto-crop_800_800/B56ZluNC3bJoAI-/0/1758490538410?e=1781740800&amp;v=beta&amp;t=bUsVYpdlHE-Lc_34BtErEU8N5JJSkZ3FBN6LqAUpV2g" alt="Annie" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <p>"Johnson is a marketing manager with a rare big-picture mindset. He understands the full customer lifecycle, focuses on real value, and connects strategy with execution effortlessly. Insightful, practical, and results-driven—he's the kind of marketer teams rely on."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Annie — Operations Manager</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/annie-yan/" target="_blank" rel="noopener noreferrer" aria-label="Annie on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D4E35AQHMVoRx5jdylA/profile-framedphoto-shrink_200_200/profile-framedphoto-shrink_200_200/0/1688523502507?e=1780686000&amp;v=beta&amp;t=QRGlitw7zFC-TWhEOOsU-zLU1p0bye32HZ8u0u8xE0I" alt="Nyamkhuu Enkhbat" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <p>"I strongly recommend Johnson. He showed strong analytical skills, solid technical knowledge, and great teamwork on our Cloud Computing project. His presentation skills and design work were outstanding. He's reliable, disciplined, and always focused on delivering quality results."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Nyamkhuu — Data Scientist</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/nyamkhuu-enkhbat/" target="_blank" rel="noopener noreferrer" aria-label="Nyamkhuu on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQGMskVk3zwuwQ/profile-displayphoto-scale_200_200/B56Zwf14AtJEAY-/0/1770060769504?e=1781740800&amp;v=beta&amp;t=oks79keOXkoLdpR1wRucpN_3PehFBfS5QJl3pZ6qc48" alt="Rahul Kumar" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <p>"It was a great experience working with Johnson on our Borrow-It application. He made a real impact on both the UI/UX and the project management side—thoughtful on design details and reliable in keeping things on track."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Rahul Kumar — Software Engineer</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/rahul-kumar-8a5a72103/" target="_blank" rel="noopener noreferrer" aria-label="Rahul Kumar on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                        <div class="testimonial-card horizontal-card">
-                            <img src="https://media.licdn.com/dms/image/v2/D5635AQEkc6iU0h7cew/profile-framedphoto-shrink_200_200/B56Zk8SlRJH8AY-/0/1757653128680?e=1780686000&amp;v=beta&amp;t=ouoC36HNe4E_ir_nSSF4wWbbb3nH-G4z8QLtE3vcJUM" alt="Jen" class="testimonial-img" loading="lazy">
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fa-regular fa-star"></i>
-                            </div>
-                            <p>"I'm pleased to recommend Johnson. He's reliable, quick to learn, and consistently delivers high-quality work. He communicates well, takes ownership of his tasks, and brings a positive, professional attitude to every project. A true market talent—he'd be a strong addition to any team."</p>
-                            <div class="client-info">
-                                <h5 class="client-name">Jen — Software QA Specialist</h5>
-                                <a class="client-linkedin" href="https://www.linkedin.com/in/jennifer-xu-192b71238/" target="_blank" rel="noopener noreferrer" aria-label="Jen on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Skills Section -->
     <section id="skills" class="bg-light" style="border-top-left-radius: 200px; border-top-right-radius: 200px; padding-top: 100px; border: 8px solid rgba(40, 44, 52, 0.9); border-bottom: none;">
@@ -2543,112 +2565,18 @@
     <script src="assets/js/newsletter.js"></script>
 
     <script>
-    (function () {
-        const section = document.getElementById('testimonials');
-        const track   = section && section.querySelector('.horizontal-track');
-        const sticky  = section && section.querySelector('.sticky-container');
-        if (!section || !track || !sticky) return;
+    document.addEventListener('DOMContentLoaded', function () {
+        const track = document.querySelector('#testimonials .testimonials-marquee__track');
+        const group = track && track.querySelector('.testimonials-marquee__group');
+        if (!track || !group || track.children.length > 1) return;
 
-        let targetX    = 0;   // where we want to be
-        let currentX   = 0;   // where we are (lerped)
-        let maxTranslate = 0;
-        let animating  = false;
-
-        const LERP = 0.10;    // smoothing factor (0 = no movement, 1 = instant)
-
-        function getMaxTranslate() {
-            return Math.max(0, track.scrollWidth - sticky.clientWidth);
-        }
-
-        function isSectionInViewport() {
-            const r = section.getBoundingClientRect();
-            return r.top <= window.innerHeight * 0.15 && r.bottom > 0;
-        }
-
-        /* ── smooth animation loop ───────────────────────────── */
-        function animate() {
-            const diff = targetX - currentX;
-            if (Math.abs(diff) < 0.5) {
-                currentX = targetX;
-                track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-                animating = false;
-                return;
-            }
-            currentX += diff * LERP;
-            track.style.transform = `translate3d(${currentX}px, 0, 0)`;
-            requestAnimationFrame(animate);
-        }
-
-        function startAnimate() {
-            if (!animating) {
-                animating = true;
-                requestAnimationFrame(animate);
-            }
-        }
-
-        /* ── wheel handler ───────────────────────────────────── */
-        function onWheel(e) {
-            maxTranslate = getMaxTranslate();
-            if (!isSectionInViewport()) return;
-
-            const atStart = targetX >= 0;
-            const atEnd   = targetX <= -maxTranslate;
-
-            if (e.deltaY < 0 && atStart) return;
-            if (e.deltaY > 0 && atEnd)   return;
-
-            e.preventDefault();
-
-            // Scale down large trackpad deltas for a gentler feel
-            const delta = e.deltaMode === 1 ? e.deltaY * 30 : e.deltaY;
-            targetX = Math.min(0, Math.max(-maxTranslate, targetX - delta));
-            startAnimate();
-        }
-
-        /* ── touch support ───────────────────────────────────── */
-        let touchStartX = 0;
-        let touchStartY = 0;
-
-        section.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-        }, { passive: true });
-
-        section.addEventListener('touchmove', (e) => {
-            if (!isSectionInViewport()) return;
-            maxTranslate = getMaxTranslate();
-
-            const dx = touchStartX - e.touches[0].clientX;
-            const dy = touchStartY - e.touches[0].clientY;
-            if (Math.abs(dx) < Math.abs(dy)) return;
-
-            const atStart = targetX >= 0;
-            const atEnd   = targetX <= -maxTranslate;
-            if (dx < 0 && atStart) return;
-            if (dx > 0 && atEnd)   return;
-
-            e.preventDefault();
-            targetX = Math.min(0, Math.max(-maxTranslate, targetX - dx));
-            touchStartX = e.touches[0].clientX;
-            startAnimate();
-        }, { passive: false });
-
-        /* ── reset when scrolled back above section ──────────── */
-        window.addEventListener('scroll', () => {
-            if (section.getBoundingClientRect().top > window.innerHeight) {
-                targetX  = 0;
-                currentX = 0;
-                track.style.transform = 'translate3d(0px, 0, 0)';
-                animating = false;
-            }
-        }, { passive: true });
-
-        window.addEventListener('wheel', onWheel, { passive: false });
-        window.addEventListener('resize', () => { maxTranslate = getMaxTranslate(); });
-
-        maxTranslate = getMaxTranslate();
-        track.style.transform = 'translate3d(0px, 0, 0)';
-    })();
+        const clone = group.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.querySelectorAll('a, button').forEach(function (el) {
+            el.setAttribute('tabindex', '-1');
+        });
+        track.appendChild(clone);
+    });
     </script>
     
     <!-- Radar Charts for All Skills -->
