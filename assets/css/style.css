@@ -1074,12 +1074,6 @@ body.resume-modal-open {
   transform: scale(1.05);
 }
 
-.rating {
-  color: #ffc107;
-  margin-bottom: 15px;
-  font-size: 1.1rem;
-}
-
 .testimonial-card p {
   flex-grow: 1;
   margin-bottom: 20px;
