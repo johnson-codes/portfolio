@@ -409,7 +409,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .wave-divider .wave-path {
-  fill: #f8f9fa;
+  fill: #ffffff;
   animation: wave 8s ease-in-out infinite;
   transform-origin: center;
 }
@@ -773,19 +773,28 @@ body.resume-modal-open {
 .stats-section {
   margin-top: 3rem;
   padding: 1rem 0 2rem;
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 
 .stats-container {
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem !important;
+  max-width: 100%;
+  margin: 0;
+  padding: 1.5rem !important;
   background: linear-gradient(135deg, rgba(97, 218, 251, 0.08) 0%, rgba(251, 130, 97, 0.08) 100%) !important;
   border: 1px solid rgba(97, 218, 251, 0.2) !important;
   border-radius: var(--radius-base) !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06) !important;
+}
+
+.stats-container .stats-row {
+  --bs-gutter-x: 1rem;
+  margin: 0;
+  width: 100%;
+}
+
+.stats-container .stats-row > [class*="col-"] {
+  display: flex;
 }
 
 .profile-stats {
@@ -797,6 +806,7 @@ body.resume-modal-open {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
   height: 100%;
+  width: 100%;
 }
 
 .profile-stats:hover {
