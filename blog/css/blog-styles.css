@@ -524,7 +524,7 @@ section img.img-fluid {
 .author-bio img {
     width: 80px;
     height: 80px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
 }
 
@@ -640,7 +640,7 @@ section img.img-fluid {
 .author-bio img {
     width: 4rem;
     height: 4rem;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 50%;
     border: 2px solid var(--blog-border);
 }
@@ -784,7 +784,7 @@ section img.img-fluid {
 /* Social Sharing Sidebar */
 .social-sharing-sidebar {
     position: fixed;
-    left: calc(50% - 560px);
+    left: calc(50% - 480px);
     top: calc(50% - 60px);
     transform: translateY(-50%);
     z-index: 1000;
@@ -850,6 +850,6 @@ section img.img-fluid {
 /* Adjust for very large screens */
 @media (min-width: 1600px) {
     .social-sharing-sidebar {
-        left: calc(50% - 580px);
+        left: calc(50% - 500px);
     }
 }

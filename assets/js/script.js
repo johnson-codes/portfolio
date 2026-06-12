@@ -445,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Keep sidebar horizontally next to the content column
             const contentRect = content.getBoundingClientRect();
             const sidebarWidth = sidebar.offsetWidth;
-            const leftPx = contentRect.left + window.scrollX - sidebarWidth - 16; // 16px gutter
+            const leftPx = contentRect.left + window.scrollX - sidebarWidth - 96; // 96px gutter
             sidebar.style.left = `${Math.max(16, leftPx)}px`;
 
             // Clamp vertically so it never overlaps author bio or footer
