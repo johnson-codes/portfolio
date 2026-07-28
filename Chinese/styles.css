@@ -277,6 +277,10 @@ main {
   margin: -1.55rem auto 0;
 }
 
+main > .education-wrap + .section-divider--compact {
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+
 main > .section-divider--compact + .timeline-wrap {
   margin-top: 0;
   padding-top: 0.75rem;
@@ -581,6 +585,20 @@ main > .section-divider--compact + .timeline-wrap {
 
 .pillar-body + .pillar-body {
   margin-top: 1rem;
+}
+
+/* Education timeline (sits above career experience) */
+.education-wrap {
+  margin-top: 4.1rem;
+  padding-top: 1.1rem;
+}
+
+.education-wrap .timeline__card {
+  cursor: default;
+}
+
+.education-wrap .timeline__meta {
+  margin-bottom: 0;
 }
 
 /* Career timeline */
