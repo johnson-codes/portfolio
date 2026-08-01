@@ -544,6 +544,9 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="dev-skills-tab" data-bs-toggle="pill" data-bs-target="#dev-skills" type="button" role="tab" aria-controls="dev-skills" aria-selected="false">Technical Skills</button>
                     </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="language-skills-tab" data-bs-toggle="pill" data-bs-target="#language-skills" type="button" role="tab" aria-controls="language-skills" aria-selected="false">Language Skills</button>
+                    </li>
                 </ul>
             </div>
             
@@ -572,6 +575,86 @@
                         <div style="position: relative; width: 100%; max-width: 900px; height: 450px; margin: 0 auto;">
                             <canvas id="techRadarChart"></canvas>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Language Skills -->
+                <div class="tab-pane fade" id="language-skills" role="tabpanel" aria-labelledby="language-skills-tab">
+                    <div class="language-skills-grid">
+                        <article class="language-skill-card language-skill-card--english">
+                            <header class="language-skill-card__header">
+                                <h3 class="language-skill-card__title">English</h3>
+                                <span class="language-skill-card__badge">Near-native</span>
+                            </header>
+                            <ul class="language-skill-meters">
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Reading</span><span>95%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="English reading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span style="--level: 95%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Speaking</span><span>90%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="English speaking" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span style="--level: 90%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Listening</span><span>95%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="English listening" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span style="--level: 95%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Writing</span><span>85%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="English writing" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85"><span style="--level: 85%"></span></div>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="language-skill-card language-skill-card--mandarin">
+                            <header class="language-skill-card__header">
+                                <h3 class="language-skill-card__title">Mandarin</h3>
+                                <span class="language-skill-card__badge">Native</span>
+                            </header>
+                            <ul class="language-skill-meters">
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Reading</span><span>95%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Mandarin reading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span style="--level: 95%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Speaking</span><span>95%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Mandarin speaking" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span style="--level: 95%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Listening</span><span>95%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Mandarin listening" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span style="--level: 95%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Writing</span><span>92%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Mandarin writing" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92"><span style="--level: 92%"></span></div>
+                                </li>
+                            </ul>
+                        </article>
+
+                        <article class="language-skill-card language-skill-card--cantonese">
+                            <header class="language-skill-card__header">
+                                <h3 class="language-skill-card__title">Cantonese</h3>
+                                <span class="language-skill-card__badge">Proficient</span>
+                            </header>
+                            <ul class="language-skill-meters">
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Reading</span><span>80%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Cantonese reading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80"><span style="--level: 80%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Speaking</span><span>75%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Cantonese speaking" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75"><span style="--level: 75%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Listening</span><span>90%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Cantonese listening" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span style="--level: 90%"></span></div>
+                                </li>
+                                <li>
+                                    <div class="language-skill-meters__label"><span>Writing</span><span>60%</span></div>
+                                    <div class="language-skill-meters__track" role="meter" aria-label="Cantonese writing" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60"><span style="--level: 60%"></span></div>
+                                </li>
+                            </ul>
+                        </article>
                     </div>
                 </div>
             </div>
@@ -2587,6 +2670,7 @@
             [80, 80, 80, 75, 45, 75],
             '40, 44, 52' // Dark gray matching hero section
         );
+
     </script>
     
         <script>
