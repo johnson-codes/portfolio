@@ -342,6 +342,13 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   max-width: 100%;
   line-height: 0;
+  border-radius: 1.25rem;
+  background: #0f172a;
+  overflow: hidden;
+}
+
+.hero-video-wrap.is-loading .hero-video {
+  opacity: 0;
 }
 
 .hero-video {
@@ -353,6 +360,8 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
   background: #0f172a;
   cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.25s ease;
 }
 
 .hero-video-controls {
