@@ -298,7 +298,32 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6 order-1 order-lg-2 text-center hero-illustration-col">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1779988537186_1final.png?alt=media&amp;token=b0360569-ec54-4d9f-bd41-140017d4c2f4" alt="Digital Marketing Illustration" class="img-fluid hero-illustration" loading="lazy">
+                    <div class="hero-video-wrap">
+                        <video
+                            id="heroVideo"
+                            class="img-fluid hero-illustration hero-video"
+                            autoplay
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-label="Johnson portfolio showcase video"
+                            poster="https://firebasestorage.googleapis.com/v0/b/visual-c5ee2.firebasestorage.app/o/files%2F1779988537186_1final.png?alt=media&amp;token=b0360569-ec54-4d9f-bd41-140017d4c2f4"
+                        >
+                            <source src="assets/videos/hero.mp4?v=final-johnson" type="video/mp4">
+                        </video>
+                        <div class="hero-video-controls" role="group" aria-label="Video controls">
+                            <button type="button" id="heroVideoToggle" class="hero-video-btn" aria-label="Pause video">
+                                <i class="fas fa-pause" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" id="heroVideoRestart" class="hero-video-btn" aria-label="Restart video">
+                                <i class="fas fa-rotate-left" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" id="heroVideoUnmute" class="hero-video-btn hero-video-unmute" hidden aria-label="Unmute video">
+                                <i class="fas fa-volume-up" aria-hidden="true"></i>
+                                <span>Sound</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 col-lg-6 order-2 order-lg-1">
                     <h1>Elevate Your <span class="text-primary highlight-text typewriter" data-typewriter="Marketing &&#10;Technical Presence">Marketing &<br>Technical Presence</span></h1>
@@ -2514,6 +2539,131 @@
     <!-- Custom JS -->
     <script src="assets/js/script.js?v=resume-preview-2"></script>
     <script src="assets/js/newsletter.js"></script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const video = document.getElementById('heroVideo');
+        const unmuteBtn = document.getElementById('heroVideoUnmute');
+        const toggleBtn = document.getElementById('heroVideoToggle');
+        const restartBtn = document.getElementById('heroVideoRestart');
+        if (!video) return;
+
+        const setToggleUi = function (isPlaying) {
+            if (!toggleBtn) return;
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-pause', isPlaying);
+                icon.classList.toggle('fa-play', !isPlaying);
+            }
+            toggleBtn.setAttribute('aria-label', isPlaying ? 'Pause video' : 'Play video');
+            video.closest('.hero-video-wrap')?.classList.toggle('is-paused', !isPlaying);
+        };
+
+        const playVideo = function () {
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.then === 'function') {
+                return playPromise.then(function () {
+                    setToggleUi(true);
+                }).catch(function () {
+                    setToggleUi(false);
+                });
+            }
+            setToggleUi(!video.paused);
+            return Promise.resolve();
+        };
+
+        const pauseVideo = function () {
+            video.pause();
+            setToggleUi(false);
+        };
+
+        const enableSound = function () {
+            video.muted = false;
+            video.volume = 1;
+            playVideo();
+            if (unmuteBtn) unmuteBtn.hidden = true;
+        };
+
+        const startWithSound = function () {
+            video.muted = false;
+            video.volume = 1;
+            const playPromise = video.play();
+            if (!playPromise || typeof playPromise.then !== 'function') {
+                setToggleUi(!video.paused);
+                return;
+            }
+
+            playPromise.then(function () {
+                setToggleUi(true);
+            }).catch(function () {
+                // Browsers often block autoplay with sound; keep video playing muted until user taps.
+                video.muted = true;
+                video.play().then(function () {
+                    setToggleUi(true);
+                }).catch(function () {
+                    setToggleUi(false);
+                });
+                if (unmuteBtn) unmuteBtn.hidden = false;
+            });
+        };
+
+        startWithSound();
+
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                if (video.paused) {
+                    playVideo();
+                } else {
+                    pauseVideo();
+                }
+            });
+        }
+
+        if (restartBtn) {
+            restartBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                video.currentTime = 0;
+                playVideo();
+            });
+        }
+
+        // Clicking the video itself toggles play/pause.
+        video.addEventListener('click', function () {
+            if (video.paused) {
+                playVideo();
+            } else {
+                pauseVideo();
+            }
+        });
+
+        video.addEventListener('play', function () { setToggleUi(true); });
+        video.addEventListener('pause', function () { setToggleUi(false); });
+
+        if (unmuteBtn) {
+            unmuteBtn.addEventListener('click', function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                enableSound();
+            });
+        }
+
+        // Unlock sound on first user interaction if autoplay with audio was blocked.
+        const unlockSound = function () {
+            if (!video.muted) return;
+            enableSound();
+            document.removeEventListener('click', unlockSound);
+            document.removeEventListener('keydown', unlockSound);
+            document.removeEventListener('touchstart', unlockSound);
+        };
+
+        document.addEventListener('click', unlockSound, { once: true });
+        document.addEventListener('keydown', unlockSound, { once: true });
+        document.addEventListener('touchstart', unlockSound, { once: true });
+    });
+    </script>
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
