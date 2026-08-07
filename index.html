@@ -173,38 +173,6 @@
             transform: scale(1.1);
         }
 
-        .typewriter {
-            display: inline-block;
-            white-space: pre-line;
-        }
-
-        .typewriter::after {
-            content: '';
-            display: inline-block;
-            width: 2px;
-            height: 1em;
-            margin-left: 6px;
-            background: currentColor;
-            vertical-align: -0.05em;
-            animation: typewriterCaret 0.9s steps(1) infinite;
-        }
-
-        .typewriter.typewriter-static::after {
-            display: none;
-        }
-
-
-        @keyframes typewriterCaret {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .typewriter::after {
-                animation: none;
-            }
-        }
-
         /* Testimonials marquee */
         #testimonials .testimonials-marquee {
             overflow: hidden;
@@ -326,7 +294,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 order-2 order-lg-1">
-                    <h1>Elevate Your <span class="text-primary highlight-text typewriter" data-typewriter="Marketing &&#10;Technical Presence">Marketing &<br>Technical Presence</span></h1>
+                    <h1>Elevate Your <span class="text-primary highlight-text">Marketing &<br>Technical Presence</span></h1>
                     <p class="hero-tagline mb-4">Helping brands grow with smarter marketing, sharper content, and stronger digital experiences.</p>
                     <div class="d-flex flex-wrap gap-3">
                         <label for="resumePreviewToggle" class="btn btn-cta" role="button" tabindex="0">Download Resume</label>
@@ -2537,7 +2505,7 @@
     <!-- Chart.js for Radar Charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <!-- Custom JS -->
-    <script src="assets/js/script.js?v=resume-preview-2"></script>
+    <script src="assets/js/script.js?v=no-typewriter"></script>
     <script src="assets/js/newsletter.js"></script>
 
     <script>

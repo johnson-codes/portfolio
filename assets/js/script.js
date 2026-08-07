@@ -5,44 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const navbar = document.querySelector('.navbar');
     const navbarBrand = document.querySelector('.navbar-brand');
     const hasBootstrap = typeof bootstrap !== 'undefined';
-
-    const initTypewriterText = () => {
-        const elements = document.querySelectorAll('[data-typewriter]');
-        if (!elements.length) {
-            return;
-        }
-
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        elements.forEach(el => {
-            const fullText = (el.getAttribute('data-typewriter') || el.textContent || '').trim();
-            if (!fullText) {
-                return;
-            }
-
-            if (reduceMotion) {
-                el.textContent = fullText;
-                el.classList.add('typewriter-static');
-                return;
-            }
-
-            el.textContent = '';
-
-            let index = 0;
-            const typeNext = () => {
-                index += 1;
-                el.textContent = fullText.slice(0, index);
-
-                if (index < fullText.length) {
-                    setTimeout(typeNext, 140);
-                } else {
-                    el.classList.add('typewriter-done');
-                }
-            };
-
-            setTimeout(typeNext, 400);
-        });
-    };
     
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
@@ -75,8 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    initTypewriterText();
 
     // Function to update active navigation item on scroll
     function updateActiveNavItem() {
