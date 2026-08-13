@@ -343,12 +343,14 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 100%;
   line-height: 0;
   border-radius: 1.25rem;
-  background: #0f172a;
+  background: transparent;
   overflow: hidden;
 }
 
+/* Hide video until a real frame is painted — avoids the black placeholder flash */
 .hero-video-wrap.is-loading .hero-video {
   opacity: 0;
+  visibility: hidden;
 }
 
 .hero-video {
@@ -358,9 +360,10 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
   border-radius: 1.25rem;
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-  background: #0f172a;
+  background: transparent;
   cursor: pointer;
   opacity: 1;
+  visibility: visible;
   transition: opacity 0.25s ease;
 }
 

@@ -19,7 +19,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="assets/css/style.css?v=hero-video-clean" rel="stylesheet">
+    <link href="assets/css/style.css?v=hero-video-no-placeholder" rel="stylesheet">
     <!-- Chat Widget CSS -->
     <link href="assets/css/chat-widget.css?v=profile-2026" rel="stylesheet">
     
@@ -2521,11 +2521,23 @@
             if (wrap) wrap.classList.remove('is-loading');
         };
 
-        if (video.readyState >= 2) {
+        // Wait for an actual painted frame so the browser's default black video layer never shows.
+        const revealWhenPainted = function () {
+            if (typeof video.requestVideoFrameCallback === 'function') {
+                video.requestVideoFrameCallback(function () {
+                    revealVideo();
+                });
+                return;
+            }
             revealVideo();
+        };
+
+        if (video.readyState >= 2) {
+            revealWhenPainted();
         } else {
-            video.addEventListener('loadeddata', revealVideo, { once: true });
-            video.addEventListener('canplay', revealVideo, { once: true });
+            video.addEventListener('loadeddata', revealWhenPainted, { once: true });
+            video.addEventListener('canplay', revealWhenPainted, { once: true });
+            video.addEventListener('playing', revealWhenPainted, { once: true });
         }
 
         const setToggleUi = function (isPlaying) {
